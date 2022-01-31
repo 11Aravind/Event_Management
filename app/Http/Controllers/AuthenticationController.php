@@ -25,7 +25,7 @@ class AuthenticationController extends Controller
         $userdet->role=$request->role;
         $userdet->save();
  
-        // return redirect('/Login');
+        return redirect('/Login');
     }
     //sign in details store
     public function check(Request $request)

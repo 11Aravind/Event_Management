@@ -14,6 +14,9 @@
 	<!-- Sign Up form or registration form start -->
 		<form action="SignUp/" method="post">
 			@csrf
+			@if(Session::get('failmsg'))
+			{{ Session::get('failmsg')}}
+			@endif
 			<h1>Create Account</h1>
 					<span>or use your email for registration</span>
 			<input type="text" placeholder="Name" name="name" />

@@ -35,6 +35,12 @@
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Category Name</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail1" name="category_name" placeholder="Category Name">
+                                 <span style="color:red">
+                                 @error('category_name')
+                                                            {{ $message }}
+                                                            @enderror
+                                 </span>
+                                                            
                                                          </div>
                                                         <!-- <div class="form-group">
                                                             <label for="exampleInputPassword1">Password</label>
@@ -46,7 +52,11 @@
                                                         </div> -->
                                                         <div class="form-group">
                                                             <label for="exampleFormControlTextarea1">Description</label>
-                                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description"placeholder="Category Description"rows="3"></textarea>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Category Description"rows="3"></textarea>
+                                                            <span style="color:red">
+                                                        @error('description')
+                                                        {{$message}}
+                                                    @enderror</span>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Add Category</button>
                                                     </form>

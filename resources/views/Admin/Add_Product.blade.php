@@ -28,12 +28,14 @@
                                                             <label for="exampleInputEmail1">Product Image</label>
                                                             <input type="file" class="form-control" id="exampleInputEmail1"  >
                                                          </div>
-                                                         <div class="form-group">
+                                                     <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Select Category</label>
                                                             <select class="form-control" id="exampleFormControlSelect1">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
+                                                            <option>--Select--</option>  
+                                                            @foreach($getcategorys as $getcategory)
+                                                            <option>{{$getcategory->category_name }}</option>
+                                                            @endforeach  
+                                                          
                                                              </select>
                                                         </div>
 </div>

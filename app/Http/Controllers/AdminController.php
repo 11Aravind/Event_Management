@@ -10,11 +10,17 @@ class AdminController extends Controller
     public function index(){
         return view('Admin/Add_category',["title"=>"Add_category page"]);
     }
-    public function store()
+    public function store(Request $request)
     {
-$storecategory=new Category();
-$storecategory->category_name=request('category_name');
-$storecategory->discription=request('description');
+        //validation start
+        $validate=$request->validate([
+            'category_name'=>'required|unique:categorys',
+'description'=>'required'
+        ]);
+        //validation end
+    $storecategory=new Category();
+$storecategory->category_name=$request->category_name;
+$storecategory->discription=$request->description;
 $storecategory->status=0;
 $save=$storecategory->save();
 if($save){
@@ -22,7 +28,10 @@ if($save){
 }else{
 return back()->with('failmsg','New Category was not added try again');
 }
-
+    }
+    public function getcategorydet(){
+$getcategory=Category::all();
+return view('Admin/Add_Product',["title"=>"Add_Product page","getcategorys"=>$getcategory]);
     }
 
 }
