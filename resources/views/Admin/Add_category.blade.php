@@ -15,13 +15,26 @@
                                         </div> -->
                                         <div class="card-body">
                                             <h5>Add Category</h5>
+                                                @if(Session::get('successmsg'))
+                                                 <h5 style="color:green;" >{{Session::get('successmsg')}}</h5>
+                                                 @endif
+                                                
+                                            
+                                            <span>
+                                                @if(Session::get('failmsg'))
+                                                <h5 style="color:red;" >{{Session::get('failmsg')}}</h5>
+                                                        
+                                                        @endif
+                                                </span>
+
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form>
+                                                    <form method="POST" action="Add_category">
+                                                        @csrf
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Category Name</label>
-                                                            <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Category Name">
+                                                            <input type="text" class="form-control" id="exampleInputEmail1" name="category_name" placeholder="Category Name">
                                                          </div>
                                                         <!-- <div class="form-group">
                                                             <label for="exampleInputPassword1">Password</label>
@@ -33,33 +46,12 @@
                                                         </div> -->
                                                         <div class="form-group">
                                                             <label for="exampleFormControlTextarea1">Description</label>
-                                                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Category Description"rows="3"></textarea>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description"placeholder="Category Description"rows="3"></textarea>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Add Category</button>
                                                     </form>
                                                 </div>
-                                                <!-- <div class="col-md-6">
-                                                    <form> -->
-                                                        <!-- <div class="form-group">
-                                                            <label>Text</label>
-                                                            <input type="text" class="form-control" placeholder="Text">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="exampleFormControlSelect1">Example select</label>
-                                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                            </select>
-                                                        </div> -->
-                                                        <!-- <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                        </div> -->
-                                                    <!-- </form>
-                                                </div> -->
+                                              
                                             </div>
 </div>
 </div>

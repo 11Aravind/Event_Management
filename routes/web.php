@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,9 +39,9 @@ Route::post('/Login', [AuthenticationController::class,'check']);
 Route::get('/Employ', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
 });
-Route::get('Add_category', function () {
-    return view('Admin/Add_category',["title"=>"Add_category page"]);
-});
+Route::get('Add_category',[AdminController::class,'index']);
+Route::post('Add_category',[AdminController::class,'store']);
+
 Route::get('Add_Product', function () {
     return view('Admin/Add_Product',["title"=>"Add_Product page"]);
 });
