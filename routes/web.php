@@ -43,6 +43,8 @@ Route::get('Add_category',[AdminController::class,'index']);
 Route::post('Add_category',[AdminController::class,'store']);
 
 Route::get('Add_Product',[AdminController::class,'getcategorydet']);
+Route::post('Add_Product',[AdminController::class,'store_product']);
+
 Route::get('Add_Package', function () {
     return view('Admin/Add_Package',["title"=>"Add_Package page"]);
 });

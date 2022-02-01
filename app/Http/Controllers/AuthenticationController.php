@@ -13,7 +13,6 @@ class AuthenticationController extends Controller
         $validatedData = $request->validate([
             'name'=>'required',
             'email'=>'required|email|unique:authentications',
-
             'password'=>'required',
             'role'=>'required'
             

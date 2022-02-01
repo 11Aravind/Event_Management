@@ -13,16 +13,30 @@
 	<div class="form-container sign-up-container">
 	<!-- Sign Up form or registration form start -->
 		<form action="SignUp/" method="post">
-			@csrf
-			@if(Session::get('failmsg'))
-			{{ Session::get('failmsg')}}
-			@endif
 			<h1>Create Account</h1>
 					<span>or use your email for registration</span>
+					<span style="color:red">
+		@csrf
+			@if(Session::get('failmsg'))
+			{{ Session::get('failmsg')}}
+			@endif</span>
 			<input type="text" placeholder="Name" name="name" />
-		
+		<span style="color:red">
+	@error('name')
+	{{$message}}
+		@enderror</span>
 			<input type="email" placeholder="Email" name="email" />
+			<span style="color:red">
+			@error('email')
+			{{$message}}
+			@enderror
+</span>
 			<input type="password" placeholder="Password" name="password" />
+			<span style="color:red">
+			@error('password')
+			{{$message }}
+			@enderror
+</span>
             <select  id=""  class="selectionrole" name="role" >
                 <option value="Select" class="selectionrole" >--Select Account Type--</option>
                 <option value="User" class="selectionrole" values="user" >User</option>
@@ -30,6 +44,11 @@
                 <!-- <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
                 <!-- <option value="Employ" class="selectionrole" values="Admin">Admin</option> -->
             </select>
+			<span style="color:red">
+			@error('role')
+			{{$message}}
+			@enderror
+</span>
 			<button>Sign Up</button>
 		</form>
 		<!-- Sign Up form or registration form end -->
@@ -39,9 +58,9 @@
 		<form action="/Login" method="POST">
 			@csrf
 			<h1>Sign in</h1>
-			@if(Session::get('failmsg'))
+		<span style="color:red">@if(Session::get('failmsg'))
 			{{ Session::get('failmsg')}}
-			@endif
+			@endif</span>
 			<!-- <div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
