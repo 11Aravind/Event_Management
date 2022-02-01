@@ -28,13 +28,16 @@ Route::get('/hai', function () {
 Route::get('/Admin', function () {
     return view('Admin_homepage',["title"=>"Admin_dashbord"]);
 });
+Route::get('SignUp',function(){
+    return view('SignUp');
+});
 Route::post('SignUp/',[AuthenticationController::class,'store']);
 // login page
 Route::get('/Login', function () {
     return view('Login');
 });
 //login checking
-Route::post('/Login', [AuthenticationController::class,'check']);
+Route::post('/Login',[AuthenticationController::class,'check']);
 
 Route::get('/Employ', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);

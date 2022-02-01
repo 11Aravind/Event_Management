@@ -10,9 +10,9 @@
 <body>
     
 <div class="container" id="container">
-	<div class="form-container sign-up-container">
+	<div class="form-container sign-in-container">
 	<!-- Sign Up form or registration form start -->
-		<form action="SignUp/" method="post">
+		<form action="SignUp" method="post">
 			<h1>Create Account</h1>
 					<span>or use your email for registration</span>
 					<span style="color:red">
@@ -53,20 +53,20 @@
 		</form>
 		<!-- Sign Up form or registration form end -->
 	</div>
-	<div class="form-container sign-in-container">
+	<!-- <div class="form-container sign-in-container"> -->
         <!-- sign in form -->
-		<form action="/Login" method="POST">
+		<!-- <form action="/Login" method="POST">
 			@csrf
 			<h1>Sign in</h1>
 		<span style="color:red">@if(Session::get('failmsg'))
 			{{ Session::get('failmsg')}}
-			@endif</span>
+			@endif</span> -->
 			<!-- <div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div> -->
-			<span>or use your account</span>
+			<!-- <span>or use your account</span>
 			<input type="email" placeholder="Email" name="email" />
 	
 			<input type="password" placeholder="Password" name="password"/>
@@ -74,26 +74,27 @@
                 <option value="Select" class="selectionrole" >--Select Account Type--</option>
                 <option value="User" class="selectionrole" values="User" >User</option>
                 <option value="Employ" class="selectionrole" values="Empoly">Employ</option>
-                <!-- <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
-                <option value="Employ" class="selectionrole" values="Admin">Admin</option>
+                 <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
+                <!-- <option value="Employ" class="selectionrole" values="Admin">Admin</option>
             </select>
 			<a href="#">Forgot your password?</a>
-			<button type="submit">Sign In</button>
-		</form>
+			<button type="submit">Sign In</button> 
+		</form> -->
 		<!-- sign in form end -->
-	</div>
+	<!-- </div> -->
 	<div class="overlay-container">
 		<div class="overlay">
-			<div class="overlay-panel overlay-left">
+			<!-- <div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
 				<button class="ghost" id="signIn">Sign In</button>
-			</div>
+			</div> -->
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<a href="SignUp" class="ghost"  id="signUp">Sign Up</a>
-                <a href="/" class="ghost" id="signUp" style="margin-top: 19px;">Goto Home</a>
+				<!-- <h1>Hello, Friend!</h1> -->
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<a  href="Login"class="ghost" id="signUp">Sign In</a>
+                
 			</div>
 		</div>
 	</div>
