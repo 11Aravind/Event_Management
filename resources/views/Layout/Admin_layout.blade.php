@@ -31,6 +31,10 @@
 	<!-- vendor css -->
 	<link rel="stylesheet" href="../assets/css/style.css">
 	<!-- past end -->
+	<!-- image popup start -->
+			
+	<link rel="stylesheet" href="../assets/css/imagepopup.css">
+
 </head>
 
 <body class="">
@@ -64,10 +68,10 @@
 							<span class="pcoded-mtext">Add Category</span></a>
 					</li>
 					<li class="nav-item">
-						<a href="../Add_Product" class="nav-link">
+						<a href="../Display_Product" class="nav-link">
 							<span class="pcoded-micon">
                             <i class="feather icon-align-justify"></i></span>
-							<span class="pcoded-mtext">Add Product</span></a>
+							<span class="pcoded-mtext">Product Details</span></a>
 					</li>
 					<li class="nav-item">
 						<a href="../Add_Package" class="nav-link">
@@ -224,6 +228,8 @@
 	<script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
+	<script src="assets/js/imagepopup.js"></script>
+	<!-- imagepopup.js -->
 
 </body>
 </html>

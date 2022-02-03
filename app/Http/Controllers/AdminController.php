@@ -51,27 +51,13 @@ if($request->hasfile('product_image'))
 $store_product->product_quentity=$request->product_quentity;
 $store_product->product_category=$request->product_category;
 $store_product->product_discription=$request->product_description;
-
-
-
-// if($request->hasfile('product_image')){
-//image upload
-// $file=$request->product_image;
-// $extntion=
-// uploaded_images
-// $name = $request->file('product_image')->getClientOriginalName();
-// error_log($name);
-// $path = $request->file('product_image')->store('public/images');
-// $save = new Photo;
-// $save->product_photo = $name;
-// $save->path = $path;
-
-// $save->save();
-// $path = $request->file('image')->store('public/images');
-// }
-
 $store_product->save();
-return redirect('Admin');
+return redirect('Display_Product');
+    }
+    public function display_product()
+    {
+        $fetchproductdet=AddProduct::all();
+        return view('Admin/Display_Product',["title"=>"Display_Product","fetchproductdets"=>$fetchproductdet]);
     }
 
 }

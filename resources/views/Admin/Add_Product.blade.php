@@ -14,7 +14,8 @@
                                             <h5>Basic Componant</h5>
                                         </div> -->
                                         <div class="card-body">
-                                            <h5>Add Product</h5>
+                                            <h5>Add Product
+                                            </h5>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-12">
