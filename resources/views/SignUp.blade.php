@@ -93,7 +93,7 @@
 				<!-- <h1>Hello, Friend!</h1> -->
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<a  href="Login"class="ghost" id="signUp">Sign In</a>
+				<a  href="Login"class="ghost" id="sideButton">Sign In</a>
                 
 			</div>
 		</div>

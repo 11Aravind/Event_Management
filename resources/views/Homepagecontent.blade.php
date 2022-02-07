@@ -17,7 +17,7 @@ London</h5>
 elit. deleniti voluptatum! Natus
 beatae laborum veniam distinctio.</p>
 <div class="button wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
-<a href="https://demo.graygrids.com/themes/eventgrids/pricing.html" class="btn ">Buy Ticket Now</a>
+<a href="#pricing.html" class="btn ">Buy Ticket Now</a>
 </div>
 </div>
 </div>
@@ -1035,7 +1035,7 @@ USA</a>
 <div class="row">
 <div class="col-12 align-center">
 <div class="button details-button">
-<a href="https://demo.graygrids.com/themes/eventgrids/schedule.html" class="btn btn-alt">Load More</a>
+<a href="#schedule.html" class="btn btn-alt">Load More</a>
 </div>
 </div>
 </div>
@@ -1597,7 +1597,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 
 <div class="single-blog-grid">
 <div class="blog-img">
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html">
+<a href="#blog-single.html">
 <img src="Template_asset/images/blog1.jpg" alt="#">
 </a>
 <p class="date">
@@ -1610,12 +1610,12 @@ Nov
 <div class="blog-content">
 <a class="category" href="javascript:void(0)">Events</a>
 <h4>
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html">3 Best Practices for Keeping Your Event Clients
+<a href="#blog-single.html">3 Best Practices for Keeping Your Event Clients
 Happy</a>
 </h4>
 <p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt dolore
 magna.</p>
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html" class="more-btn">Read Blog <i class="lni lni-arrow-right"></i></a>
+<a href="#blog-single.html" class="more-btn">Read Blog <i class="lni lni-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1624,7 +1624,7 @@ magna.</p>
 
 <div class="single-blog-grid">
 <div class="blog-img">
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html">
+<a href="#blog-single.html">
 <img src="Template_asset/images/blog2.jpg" alt="#">
 </a>
 <p class="date">
@@ -1637,11 +1637,11 @@ Mar
 <div class="blog-content">
 <a class="category" href="javascript:void(0)">Conference</a>
 <h4>
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html">Adding a New Digital Dimension to Your Next Special Event</a>
+<a href="#blog-single.html">Adding a New Digital Dimension to Your Next Special Event</a>
 </h4>
 <p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt dolore
 magna.</p>
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html" class="more-btn">Read Blog <i class="lni lni-arrow-right"></i></a>
+<a href="#blog-single.html" class="more-btn">Read Blog <i class="lni lni-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1650,7 +1650,7 @@ magna.</p>
 
 <div class="single-blog-grid">
 <div class="blog-img">
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html">
+<a href="#blog-single.html">
 <img src="Template_asset/images/blog3.jpg" alt="#">
 </a>
 <p class="date">
@@ -1663,11 +1663,11 @@ Jan
 <div class="blog-content">
  <a class="category" href="javascript:void(0)">Marketing</a>
 <h4>
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html">West Elm At Evantor 2023 + Room Makeover Competition!</a>
+<a href="#blog-single.html">West Elm At Evantor 2023 + Room Makeover Competition!</a>
 </h4>
 <p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt dolore
 magna.</p>
-<a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html" class="more-btn">Read Blog <i class="lni lni-arrow-right"></i></a>
+<a href="#blog-single.html" class="more-btn">Read Blog <i class="lni lni-arrow-right"></i></a>
 </div>
 </div>
 
@@ -1691,7 +1691,7 @@ speakers including game changing not just a
 large-scale conference but a hub.</p>
 </div>
 <div class="button wow fadeInUp" data-wow-delay=".8s" style="visibility: hidden; animation-delay: 0.8s; animation-name: none;">
-<a href="https://demo.graygrids.com/themes/eventgrids/pricing.html" class="btn">Get Tickets<i class="lni lni-ticket"></i></a>
+<a href="#pricing.html" class="btn">Get Tickets<i class="lni lni-ticket"></i></a>
 </div>
 </div>
 </div>

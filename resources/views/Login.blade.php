@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <link href="Template_asset/css/login.css" rel="stylesheet">
+
 <body>
     
 <div class="container" id="container">
@@ -37,13 +38,6 @@
 			{{$message }}
 			@enderror
 </span>
-            <select  id=""  class="selectionrole" name="role" >
-                <option value="Select" class="selectionrole" >--Select Account Type--</option>
-                <option value="User" class="selectionrole" values="user" >User</option>
-                <option value="Employ" class="selectionrole" values="Empoly">Employ</option>
-                <!-- <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
-                <!-- <option value="Employ" class="selectionrole" values="Admin">Admin</option> -->
-            </select>
 			<span style="color:red">
 			@error('role')
 			{{$message}}
@@ -70,13 +64,13 @@
 			<input type="email" placeholder="Email" name="email" />
 	
 			<input type="password" placeholder="Password" name="password"/>
-			<select  id=""  class="selectionrole" name="role" >
-                <option value="Select" class="selectionrole" >--Select Account Type--</option>
+			<!-- <select  id=""  class="selectionrole" name="role" > -->
+                <!-- <option value="Select" class="selectionrole" >--Select Account Type--</option>
                 <option value="User" class="selectionrole" values="User" >User</option>
-                <option value="Employ" class="selectionrole" values="Empoly">Employ</option>
+                <option value="Employ" class="selectionrole" values="Empoly">Employ</option> -->
                 <!-- <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
-                <option value="Employ" class="selectionrole" values="Admin">Admin</option>
-            </select>
+                <!-- <option value="Employ" class="selectionrole" values="Admin">Admin</option>
+            </select> -->
 			<a href="#">Forgot your password?</a>
 			<button type="submit">Sign In</button>
 		</form>
@@ -92,8 +86,8 @@
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				<a href="SignUp" class="ghost"  id="signUp">Sign Up</a>
-                <a href="/" class="ghost" id="signUp" style="margin-top: 19px;">Goto Home</a>
+				<a href="SignUp" class="ghost"  id="sideButton">SignUp</a>
+                <a href="/" class="ghost" id="sideButton" style="margin-top: 19px;">Home</a>
 			</div>
 		</div>
 	</div>

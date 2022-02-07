@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)https://demo.graygrids.com/themes/eventgrids/ -->
+<!-- saved from url=(0045)# -->
 <html class="no-js" lang="zxx"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>EventGrids - Conference and Event HTML Template.</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/x-icon" href="https://demo.graygrids.com/themes/eventgrids/assets/Template_asset/images/favicon.svg">
+<link rel="shortcut icon" type="image/x-icon" href="#assets/Template_asset/images/favicon.svg">
 
 <link rel="stylesheet" href="Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="Template_asset/css/LineIcons.3.0.css">
@@ -41,8 +41,8 @@
 <div class="nav-inner">
 
 <nav class="navbar navbar-expand-lg">
-<a class="navbar-brand" href="https://demo.graygrids.com/themes/eventgrids/index.html">
-<img src="Template_asset/images/logo.svg" alt="Logo">
+<a class="navbar-brand" href="#index.html">
+<img src="Template_asset/images/images.png" alt="Logo">
 </a>
 <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <span class="toggler-icon"></span>
@@ -52,41 +52,52 @@
 <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
 <ul id="nav" class="navbar-nav ms-auto">
 <li class="nav-item">
-<a href="https://demo.graygrids.com/themes/eventgrids/index.html" class="active" aria-label="Toggle navigation">Home</a>
+<a href="/" class="active" aria-label="Toggle navigation">Home</a>
 </li>
 <li class="nav-item">
-<a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Pages</a>
+<a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-1" 
+aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Packages</a>
 <ul class="sub-menu collapse" id="submenu-1-1">
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/about-us.html">About Us</a></li>
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/gallery.html">Gallery</a></li>
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/pricing.html">Pricing</a></li>
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/sponsors.html">Sponsors</a></li>
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/mail-success.html">Mail Success</a></li>
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/404.html">404 Error</a></li>
+<li class="nav-item"><a href="#about-us.html">Primium</a></li>
+<li class="nav-item"><a href="#gallery.html">Exclusive</a></li>
+<li class="nav-item"><a href="#pricing.html">Regular</a></li>
+<li class="nav-item"><a href="#sponsors.html">Custom</a></li>
+
 </ul>
 </li>
 <li class="nav-item">
-<a href="https://demo.graygrids.com/themes/eventgrids/schedule.html" aria-label="Toggle navigation">Schedule</a>
+<a href="#schedule.html" aria-label="Toggle navigation">Rent</a>
 </li>
 <li class="nav-item">
-<a href="https://demo.graygrids.com/themes/eventgrids/speakers.html" aria-label="Toggle navigation">Speakers</a>
+<a href="#speakers.html" aria-label="Toggle navigation">Empolys </a>
 </li>
 <li class="nav-item">
-<a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Blog</a>
+<a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
+ aria-expanded="false" aria-label="Toggle navigation">Event</a>
 <ul class="sub-menu collapse" id="submenu-1-2">
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/blog-grid.html">Blog Grid</a>
+<li class="nav-item"><a href="EventBooking">Ticket Booking</a>
 </li>
-<li class="nav-item"><a href="https://demo.graygrids.com/themes/eventgrids/blog-single.html">Blog Single</a></li>
+<li class="nav-item"><a href="EventChart">Upcomming Events</a></li>
 </ul>
 </li>
 <li class="nav-item">
-<a href="https://demo.graygrids.com/themes/eventgrids/contact.html" aria-label="Toggle navigation">Contact</a>
+<a href="#contact.html" aria-label="Toggle navigation">Contact</a>
+</li>
+<li class="nav-item">
+<a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
+ aria-expanded="false" aria-label="Toggle navigation">Account</a>
+<ul class="sub-menu collapse" id="submenu-1-2">
+<li class="nav-item"><a href="#blog-grid.html">Profile</a>
+</li>
+<li class="nav-item"><a href="#blog-single.html">Logout</a></li>
+</ul>
 </li>
 </ul>
 </div> 
-<div class="button">
-<a href="Login" class="btn">Login</a>
-</div>
+<!-- <div class="button"> -->
+<a href="Login" class="btn btn-primary">Login</a>
+<!-- </div> -->
+
 </nav>
 
 </div>
@@ -107,8 +118,8 @@
 
 <div class="single-footer f-about">
 <div class="logo">
-<a href="https://demo.graygrids.com/themes/eventgrids/index.html">
-<img src="Template_asset/images/dark-logo.svg" alt="#">
+<a href="#index.html">
+<img src="Template_asset/images/images.png" alt="#">
 </a>
 </div>
 <p>A business conference organize by EventGrids In. World’s most influential media,
@@ -165,7 +176,7 @@ Follow Us On:
 
 <div class="single-footer newsletter">
 <h3>Subscribe to our newsletter</h3>
-<form action="https://demo.graygrids.com/themes/eventgrids/#" method="get" target="_blank" class="newsletter-form">
+<form action="##" method="get" target="_blank" class="newsletter-form">
 <input name="name" placeholder="Your Name*" required="required" type="text">
 <input name="email" placeholder="Email address*" required="required" type="email">
 <div class="button">
@@ -198,7 +209,7 @@ Follow Us On:
 </footer>
 
 
-<a href="https://demo.graygrids.com/themes/eventgrids/#" class="scroll-top" style="display: flex;">
+<a href="##" class="scroll-top" style="display: flex;">
 <i class="lni lni-chevron-up"></i>
 </a>
 

@@ -20,11 +20,6 @@ Route::get('/', function () {
 Route::get('/User', function () {
     return view('Homepagecontent');
 });
-
-Route::get('/hai', function () {
-    return view('example');
-});
-
 Route::get('/Admin', function () {
     return view('Admin_homepage',["title"=>"Admin_dashbord"]);
 });
@@ -38,7 +33,6 @@ Route::get('/Login', function () {
 });
 //login checking
 Route::post('/Login',[AuthenticationController::class,'check']);
-
 Route::get('/Employ', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
 });
@@ -52,4 +46,11 @@ Route::get('Display_Product',[AdminController::class,'display_product']);
 
 Route::get('Add_Package', function () {
     return view('Admin/Add_Package',["title"=>"Add_Package page"]);
+});
+
+Route::get('EventChart', function () {
+    return view('User/EventChart',["title"=>"EventChart page"]);
+});
+Route::get('EventBooking', function () {
+    return view('User/TicketBooking',["title"=>"TicketBooking page"]);
 });

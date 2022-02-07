@@ -1744,7 +1744,8 @@ ol {
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
   top: 0;
-  background-color: #101130;
+  background-color: white;
+  /* background-color: #101130; */
 }
 
 .navbar-expand-lg .navbar-nav {
@@ -1754,7 +1755,9 @@ ol {
 }
 
 .sticky .navbar .navbar-nav .nav-item a {
-  color: #fff;
+  /* color: #fff;
+   */
+   color: black;
 }
 
 .header .navbar .navbar-nav .nav-item .sub-menu a.active {
