@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- saved from url=(0045)# -->
 <html class="no-js" lang="zxx"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +15,11 @@
 <link rel="stylesheet" href="Template_asset/css/tiny-slider.css">
 <link rel="stylesheet" href="Template_asset/css/glightbox.min.css">
 <link rel="stylesheet" href="Template_asset/css/main.css">
-<style></style></head>
+<link rel="stylesheet" href="Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
+<!-- Template_asset/css -->
+<style>
+
+</style></head>
 <body>
 <!--[if lte IE 9]>
       <p class="browserupgrade">
@@ -58,7 +63,7 @@
 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-1" 
 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Packages</a>
 <ul class="sub-menu collapse" id="submenu-1-1">
-<li class="nav-item"><a href="#about-us.html">Primium</a></li>
+<li class="nav-item"><a href="Premium">Premium</a></li>
 <li class="nav-item"><a href="#gallery.html">Exclusive</a></li>
 <li class="nav-item"><a href="#pricing.html">Regular</a></li>
 <li class="nav-item"><a href="#sponsors.html">Custom</a></li>
@@ -81,23 +86,31 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 </ul>
 </li>
 <li class="nav-item">
+<a href="/TourView" aria-label="Toggle navigation">Tour</a>
+</li>
+<li class="nav-item">
 <a href="#contact.html" aria-label="Toggle navigation">Contact</a>
 </li>
+@if(Session::get('user_id'))
+
 <li class="nav-item">
 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
  aria-expanded="false" aria-label="Toggle navigation">Account</a>
 <ul class="sub-menu collapse" id="submenu-1-2">
 <li class="nav-item"><a href="#blog-grid.html">Profile</a>
 </li>
-<li class="nav-item"><a href="#blog-single.html">Logout</a></li>
+<li class="nav-item"><a href="/Logout">Logout</a></li>
 </ul>
 </li>
 </ul>
-</div> 
+
+@else
+</ul>
 <!-- <div class="button"> -->
 <a href="Login" class="btn btn-primary">Login</a>
 <!-- </div> -->
-
+@endif
+</div>
 </nav>
 
 </div>

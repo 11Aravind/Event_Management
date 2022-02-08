@@ -54,3 +54,15 @@ Route::get('EventChart', function () {
 Route::get('EventBooking', function () {
     return view('User/TicketBooking',["title"=>"TicketBooking page"]);
 });
+// Logout
+// /Logout
+Route::get('/Logout',[AuthenticationController::class,'logout']);
+//tourist
+Route::get('TourView', function () {
+    return view('User/TourView',["title"=>"TourView page"]);
+});
+//PackageLayout.blade.php
+Route::get('Premium', function () {
+    return view('Layout/PackageLayout',["title"=>"Premium Package Page"]);
+});
+// PackageController

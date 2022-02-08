@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Session;
 use Illuminate\Http\Request;
 use App\Models\Authentication;
 use Illuminate\Support\Facades\Hash;
@@ -36,7 +36,8 @@ class AuthenticationController extends Controller
         else{
             if(Hash::check($request->password,$userinfo->password))
             {
-                $request->session()->put('user_id',$userinfo->user_id );
+                // $request->session()->put('user_id',$userinfo->user_id );
+                Session::put('user_id',$userinfo->user_id);
                 return redirect("/$userinfo->role");
             }
             else{
@@ -44,5 +45,9 @@ class AuthenticationController extends Controller
             }
         }
         
+    }
+    public function logout(){
+        Session::forget('user_id');
+        return redirect('/');
     }
 }
