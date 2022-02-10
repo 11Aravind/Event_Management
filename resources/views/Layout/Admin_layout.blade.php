@@ -32,9 +32,11 @@
 	<link rel="stylesheet" href="../assets/css/style.css">
 	<!-- past end -->
 	<!-- image popup start -->
-			
-	<link rel="stylesheet" href="../assets/css/imagepopup.css">
 
+	<link rel="stylesheet" href="../assets/css/imagepopup.css">
+	<link rel="stylesheet" href="../assets/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.css">
+	
 </head>
 
 <body class="">
@@ -62,10 +64,10 @@
 					</li>
 					
 					<li class="nav-item">
-						<a href="../Add_category" class="nav-link">
+						<a href="../DisplayCategory" class="nav-link">
 							<span class="pcoded-micon">
                             <i class="feather icon-file-text"></i></span>
-							<span class="pcoded-mtext">Add Category</span></a>
+							<span class="pcoded-mtext">Category Details</span></a>
 					</li>
 					<li class="nav-item">
 						<a href="../Display_Product" class="nav-link">
@@ -73,29 +75,25 @@
                             <i class="feather icon-align-justify"></i></span>
 							<span class="pcoded-mtext">Product Details</span></a>
 					</li>
-					<li class="nav-item">
+				
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span>
+							<span class="pcoded-mtext">Packages</span></a>
+						<ul class="pcoded-submenu">
+						<li class="nav-item">
 						<a href="../Add_Package" class="nav-link">
-							<span class="pcoded-micon">
-                            <i class="feather icon-align-justify"></i></span>
+							<!-- <span class="pcoded-micon">
+                            <i class="feather icon-align-justify"></i></span> -->
 							<span class="pcoded-mtext">Add Package</span></a>
 					</li>
-					<!-- <li class="nav-item pcoded-menu-caption">
-						<label>UI Element</label>
-					</li> -->
-					<!-- <li class="nav-item pcoded-hasmenu">
-						<a href="#" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span>
-							<span class="pcoded-mtext">Componant</span></a>
-						<ul class="pcoded-submenu">
-							<li class=""><a href="#" class="">Button</a></li>
-							<li class=""><a href="#" class="">Badges</a></li>
-							<li class=""><a href="#" class="">Breadcrumb & paggination</a></li>
-							<li class=""><a href="#" class="">Collapse</a></li>
-							<li class=""><a href="#" class="">Progress</a></li>
-							<li class=""><a href="#" class="">Tabs & pills</a></li>
-							<li class=""><a href="#" class="">Typography</a></li>
+							<li class=""><a href="#" class="">View Package</a></li>
+							<li class=""><a href="#" class="">Tour Package</a></li>
+							<li class=""><a href="#" class="">Custom Package</a></li>
+
+						
 						</ul>
-					</li> -->
-					
+					</li>
+
 				</ul>
 			
 			</div>
@@ -117,13 +115,13 @@
 		</a>
 		<div class="collapse navbar-collapse">
 			<a href="#!" class="mob-toggler"></a>
-			<ul class="navbar-nav mr-auto">
+			<!-- <ul class="navbar-nav mr-auto">
 				<li class="nav-item">
 					<div class="main-search open">
 						<div class="input-group">
 							<input type="text" id="m-search" class="form-control" placeholder="Search . . .">
 							<a href="#!" class="input-group-append search-close">
-								<!-- <i class="feather icon-x input-group-text"></i> -->
+							
 							</a>
 							<span class="input-group-append search-btn btn btn-primary">
 								<i class="feather icon-search input-group-text"></i>
@@ -131,7 +129,7 @@
 						</div>
 					</div>
 				</li>
-			</ul>
+			</ul> -->
 			<ul class="navbar-nav ml-auto">
 				<li>
 					<div class="dropdown">
@@ -229,6 +227,10 @@
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
 	<script src="assets/js/imagepopup.js"></script>
+	<script src="assets/js/datatable.js"></script>
+	<script src="assets/js/jquery-3.5.1.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js"></script>	
+	<script src="assets/js/dataTables.bootstrap4.min.js"></script>		
 	<!-- imagepopup.js -->
 
 </body>

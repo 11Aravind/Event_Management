@@ -21,6 +21,7 @@ $table->string('product_photo');
 $table->string('product_quentity');
 $table->string('product_category');
 $table->string('product_discription');
+$table->string('status');
             $table->timestamps();
         });
     }

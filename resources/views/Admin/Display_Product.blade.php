@@ -15,10 +15,19 @@
                                             <h5>Product Details </h5>
                                             <a href="../Add_Product"type="button" class="btn btn-primary" title=""  style="float: right;">Add Product</a>
                                             <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
+                                        
+                                    @if(Session::get('success'))
+                                {
+                                    <span style="color:green">
+{{Session::get('success')}}
+</span>
+                                }
+                                @endif
+                           
                                         </div>
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-striped">
+                                                <table class="table table-striped" id="MyTable">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -33,25 +42,32 @@
                                                             <th> status</th>
                                                         </tr>
                                                     </thead>
-                                                   @foreach($fetchproductdets as $fetchproductdet)
+                                                   @foreach($fetchs as $fetch)
                                                     <tbody>
                                                         <tr>
                                                             <td>1</td>
-                                                            <td>{{$fetchproductdet->product_name}}</td>
-                                                            <td>{{$fetchproductdet->product_name}}</td>
-                                                            <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$fetchproductdet->product_photo}}" alt=""> </td>
+                                                            <td>{{$fetch->product_name}}</td>
+                                                            <td>{{$fetch->product_name}}</td>
+                                                            <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$fetch->product_photo}}" alt=""> </td>
 
-                                                            <td>{{$fetchproductdet->product_quentity}}</td>
-                                                            <td>{{$fetchproductdet->product_price}}</td>
+                                                            <td>{{$fetch->product_quentity}}</td>
+                                                            <td>{{$fetch->product_price}}</td>
                                                             <td>
-                                                            <button type="button" class="btn btn-primary">Update</button>
+                                                            <a href="UpdateForm/{{$fetch->product_id}}" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
-                                                            <button type="button" class="btn btn-danger">Delete</button>
+                                                            <a href="DeleteProduct/{{$fetch->product_id }}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
+                                                            @if($fetch->status==1)
                                                             <td>
-                                                            <button type="button" class="btn btn-success">Active</button>
+                                                            <a href="DeactiveProduct/{{$fetch->product_id }}" class="btn btn-danger"> Dective</a>
                                                             </td>
+                                                            @else
+                                                            <td>
+                                                            <a href="ActiveProduct/{{$fetch->product_id }}" class="btn btn-success">Active</a>
+                                                            </td>
+                                                            
+                                                            @endif
                                                         </tr>
                                                      @endforeach
                                                                                                                  <!-- The Modal -->

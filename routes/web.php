@@ -66,3 +66,15 @@ Route::get('Premium', function () {
     return view('Layout/PackageLayout',["title"=>"Premium Package Page"]);
 });
 // PackageController
+
+// DeleteProduct
+Route::get('DeleteProduct/{id}',[AdminController::class,'DeleteProduct']);
+//DisplayCategory
+Route::get('DisplayCategory',[AdminController::class,'DisplayCategory']);
+// UpdateForm/3
+Route::get('UpdateForm/{id}',[AdminController::class,'UpdateForm']);
+Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);
+//ADeactiveProductproduct
+Route::match(['get','post'],'DeactiveProduct/{id}',[AdminController::class,'DeactiveProduct']);
+// ActiveProduct
+Route::match(['get','post'],'ActiveProduct/{id}',[AdminController::class,'ActiveProduct']);

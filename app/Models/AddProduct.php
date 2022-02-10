@@ -9,4 +9,6 @@ class AddProduct extends Model
 {
     use HasFactory;
     protected $table='addproducts';
+    protected $primaryKey = 'product_id';
+
 }
