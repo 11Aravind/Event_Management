@@ -36,9 +36,12 @@ Route::post('/Login',[AuthenticationController::class,'check']);
 Route::get('/Employ', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
 });
+//category
 Route::get('Add_category',[AdminController::class,'index']);
 Route::post('Add_category',[AdminController::class,'store']);
+Route::get('DisplayCategory',[AdminController::class,'DisplayCategory']);
 
+//product
 Route::get('Add_Product',[AdminController::class,'getcategorydet']);
 Route::post('Add_Product',[AdminController::class,'store_product']);
 
@@ -69,8 +72,7 @@ Route::get('Premium', function () {
 
 // DeleteProduct
 Route::get('DeleteProduct/{id}',[AdminController::class,'DeleteProduct']);
-//DisplayCategory
-Route::get('DisplayCategory',[AdminController::class,'DisplayCategory']);
+
 // UpdateForm/3
 Route::get('UpdateForm/{id}',[AdminController::class,'UpdateForm']);
 Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);

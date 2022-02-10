@@ -9,4 +9,6 @@ class Category extends Model
 {
     use HasFactory;
     protected $table = 'categorys';
+    // protected $table='addproducts';
+    protected $primaryKey = 'category_id';
 }

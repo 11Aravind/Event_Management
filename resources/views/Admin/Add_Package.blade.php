@@ -1,5 +1,6 @@
 @extends('Layout/Admin_layout')
 @section('Admin_content')
+
 <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -21,6 +22,8 @@
                                                 <!-- <div class="col-md-6"> -->
                                                     <form enctype="multi-part form/data">
                                                          <!-- product tables start -->
+                                                         <h6>Select Products</h6>
+<hr>
                                                     <table class="table table-striped" id="MyTable">
   <thead>
     <tr>
@@ -28,7 +31,7 @@
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">Amount</th>
-      <th scope="col">Select</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -53,9 +56,26 @@
       <td>444</td>
       <td><input type="checkbox"></td>
     </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>444</td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>444</td>
+      <td><input type="checkbox"></td>
+    </tr>
   </tbody>
 </table>
 <!-- product table end -->
+<hr>
+<h6>Add Package Details</h6>
+<hr>
                                                         <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Package Use</label>

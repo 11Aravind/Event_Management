@@ -36,7 +36,8 @@
 	<link rel="stylesheet" href="../assets/css/imagepopup.css">
 	<link rel="stylesheet" href="../assets/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="../assets/css/bootstrap.css">
-	
+	<!-- <h3>jQuery DataTables</h3> -->
+
 </head>
 
 <body class="">

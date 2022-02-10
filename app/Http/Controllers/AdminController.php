@@ -25,7 +25,7 @@ $storecategory->discription=$request->description;
 $storecategory->status=0;
 $save=$storecategory->save();
 if($save){
-    return back()->with('successmsg','New Category was added');
+    return redirect('DisplayCategory')->with('success','New Category was added');
 }else{
 return back()->with('failmsg','New Category was not added try again');
 }
@@ -38,6 +38,7 @@ return view('Admin/Add_Product',["title"=>"Add_Product page","getcategorys"=>$ge
     public function store_product(Request $request)
     {
 $store_product=new AddProduct();
+$store_product->category_id=$request->product_category;
 $store_product->product_name=$request->product_name;
 $store_product->product_price=$request->product_price;
 if($request->hasfile('product_image'))
@@ -49,7 +50,6 @@ if($request->hasfile('product_image'))
     $store_product->product_photo=$filename;
 }
 $store_product->product_quentity=$request->product_quentity;
-$store_product->product_category=$request->product_category;
 $store_product->product_discription=$request->product_description;
 $store_product->status=0;
 $store_product->save();
