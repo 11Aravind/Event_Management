@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PackageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,9 +48,8 @@ Route::post('Add_Product',[AdminController::class,'store_product']);
 
 Route::get('Display_Product',[AdminController::class,'display_product']);
 
-Route::get('Add_Package', function () {
-    return view('Admin/Add_Package',["title"=>"Add_Package page"]);
-});
+Route::get('Add_Package',[PackageController::class,'showpackageproduct',"title"=>"Add_Package page"]);
+
 
 Route::get('EventChart', function () {
     return view('User/EventChart',["title"=>"EventChart page"]);
