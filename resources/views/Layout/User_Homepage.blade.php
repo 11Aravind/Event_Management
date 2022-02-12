@@ -64,8 +64,8 @@
 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Packages</a>
 <ul class="sub-menu collapse" id="submenu-1-1">
 <li class="nav-item"><a href="Premium">Premium</a></li>
-<li class="nav-item"><a href="#gallery.html">Exclusive</a></li>
-<li class="nav-item"><a href="#pricing.html">Regular</a></li>
+<li class="nav-item"><a href="Medium">Medium</a></li>
+<li class="nav-item"><a href="Regular">Regular</a></li>
 <li class="nav-item"><a href="#sponsors.html">Custom</a></li>
 
 </ul>

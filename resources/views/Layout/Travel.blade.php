@@ -56,7 +56,7 @@
 <body>
    <div id="container">
    <div class="top-bar">
-       <span class="logo">Employ</span>
+       <span class="logo">Travel</span>
         <span class="top-menu">
             <a href="#">Account</a>
         </span>
@@ -66,8 +66,8 @@
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
             <li>KYC Form</li>
-            <li>Profile</li>
-            <li>Job Vaccancy</li>
+            <li>Bus Details</li>
+            
             <li>Request</li>
         </ul>
     </div>

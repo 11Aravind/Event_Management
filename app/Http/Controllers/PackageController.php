@@ -25,15 +25,35 @@ $fetchproductdetails=AddProduct::all();
             $filename=time().'.'.$extension;
             $file->move('images/',$filename);
             $package->package_image=$filename;
-        }
+                 }
         $package->total_amount=request('totalamount');
 
         $package->type=request('type');
         $package->discription=request('discription');
         $package->PackageProducts=request('packageProduct');
         // dd(request('packageProduct'));
-$save=$package->save();
-if($save)
-return redirect('Add_Package');
+         $save=$package->save();
+         if($save)
+         return redirect('Add_Package');
+    }
+    public function ViewPackage()
+    {
+        $packagedetails=Packages::all();
+        return view('Admin/Packagedetails',["title"=>"packagedetails page","packagedetails"=>$packagedetails]);
+    }
+    public function Premium()
+    {
+        $Premium=Packages::where('type','=','Premium')->get();
+        return view('Layout/PackageLayout',["title"=>"Premium Package Page","Premiums"=>$Premium,"type"=>"Premium"]);
+    }
+    public function Medium()
+    {
+        $Medium=Packages::where('type','=','Medium')->get();
+        return view('Layout/PackageLayout',["title"=>"Medium Package Page","Premiums"=>$Medium,"type"=>"Medium"]);
+    }
+    public function Regular()
+    {
+        $Regular=Packages::where('type','=','Regular')->get();
+        return view('Layout/PackageLayout',["title"=>"Regular Package Page","Premiums"=>$Regular,"type"=>"Regular"]);  
     }
 }

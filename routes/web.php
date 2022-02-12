@@ -14,7 +14,7 @@ use App\Http\Controllers\PackageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//user
 Route::get('/', function () {
     return view('Homepagecontent');
 });
@@ -24,6 +24,13 @@ Route::get('/User', function () {
 Route::get('/Admin', function () {
     return view('Admin_homepage',["title"=>"Admin_dashbord"]);
 });
+Route::get('/Employ', function () {
+    return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
+});
+Route::get('/Travel', function () {
+    return view('Layout/Travel',["title"=>"Employ_dashbord"]);
+});
+
 Route::get('SignUp',function(){
     return view('SignUp');
 });
@@ -34,9 +41,7 @@ Route::get('/Login', function () {
 });
 //login checking
 Route::post('/Login',[AuthenticationController::class,'check']);
-Route::get('/Employ', function () {
-    return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
-});
+
 //category
 Route::get('Add_category',[AdminController::class,'index']);
 Route::post('Add_category',[AdminController::class,'store']);
@@ -48,8 +53,14 @@ Route::post('Add_Product',[AdminController::class,'store_product']);
 
 Route::get('Display_Product',[AdminController::class,'display_product']);
 
+//package
 Route::get('Add_Package',[PackageController::class,'showpackageproduct',"title"=>"Add_Package page"]);
 Route::post('Add_Package',[PackageController::class,'addpackageproduct',"title"=>"Add_Package page"]);
+Route::get('ViewPackage',[PackageController::class,'ViewPackage',"title"=>"ViewPackage page"]);
+//PackageLayout.blade.php //primium
+Route::get('Premium',[PackageController::class,'Premium',"title"=>"Add_Package page"]);
+Route::get('Medium',[PackageController::class,'Medium',"title"=>"Medium Package"]);
+Route::get('Regular',[PackageController::class,'Regular',"title"=>"Regular Package"]);
 
 
 Route::get('EventChart', function () {
@@ -65,10 +76,7 @@ Route::get('/Logout',[AuthenticationController::class,'logout']);
 Route::get('TourView', function () {
     return view('User/TourView',["title"=>"TourView page"]);
 });
-//PackageLayout.blade.php
-Route::get('Premium', function () {
-    return view('Layout/PackageLayout',["title"=>"Premium Package Page"]);
-});
+
 // PackageController
 
 // DeleteProduct
@@ -81,3 +89,4 @@ Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);
 Route::match(['get','post'],'DeactiveProduct/{id}',[AdminController::class,'DeactiveProduct']);
 // ActiveProduct
 Route::match(['get','post'],'ActiveProduct/{id}',[AdminController::class,'ActiveProduct']);
+//

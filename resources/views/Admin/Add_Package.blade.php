@@ -76,7 +76,7 @@
                                                             <select class="form-control" name="type"id="exampleFormControlSelect1">
                                                             <option>--Select--</option>   
                                                             <option>Premium</option>
-                                                                <option>Middium</option>
+                                                                <option>Medium</option>
                                                                 <option>Regular</option>
                                                              </select>
                                                         </div>

@@ -87,7 +87,7 @@
                             <i class="feather icon-align-justify"></i></span> -->
 							<span class="pcoded-mtext">Add Package</span></a>
 					</li>
-							<li class=""><a href="#" class="">View Package</a></li>
+							<li class=""><a href="ViewPackage" class="">View Package</a></li>
 							<li class=""><a href="#" class="">Tour Package</a></li>
 							<li class=""><a href="#" class="">Custom Package</a></li>
 
