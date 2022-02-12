@@ -14,7 +14,8 @@ class CreateAddPackageTable extends Migration
     public function up()
     {
         Schema::create('add_package', function (Blueprint $table) {
-            $table->id('package_use');
+            $table->id('package_id');
+            $table->string('package_use');
             $table->string('rent_amount');
             $table->string('package_image');
             $table->string('total_amount');

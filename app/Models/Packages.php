@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Packages extends Model
 {
     use HasFactory;
-   // protected $table="";
+   protected $table="add_package";
 protected $casts=[
 'PackageProducts'=>'array'
 ];

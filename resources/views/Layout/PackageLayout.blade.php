@@ -13,7 +13,7 @@
 <body>
     <img src="images/businessevn.jpg"  style="width: 100%;
     height: 416px;"alt="slider">
-
+<!-- 
 <div class="search-availablity">
     <div class="container">
     <div class="row justify-content-center">
@@ -52,7 +52,7 @@
     </div>
     </div>
     </div>
-    </div>
+    </div> -->
 
 
 
