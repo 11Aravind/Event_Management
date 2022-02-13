@@ -24,12 +24,17 @@ Route::get('/User', function () {
 Route::get('/Admin', function () {
     return view('Admin_homepage',["title"=>"Admin_dashbord"]);
 });
-Route::get('/Employ', function () {
+Route::get('Employ', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
 });
-Route::get('/Travel', function () {
+Route::get('Travel', function () {
     return view('Layout/Travel',["title"=>"Employ_dashbord"]);
 });
+Route::get('Food', function () {
+    return view('Layout/Food',["title"=>"Food Dashbord"]);
+});
+Route::get('/Logout',[AuthenticationController::class,'logout']);
+
 
 Route::get('SignUp',function(){
     return view('SignUp');
@@ -50,13 +55,14 @@ Route::get('DisplayCategory',[AdminController::class,'DisplayCategory']);
 //product
 Route::get('Add_Product',[AdminController::class,'getcategorydet']);
 Route::post('Add_Product',[AdminController::class,'store_product']);
-
 Route::get('Display_Product',[AdminController::class,'display_product']);
 
 //package
 Route::get('Add_Package',[PackageController::class,'showpackageproduct',"title"=>"Add_Package page"]);
 Route::post('Add_Package',[PackageController::class,'addpackageproduct',"title"=>"Add_Package page"]);
 Route::get('ViewPackage',[PackageController::class,'ViewPackage',"title"=>"ViewPackage page"]);
+Route::get('PackageDetail/{id}',[PackageController::class,'PackageDetail',"title"=>"PackageDetail page"]);
+
 //PackageLayout.blade.php //primium
 Route::get('Premium',[PackageController::class,'Premium',"title"=>"Add_Package page"]);
 Route::get('Medium',[PackageController::class,'Medium',"title"=>"Medium Package"]);
@@ -69,9 +75,7 @@ Route::get('EventChart', function () {
 Route::get('EventBooking', function () {
     return view('User/TicketBooking',["title"=>"TicketBooking page"]);
 });
-// Logout
-// /Logout
-Route::get('/Logout',[AuthenticationController::class,'logout']);
+
 //tourist
 Route::get('TourView', function () {
     return view('User/TourView',["title"=>"TourView page"]);

@@ -39,10 +39,10 @@
 </span>
             <select  id=""  class="selectionrole" name="role" >
                 <option value="Select" class="selectionrole" >--Select Account Type--</option>
-                <option value="User" class="selectionrole" values="user" >User</option>
-                <option value="Employ" class="selectionrole" values="Empoly">Employ</option>
-                <!-- <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
-                <!-- <option value="Employ" class="selectionrole" values="Admin">Admin</option> -->
+                <option value="User" class="selectionrole"  >User</option>
+                <option  class="selectionrole" value="Empoly">Employ</option>
+                <option  class="selectionrole" value="Travel">Travel</option>
+                <option  class="selectionrole" value="Food">Food</option>
             </select>
 			<span style="color:red">
 			@error('role')
@@ -53,42 +53,9 @@
 		</form>
 		<!-- Sign Up form or registration form end -->
 	</div>
-	<!-- <div class="form-container sign-in-container"> -->
-        <!-- sign in form -->
-		<!-- <form action="/Login" method="POST">
-			@csrf
-			<h1>Sign in</h1>
-		<span style="color:red">@if(Session::get('failmsg'))
-			{{ Session::get('failmsg')}}
-			@endif</span> -->
-			<!-- <div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div> -->
-			<!-- <span>or use your account</span>
-			<input type="email" placeholder="Email" name="email" />
 	
-			<input type="password" placeholder="Password" name="password"/>
-			<select  id=""  class="selectionrole" name="role" >
-                <option value="Select" class="selectionrole" >--Select Account Type--</option>
-                <option value="User" class="selectionrole" values="User" >User</option>
-                <option value="Employ" class="selectionrole" values="Empoly">Employ</option>
-                 <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
-                <!-- <option value="Employ" class="selectionrole" values="Admin">Admin</option>
-            </select>
-			<a href="#">Forgot your password?</a>
-			<button type="submit">Sign In</button> 
-		</form> -->
-		<!-- sign in form end -->
-	<!-- </div> -->
 	<div class="overlay-container">
 		<div class="overlay">
-			<!-- <div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div> -->
 			<div class="overlay-panel overlay-right">
 				<!-- <h1>Hello, Friend!</h1> -->
 				<h1>Welcome Back!</h1>
@@ -100,8 +67,7 @@
 	</div>
 </div>
 
-<footer>
-	
+<footer>	
     <!-- <script src="Template_asset/js/login.js" rel="stylesheet"></script> -->
 </body>
 </html>

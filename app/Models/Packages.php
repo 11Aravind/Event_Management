@@ -12,4 +12,5 @@ class Packages extends Model
 protected $casts=[
 'PackageProducts'=>'array'
 ];
+protected $primaryKey='package_id';
 }

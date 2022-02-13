@@ -56,4 +56,13 @@ $fetchproductdetails=AddProduct::all();
         $Regular=Packages::where('type','=','Regular')->get();
         return view('Layout/PackageLayout',["title"=>"Regular Package Page","Premiums"=>$Regular,"type"=>"Regular"]);  
     }
+    public function PackageDetail($id)
+    {
+        
+        $packagedetail=Packages::findOrFail($id);
+        $products=$packagedetail->PackageProducts;
+        // foreach($products as $product)
+
+        return view('User.PackageDetail',["products"=>$products]);
+    }
 }

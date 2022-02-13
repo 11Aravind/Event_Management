@@ -14,50 +14,6 @@
     <img src="images/businessevn.jpg"  style="width: 100%;
     height: 416px;"alt="slider">
 
-
-<!-- <div class="popular_destination_area"> -->
-<!-- <div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-6">
-<div class="section_title text-center mb_70">
-<h3>Popular Primium Package</h3>
-<p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x1.png.pagespeed.ic.U45P3KOe98.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">Marriage <a href="travel_destination.html"> 07 Places</a> </p>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x2.png.pagespeed.ic.8sdFlO1TPt.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">Business Event<a href="travel_destination.html"> 03 Places</a> </p>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x3.png.pagespeed.ic.jwNAyltY22.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">Getugether <a href="travel_destination.html"> 10 Places</a> </p>
-</div>
-</div>
-</div> -->
-<!-- </div> -->
-
 </div>
 </div>
 <div class="popular_places_area">
@@ -93,7 +49,7 @@
 </span>
 <div class="days">
 <i class="fa fa-clock-o"></i>
-<a href="#">More>></a>
+<a href="PackageDetail/{{$Premium->package_id}}">More>></a>
 </div>
 </div>
 </div>

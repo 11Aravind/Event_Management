@@ -56,7 +56,7 @@
 <body>
    <div id="container">
    <div class="top-bar">
-       <span class="logo">Employ</span>
+       <span class="logo">Food</span>
         <span class="top-menu">
             <a href="#">Account</a>
             <a href="/Logout">Logout</a>
@@ -68,8 +68,10 @@
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
             <li>KYC Form</li>
-            <li>Profile</li>
-            <li>Job Vaccancy</li>
+            <li>Food Category</li>
+            <li>Food</li>
+            <li>Catering</li>
+
             <li>Request</li>
         </ul>
     </div>
