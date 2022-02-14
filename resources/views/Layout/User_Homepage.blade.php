@@ -7,7 +7,15 @@
 <title>EventGrids - Conference and Event HTML Template.</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/x-icon" href="#assets/Template_asset/images/favicon.svg">
+<!-- example start -->
+<link rel="stylesheet" href="../Template_asset/css/bootstrap.min.css">
+<link rel="stylesheet" href="../Template_asset/css/LineIcons.3.0.css">
+<link rel="stylesheet" href="../Template_asset/css/animate.css">
+<link rel="stylesheet" href="../Template_asset/css/tiny-slider.css">
+<link rel="stylesheet" href="../Template_asset/css/glightbox.min.css">
+<link rel="stylesheet" href="../Template_asset/css/main.css">
+<link rel="stylesheet" href="../Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
+<!-- example end -->
 
 <link rel="stylesheet" href="Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="Template_asset/css/LineIcons.3.0.css">
@@ -17,6 +25,7 @@
 <link rel="stylesheet" href="Template_asset/css/main.css">
 <link rel="stylesheet" href="Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
 <!-- Template_asset/css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 
 </style></head>
@@ -63,9 +72,9 @@
 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-1" 
 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Packages</a>
 <ul class="sub-menu collapse" id="submenu-1-1">
-<li class="nav-item"><a href="Premium">Premium</a></li>
-<li class="nav-item"><a href="Medium">Medium</a></li>
-<li class="nav-item"><a href="Regular">Regular</a></li>
+<li class="nav-item"><a href="/Premium">Premium</a></li>
+<li class="nav-item"><a href="/Medium">Medium</a></li>
+<li class="nav-item"><a href="/Regular">Regular</a></li>
 <li class="nav-item"><a href="#sponsors.html">Custom</a></li>
 
 </ul>
@@ -102,8 +111,13 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 <li class="nav-item"><a href="/Logout">Logout</a></li>
 </ul>
 </li>
-</ul>
 
+</ul>
+<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+Cart &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<i class="fa fa-heart" aria-hidden="true"></i>
+Fav
 @else
 </ul>
 <!-- <div class="button"> -->

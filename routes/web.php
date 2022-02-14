@@ -28,7 +28,7 @@ Route::get('Employ', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
 });
 Route::get('Travel', function () {
-    return view('Layout/Travel',["title"=>"Employ_dashbord"]);
+    return view('Travel/KycForm',["title"=>"Employ_dashbord"]);
 });
 Route::get('Food', function () {
     return view('Layout/Food',["title"=>"Food Dashbord"]);
@@ -64,9 +64,9 @@ Route::get('ViewPackage',[PackageController::class,'ViewPackage',"title"=>"ViewP
 Route::get('PackageDetail/{id}',[PackageController::class,'PackageDetail',"title"=>"PackageDetail page"]);
 
 //PackageLayout.blade.php //primium
-Route::get('Premium',[PackageController::class,'Premium',"title"=>"Add_Package page"]);
-Route::get('Medium',[PackageController::class,'Medium',"title"=>"Medium Package"]);
-Route::get('Regular',[PackageController::class,'Regular',"title"=>"Regular Package"]);
+Route::get('/Premium',[PackageController::class,'Premium',"title"=>"Add_Package page"]);
+Route::get('/Medium',[PackageController::class,'Medium',"title"=>"Medium Package"]);
+Route::get('/Regular',[PackageController::class,'Regular',"title"=>"Regular Package"]);
 
 
 Route::get('EventChart', function () {
@@ -74,6 +74,9 @@ Route::get('EventChart', function () {
 });
 Route::get('EventBooking', function () {
     return view('User/TicketBooking',["title"=>"TicketBooking page"]);
+});
+Route::get('BuyNow', function () {
+    return view('User/BuyNow',["title"=>"TicketBooking page"]);
 });
 
 //tourist

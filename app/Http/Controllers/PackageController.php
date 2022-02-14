@@ -61,8 +61,18 @@ $fetchproductdetails=AddProduct::all();
         
         $packagedetail=Packages::findOrFail($id);
         $products=$packagedetail->PackageProducts;
+        $fullproduct=array();
+        // $first=["key"=>$val,"key"=>$val,];
+        // $products[1]
+        // $first=AddProduct::findOrFail($products[1]);
+        $i=0;
+        foreach($products as $product)
+        {
+            $fullproduct[]=AddProduct::findOrFail($products[$i]);   
+            $i++;
+        }
         // foreach($products as $product)
 
-        return view('User.PackageDetail',["products"=>$products]);
+        return view('User.PackageDetail',["first"=>$fullproduct]);
     }
 }
