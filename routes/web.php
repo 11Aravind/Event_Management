@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\TravelController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,19 +35,18 @@ Route::get('Travel', function () {
 Route::get('Food', function () {
     return view('Layout/Food',["title"=>"Food Dashbord"]);
 });
-Route::get('/Logout',[AuthenticationController::class,'logout']);
 
 
+//Authentication
 Route::get('SignUp',function(){
     return view('SignUp');
 });
 Route::post('SignUp/',[AuthenticationController::class,'store']);
-// login page
 Route::get('/Login', function () {
     return view('Login');
 });
-//login checking
 Route::post('/Login',[AuthenticationController::class,'check']);
+Route::get('/Logout',[AuthenticationController::class,'logout']);
 
 //category
 Route::get('Add_category',[AdminController::class,'index']);
@@ -75,9 +76,7 @@ Route::get('EventChart', function () {
 Route::get('EventBooking', function () {
     return view('User/TicketBooking',["title"=>"TicketBooking page"]);
 });
-Route::get('BuyNow', function () {
-    return view('User/BuyNow',["title"=>"TicketBooking page"]);
-});
+Route::get('/BuyNow', [UserController::class,'viewaddress']);
 
 //tourist
 Route::get('TourView', function () {
@@ -96,4 +95,15 @@ Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);
 Route::match(['get','post'],'DeactiveProduct/{id}',[AdminController::class,'DeactiveProduct']);
 // ActiveProduct
 Route::match(['get','post'],'ActiveProduct/{id}',[AdminController::class,'ActiveProduct']);
-//
+
+
+//Travel
+
+Route::get('TravelKyc',[TravelController::class,'viewkycform']); 
+Route::post('/TravelKyc',[TravelController::class,'storekycdetails']); 
+Route::get('BusDetails',[TravelController::class,'BusDetailsform']); 
+Route::post('/BusDetails',[TravelController::class,'storeBusDetails']); 
+// Route::get('BusDetails', function () {
+//     return view('Travel/BusDetails',["title"=>"BusDetails"]);
+// });
+Route::post('/AddAddress',[UserController::class,'store']);

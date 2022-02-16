@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{$title}}</title>
 </head>
 <link rel="stylesheet" href="../assets/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="../assets/css/bootstrap.css">
@@ -65,8 +65,9 @@
         <ul class="side-menu">
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
-            <li>KYC Form</li>
-            <li>Bus Details</li>
+            <li> <a href="/TravelKyc">KYC Form</a>  </li>
+            <li> <a href="/BusDetails">Bus Details</a>  </li>
+           
             
             <li>Request</li>
         </ul>

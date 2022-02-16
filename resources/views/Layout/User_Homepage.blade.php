@@ -205,7 +205,7 @@ Follow Us On:
 <h3>Subscribe to our newsletter</h3>
 <form action="##" method="get" target="_blank" class="newsletter-form">
 <input name="name" placeholder="Your Name*" required="required" type="text">
-<input name="email" placeholder="Email address*" required="required" type="email">
+<input name="email" placeholder="Email address*" required="required" type="text">
 <div class="button">
 <button class="btn">Subscribe
 </button>
@@ -239,7 +239,7 @@ Follow Us On:
 <a href="##" class="scroll-top" style="display: flex;">
 <i class="lni lni-chevron-up"></i>
 </a>
-
+<script src="assets\js\jquery-3.5.1.js"></script>
 <script src="Template_asset/js/bootstrap.min.js.download"></script>
 <script src="Template_asset/js/wow.min.js.download"></script>
 <script src="Template_asset/js/tiny-slider.js.download"></script>
