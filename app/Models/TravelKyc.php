@@ -9,4 +9,5 @@ class TravelKyc extends Model
 {
     use HasFactory;
     protected $table='travelkyc';
+    protected $primaryKey='towner_id';
 }

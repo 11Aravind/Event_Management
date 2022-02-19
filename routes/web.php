@@ -33,8 +33,12 @@ Route::get('Travel', function () {
     return view('Travel/KycForm',["title"=>"Employ_dashbord"]);
 });
 Route::get('Food', function () {
-    return view('Layout/Food',["title"=>"Food Dashbord"]);
+    return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
 });
+Route::get('/foodcategory', function () {
+    return view('Food/foodcategory',["title"=>"Food Dashbord"]);
+});
+
 
 
 //Authentication

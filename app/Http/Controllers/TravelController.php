@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Models\TravelKyc;
+use App\Models\BusDetail;
 class TravelController extends Controller
 {
     //
@@ -56,6 +57,32 @@ $owner_photo=request('ownerphoto');
     public function BusDetailsform()
     {
       return view('Travel/BusDetails',["title"=>"BusDetails"]);
+    }
+    public function storeBusDetails()
+    {
+      // return "hai";
+      // $owner_id=Session::get('');
+      $bus_detaile=new BusDetail();
+$bus_detaile->busname=request('busname');
+$bus_detaile->towner_id=1;
+
+// $att->student->stud_name
+$bus_detaile->Taxi_type=request('Taxi_type');
+$bus_detaile->Taxi_number=request('Taxi_number');
+$bus_detaile->seating_capacity=request('seating_capacity');
+// $bus_detaile->taxi_pic=request('taxi_pic');
+
+$taxi_pic=request('taxi_pic');
+$ext=$taxi_pic->getClientOriginalExtension();
+$fname=time().'.'.$ext;
+$taxi_pic->move('uploaded_images/',$taxi_pic);
+$bus_detaile->taxi_pic=$fname;
+
+
+$bus_detaile->taxi_category=request('taxi_category');
+$bus_detaile->price=request('price');
+$bus_detaile->save();
+return "Forigin key de sambhavam ready alla man bakki ellam set ane";
     }
    
 }
