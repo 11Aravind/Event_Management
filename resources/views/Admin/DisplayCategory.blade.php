@@ -32,6 +32,7 @@
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Category Name</th>
+                                                            
                                                             <th>Discription</th>
                                                             <th>Update</th>
                                                             <th>Delete</th>

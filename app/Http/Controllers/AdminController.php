@@ -22,6 +22,7 @@ class AdminController extends Controller
     $storecategory=new Category();
 $storecategory->category_name=$request->category_name;
 $storecategory->discription=$request->description;
+$storecategory->cat_type="EventProduct";
 $storecategory->status=0;
 $save=$storecategory->save();
 if($save){
@@ -32,7 +33,7 @@ return back()->with('failmsg','New Category was not added try again');
     }
     public function getcategorydet(){
         
-$getcategory=Category::all();
+$getcategory=Category::where('cat_type','=','EventProduct')->get();
 return view('Admin/Add_Product',["title"=>"Add_Product page","getcategorys"=>$getcategory]);
     }
     public function store_product(Request $request)
@@ -57,7 +58,10 @@ return redirect('Display_Product');
     }
     public function display_product()
     {
+        
         $fetch=AddProduct::all();
+        // return $fetch->categorydet->cat_type;
+        // $fetch=AddProduct::where($full->category->cat_type,'=','FoodProduct');
         return view('Admin/Display_Product',["title"=>"Display_Product","fetchs"=>$fetch]);
     }
 //delete product
@@ -78,7 +82,8 @@ else{
 //DisplayCategory
 public function DisplayCategory()
 {
-    $fetch=Category::all();
+    // $fetch=Category::all();
+    $fetch=Category::where('cat_type','=','EventProduct')->get();
     return view('Admin.DisplayCategory',["fetchs"=>$fetch,"title"=>"DisplayCategory Page"]);
 }
 // UpdateForm product

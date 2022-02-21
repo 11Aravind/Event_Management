@@ -32,7 +32,7 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form method="POST" action="Add_category">
+                                                    <form method="POST" action="/foodcategory">
                                                         @csrf
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Category Name</label>

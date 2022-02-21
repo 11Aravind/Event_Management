@@ -71,9 +71,10 @@
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
             <li>KYC Form</li>
-            <li> <a href="/foodcategory">Category</a></li>
-            <li>Food</li>
-            <li>Catering</li>
+            <!-- <li> <a href="/foodcategory">Category</a></li> -->
+            <li> <a href="/foodDetails">Category Details</a></li>
+            <li><a href="/Add_Food">Add Food</a></li>
+            <li><a href="/Display_Foodproduct">Disply Products</a></li>
 
             <li>Request</li>
         </ul>

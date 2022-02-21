@@ -89,7 +89,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
  aria-expanded="false" aria-label="Toggle navigation">Event</a>
 <ul class="sub-menu collapse" id="submenu-1-2">
-<li class="nav-item"><a href="EventBooking">Ticket Booking</a>
+<li class="nav-item"><a href="Events">Ticket Booking</a>
 </li>
 <li class="nav-item"><a href="EventChart">Upcomming Events</a></li>
 </ul>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\TravelController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FoodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +39,12 @@ Route::get('Food', function () {
 Route::get('/foodcategory', function () {
     return view('Food/foodcategory',["title"=>"Food Dashbord"]);
 });
+Route::post('/foodcategory',[FoodController::class,'store']);
 
+Route::get('/foodDetails',[FoodController::class,'DisplayCategory']);
+Route::get('/Add_Food',[FoodController::class,'add_food_form']);
+Route::post('/Add_Food',[FoodController::class,'store_food']);
+Route::get('/Display_Foodproduct',[FoodController::class,'Display_Foodproduct']);
 
 
 //Authentication
@@ -77,7 +83,7 @@ Route::get('/Regular',[PackageController::class,'Regular',"title"=>"Regular Pack
 Route::get('EventChart', function () {
     return view('User/EventChart',["title"=>"EventChart page"]);
 });
-Route::get('EventBooking', function () {
+Route::get('Events', function () {
     return view('User/TicketBooking',["title"=>"TicketBooking page"]);
 });
 Route::get('/BuyNow', [UserController::class,'viewaddress']);

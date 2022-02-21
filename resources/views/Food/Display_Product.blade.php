@@ -1,6 +1,8 @@
-@extends('Layout/Admin_layout')
-@section('Admin_content')
-<div class="pcoded-main-container">
+@extends('Layout/FoodLayout')
+@section('foodcontent')
+<div class="contentsss">
+        <div class="cont">
+        <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
@@ -93,4 +95,6 @@
 </div>
 </div>
 <div>
+</div>
+</div>
 @endsection

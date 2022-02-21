@@ -1,5 +1,7 @@
-@extends('Layout/Admin_layout')
-@section('Admin_content')
+@extends('Layout/FoodLayout')
+@section('foodcontent')
+<div class="contentsss">
+        <div class="cont">
 <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -12,8 +14,8 @@
  <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Product Details </h5>
-                                            <a href="../Add_Product"type="button" class="btn btn-primary" title=""  style="float: right;">Add Product</a>
+                                            <h5>Category Details </h5>
+  <a href="/foodcategory"type="button" class="btn btn-primary" title=""  style="float: right;">Add Category</a>
                                             <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
                                         
                                     @if(Session::get('success'))
@@ -27,46 +29,37 @@
                                         </div>
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-striped" id="MyTable">
+                                                <table class="table table-striped"  id="MyTable">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Product Name</th>
-                                                            <th>Category</th>
-                                                            <th>Category Type</th>
-                                                            <th>Image</th>
-                                                            <th>Quentity</th>
-                                                            <th>Price</th>
+                                                            <th>Category Name</th>
+                                                            <th>Discription</th>
                                                             <th>Update</th>
                                                             <th>Delete</th>
                                                             <th> status</th>
                                                         </tr>
                                                     </thead>
                                                    @foreach($fetchs as $fetch)
-                                                   
                                                     <tbody>
                                                         <tr>
                                                             <td>1</td>
-                                                            <td>{{$fetch->product_name}}</td>
-                                                            <td>{{$fetch->categorydet->category_name}}</td>
-                                                            <td>{{$fetch->categorydet->cat_type}}</td>
-                                                            <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$fetch->product_photo}}" alt=""> </td>
-
-                                                            <td>{{$fetch->product_quentity}}</td>
-                                                            <td>{{$fetch->product_price}}</td>
+                                                            <td>{{$fetch->category_name}}</td>
+                                                            <td>{{$fetch->discription}}</td>
+                                                           
                                                             <td>
-                                                            <a href="UpdateForm/{{$fetch->product_id}}" class="btn btn-primary">Update</a>
+                                                            <a href="#" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
-                                                            <a href="DeleteProduct/{{$fetch->product_id }}" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="#" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
                                                             @if($fetch->status==1)
                                                             <td>
-                                                            <a href="DeactiveProduct/{{$fetch->product_id }}" class="btn btn-danger"> Dective</a>
+                                                            <button type="button" class="btn btn-success">Active</button>
                                                             </td>
                                                             @else
                                                             <td>
-                                                            <a href="ActiveProduct/{{$fetch->product_id }}" class="btn btn-success">Active</a>
+                                                            <button type="button" class="btn btn-success">Dective</button>
                                                             </td>
                                                             
                                                             @endif
@@ -93,4 +86,6 @@
 </div>
 </div>
 <div>
+                            </div>
+                            </div>
 @endsection

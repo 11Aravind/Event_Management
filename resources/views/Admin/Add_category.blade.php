@@ -58,6 +58,14 @@
                                                         {{$message}}
                                                     @enderror</span>
                                                         </div>
+                                                        <!-- <div class="form-group">
+                                                            <label for="exampleFormControlTextarea1">Description</label>
+                                                            <select class="form-control" id="exampleFormControlTextarea1" name="type" >
+<option value="Food"></option>
+<option value="Product"></option>
+                                                            </select>
+                                                                                                                
+                                                        </div> -->
                                                         <button type="submit" class="btn btn-primary">Add Category</button>
                                                     </form>
                                                 </div>

@@ -81,8 +81,17 @@ $bus_detaile->taxi_pic=$fname;
 
 $bus_detaile->taxi_category=request('taxi_category');
 $bus_detaile->price=request('price');
-$bus_detaile->save();
-return "Forigin key de sambhavam ready alla man bakki ellam set ane";
+$save=$bus_detaile->save();
+if($save)
+{
+Session::put('towner_id',$bus_detaile->towner_id);
+// Session::put('user_id',$userinfo->user_id);
+return redirect('TravelKyc');
+}
+else{
+  return "data not inserted";
+}
+// return "Forigin key de sambhavam ready alla man bakki ellam set ane";
     }
    
 }
