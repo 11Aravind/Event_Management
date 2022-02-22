@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\AddProduct;
+use App\Models\Event;
 class AdminController extends Controller
 {
     //
@@ -22,7 +24,7 @@ class AdminController extends Controller
     $storecategory=new Category();
 $storecategory->category_name=$request->category_name;
 $storecategory->discription=$request->description;
-$storecategory->cat_type="EventProduct";
+$storecategory->cat_type="Product";
 $storecategory->status=0;
 $save=$storecategory->save();
 if($save){
@@ -33,7 +35,7 @@ return back()->with('failmsg','New Category was not added try again');
     }
     public function getcategorydet(){
         
-$getcategory=Category::where('cat_type','=','EventProduct')->get();
+$getcategory=Category::where('cat_type','=','Product')->get();
 return view('Admin/Add_Product',["title"=>"Add_Product page","getcategorys"=>$getcategory]);
     }
     public function store_product(Request $request)
@@ -59,9 +61,11 @@ return redirect('Display_Product');
     public function display_product()
     {
         
-        $fetch=AddProduct::all();
-        // return $fetch->categorydet->cat_type;
-        // $fetch=AddProduct::where($full->category->cat_type,'=','FoodProduct');
+        // $fetch=AddProduct::all();
+        $fetch=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+        ->where('categorys.cat_type','=','Product')->get();
+        
+      // product table il ninnode category table il ninnu cat_type eduth compare cheyth nokkanam ennittu avashyam ullath eduthal mathi
         return view('Admin/Display_Product',["title"=>"Display_Product","fetchs"=>$fetch]);
     }
 //delete product
@@ -83,8 +87,62 @@ else{
 public function DisplayCategory()
 {
     // $fetch=Category::all();
-    $fetch=Category::where('cat_type','=','EventProduct')->get();
-    return view('Admin.DisplayCategory',["fetchs"=>$fetch,"title"=>"DisplayCategory Page"]);
+    
+    $addcategorytype="../Add_category";
+$headding="Product Category Details";
+    $fetch=Category::where('cat_type','=','Product')->get();
+    return view('Admin.DisplayCategory',["fetchs"=>$fetch,"headding"=>$headding,"addcategorytype"=>$addcategorytype,"title"=>"DisplayCategory Page"]);
+}
+//display event category
+public function DisplayEventCategory()
+{
+    // $fetch=Category::all();
+    $addcategorytype="../Add_event_category";
+    $headding="Event Category Details";
+    $fetch=Category::where('cat_type','=','Event')->get();
+    return view('Admin.DisplayCategory',["fetchs"=>$fetch,"headding"=>$headding,"addcategorytype"=>$addcategorytype,"title"=>"DisplayEventCategory Page"]);
+}
+//display event form
+public function Add_EventForm(){
+    $category=Category::where('cat_type','=','Event')->get();
+    return view('Admin/Add_EventForm',["categorys"=>$category,"title"=>"Add_EventForm page"]);
+
+}
+//store event form data
+public function Add_Event()
+{
+    $event_obj=new Event();
+$event_obj->category_id=request('event_category');
+$event_obj->event_name=request('event_name');
+// $event_obj->event_category=request('event_category');
+// $event_obj->event_banner=request('event_bsnner');
+
+$file=request('event_bsnner');
+$extension=$file->getClientOriginalExtension();
+$filename=time().$extension;
+$file->move('uploaded_images/',$filename);
+$event_obj->event_banner=$filename;
+
+$event_obj->event_date=request('event_date');
+$event_obj->starting_time=request('starting_time');
+$event_obj->duration=request('duration');
+$event_obj->duration_time=request('duration_time');
+$event_obj->ticketprice=request('ticketprice');
+$event_obj->totel_ticket=request('totel_ticket');
+$event_obj->discount=request('discount');
+$event_obj->discount_end=request('discount_end');
+$event_obj->event_discription=request('event_discription');
+$event_obj->save();
+}
+//display evetn details
+public function Event_details()
+{
+    // return "Event_details";
+    $fetch=DB::table('categorys')->join('events','categorys.category_id','=','events.category_id')
+    ->where('categorys.cat_type','=','Event')->get();
+
+    return view('Food/Display_Event',["title"=>"Display_Product","fetchs"=>$fetch]);
+
 }
 // UpdateForm product
 public function UpdateForm($id)
@@ -127,5 +185,26 @@ public function ActiveProduct($id,Request $req){
     $finddata->save();
     return redirect('Display_Product');
  }
+ public function store_event(Request $request)
+ {
+     //validation start
+     $validate=$request->validate([
+         'category_name'=>'required|unique:categorys',
+'description'=>'required'
+     ]);
+     //validation end
+ $storecategory=new Category();
+$storecategory->category_name=$request->category_name;
+$storecategory->discription=$request->description;
+$storecategory->cat_type="Event";
+$storecategory->status=0;
+$save=$storecategory->save();
+if($save){
+ return redirect('DisplayEventCategory')->with('success','New Category was added');
+}else{
+return back()->with('failmsg','New Category was not added try again');
+}
+ }
+
 
 }

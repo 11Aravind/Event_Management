@@ -16,9 +16,9 @@ class AddProduct extends Model
    ];
    public function categorydet()
    {
-    //    return $this->belongsTo('App\Category','category_id');
+    
     return $this->belongsTo(Category::class,'category_id');
-    // return $this->hasMany(Category::class);
+
     
    }
 //    public function Category()

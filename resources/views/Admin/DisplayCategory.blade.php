@@ -12,8 +12,8 @@
  <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Category Details </h5>
-  <a href="../Add_category"type="button" class="btn btn-primary" title=""  style="float: right;">Add Category</a>
+                                            <h5>{{$headding}} </h5>
+  <a href="{{$addcategorytype}}"type="button" class="btn btn-primary" title=""  style="float: right;">Add Category</a>
                                             <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
                                         
                                     @if(Session::get('success'))
@@ -34,7 +34,7 @@
                                                             <th>Category Name</th>
                                                             
                                                             <th>Discription</th>
-                                                            <th>Update</th>
+                                                            <!-- <th>Update</th> -->
                                                             <th>Delete</th>
                                                             <th> status</th>
                                                         </tr>
@@ -46,9 +46,9 @@
                                                             <td>{{$fetch->category_name}}</td>
                                                             <td>{{$fetch->discription}}</td>
                                                            
-                                                            <td>
+                                                            <!-- <td>
                                                             <a href="#" class="btn btn-primary">Update</a>
-                                                            </td>
+                                                            </td> -->
                                                             <td>
                                                             <a href="#" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>

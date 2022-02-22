@@ -43,7 +43,7 @@
     @foreach($fetchproductdetails as $fetchproductdetail)
     <tr>
       <th scope="row">@php echo $i @endphp</th>
-      <td>{{$fetchproductdetail->category->category_name}}</td>
+      <td>{{$fetchproductdetail->categorydet->category_name}}</td>
       <td>{{$fetchproductdetail->product_name}}</td>
       <td>{{$fetchproductdetail->product_price}}</td>
       <td>{{$fetchproductdetail->product_quentity}}</td>

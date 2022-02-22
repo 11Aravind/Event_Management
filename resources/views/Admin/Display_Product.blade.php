@@ -48,8 +48,8 @@
                                                         <tr>
                                                             <td>1</td>
                                                             <td>{{$fetch->product_name}}</td>
-                                                            <td>{{$fetch->categorydet->category_name}}</td>
-                                                            <td>{{$fetch->categorydet->cat_type}}</td>
+                                                            <td>{{$fetch->category_name}}</td>
+                                                            <td>{{$fetch->cat_type}}</td>
                                                             <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$fetch->product_photo}}" alt=""> </td>
 
                                                             <td>{{$fetch->product_quentity}}</td>

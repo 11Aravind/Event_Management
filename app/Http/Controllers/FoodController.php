@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\AddProduct;
@@ -61,20 +62,9 @@ return redirect('/Add_Food');
     }
     public function Display_Foodproduct()
     {
-        $full=AddProduct::all();
-        $fetchs=AddProduct::where($full->categorydet->cat_type,'=','FoodProduct')->first();
-        // ->first();;
-        // User::where('id', 1)
-        // ->with(['educationDetails', 'languageDetails', 'certificationDetails'])
-        // ->first();
-        $arr=array();
-        $i=0;
-foreach($fetchs as $fetch)
-{
-    $arr[]=$fetch->categorydet->cat_type; 
-}
-        return $arr;
-        // $fetch=AddProduct::where($full->category->cat_type,'=','FoodProduct');
-        // return view('Food/Display_Product',["title"=>"Display_Product","fetchs"=>$fetch]);
+
+        $fetch=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+        ->where('categorys.cat_type','=','FoodProduct')->get();;
+        return view('Food/Display_Event',["title"=>"Display_Product","fetchs"=>$fetch]);
     }
 }

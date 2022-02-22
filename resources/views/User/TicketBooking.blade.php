@@ -16,10 +16,12 @@
 <div class="popular_destination_area">
 <div class="container">
     <!-- <div class="EventCategory"> -->
+    <!-- categorys -->
         <ul class="EventCategory"style="">
-            <li><a href="#">All</a></li>
-            <li><a href="#">Business</a></li>
-            <li>Art</li>
+            <li>All</li>
+            @foreach($categorys as $category)
+            <li><a href="#">{{$category->category_name}}</a></li>
+          @endforeach
         </ul>
     <!-- </div> -->
 <div class="row justify-content-center">

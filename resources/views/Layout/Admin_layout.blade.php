@@ -95,6 +95,20 @@
 						</ul>
 					</li>
 
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span>
+							<span class="pcoded-mtext">Event</span></a>
+						<ul class="pcoded-submenu">
+
+							<li class=""><a href="DisplayEventCategory" class="">Event Categorys</a></li>
+							<li class=""><a href="/Add_Event" class="">Add Events </a></li>
+							<li class=""><a href="/Event_details" class="">Event Details </a></li>
+							<!-- <li class=""><a href="#" class="">Tour Package</a></li>
+							<li class=""><a href="#" class="">Custom Package</a></li> -->
+
+						
+						</ul>
+					</li>
 				</ul>
 			
 			</div>

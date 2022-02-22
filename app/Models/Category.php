@@ -12,8 +12,8 @@ class Category extends Model
     protected $table = 'categorys';
     // protected $table='addproducts';
     protected $primaryKey = 'category_id';
-//     public function AddProduct()
-//   {
-//     return $this->belongsTo(AddProduct::class, 'category_id');
-//   }
+    public function AddProduct()
+  {
+    return $this->hasMany(AddProduct::class, 'category_id');
+  }
 }

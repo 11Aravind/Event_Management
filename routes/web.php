@@ -83,9 +83,19 @@ Route::get('/Regular',[PackageController::class,'Regular',"title"=>"Regular Pack
 Route::get('EventChart', function () {
     return view('User/EventChart',["title"=>"EventChart page"]);
 });
-Route::get('Events', function () {
-    return view('User/TicketBooking',["title"=>"TicketBooking page"]);
+Route::get('Events', [UserController::class,'EventList']);
+
+Route::get('Add_event_category', function () {
+    return view('Admin/Add_event_category',["title"=>"TicketBooking page"]);
 });
+Route::post('Add_event_category', [AdminController::class,'store_event']);
+Route::get('DisplayEventCategory', [AdminController::class,'DisplayEventCategory']);
+Route::get('/Add_Event', [AdminController::class,'Add_EventForm']);
+Route::post('/Add_Event', [AdminController::class,'Add_Event']);
+Route::get('/Event_details', [AdminController::class,'Event_details']);
+
+
+
 Route::get('/BuyNow', [UserController::class,'viewaddress']);
 
 //tourist

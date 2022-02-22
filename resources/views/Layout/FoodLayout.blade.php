@@ -73,7 +73,7 @@
             <li>KYC Form</li>
             <!-- <li> <a href="/foodcategory">Category</a></li> -->
             <li> <a href="/foodDetails">Category Details</a></li>
-            <li><a href="/Add_Food">Add Food</a></li>
+            <!-- <li><a href="/Add_Food">Add Food</a></li> -->
             <li><a href="/Display_Foodproduct">Disply Products</a></li>
 
             <li>Request</li>

@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\address;
+use App\Models\Category;
 use Session;
 class UserController extends Controller
 {
     //
+    public function EventList()
+    {
+        $category=Category::where('cat_type','Event')->get();
+        return view('User/TicketBooking',["title"=>"TicketBooking page",'categorys'=>$category]);
+    }
     public function store()
     {
         $address=new address();
