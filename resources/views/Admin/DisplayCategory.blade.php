@@ -39,12 +39,12 @@
                                                             <th> status</th>
                                                         </tr>
                                                     </thead>
-                                                   @foreach($fetchs as $fetch)
+                                                   @foreach($busdetailss as $busdetails)
                                                     <tbody>
                                                         <tr>
                                                             <td>1</td>
-                                                            <td>{{$fetch->category_name}}</td>
-                                                            <td>{{$fetch->discription}}</td>
+                                                            <td>{{$busdetails->category_name}}</td>
+                                                            <td>{{$busdetails->discription}}</td>
                                                            
                                                             <!-- <td>
                                                             <a href="#" class="btn btn-primary">Update</a>
@@ -52,7 +52,7 @@
                                                             <td>
                                                             <a href="#" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
-                                                            @if($fetch->status==1)
+                                                            @if($busdetails->status==1)
                                                             <td>
                                                             <button type="button" class="btn btn-success">Active</button>
                                                             </td>

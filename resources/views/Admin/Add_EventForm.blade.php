@@ -18,7 +18,7 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                <form method="POST" action="/Add_Event"enctype="multipart/form-data">
+                                                <form method="POST" action="/Add_Event" enctype="multipart/form-data">
                                                     @csrf
   <div class="form-row">
     <div class="form-group col-md-4">

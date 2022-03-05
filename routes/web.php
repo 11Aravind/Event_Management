@@ -7,6 +7,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\TravelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\EmployController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +28,11 @@ Route::get('/User', function () {
 Route::get('/Admin', function () {
     return view('Admin_homepage',["title"=>"Admin_dashbord"]);
 });
-Route::get('Employ', function () {
+Route::get('Empoly', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
 });
+Route::get('Add_employ',[EmployController::class,'Add_employ']);
+Route::post('/Add_employ',[EmployController::class,'store_emly_Det']);
 Route::get('Travel', function () {
     return view('Travel/KycForm',["title"=>"Employ_dashbord"]);
 });
@@ -45,8 +48,8 @@ Route::get('/foodDetails',[FoodController::class,'DisplayCategory']);
 Route::get('/Add_Food',[FoodController::class,'add_food_form']);
 Route::post('/Add_Food',[FoodController::class,'store_food']);
 Route::get('/Display_Foodproduct',[FoodController::class,'Display_Foodproduct']);
-
-
+// 
+Route::get('/Add_Food_package',[FoodController::class,'Add_Food_package']);
 //Authentication
 Route::get('SignUp',function(){
     return view('SignUp');
@@ -83,8 +86,8 @@ Route::get('/Regular',[PackageController::class,'Regular',"title"=>"Regular Pack
 Route::get('EventChart', function () {
     return view('User/EventChart',["title"=>"EventChart page"]);
 });
-Route::get('Events', [UserController::class,'EventList']);
-
+Route::get('/Events', [UserController::class,'EventList']);
+Route::get('Eventdetails/{id}', [UserController::class,'Eventdetails']);
 Route::get('Add_event_category', function () {
     return view('Admin/Add_event_category',["title"=>"TicketBooking page"]);
 });
@@ -123,7 +126,16 @@ Route::get('TravelKyc',[TravelController::class,'viewkycform']);
 Route::post('/TravelKyc',[TravelController::class,'storekycdetails']); 
 Route::get('BusDetails',[TravelController::class,'BusDetailsform']); 
 Route::post('/BusDetails',[TravelController::class,'storeBusDetails']); 
+Route::get('/Businfo',[TravelController::class,'Businfo']); 
+
+
 // Route::get('BusDetails', function () {
 //     return view('Travel/BusDetails',["title"=>"BusDetails"]);
 // });
 Route::post('/AddAddress',[UserController::class,'store']);
+
+Route::get('Tour_details',[PackageController::class,'Tour_details']);
+Route::get('/Add_tourpackage',[PackageController::class,'Add_tourpackage']);
+Route::post('/Add_tourpackage',[PackageController::class,'store_tourpackage']);
+Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
+

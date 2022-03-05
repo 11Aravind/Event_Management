@@ -75,7 +75,11 @@ $bus_detaile->seating_capacity=request('seating_capacity');
 $taxi_pic=request('taxi_pic');
 $ext=$taxi_pic->getClientOriginalExtension();
 $fname=time().'.'.$ext;
-$taxi_pic->move('uploaded_images/',$taxi_pic);
+$taxi_pic->move('uploaded_images/',$fname);
+
+
+
+
 $bus_detaile->taxi_pic=$fname;
 
 
@@ -86,12 +90,19 @@ if($save)
 {
 Session::put('towner_id',$bus_detaile->towner_id);
 // Session::put('user_id',$userinfo->user_id);
-return redirect('TravelKyc');
+return redirect('Businfo');
 }
 else{
   return "data not inserted";
 }
 // return "Forigin key de sambhavam ready alla man bakki ellam set ane";
+    }
+    public function Businfo()
+    {
+      $busdetails=BusDetail::all();
+      // return "bus info";
+      // return $busdetails;
+      return view('Travel/Display_busdetails',["busdetailss"=>$busdetails,"title"=>"bus datailes page"]);
     }
    
 }

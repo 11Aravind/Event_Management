@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AddProduct;
 use App\Models\Packages;
+use App\Models\BusDetail;
+use App\Models\Tour;
+use App\Models\Day;
+use Session;
 class PackageController extends Controller
 {
     
     public function showpackageproduct()
     {
-$fetchproductdetails=AddProduct::all();
-        return view('Admin/Add_Package',["fetchproductdetails"=>$fetchproductdetails,'title'=>'Add PackagePage']);
+$busdetailsproductdetails=AddProduct::all();
+        return view('Admin/Add_Package',["busdetailsproductdetails"=>$busdetailsproductdetails,'title'=>'Add PackagePage']);
     }
     public function addpackageproduct()
     {
@@ -75,4 +79,54 @@ $fetchproductdetails=AddProduct::all();
 
         return view('User.PackageDetail',["first"=>$fullproduct]);
     }
+    //tour package details view (in admin side
+    public function Tour_details()
+    {
+return view('Admin.Tour_details',["title"=>"Tour_details page"]);
+    }
+    public function Add_tourpackage()
+    {
+        $busdetails=BusDetail::all();
+
+        return view('Admin.Add_tourpackage',["title"=>"Add_tourpackage page","busdetails"=>$busdetails]);       
+    }
+    public function store_tourpackage()
+    {
+        $tourpackage=new Tour();
+        $tourpackage->bus_id=request('busname');    
+        $tourpackage->dateofDeparture=request('Departuretime');
+        $tourpackage->dateofarrival=request('arrivedtime');
+        $tourpackage->days=request('days');
+        $tourpackage->MainDescription=request('Maindesc');
+        $tourpackage->Price=request('price');
+        $tourpackage->PriceDescription=request('pricedesc');
+        
+        $save=$tourpackage->save();
+        if($save){
+        $tour_id=$tourpackage->tour_id;
+        Session::put('tour_id', $tour_id);
+        return back();
+        }
+        else
+        return "data not inserted";
+    }
+    public function store_dayplanes()
+    {
+$store_day_plan=new Day();
+$tour_id=Session::get('tour_id');
+$store_day_plan->tour_id =$tour_id;
+        $store_day_plan->Mornigtoureplace=request('Moringplace');
+        $store_day_plan->Afternoon=request('Afteplace');
+        $store_day_plan->NightPrograms=request('Nightprgm');
+
+        $store_day_plan->hotelname=request('Hotelname');
+        $store_day_plan->Hpic=request('hotelpic');
+        $store_day_plan->locality=request('locality');
+        $save=$store_day_plan->save();
+        if($save)
+        return "data is inserted successfuly";
+        else
+        return "data not inserted";
+    }
+
 }

@@ -26,31 +26,38 @@
     <!-- </div> -->
 <div class="row justify-content-center">
 <div class="row">
+@foreach($event_dets as $event_det)
 <div class="col-lg-3 col-md-6">
 <div class="single_place">
 <div class="thumb">
-<img src="Template_asset\images\pub.jpg" alt="">
+<!-- <img src="Template_asset\images\pub.jpg" alt=""> -->
+<img src="uploaded_images/{{$event_det->event_banner}}" alt="">
+
 <!-- <a href="#" class="prise">$500</a> -->
 </div>
 <div class="place_info">
-<a href="destination_details.html"><h3>Public Speaking Strategy For Success</h3></a>
+<a href="destination_details.html"><h3>{{$event_det->event_name}}</h3></a>
 <span>Free</span>
-<span>4 remaining</span>
+<span>{{$event_det->totel_ticket}} remaining</span>
 <div class="rating_days d-flex justify-content-between">
 <span class="d-flex justify-content-center align-items-center">
-Monday 4.30PM
+<!-- Monday 4.30PM -->
+
+{{$event_det->starting_time}}
 <!-- <a href="#">(20 Review)</a> -->
 </span>
 <div class="days">
 <i class="fa fa-clock-o"></i>
-<a href="#">5 Days</a>
+
+<a href="#">{{$event_det->duration}} end </a>
 <br>
-<a href="#" style="color:red">More>></a>
+<a href="Eventdetails/{{$event_det->event_id}} " style="color:red">More>></a>
 </div>
 </div>
 </div>
 </div>
 </div>
+@endforeach
 <!-- <div class="col-lg-3 col-md-6">
 <div class="single_place">
 <div class="thumb">

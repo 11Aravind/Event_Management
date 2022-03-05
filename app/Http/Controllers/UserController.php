@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\address;
 use App\Models\Category;
+use App\Models\Event;
 use Session;
 class UserController extends Controller
 {
@@ -12,7 +13,9 @@ class UserController extends Controller
     public function EventList()
     {
         $category=Category::where('cat_type','Event')->get();
-        return view('User/TicketBooking',["title"=>"TicketBooking page",'categorys'=>$category]);
+        $event_det=Event::all();
+        // return $event_det;
+        return view('User/TicketBooking',["title"=>"TicketBooking page",'categorys'=>$category,"event_dets"=>$event_det]);
     }
     public function store()
     {
@@ -27,7 +30,7 @@ class UserController extends Controller
         $address->city=request('city');
         $address->district=request('district');
         $address->Aphoneno=request('Aphoneno');
-        // $address->delivarplace=request('delivarplace');
+        $address->delivarplace=request('district');
 
         $address->save();
         return redirect('/BuyNow');
@@ -40,4 +43,12 @@ class UserController extends Controller
         // dd($addressdet);
         return view('User/BuyNow',["addressdets"=>$addressdet,"title"=>"TicketBooking page"]);
     }
+    public function Eventdetails($id)
+    {
+       
+        $event_det=Event::findOrFail($id);
+        
+        return view('User/Eventdetails',["title"=>"Eventdetails page","event_det"=>$event_det]);
+    }
 }
+

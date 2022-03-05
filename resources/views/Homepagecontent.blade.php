@@ -1,7 +1,7 @@
 @extends('Layout/User_Homepage')
 @section('content')
 
-<section class="hero-area">
+<!-- <section class="hero-area">
 <div class="main__circle"></div>
 <div class="main__circle2"></div>
 <div class="main__circle3"></div>
@@ -23,10 +23,80 @@ beatae laborum veniam distinctio.</p>
 </div>
 </div>
 </div>
-</section>
+</section> -->
+<style>
+  *{
+    margin:0;
+    padding:0;
+  }
+    /* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  position: fixed;
+   right: 0;
 
+  width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+}
 
-<div class="count-down">
+/* Add some content at the bottom of the video/page */
+.content {
+  position: fixed;
+  /* bottom: 0; */
+  top:0;
+  /* background: rgba(0, 0, 0, 0.5); */
+  color: #f1f1f1;
+  width: 100%;
+  /* padding: 20px; */
+
+  margin: 0;
+    /* background: yellow; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+.contens{
+  margin-top: 754px;
+}
+</style>
+<div class="video" style="background:black">
+  <video autoplay muted loop id="myVideo">
+    <source src="video_banner/video.mp4" type="video/mp4">
+  </video>
+</div>
+  
+  <!-- Optional: some overlay text to describe the video -->
+  <div class="content">
+    <h1 style="font-size: 86px;text-align: center;font-family: sans-serif;color:white">DREAM     EVENTS</h1>
+  </div>
+  <div class="contens"></div>
+   
+  
+<!-- <div class="count-down">
 <div class="container">
 <div class="row">
 <div class="col-12">
@@ -53,7 +123,7 @@ beatae laborum veniam distinctio.</p>
 </div>
 </div>
 </div>
-</div>
+</div> -->
 
 
 <section class="features section">

@@ -23,16 +23,16 @@ $storecategory->cat_type="FoodProduct";
 $storecategory->status=0;
 $save=$storecategory->save();
 if($save){
-    return redirect('foodcategory')->with('success','New Category was added');
+    return redirect('foodDetails')->with('success','New Category was added');
 }else{
 return back()->with('failmsg','New Category was not added try again');
     }
     }
     public function DisplayCategory()
     {
-        // $fetch=Category::all();
-        $fetch=Category::where('cat_type','=','FoodProduct')->get();
-        return view('Food.DisplayCategory',["fetchs"=>$fetch,"title"=>"DisplayCategory Page"]);
+        // $busdetails=Category::all();
+        $busdetails=Category::where('cat_type','=','FoodProduct')->get();
+        return view('Food.DisplayCategory',["busdetailss"=>$busdetails,"title"=>"DisplayCategory Page"]);
     }
     public function add_food_form()
     {
@@ -58,13 +58,20 @@ $store_product->product_quentity=$request->product_quentity;
 $store_product->product_discription=$request->product_description;
 $store_product->status=0;
 $store_product->save();
-return redirect('/Add_Food');
+return redirect('/Display_Foodproduct');
     }
     public function Display_Foodproduct()
     {
 
-        $fetch=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+        $busdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
         ->where('categorys.cat_type','=','FoodProduct')->get();;
-        return view('Food/Display_Event',["title"=>"Display_Product","fetchs"=>$fetch]);
+        return view('Food/Display_Event',["title"=>"Display_Product","busdetailss"=>$busdetails]);
+    }
+    public function Add_Food_package()
+    {
+        $busdetailsproductdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+        ->where('categorys.cat_type','=','FoodProduct')->get();;
+        // return view('Food/Display_Event',["title"=>"Display_Product","busdetailss"=>$busdetails]);
+        return view('Food/Add_Food_package',["busdetailsproductdetails"=>$busdetailsproductdetails,'title'=>'Add PackagePage']);
     }
 }

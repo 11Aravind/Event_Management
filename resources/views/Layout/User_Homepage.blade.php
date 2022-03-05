@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="../Template_asset/css/main.css">
 <link rel="stylesheet" href="../Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
 <!-- example end -->
+<link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWxq0BifrLE2ztsvXcrC2NGp1rF4s3RMEglA&usqp=CAU" type="image/x-icon"/>
+
 
 <link rel="stylesheet" href="Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="Template_asset/css/LineIcons.3.0.css">
@@ -27,9 +29,15 @@
 <!-- Template_asset/css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-
+#main_menu{
+    /* border-bottom: 2px solid; */
+    /* border-color: rgba(215,38,122,0.3); */
+    /* padding-bottom: 3px; */
+    /* transition: all 0.2s ease; */
+    FONT-SIZE: medium;
+}
 </style></head>
-<body>
+<body style="font-family: sans-serif;">
 <!--[if lte IE 9]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -55,9 +63,9 @@
 <div class="nav-inner">
 
 <nav class="navbar navbar-expand-lg">
-<a class="navbar-brand" href="#index.html">
+<!-- <a class="navbar-brand" href="#index.html">
 <img src="Template_asset/images/images.png" alt="Logo">
-</a>
+</a> -->
 <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <span class="toggler-icon"></span>
 <span class="toggler-icon"></span>
@@ -66,39 +74,39 @@
 <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
 <ul id="nav" class="navbar-nav ms-auto">
 <li class="nav-item">
-<a href="/" class="active" aria-label="Toggle navigation">Home</a>
+<a href="/" class="active" id="main_menu"aria-label="Toggle navigation">HOME</a>
 </li>
 <li class="nav-item">
 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-1" 
-aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Packages</a>
+aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-label="Toggle navigation">PACKAGES</a>
 <ul class="sub-menu collapse" id="submenu-1-1">
-<li class="nav-item"><a href="/Premium">Premium</a></li>
-<li class="nav-item"><a href="/Medium">Medium</a></li>
-<li class="nav-item"><a href="/Regular">Regular</a></li>
-<li class="nav-item"><a href="#sponsors.html">Custom</a></li>
+<li class="nav-item"><a href="/Premium">PREMIUM</a></li>
+<li class="nav-item"><a href="/Medium">MEDIUM</a></li>
+<li class="nav-item"><a href="/Regular">REGULAR</a></li>
+<li class="nav-item"><a href="#sponsors.html">CUSTOM</a></li>
 
 </ul>
 </li>
 <li class="nav-item">
-<a href="#schedule.html" aria-label="Toggle navigation">Rent</a>
+<a href="#schedule.html"id="main_menu" aria-label="Toggle navigation">RENT</a>
 </li>
 <li class="nav-item">
-<a href="#speakers.html" aria-label="Toggle navigation">Empolys </a>
+<a href="#speakers.html"id="main_menu" aria-label="Toggle navigation">EMPLOYS </a>
 </li>
 <li class="nav-item">
 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
- aria-expanded="false" aria-label="Toggle navigation">Event</a>
+ aria-expanded="false" id="main_menu"aria-label="Toggle navigation">EVENTS</a>
 <ul class="sub-menu collapse" id="submenu-1-2">
-<li class="nav-item"><a href="Events">Ticket Booking</a>
+<li class="nav-item"><a href="/Events">TICKET BOOKING</a>
 </li>
-<li class="nav-item"><a href="EventChart">Upcomming Events</a></li>
+<li class="nav-item"><a href="/EventChart">UPCOMING EVENTS</a></li>
 </ul>
 </li>
 <li class="nav-item">
-<a href="/TourView" aria-label="Toggle navigation">Tour</a>
+<a href="/TourView"id="main_menu" aria-label="Toggle navigation">TOUR</a>
 </li>
 <li class="nav-item">
-<a href="#contact.html" aria-label="Toggle navigation">Contact</a>
+<a href="#contact.html"id="main_menu" aria-label="Toggle navigation">CONTACTS</a>
 </li>
 @if(Session::get('user_id'))
 
@@ -247,6 +255,18 @@ Follow Us On:
 <script src="Template_asset/js/count-up.min.js.download"></script>
 <script src="Template_asset/js/main.js.download"></script>
 <script>
+$( document ).ready(function() {
+    $('#newaddressform').slideUp();
+});
+$("#cancel").click(function(){
+        $('#newaddressform').slideUp();
+      });
+      $("#addaddressBtn").click(function(){
+        $('#newaddressform').show();
+      });
+    //   ordersummary
+    </script>
+<!-- <script>
         //========= glightbox
         GLightbox({
             'href': 'https://www.youtube.com/watch?v=Gxw45q3Ga3k',
@@ -285,8 +305,8 @@ Follow Us On:
                 }
             }
         });
-    </script>
-<script>
+    </script> -->
+<!-- <script>
         const finaleDate = new Date("February 15, 2023 00:00:00").getTime();
 
         const timer = () => {
@@ -316,6 +336,6 @@ Follow Us On:
         }
         timer();
         setInterval(timer, 1000);
-    </script>
+    </script> -->
 
 </body></html>

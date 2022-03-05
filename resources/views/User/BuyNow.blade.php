@@ -53,12 +53,23 @@
         </div> -->
         
         <div class="option">
-        <h4 style=""><i class="fa fa-plus" aria-hidden="true"></i>
+        <h4 id="addaddressBtn" style="cursor: pointer;"><i class="fa fa-plus" aria-hidden="true"></i>
 Add new address </h4>
 
 <div class="newaddressform" id="newaddressform" style="">
+
 <form action="/AddAddress"method="POST" enctype="multipart/form-date">
   @csrf
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" >
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
 <div class="form-group">
   <!-- <div class="col-md-12"> -->
       <div class="col-md-6">
@@ -100,6 +111,7 @@ Add new address </h4>
       <input type="text" name="district" class="form-control" placeholder="">
     </div>
     </div>
+    
 <div class="form-row">
    
     <div class="col">
@@ -120,7 +132,7 @@ Add new address </h4>
  </div>
 <div class="form-row">
     <button class="btn btn-warning">Save And Delivary Hear</button>
-    <button class="btn btn-link">cancel</button>
+    <span id="cancel" style="cursor: pointer;">cancel</span>
 </div>
     
 </form>
@@ -129,7 +141,7 @@ Add new address </h4>
         </div>
         <div class="option">
         <h4>Order Summary</h4>
-        <div class="ordersummary" id="ordersummary"style="display:flex;display:none">
+        <div class="ordersummary" id="ordersummary"style="display:flex;">
     <div class="img" style="width:49px;height:100px;margin-right: 41px;">
         <img src="https://rukminim1.flixcart.com/image/416/416/k4a7c7k0/mouse/m/h/t/dell-ms116-wired-optical-mouse-3yrs-warranty-original-imafmktgxyt5ge9k.jpeg?q=70" alt="productimage">
     </div>
@@ -151,4 +163,5 @@ usb:black
         <h6>strip</h6>
         </div> 
     </div>
+
     @endsection

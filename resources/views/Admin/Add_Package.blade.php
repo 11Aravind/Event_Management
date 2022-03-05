@@ -40,17 +40,17 @@
       @php
       $i=1;
       @endphp
-    @foreach($fetchproductdetails as $fetchproductdetail)
+    @foreach($busdetailsproductdetails as $busdetailsproductdetail)
     <tr>
       <th scope="row">@php echo $i @endphp</th>
-      <td>{{$fetchproductdetail->categorydet->category_name}}</td>
-      <td>{{$fetchproductdetail->product_name}}</td>
-      <td>{{$fetchproductdetail->product_price}}</td>
-      <td>{{$fetchproductdetail->product_quentity}}</td>
+      <td>{{$busdetailsproductdetail->categorydet->category_name}}</td>
+      <td>{{$busdetailsproductdetail->product_name}}</td>
+      <td>{{$busdetailsproductdetail->product_price}}</td>
+      <td>{{$busdetailsproductdetail->product_quentity}}</td>
 
       <td>
          
-          <input type="checkbox" value="{{$fetchproductdetail->product_id}}" name="packageProduct[]">
+          <input type="checkbox" value="{{$busdetailsproductdetail->product_id}}" name="packageProduct[]">
         
       </td>
     </tr>

@@ -42,31 +42,31 @@
                                                             <th> status</th>
                                                         </tr>
                                                     </thead>
-                                                   @foreach($fetchs as $fetch)
+                                                   @foreach($busdetailss as $busdetails)
                                                    
                                                     <tbody>
                                                         <tr>
                                                             <td>1</td>
-                                                            <td>{{$fetch->product_name}}</td>
-                                                            <td>{{$fetch->category_name}}</td>
-                                                            <td>{{$fetch->cat_type}}</td>
-                                                            <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$fetch->product_photo}}" alt=""> </td>
+                                                            <td>{{$busdetails->product_name}}</td>
+                                                            <td>{{$busdetails->category_name}}</td>
+                                                            <td>{{$busdetails->cat_type}}</td>
+                                                            <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$busdetails->product_photo}}" alt=""> </td>
 
-                                                            <td>{{$fetch->product_quentity}}</td>
-                                                            <td>{{$fetch->product_price}}</td>
+                                                            <td>{{$busdetails->product_quentity}}</td>
+                                                            <td>{{$busdetails->product_price}}</td>
                                                             <td>
-                                                            <a href="UpdateForm/{{$fetch->product_id}}" class="btn btn-primary">Update</a>
+                                                            <a href="UpdateForm/{{$busdetails->product_id}}" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
-                                                            <a href="DeleteProduct/{{$fetch->product_id }}" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="DeleteProduct/{{$busdetails->product_id }}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
-                                                            @if($fetch->status==1)
+                                                            @if($busdetails->status==1)
                                                             <td>
-                                                            <a href="DeactiveProduct/{{$fetch->product_id }}" class="btn btn-danger"> Dective</a>
+                                                            <a href="DeactiveProduct/{{$busdetails->product_id }}" class="btn btn-danger"> Dective</a>
                                                             </td>
                                                             @else
                                                             <td>
-                                                            <a href="ActiveProduct/{{$fetch->product_id }}" class="btn btn-success">Active</a>
+                                                            <a href="ActiveProduct/{{$busdetails->product_id }}" class="btn btn-success">Active</a>
                                                             </td>
                                                             
                                                             @endif

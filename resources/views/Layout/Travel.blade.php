@@ -66,8 +66,8 @@
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
             <li> <a href="/TravelKyc">KYC Form</a>  </li>
-            <li> <a href="/BusDetails">Bus Details</a>  </li>
-           
+            <!-- <li> <a href="/BusDetails"> ADD Bus </a>  </li> -->
+            <li> <a href="/Businfo">Bus Details</a>  </li>
             
             <li>Request</li>
         </ul>

@@ -88,7 +88,7 @@
 							<span class="pcoded-mtext">Add Package</span></a>
 					</li>
 							<li class=""><a href="ViewPackage" class="">View Package</a></li>
-							<li class=""><a href="#" class="">Tour Package</a></li>
+							<li class=""><a href="/Tour_details" class="">Tour Package</a></li>
 							<li class=""><a href="#" class="">Custom Package</a></li>
 
 						
@@ -108,6 +108,12 @@
 
 						
 						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="../DisplayCategory" class="nav-link">
+							<span class="pcoded-micon">
+                            <i class="feather icon-file-text"></i></span>
+							<span class="pcoded-mtext">Category Details</span></a>
 					</li>
 				</ul>
 			
@@ -245,7 +251,8 @@
 	<script src="assets/js/datatable.js"></script>
 	<script src="assets/js/jquery-3.5.1.js"></script>
 	<script src="assets/js/jquery.dataTables.min.js"></script>	
-	<script src="assets/js/dataTables.bootstrap4.min.js"></script>		
+	<script src="assets/js/dataTables.bootstrap4.min.js"></script>	
+<script src="assets\plugins\jquery\js\jquery.min.js"></script>	
 	<!-- imagepopup.js -->
 
 </body>

@@ -61,12 +61,12 @@ return redirect('Display_Product');
     public function display_product()
     {
         
-        // $fetch=AddProduct::all();
-        $fetch=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+        // $busdetails=AddProduct::all();
+        $busdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
         ->where('categorys.cat_type','=','Product')->get();
         
       // product table il ninnode category table il ninnu cat_type eduth compare cheyth nokkanam ennittu avashyam ullath eduthal mathi
-        return view('Admin/Display_Product',["title"=>"Display_Product","fetchs"=>$fetch]);
+        return view('Admin/Display_Product',["title"=>"Display_Product","busdetailss"=>$busdetails]);
     }
 //delete product
 public function DeleteProduct($id)
@@ -86,21 +86,21 @@ else{
 //DisplayCategory
 public function DisplayCategory()
 {
-    // $fetch=Category::all();
+    // $busdetails=Category::all();
     
     $addcategorytype="../Add_category";
 $headding="Product Category Details";
-    $fetch=Category::where('cat_type','=','Product')->get();
-    return view('Admin.DisplayCategory',["fetchs"=>$fetch,"headding"=>$headding,"addcategorytype"=>$addcategorytype,"title"=>"DisplayCategory Page"]);
+    $busdetails=Category::where('cat_type','=','Product')->get();
+    return view('Admin.DisplayCategory',["busdetailss"=>$busdetails,"headding"=>$headding,"addcategorytype"=>$addcategorytype,"title"=>"DisplayCategory Page"]);
 }
 //display event category
 public function DisplayEventCategory()
 {
-    // $fetch=Category::all();
+    // $busdetails=Category::all();
     $addcategorytype="../Add_event_category";
     $headding="Event Category Details";
-    $fetch=Category::where('cat_type','=','Event')->get();
-    return view('Admin.DisplayCategory',["fetchs"=>$fetch,"headding"=>$headding,"addcategorytype"=>$addcategorytype,"title"=>"DisplayEventCategory Page"]);
+    $busdetails=Category::where('cat_type','=','Event')->get();
+    return view('Admin.DisplayCategory',["busdetailss"=>$busdetails,"headding"=>$headding,"addcategorytype"=>$addcategorytype,"title"=>"DisplayEventCategory Page"]);
 }
 //display event form
 public function Add_EventForm(){
@@ -133,23 +133,24 @@ $event_obj->discount=request('discount');
 $event_obj->discount_end=request('discount_end');
 $event_obj->event_discription=request('event_discription');
 $event_obj->save();
+return redirect('/Add_Event');
 }
 //display evetn details
 public function Event_details()
 {
     // return "Event_details";
-    $fetch=DB::table('categorys')->join('events','categorys.category_id','=','events.category_id')
+    $busdetails=DB::table('categorys')->join('events','categorys.category_id','=','events.category_id')
     ->where('categorys.cat_type','=','Event')->get();
 
-    return view('Food/Display_Event',["title"=>"Display_Product","fetchs"=>$fetch]);
+    return view('Food/Display_Event',["title"=>"Display_Product","busdetailss"=>$busdetails]);
 
 }
 // UpdateForm product
 public function UpdateForm($id)
 {
-    $fetch=AddProduct::findOrFail($id);  
+    $busdetails=AddProduct::findOrFail($id);  
     $getcategorys=Category::all();
-    return view('Admin/UpdateForm',["fetch"=>$fetch,"getcategorys"=>$getcategorys,"title"=>"Update Product Page"]);
+    return view('Admin/UpdateForm',["busdetails"=>$busdetails,"getcategorys"=>$getcategorys,"title"=>"Update Product Page"]);
 }
 // UpdateProduct
 public function UpdateProduct(Request $request,$id)
