@@ -7,7 +7,8 @@
                     <div class="main-body">
                         <div class="page-wrapper">
 <div class="row">
-    <h1>ready ayo da</h1>
+
+ 
     <br>
         <form method="POST" action="/Add_daysplane" enctype="multipart/form-data">
  @csrf
@@ -54,6 +55,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Add Place</button>
 </form>
+
 <div>
 <div>
 <div>

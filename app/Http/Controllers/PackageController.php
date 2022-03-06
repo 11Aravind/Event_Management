@@ -117,8 +117,13 @@ return view('Admin.Tour_details',["title"=>"Tour_details page"]);
     }
     public function store_dayplanes()
     {
-$store_day_plan=new Day();
+
 $tour_id=Session::get('tour_id');
+$days=Session::get('days');
+$count=Day::where('tour_id','=',$tour_id)->count();
+if($count<$days)
+{
+$store_day_plan=new Day();
 $store_day_plan->tour_id =$tour_id;
         $store_day_plan->Mornigtoureplace=request('Moringplace');
         $store_day_plan->Afternoon=request('Afteplace');
@@ -128,10 +133,13 @@ $store_day_plan->tour_id =$tour_id;
         $store_day_plan->Hpic=request('hotelpic');
         $store_day_plan->locality=request('locality');
         $save=$store_day_plan->save();
-        if($save)
-        return "data is inserted successfuly";
+        if($save) 
+        return redirect('/Add_dayPlan');
         else
         return "data not inserted";
+}
+else
+return redirect('Tour_details');
     }
 
 }

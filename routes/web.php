@@ -139,5 +139,5 @@ Route::get('/Add_tourpackage',[PackageController::class,'Add_tourpackage']);
 Route::post('/Add_tourpackage',[PackageController::class,'store_tourpackage']);
 Route::get('/Add_dayPlan',[PackageController::class,'Add_dayPlan']);
 
-// Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
+Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
 
