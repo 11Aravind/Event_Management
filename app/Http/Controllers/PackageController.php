@@ -100,15 +100,20 @@ return view('Admin.Tour_details',["title"=>"Tour_details page"]);
         $tourpackage->MainDescription=request('Maindesc');
         $tourpackage->Price=request('price');
         $tourpackage->PriceDescription=request('pricedesc');
-        
+        $days=request('days');
         $save=$tourpackage->save();
         if($save){
+            Session::put('days', $days);
         $tour_id=$tourpackage->tour_id;
         Session::put('tour_id', $tour_id);
-        return back();
+        return redirect('/Add_dayPlan');
         }
         else
         return "data not inserted";
+    }
+    public function Add_dayPlan()
+    {
+        return view('Admin.Add_dayPlan',["title"=>"Add tour day today program"]);
     }
     public function store_dayplanes()
     {

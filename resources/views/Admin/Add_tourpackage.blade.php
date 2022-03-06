@@ -102,66 +102,7 @@ Add details</h3>
   <button type="submit" class="btn btn-primary">Add Tour Package</button>
 </form>
 <hr>
-<div id="appent"></div>
-<script src="assets\plugins\jquery\js\jquery.min.js"></script>	
-<script>
-  
-    $( document ).ready(function(){
-  $("#days").change(function() {
-    $("#appent").empty();
-    for(var i=0;i<$("#days").val();i++){
-        $("#appent").append('\
-        <form method="POST" action="/Add_daysplane" enctype="multipart/form-data">\
- @csrf\
-      <h4> Day </h4><hr>\
-  <div class="form-row">\
-    <div class="form-group col-md-6">\
-      <label for="inputText4">Morning Visite Tourist Place </label>\
-      <input type="text" name="Moringplace"class="form-control" id="inputText4" >\
-    </div>\
-  </div>\
-  <div class="form-row">\
-    <div class="form-group col-md-6">\
-      <label for="inputText4">Afternoon Tour Plase</label>\
-      <input type="text"name="Afteplace" class="form-control" id="inputText4" >\
-    </div>\
-    <div class="form-group col-md-6">\
-      <label for="inputText4">Night Programs</label>\
-      <input type="text" name="Nightprgm"class="form-control" id="inputText4" placeholder="hotel name for stay">\
-    </div>\
-  </div>\
-  <div class="form-row"\
-    <div class="form-group col-md-6">\
-      <label for="inputText4"> Hotel Name </label>\
-      <input type="text" name="Hotelname"class="form-control" id="inputText4" >\
-    </div>\
-    <div class="form-group col-md-6">\
-      <label for="inputText4"> hotel picture </label>\
-      <input type="file" name="hotelpic"class="form-control" id="inputText4" placeholder="hotel name for stay">\
-    </div>\
-  </div>\
-  <div class="form-row">\
-  <div class="form-group col-md-6">\
-      <label for="inputText4"> Hotel Locality </label>\
-      <input type="text" name="locality"class="form-control" id="inputText4" >\
-    </div>\
-    <div class="form-group col-md-6">\
-      <label for="inputText4">Room Type</label>\
-      <select class="form-control" name="" id="">\
-      <option value="">--Select--</option>\
-          <option value="">Ac</option>\
-          <option value="">Non Ac</option>\
-      </select>\
-    </div>\
-  </div>\
-  <button type="submit" class="btn btn-primary">Add Place</button>\
-</form>\
-');
-    }
-  });
-});
-  
-    </script>
+
 
 
   </div>

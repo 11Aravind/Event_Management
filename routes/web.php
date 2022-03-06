@@ -137,5 +137,7 @@ Route::post('/AddAddress',[UserController::class,'store']);
 Route::get('Tour_details',[PackageController::class,'Tour_details']);
 Route::get('/Add_tourpackage',[PackageController::class,'Add_tourpackage']);
 Route::post('/Add_tourpackage',[PackageController::class,'store_tourpackage']);
-Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
+Route::get('/Add_dayPlan',[PackageController::class,'Add_dayPlan']);
+
+// Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
 
