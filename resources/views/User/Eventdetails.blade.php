@@ -74,10 +74,7 @@ Midge Maisel</span>
     About This Event
 </h3>
 <p>{{$event_det->event_discription}}</p>
-<p>Online learning takes advantage of technology to simulate or improve upon traditional methods of teaching. You’ll be introduced to some of these teaching methods, including using free apps to practise writing Chinese characters.</p>
-<p>
-    Take the chance to delve deeper into elements of formal online learning, and find out how online assessment and teaching is carried out.
-</p>   
+
     </div>
     <div style="flex:1">
             <h2>BOOKING ENDS</h2>

@@ -50,5 +50,10 @@ class UserController extends Controller
         
         return view('User/Eventdetails',["title"=>"Eventdetails page","event_det"=>$event_det]);
     }
+    public function eventdynamic($event)
+    {
+// $routtchange=Event::where(,'=',$event)->first();
+return $event;
+    }
 }
 

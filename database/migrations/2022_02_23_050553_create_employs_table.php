@@ -25,7 +25,7 @@ class CreateEmploysTable extends Migration
             $table->string('qualification');
             $table->string('experience');
             $table->string('cirtificate');
-           
+           $table->string('status');
             
             // $table->string('contact_no');
             $table->timestamps();

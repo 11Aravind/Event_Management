@@ -13,9 +13,6 @@
 <body>
     <img src="images/Kerala.jpg"  style="width: 100%;
     height: 416px;"alt="slider">
-
-
-
 <div class="search-availablity">
     <div class="container">
     <div class="row justify-content-center">
@@ -68,18 +65,25 @@
 </div>
 </div>
 </div>
+
 <div class="row">
+@foreach($tourdetails as $tourdetail)
 <div class="col-lg-4 col-md-6">
 <div class="single_destination">
 <div class="thumb">
 <img src="images/destination-x1.png.pagespeed.ic.U45P3KOe98.png" alt="">
 </div>
 <div class="content">
-<p class="d-flex align-items-center">Italy <a href="travel_destination.html"> 07 Places</a> </p>
+<p class="d-flex align-items-center">{{$tourdetail->MainDescription}} <a href="travel_destination.html"> {{$tourdetail->days}} Days</a> </p>
 </div>
 </div>
 </div>
-<div class="col-lg-4 col-md-6">
+@endforeach
+</div>
+
+</div>
+</div>
+<!-- <div class="col-lg-4 col-md-6">
 <div class="single_destination">
 <div class="thumb">
 <img src="images/destination-x2.png.pagespeed.ic.8sdFlO1TPt.png" alt="">
@@ -118,8 +122,8 @@
 <p class="d-flex align-items-center">Maldives <a href="travel_destination.html"> 02 Places</a> </p>
 </div>
 </div>
-</div>
-<div class="col-lg-4 col-md-6">
+</div> -->
+<!-- <div class="col-lg-4 col-md-6">
 <div class="single_destination">
 <div class="thumb">
 <img src="images/destination-x6.png.pagespeed.ic.go4MmVP7pf.png" alt="">
@@ -128,10 +132,8 @@
 <p class="d-flex align-items-center">Indonesia <a href="travel_destination.html"> 05 Places</a> </p>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</div> -->
+
 <div class="popular_places_area">
 <div class="container">
 <div class="row justify-content-center">

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\AddProduct;
 use App\Models\Event;
+use App\Models\Employ;
 class AdminController extends Controller
 {
     //
@@ -206,6 +207,11 @@ if($save){
 return back()->with('failmsg','New Category was not added try again');
 }
  }
-
+public function Displayemploydet()
+{
+    $employdet=Employ::all();
+    return view('Admin/Displayemploydet',["employdets"=>$employdet,"title"=>"Displayemploydet page"]);
+    // return $employdet;
+}
 
 }

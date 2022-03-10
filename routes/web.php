@@ -8,6 +8,7 @@ use App\Http\Controllers\TravelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\EmployController;
+use App\Http\Controllers\TourController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +32,17 @@ Route::get('/Admin', function () {
 Route::get('Empoly', function () {
     return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);
 });
+//Employ
 Route::get('Add_employ',[EmployController::class,'Add_employ']);
 Route::post('/Add_employ',[EmployController::class,'store_emly_Det']);
+
+Route::get('/Displayemploydet',[EmployController::class,'Displayemploydet']);
+// Employdetails
+// employdetactive
+Route::get('/employActive/{id}',[EmployController::class,'EmployActive']);
+Route::get('/EmployDeactive/{id}',[EmployController::class,'EmployDeactive']);
+// EmmployDeactive
+Route::get('/Employdetails',[AdminController::class,'Displayemploydet']);
 Route::get('Travel', function () {
     return view('Travel/KycForm',["title"=>"Employ_dashbord"]);
 });
@@ -86,6 +96,11 @@ Route::get('/Regular',[PackageController::class,'Regular',"title"=>"Regular Pack
 Route::get('EventChart', function () {
     return view('User/EventChart',["title"=>"EventChart page"]);
 });
+
+
+
+// Route::get('/{event}',[UserController::class,'eventdynamic']);
+
 Route::get('/Events', [UserController::class,'EventList']);
 Route::get('Eventdetails/{id}', [UserController::class,'Eventdetails']);
 Route::get('Add_event_category', function () {
@@ -101,10 +116,8 @@ Route::get('/Event_details', [AdminController::class,'Event_details']);
 
 Route::get('/BuyNow', [UserController::class,'viewaddress']);
 
-//tourist
-Route::get('TourView', function () {
-    return view('User/TourView',["title"=>"TourView page"]);
-});
+//tour display
+Route::get('TourView',[TourController::class,'TourView']);
 
 // PackageController
 
@@ -140,4 +153,7 @@ Route::post('/Add_tourpackage',[PackageController::class,'store_tourpackage']);
 Route::get('/Add_dayPlan',[PackageController::class,'Add_dayPlan']);
 
 Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
+
+
+
 

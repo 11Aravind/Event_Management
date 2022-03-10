@@ -91,7 +91,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 <a href="#schedule.html"id="main_menu" aria-label="Toggle navigation">RENT</a>
 </li>
 <li class="nav-item">
-<a href="#speakers.html"id="main_menu" aria-label="Toggle navigation">EMPLOYS </a>
+<a href="/Displayemploydet"id="main_menu" aria-label="Toggle navigation">EMPLOYS </a>
 </li>
 <li class="nav-item">
 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"

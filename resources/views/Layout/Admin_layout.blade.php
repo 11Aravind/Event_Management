@@ -109,11 +109,24 @@
 						
 						</ul>
 					</li>
+					<!-- <li class=""><a href="/Tour_details" class="">Tour Package</a></li> -->
+					<li class="nav-item">
+						<a href="../Tour_details" class="nav-link">
+							<span class="pcoded-micon">
+                            <i class="feather icon-file-text"></i></span>
+							<span class="pcoded-mtext">Tour Package</span></a>
+					</li>
 					<li class="nav-item">
 						<a href="../DisplayCategory" class="nav-link">
 							<span class="pcoded-micon">
                             <i class="feather icon-file-text"></i></span>
 							<span class="pcoded-mtext">Category Details</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="../Employdetails" class="nav-link">
+							<span class="pcoded-micon">
+                            <i class="feather icon-file-text"></i></span>
+							<span class="pcoded-mtext">Employs Details</span></a>
 					</li>
 				</ul>
 			

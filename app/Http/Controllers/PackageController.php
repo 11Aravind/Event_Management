@@ -141,5 +141,6 @@ $store_day_plan->tour_id =$tour_id;
 else
 return redirect('Tour_details');
     }
+   
 
 }
