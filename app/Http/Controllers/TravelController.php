@@ -34,14 +34,7 @@ $owner_photo=request('ownerphoto');
   $filename=time().'.'.$extension;
   $file->move('uploaded_images/',$filename);
   $TravelKyc->owner_photo=$filename;
-  // $file=$request->product_image;
-  // $extension=$file->getClientOriginalExtension();
-  // $filename=time().'.'.$extension;
-  // $file->move('uploaded_images/',$filename);
-  // $store_product->product_photo=$filename;
-// }
-
-      // $TravelKyc->licencepic=request('licencepic');
+       // $TravelKyc->licencepic=request('licencepic');
       $licencefile=request('licencepic');
       $ext=$licencefile->getClientOriginalExtension();
       $fname=time().'.'.$ext;
@@ -51,8 +44,13 @@ $owner_photo=request('ownerphoto');
       $TravelKyc->locality=request('locality');
       $TravelKyc->city=request('city');
       $TravelKyc->district=request('district');
-      $TravelKyc->save();
-      return redirect('Travel');
+      $save=$TravelKyc->save();
+      if($save)
+      {
+        Session::put('towner_id',$TravelKyc->towner_id);
+        return redirect('Travel');
+      }
+     
     }
     public function BusDetailsform()
     {
@@ -64,25 +62,19 @@ $owner_photo=request('ownerphoto');
       // $owner_id=Session::get('');
       $bus_detaile=new BusDetail();
 $bus_detaile->busname=request('busname');
-$bus_detaile->towner_id=1;
+$owner_id=Session::get('towner_id');
 
+$bus_detaile->towner_id=$owner_id;
 // $att->student->stud_name
 $bus_detaile->Taxi_type=request('Taxi_type');
 $bus_detaile->Taxi_number=request('Taxi_number');
 $bus_detaile->seating_capacity=request('seating_capacity');
 // $bus_detaile->taxi_pic=request('taxi_pic');
-
 $taxi_pic=request('taxi_pic');
 $ext=$taxi_pic->getClientOriginalExtension();
 $fname=time().'.'.$ext;
 $taxi_pic->move('uploaded_images/',$fname);
-
-
-
-
 $bus_detaile->taxi_pic=$fname;
-
-
 $bus_detaile->taxi_category=request('taxi_category');
 $bus_detaile->price=request('price');
 $save=$bus_detaile->save();

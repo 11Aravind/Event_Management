@@ -21,6 +21,7 @@ class AuthenticationController extends Controller
         $userdet->username=$request->name;
         $userdet->email=$request->email;
         $userdet->password=Hash::make($request->password);
+        // $userdet->password=$request->password;
         $userdet->role=$request->role;
         $userdet->save();
  
@@ -35,8 +36,9 @@ class AuthenticationController extends Controller
         }
         else{
             if(Hash::check($request->password,$userinfo->password))
+            // if($request->password==$userinfo->password)
             {
-                // $request->session()->put('user_id',$userinfo->user_id );
+                $request->session()->put('user_id',$userinfo->user_id );
                 Session::put('user_id',$userinfo->user_id);
                 return redirect("/$userinfo->role");
             }

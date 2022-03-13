@@ -18,4 +18,5 @@ class BusDetail extends Model
     //    return $this->belongsTo('App\Category','category_id');
     return $this->belongsTo(TravelKyc::class,'towner_id ');
    }
+  
 }

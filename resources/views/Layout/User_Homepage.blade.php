@@ -106,7 +106,10 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 <a href="/TourView"id="main_menu" aria-label="Toggle navigation">TOUR</a>
 </li>
 <li class="nav-item">
-<a href="#contact.html"id="main_menu" aria-label="Toggle navigation">CONTACTS</a>
+<a href="/Fooddisplay"id="main_menu" aria-label="Toggle navigation">Food</a>
+</li>
+<li class="nav-item">
+<a href="/ViewTravelPage"id="main_menu" aria-label="Toggle navigation">Travel</a>
 </li>
 @if(Session::get('user_id'))
 
@@ -129,7 +132,7 @@ Fav
 @else
 </ul>
 <!-- <div class="button"> -->
-<a href="Login" class="btn btn-primary">Login</a>
+<a href="/Login" class="btn btn-primary">Login</a>
 <!-- </div> -->
 @endif
 </div>

@@ -12,7 +12,7 @@
 <div class="container" id="container">
 	<div class="form-container sign-in-container">
 	<!-- Sign Up form or registration form start -->
-		<form action="SignUp" method="post">
+		<form action="/SignUp" method="POST">
 			<h1>Create Account</h1>
 					<span>or use your email for registration</span>
 					<span style="color:red">
@@ -25,15 +25,15 @@
 	@error('name')
 	{{$message}}
 		@enderror</span>
-			<input type="text"  name="email" />
+			<input type="text"  placeholder="Email"name="email" />
 			<span style="color:red">
 			@error('email')
 			{{$message}}
 			@enderror
 </span>
-			<input type="text" name="password" />
+			<input type="text" placeholder="Password"name="password" />
 			<span style="color:red">
-			@error('password')
+			@error('')
 			{{$message }}
 			@enderror
 </span>

@@ -64,7 +64,7 @@ Route::get('/Add_Food_package',[FoodController::class,'Add_Food_package']);
 Route::get('SignUp',function(){
     return view('SignUp');
 });
-Route::post('SignUp/',[AuthenticationController::class,'store']);
+Route::post('/SignUp',[AuthenticationController::class,'store']);
 Route::get('/Login', function () {
     return view('Login');
 });
@@ -147,13 +147,26 @@ Route::get('/Businfo',[TravelController::class,'Businfo']);
 // });
 Route::post('/AddAddress',[UserController::class,'store']);
 
+Route::get('/Fooddisplay',[UserController::class,'Fooddisplay']);
+
+
 Route::get('Tour_details',[PackageController::class,'Tour_details']);
 Route::get('/Add_tourpackage',[PackageController::class,'Add_tourpackage']);
 Route::post('/Add_tourpackage',[PackageController::class,'store_tourpackage']);
 Route::get('/Add_dayPlan',[PackageController::class,'Add_dayPlan']);
 
 Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
+Route::get('/TourpackageDetails/{id}',[TourController::class,'TourpackageDetails']);
 
+Route::get('/Cateringkyc',[FoodController::class,'Cateringkyc']);
+Route::post('/Cateringkyc',[FoodController::class,'Cateringkycdet_store']);
+
+
+Route::get('/ViewTravelPage',[UserController::class,'ViewTravelPage']);
+
+Route::get('/TravelAgenctDetails/{id}',[UserController::class,'TravelAgenctDetails']);
+
+Route::get('/SingleBusDetails/{id}',[UserController::class,'SingleBusDetails']);
 
 
 

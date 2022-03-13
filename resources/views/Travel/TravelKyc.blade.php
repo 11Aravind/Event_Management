@@ -13,8 +13,8 @@
       <input type="text" class="form-control"  name="owner_name"id="inputEmail4" placeholder="Owner Name">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Travel Agency Name</label>
-      <input type="text"class="form-control" name="Tagencyname" id="inputPassword4" placeholder="Travel Agency Name">
+      <label for="input4">Travel Agency Name</label>
+      <input type="text"class="form-control" name="Tagencyname" id="input4" placeholder="Travel Agency Name">
     </div>
   </div>
   <div class="form-row">
@@ -23,8 +23,8 @@
       <input type="text" class="form-control" name="landline"id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Mobile No</label>
-      <input type="text"class="form-control" name="mobile_no" id="inputPassword4" placeholder="">
+      <label for="input4">Mobile No</label>
+      <input type="text"class="form-control" name="mobile_no" id="input4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -33,8 +33,8 @@
       <input type="text" class="form-control" name="Aphone"id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Licence expire Date</label>
-      <input type="text"class="form-control" id="inputPassword4" name="expdate" placeholder="Travel Agency Licence expire">
+      <label for="input4">Licence expire Date</label>
+      <input type="text"class="form-control" id="input4" name="expdate" placeholder="Travel Agency Licence expire">
     </div>
   </div>
   <div class="form-row">
@@ -43,8 +43,8 @@
       <input type="file" class="form-control" name="ownerphoto"id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Travel Agency Licence</label>
-      <input type="file"class="form-control"name="licencepic" id="inputPassword4" placeholder="">
+      <label for="input4">Travel Agency Licence</label>
+      <input type="file"class="form-control"name="licencepic" id="input4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -53,8 +53,8 @@
       <input type="text" class="form-control" name="pincode"id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Locality</label>
-      <input type="text"class="form-control" name="locality"id="inputPassword4" placeholder="">
+      <label for="input4">Locality</label>
+      <input type="text"class="form-control" name="locality"id="input4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -63,8 +63,8 @@
       <input type="text" class="form-control"name="city" id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">District</label>
-      <input type="text"class="form-control" name="district" id="inputPassword4" placeholder="">
+      <label for="input4">District</label>
+      <input type="text"class="form-control" name="district" id="input4" placeholder="">
     </div>
   </div>
   </div>

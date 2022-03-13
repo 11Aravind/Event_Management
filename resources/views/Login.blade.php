@@ -32,9 +32,9 @@
 			{{$message}}
 			@enderror
 </span>
-			<input type="text" name="password" />
+			<input type="text" name="" />
 			<span style="color:red">
-			@error('password')
+			@error('')
 			{{$message }}
 			@enderror
 </span>
@@ -61,9 +61,9 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div> -->
 			<span>or use your account</span>
-			<input type="text"  name="email" />
+			<input type="text"  placeholder="Email"name="email" />
 	
-			<input type="text" name="password"/>
+			<input type="text" placeholder="Password"name="password"/>
 			<!-- <select  id=""  class="selectionrole" name="role" > -->
                 <!-- <option value="Select" class="selectionrole" >--Select Account Type--</option>
                 <option value="User" class="selectionrole" values="User" >User</option>
@@ -71,7 +71,7 @@
                 <!-- <option value="Employ" class="selectionrole" values="empoly">Employ</option> -->
                 <!-- <option value="Employ" class="selectionrole" values="Admin">Admin</option>
             </select> -->
-			<a href="#">Forgot your password?</a>
+			<a href="#">Forgot your ?</a>
 			<button type="submit">Sign In</button>
 		</form>
 		<!-- sign in form end -->

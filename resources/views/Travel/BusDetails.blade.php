@@ -13,7 +13,7 @@
       <input type="text"  name="busname"class="form-control" id="inputEmail4" placeholder="Bus Name">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Taxi type(bus/traveler)</label>
+      <label for="input4">Taxi type(bus/traveler)</label>
       <input type="text"  name="Taxi_type"class="form-control" id="inputEmail4" placeholder="Bus Name">
       <!-- <select name="Taxi_type" class="form-control"id="">
         <option value="">Car</option>
@@ -28,8 +28,8 @@
       <input type="text" name="Taxi_number" class="form-control" id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Seating capacity</label>
-      <input type="text" name="seating_capacity"class="form-control" id="inputPassword4" placeholder="">
+      <label for="input4">Seating capacity</label>
+      <input type="text" name="seating_capacity"class="form-control" id="input4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -38,7 +38,7 @@
       <input type="file" name="taxi_pic"class="form-control" id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Ac/Non AC</label>
+      <label for="input4">Ac/Non AC</label>
 <select name="taxi_category" class="form-control" id="">
   <option value="AC">AC</option>
   <option value="Non_AC">Non-AC</option>
@@ -51,8 +51,8 @@
       <input type="text" name="price"class="form-control" id="inputEmail4" placeholder="">
     </div>
     <!-- <div class="form-group col-md-6">
-      <label for="inputPassword4">Taxi Photos</label>
-      <input type="file"class="form-control" id="inputPassword4" placeholder="">
+      <label for="input4">Taxi Photos</label>
+      <input type="file"class="form-control" id="input4" placeholder="">
     </div> -->
   </div>
   <!-- <div class="form-row">
@@ -61,8 +61,8 @@
       <input type="text" class="form-control" id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Locality</label>
-      <input type="text"class="form-control" id="inputPassword4" placeholder="">
+      <label for="input4">Locality</label>
+      <input type="text"class="form-control" id="input4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -71,8 +71,8 @@
       <input type="text" class="form-control" id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">District</label>
-      <input type="text"class="form-control" id="inputPassword4" placeholder="">
+      <label for="input4">District</label>
+      <input type="text"class="form-control" id="input4" placeholder="">
     </div>
   </div> -->
   </div>

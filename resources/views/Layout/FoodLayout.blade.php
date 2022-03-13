@@ -70,7 +70,7 @@
         <ul class="side-menu">
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
-            <li>KYC Form</li>
+            <li><a href="/Cateringkyc">Catering  KYC </a></li>
             <!-- <li> <a href="/foodcategory">Category</a></li> -->
             <li> <a href="/foodDetails">Category Details</a></li>
            

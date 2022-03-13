@@ -74,7 +74,10 @@
 <img src="images/destination-x1.png.pagespeed.ic.U45P3KOe98.png" alt="">
 </div>
 <div class="content">
-<p class="d-flex align-items-center">{{$tourdetail->MainDescription}} <a href="travel_destination.html"> {{$tourdetail->days}} Days</a> </p>
+<a href="/TourpackageDetails/{{$tourdetail->tour_id}}">
+<p class="d-flex align-items-center">{{$tourdetail->MainDescription}}  {{$tourdetail->days}} Days </p>
+
+</a>
 </div>
 </div>
 </div>
@@ -154,20 +157,7 @@
 <div class="place_info">
 <a href="destination_details.html"><h3>California</h3></a>
 <p>United State of America</p>
-<div class="rating_days d-flex justify-content-between">
-<span class="d-flex justify-content-center align-items-center">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<a href="#">(20 Review)</a>
-</span>
-<div class="days">
-<i class="fa fa-clock-o"></i>
-<a href="#">5 Days</a>
-</div>
-</div>
+
 </div>
 </div>
 </div>
