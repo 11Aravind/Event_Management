@@ -19,6 +19,7 @@ class FoodController extends Controller
         ]);
         //validation end
     $storecategory=new Category();
+    $storecategory->user_id=Session::get('user_id');
 $storecategory->category_name=$request->category_name;
 $storecategory->discription=$request->description;
 $storecategory->cat_type="FoodProduct";

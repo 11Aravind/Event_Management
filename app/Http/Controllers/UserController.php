@@ -10,6 +10,8 @@ use App\Models\Authentication;
 use App\Models\TravelKyc;
 use App\Models\BusDetail;
 use App\Models\Cateringkyc;
+use App\Models\AddProduct;
+use App\Models\UserEventDetails;
 use Illuminate\Support\Facades\DB;
 use Session;
 class UserController extends Controller
@@ -62,8 +64,8 @@ return $event;
     }
     public function Fooddisplay()
     {
-$Authentication=Cateringkyc::all();
-return view('User/Fooddisplay',["title"=>"Eventdetails page","Authentications"=>$Authentication]);
+$Cateringkyc=Cateringkyc::all();
+return view('User/Fooddisplay',["title"=>"Eventdetails page","Cateringkycs"=>$Cateringkyc]);
 
     }
     public function ViewTravelPage()
@@ -84,6 +86,36 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","Authentications"=>
     {
         $SingleBusDetails=BusDetail::findOrFail($id);
         return view('User/SingleBusDetails',["title"=>"SingleBusDetails page","SingleBusDetails"=>$SingleBusDetails]);  
+    }
+    public function FoodCategoryDetails($id)
+    {
+        $categorydet=Category::where('user_id','=',$id)->get();
+        return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","categorydets"=>$categorydet]);  
+   
+    }
+    public function FoodProductDetails($id)
+    {
+        $foodproductdet=AddProduct::where('category_id','=',$id)->get();
+        return view('User/FoodProductDetails',["title"=>"FoodProductDetails page","foodproductdets"=>$foodproductdet]);  
+      
+    }
+    public function SingleProductdetails($id)
+    {
+        $SingleProductdetails=AddProduct::where('product_id','=',$id)->get();
+        return view('User/SingleProductdetails',["title"=>"SingleProductdetails page","SingleProductdetails"=>$SingleProductdetails]);  
+        
+    }
+    public function AddUserFooddet()
+    {
+        return view('User/AddUserFooddet');
+    }
+    public function AddUserFooddet_store()
+    {
+$UserEventDetails=new UserEventDetails();
+    }
+    public function addeventbookdet()
+    {
+        return view('User/addeventbookdet');
     }
 }
 

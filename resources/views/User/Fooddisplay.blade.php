@@ -12,21 +12,25 @@
 </div>
 </div>
 <div class="row">
-@foreach($Authentications as $Authentication)
+@foreach($Cateringkycs as $Cateringkyc)
 
 <div class="col-lg-4 col-md-6">
+<a href="/FoodCategoryDetails/{{$Cateringkyc->user_id}}">
 <div class="single_place">
+
 <div class="thumb">
 <img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
-<a href="#" class="prise">{{$Authentication->user_id}}</</a>
+<span class="prise">{{$Cateringkyc->user_id}}</</span >
 </div>
 <div class="place_info">
-<a href="destination_details.html"><h3>{{$Authentication->cateringservicename}}</h3></a>
-<p>{{$Authentication->username}}</p>
+<h3>{{$Cateringkyc->cateringservicename}}</h3>
+<p>{{$Cateringkyc->username}}</p>
+<small>Locality-{{$Cateringkyc->locality}}</small>
+</div>
+</div>
+</a>
+</div>
 
-</div>
-</div>
-</div>
 @endforeach
 
 </div>

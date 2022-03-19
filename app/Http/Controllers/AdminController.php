@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\AddProduct;
 use App\Models\Event;
 use App\Models\Employ;
+use Session;
 class AdminController extends Controller
 {
     //
@@ -23,6 +24,7 @@ class AdminController extends Controller
         ]);
         //validation end
     $storecategory=new Category();
+    $storecategory->user_id=Session::get('user_id');
 $storecategory->category_name=$request->category_name;
 $storecategory->discription=$request->description;
 $storecategory->cat_type="Product";
@@ -196,6 +198,7 @@ public function ActiveProduct($id,Request $req){
      ]);
      //validation end
  $storecategory=new Category();
+ $storecategory->user_id=Session::get('user_id');
 $storecategory->category_name=$request->category_name;
 $storecategory->discription=$request->description;
 $storecategory->cat_type="Event";

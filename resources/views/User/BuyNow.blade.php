@@ -22,8 +22,7 @@
 
     <div class="checkoutcontainer" style="">
         <div class="option">
-            <h4>Login<i class="fa fa-check" aria-hidden="true"></i>
-</h4>
+            <h4>Login<i class="fa fa-check" aria-hidden="true"></i></h4>
         </div>
         <div class="option" style="">
         <h4>  Delivary Address</h4>
@@ -51,7 +50,14 @@
         <!-- <div class="option">
         <h4></h4>
         </div> -->
-        
+        <!-- <div class="option">
+            <h4>Event Details</h4>
+            <form action="">
+              Event Details
+              
+              <input type="text">
+            </form>
+        </div> -->
         <div class="option">
         <h4 id="addaddressBtn" style="cursor: pointer;"><i class="fa fa-plus" aria-hidden="true"></i>
 Add new address </h4>
@@ -60,16 +66,7 @@ Add new address </h4>
 
 <form action="/AddAddress"method="POST" enctype="multipart/form-date">
   @csrf
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" >
-    </div>
-    <div class="form-group col-md-6">
-      <label for="input4"></label>
-      <input type="" class="form-control" id="input4" placeholder="">
-    </div>
-  </div>
+ 
 <div class="form-group">
   <!-- <div class="col-md-12"> -->
       <div class="col-md-6">
@@ -126,8 +123,8 @@ Add new address </h4>
   <label class="form-check-label" for="inlineRadio1">Home(All day Delivary)</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="delivarplace" id="inlineRadio2" value="Work">
-  <label class="form-check-label" for="inlineRadio2">Work(Delivary between 10AM-5PM)</label>
+  <input class="form-check-input" type="radio" name="delivarplace" id="inlineRadio2" value="Auditorium">
+  <label class="form-check-label" for="inlineRadio2">Auditorium(Delivary between 10AM-5PM)</label>
 </div>
  </div>
 <div class="form-row">

@@ -103,6 +103,12 @@ Route::get('EventChart', function () {
 
 Route::get('/Events', [UserController::class,'EventList']);
 Route::get('Eventdetails/{id}', [UserController::class,'Eventdetails']);
+
+Route::get('/addeventbookdet', [UserController::class,'addeventbookdet']);
+
+
+
+
 Route::get('Add_event_category', function () {
     return view('Admin/Add_event_category',["title"=>"TicketBooking page"]);
 });
@@ -168,5 +174,12 @@ Route::get('/TravelAgenctDetails/{id}',[UserController::class,'TravelAgenctDetai
 
 Route::get('/SingleBusDetails/{id}',[UserController::class,'SingleBusDetails']);
 
+Route::get('/FoodCategoryDetails/{id}',[UserController::class,'FoodCategoryDetails']);
+Route::get('/FoodProductDetails/{id}',[UserController::class,'FoodProductDetails']);
 
+Route::get('/SingleProductdetails/{id}',[UserController::class,'SingleProductdetails']);
 
+Route::get('/AddUserFooddet',[UserController::class,'AddUserFooddet']);
+Route::post('/AddUserFooddet_store',[UserController::class,'AddUserFooddet_store']);
+
+// AddUserFooddet

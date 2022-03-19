@@ -80,18 +80,23 @@ Midge Maisel</span>
             <h2>BOOKING ENDS</h2>
             <p>    Take the chance to delve deeper into elements of formal online learning, and find out how online assessment and teaching is carried out.
 </p>
-  <a style=" padding: 16px 15px;
-    font-size: 16px !important;   display: inline-block;
-    padding: 15px 30px;
-    background: #0DC15C;
-    text-align: center;
-    color: #fff;
-    border: 0;
-    box-shadow: 0 0 0 0;
-    outline: none;
-    
-    transition: all 0.5s ease 0s;
-"> BOOK NOW</a>
+<!-- <a href=""></a> -->
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">No Of Seat</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Date Of Event</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="">
+    </div>
+  </div>
+  <a href="/addeventbookdet" class="btn btn-success"> BOOK NOW</a>
+  <!-- <button type="submit" class="btn btn-primary">Add Event Details</button> -->
+</div>
+</form>
+  
 </div>
     </div>     
     </div>
