@@ -187,15 +187,6 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-    'providers' => [
-        // ..........
-        Cartalyst\Stripe\Laravel\StripeServiceProvider::class 
-       ],
-        
-       'aliases' => [
-        // ..........
-        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class 
-       ], 
 
     'aliases' => [
 

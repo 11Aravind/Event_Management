@@ -83,7 +83,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 <li class="nav-item"><a href="/Premium">PREMIUM</a></li>
 <li class="nav-item"><a href="/Medium">MEDIUM</a></li>
 <li class="nav-item"><a href="/Regular">REGULAR</a></li>
-<li class="nav-item"><a href="#sponsors.html">CUSTOM</a></li>
+<!-- <li class="nav-item"><a href="#sponsors.html">CUSTOM</a></li> -->
 
 </ul>
 </li>
@@ -124,9 +124,9 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 </li>
 
 </ul>
-<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+<a href="/CardPage"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a>
 
-Cart &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <i class="fa fa-heart" aria-hidden="true"></i>
 Fav
 @else

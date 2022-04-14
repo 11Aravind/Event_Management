@@ -54,7 +54,6 @@ class UserController extends Controller
     {
        
         $event_det=Event::findOrFail($id);
-        
         return view('User/Eventdetails',["title"=>"Eventdetails page","event_det"=>$event_det]);
     }
     public function eventdynamic($event)
@@ -89,15 +88,19 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","Cateringkycs"=>$Ca
     }
     public function FoodCategoryDetails($id)
     {
+        $foodproductdet=AddProduct::where('category_id','=',$id)->get();//venda bad logic
         $categorydet=Category::where('user_id','=',$id)->get();
-        return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","categorydets"=>$categorydet]);  
+        return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","foodproductdets"=>$foodproductdet,"categorydets"=>$categorydet]);  
    
     }
     public function FoodProductDetails($id)
     {
         $foodproductdet=AddProduct::where('category_id','=',$id)->get();
-        return view('User/FoodProductDetails',["title"=>"FoodProductDetails page","foodproductdets"=>$foodproductdet]);  
-      
+        $categorydet=Category::where('user_id','=',$id)->get();//venda bad logic
+        // return view('User/FoodProductDetails',["title"=>"FoodProductDetails page","foodproductdets"=>$foodproductdet]);  
+        // FoodCategoryDetails
+return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","categorydets"=>$categorydet,"foodproductdets"=>$foodproductdet]);  
+
     }
     public function SingleProductdetails($id)
     {
@@ -116,6 +119,14 @@ $UserEventDetails=new UserEventDetails();
     public function addeventbookdet()
     {
         return view('User/addeventbookdet');
+    }
+    public function singleEmployDet($id)
+    {
+    return view("User/singleEmployDet");
+    }
+    public function CardPage()
+    {
+        return view('User/CartPage');
     }
 }
 

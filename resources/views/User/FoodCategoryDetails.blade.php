@@ -1,7 +1,7 @@
 @extends('Layout.User_Homepage')
 @section('content')
 
-<div class="popular_places_area">
+<!-- <div class="popular_places_area">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-6">
@@ -31,6 +31,43 @@
 @endforeach
 
 </div>
+</div> -->
+<div id="fulldetailDiv" style="margin-top: 88px;    padding: 61px;">
+<h1>Food Magic Restaurent</h1>
+   <p>Roast Chicken, Burger, Afghan <br>
+    Kunnamkulam Locality, Kunnamkulam</p>
+    <span style="color:red">Main Category</span>
+    <hr>
+    <div id="containerTotel" style="display: flex;">
+        <div id="foodcategory" style="color:red;flex:.2;border-right: 1px solid red;">
+        <!-- category display start -->
+        <ul>
+            @if($categorydets)
+        @foreach($categorydets as $categorydet)
+      
+            <li><a href="/FoodProductDetails/{{$categorydet->category_id}}">{{$categorydet->category_name}}</a></li>
+            @endforeach
+            @endif
+            <!-- <li><a href="#">noodils</a></li>
+            <li><a href="#">noodils</a></li> -->
+        </ul>
+        <!-- category display end -->
+    </div>
+        <!-- hhh -->
+        @foreach($foodproductdets as $foodproductdet)
+        <div class="product" style="flex:1;margin-left:3px;margin-left:33px;">
+        <div class="productfull" style="display: flex;">
+            <div class="productdet" style=""><img src="https://b.zmtcdn.com/data/dish_photos/7a0/156947afc42029de9ea391eda38ee7a0.jpg?output-format=webp&fit=around|130:130&crop=130:130;*,*" alt="productimg">
+            </div>
+            <div class="productcontent" style="margin-left:3px"><h4>{{$foodproductdet->product_name}} </h4>
+                395 votes <br>
+                ₹{{$foodproductdet->product_price}}<br>
+                {{$foodproductdet->product_discription}}</div>
+        </div>
+        </div>
+        @endforeach
+       <!-- hhhh --> <br>
+    </div>
 </div>
-<!-- </div>  -->
+
 @endsection

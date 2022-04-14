@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\EmployController;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -183,3 +184,12 @@ Route::get('/AddUserFooddet',[UserController::class,'AddUserFooddet']);
 Route::post('/AddUserFooddet_store',[UserController::class,'AddUserFooddet_store']);
 
 // AddUserFooddet
+Route::get('/AddUserFooddet',[UserController::class,'AddUserFooddet']);
+
+Route::get('/payment',[PaymentController::class,'index']);
+Route::post('/charge',[PaymentController::class,'charge']);
+Route::get('/confirm',[PaymentController::class,'confirm']);
+// singleEmployDet
+Route::get('/singleEmployDet/{id}', [UserController::class,'singleEmployDet']);
+
+Route::get('/CardPage', [UserController::class,'CardPage']);

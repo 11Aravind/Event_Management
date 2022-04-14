@@ -19,14 +19,18 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 
 <div class="single-speaker">
 <div class="top-content">
+<a href="singleEmployDet/{{$Employdetail->employ_id}}">
 <div class="image">
 <!-- <img src="Template_asset/images/speaker1.jpg" alt="#"> -->
 
- <img src="uploaded_images/{{$Employdetail->employ_photo}}" style="width:261px;height:257px" alt="#employ_pic">
+<img src="uploaded_images/{{$Employdetail->employ_photo}}" style="width:261px;height:257px" alt="#employ_pic">
+
 </div>
+
+</a>
 </div>
 <div class="name">
-<h3><a href="javascript:void(0)">{{$Employdetail->employ_name}}</a></h3>
+<h3><a href="/singleEmployDet/{{$Employdetail->employ_id}}">{{$Employdetail->employ_name}}</a></h3>
 <span>{{$Employdetail->job_position}}</span>
 </div>
 </div>

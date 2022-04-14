@@ -1,5 +1,19 @@
 @extends('Layout.User_Homepage')
 @section('content')
+<link rel="stylesheet" href="css/style.css" />
+<script src="https://js.stripe.com/v3/"></script>
+@if ($message = Session::get('success'))
+    <div class="success">
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+ 
+ 
+@if ($message = Session::get('error'))
+    <div class="error">
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
 <style>
 .event-banner-wrap {
     height: 572px;
@@ -38,7 +52,7 @@ img {
     max-height: 50%;
 }
 </style>
-<div style="margin: 53px;">
+<!-- <div style="margin: 53px;">
     <div class="event-banner-wrap">
             <div class="d-flex full-height">
                 <div class="width-50">
@@ -55,13 +69,13 @@ img {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
    
     <div class="maincontentdiv" style="display: flex;margin-top: 23px;">
      <div class="aboutevent" style="flex:2">
          <div class="img-container">
         <span>
-            <img style="    width: 65px;
+            <img style=" width: 65px;
     height: 65px;
     border-radius: 55px;" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80"> 
         </span>
@@ -92,9 +106,22 @@ Midge Maisel</span>
       <input type="text" class="form-control" id="inputPassword4" placeholder="">
     </div>
   </div>
-  <a href="/addeventbookdet" class="btn btn-success"> BOOK NOW</a>
+  <div class="form-group col-md-6">
+      <label for="inputPassword4">Amount</label>
+      <!-- <input type="text" class="form-control" id="inputPassword4" placeholder=""> -->
+      <input type="text" name="amount"class="form-control" value="20" readonly/>
+    </div>
+    <a href="/addeventbookdet" class="btn btn-success"> BOOK NOW</a>
+
+  </div>
+
+<!-- </div> -->
+  
+
+
+
   <!-- <button type="submit" class="btn btn-primary">Add Event Details</button> -->
-</div>
+
 </form>
   
 </div>
@@ -102,5 +129,5 @@ Midge Maisel</span>
     </div>
         
 </div>
-		
+	
 @endsection

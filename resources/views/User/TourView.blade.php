@@ -68,7 +68,7 @@
 
 <div class="row">
 @foreach($tourdetails as $tourdetail)
-<div class="col-lg-4 col-md-6">
+<!-- <div class="col-lg-4 col-md-6">
 <div class="single_destination">
 <div class="thumb">
 <img src="images/destination-x1.png.pagespeed.ic.U45P3KOe98.png" alt="">
@@ -80,62 +80,28 @@
 </a>
 </div>
 </div>
+</div> -->
+<div class="col-lg-4 col-md-6">
+<div class="single_place">
+<div class="thumb">
+<img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
+<a href="#" class="prise">$500</a>
 </div>
+<div class="place_info">
+<a href="/TourpackageDetails/{{$tourdetail->tour_id}}">
+<a href="/TourpackageDetails/{{$tourdetail->tour_id}}"><h3>{{$tourdetail->MainDescription}} </h3></a>
+<p>{{$tourdetail->days}} Days</p>
+</a>
+</div>
+</div>
+</div>
+
 @endforeach
 </div>
 
 </div>
 </div>
-<!-- <div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x2.png.pagespeed.ic.8sdFlO1TPt.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">Brazil <a href="travel_destination.html"> 03 Places</a> </p>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x3.png.pagespeed.ic.jwNAyltY22.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">America <a href="travel_destination.html"> 10 Places</a> </p>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x4.png.pagespeed.ic.r_nATr2t9d.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">Nepal <a href="travel_destination.html"> 02 Places</a> </p>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x5.png.pagespeed.ic.cFxonC7kDe.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">Maldives <a href="travel_destination.html"> 02 Places</a> </p>
-</div>
-</div>
-</div> -->
-<!-- <div class="col-lg-4 col-md-6">
-<div class="single_destination">
-<div class="thumb">
-<img src="images/destination-x6.png.pagespeed.ic.go4MmVP7pf.png" alt="">
-</div>
-<div class="content">
-<p class="d-flex align-items-center">Indonesia <a href="travel_destination.html"> 05 Places</a> </p>
-</div>
-</div>
-</div> -->
+
 
 <div class="popular_places_area">
 <div class="container">
@@ -157,9 +123,10 @@
 <div class="place_info">
 <a href="destination_details.html"><h3>California</h3></a>
 <p>United State of America</p>
+</div>
+</div>
+</div>
 
-</div>
-</div>
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="single_place">
