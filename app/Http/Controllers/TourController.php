@@ -16,8 +16,7 @@ $tourdetails=Tour::all();
         public function TourpackageDetails($id)
         {
                 $tourdetails=Tour::findOrFail($id);
-                $daysdet=DB::table('tours')->join('days','days.tour_id','=','tours.tour_id')
-        ->where('days.tour_id','=',$id)->get();
+                $daysdet=DB::table('tours')->join('days','days.tour_id','=','tours.tour_id')->where('days.tour_id','=',$id)->get();
         
                 return view('User/TourpackageDetails',["title"=>"TourView page","tourdetails"=>$tourdetails,"daysdets"=>$daysdet]);
    

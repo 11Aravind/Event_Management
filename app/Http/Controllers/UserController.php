@@ -90,6 +90,7 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","Cateringkycs"=>$Ca
     {
         $foodproductdet=AddProduct::where('category_id','=',$id)->get();//venda bad logic
         $categorydet=Category::where('user_id','=',$id)->get();
+        // $Cateringkyc=Cateringkyc::findOrFail($Catering_id);
         return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","foodproductdets"=>$foodproductdet,"categorydets"=>$categorydet]);  
    
     }
@@ -102,15 +103,16 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","Cateringkycs"=>$Ca
 return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","categorydets"=>$categorydet,"foodproductdets"=>$foodproductdet]);  
 
     }
-    public function SingleProductdetails($id)
+    // public function SingleProductdetails($id)
+    // {
+    //     $SingleProductdetails=AddProduct::where('product_id','=',$id)->get();
+    //     return view('User/SingleProductdetails',["title"=>"SingleProductdetails page","SingleProductdetails"=>$SingleProductdetails]);  
+        
+    // }
+    public function AddUserFooddet($id)
     {
         $SingleProductdetails=AddProduct::where('product_id','=',$id)->get();
-        return view('User/SingleProductdetails',["title"=>"SingleProductdetails page","SingleProductdetails"=>$SingleProductdetails]);  
-        
-    }
-    public function AddUserFooddet()
-    {
-        return view('User/AddUserFooddet');
+        return view('User/AddUserFooddet',["title"=>"SingleProductdetails page","SingleProductdetails"=>$SingleProductdetails]);
     }
     public function AddUserFooddet_store()
     {

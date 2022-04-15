@@ -180,11 +180,11 @@ Route::get('/FoodProductDetails/{id}',[UserController::class,'FoodProductDetails
 
 Route::get('/SingleProductdetails/{id}',[UserController::class,'SingleProductdetails']);
 
-Route::get('/AddUserFooddet',[UserController::class,'AddUserFooddet']);
+Route::get('/AddUserFooddet/{id}',[UserController::class,'AddUserFooddet']);
 Route::post('/AddUserFooddet_store',[UserController::class,'AddUserFooddet_store']);
 
 // AddUserFooddet
-Route::get('/AddUserFooddet',[UserController::class,'AddUserFooddet']);
+// Route::get('/AddUserFooddet',[UserController::class,'AddUserFooddet']);
 
 Route::get('/payment',[PaymentController::class,'index']);
 Route::post('/charge',[PaymentController::class,'charge']);

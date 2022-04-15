@@ -33,7 +33,7 @@
 </div>
 </div> -->
 <div id="fulldetailDiv" style="margin-top: 88px;    padding: 61px;">
-<h1>Food Magic Restaurent</h1>
+<h1>Food Magic Restaurent </h1>
    <p>Roast Chicken, Burger, Afghan <br>
     Kunnamkulam Locality, Kunnamkulam</p>
     <span style="color:red">Main Category</span>
@@ -62,7 +62,12 @@
             <div class="productcontent" style="margin-left:3px"><h4>{{$foodproductdet->product_name}} </h4>
                 395 votes <br>
                 ₹{{$foodproductdet->product_price}}<br>
-                {{$foodproductdet->product_discription}}</div>
+                {{$foodproductdet->product_discription}}<br>
+                <button ><a href="/AddUserFooddet" style="color:red">Add To Cart</a> </button>
+            
+                <button ><a href="/AddUserFooddet/{{$foodproductdet->product_id}}" style="color:red">Book Now</a> </button>
+            </div> 
+                
         </div>
         </div>
         @endforeach

@@ -5,6 +5,8 @@
 <div class="container">
 <h1>Add Event Details</h1>
 <form>
+  @csrf
+  <h1>{{$SingleProductdetails}}</h1>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Date Of Event</label>
