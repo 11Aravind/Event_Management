@@ -33,7 +33,7 @@
 </div>
 </div> -->
 <div id="fulldetailDiv" style="margin-top: 88px;    padding: 61px;">
-<h1>Food Magic Restaurent </h1>
+<h1>{{$FoodCategoryDetails}} </h1>
    <p>Roast Chicken, Burger, Afghan <br>
     Kunnamkulam Locality, Kunnamkulam</p>
     <span style="color:red">Main Category</span>
@@ -42,10 +42,12 @@
         <div id="foodcategory" style="color:red;flex:.2;border-right: 1px solid red;">
         <!-- category display start -->
         <ul>
+        <li><a href="#">ALL</a></li>
             @if($categorydets)
+      
         @foreach($categorydets as $categorydet)
       
-            <li><a href="/FoodProductDetails/{{$categorydet->category_id}}">{{$categorydet->category_name}}</a></li>
+            <li><a href="/FoodProductDetails/{{$FoodCategoryDetails}}/{{$categorydet->category_id}}/{{$categorydet->user_id}}">{{$categorydet->category_name}}</a></li>
             @endforeach
             @endif
             <!-- <li><a href="#">noodils</a></li>

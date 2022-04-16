@@ -96,7 +96,7 @@ Add details</h3>
     </div>
     <div class="form-group col-md-6">
       <label for="inputText4">Price Description</label>
-      <input type="text" name="pricedesc" class="form-control" id="" >
+    <textarea type="text" name="pricedesc" class="form-control"cols="30" rows="3" id="" > </textarea>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Add Tour Package</button>

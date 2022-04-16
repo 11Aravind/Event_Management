@@ -64,7 +64,8 @@ return $event;
     public function Fooddisplay()
     {
 $Cateringkyc=Cateringkyc::all();
-return view('User/Fooddisplay',["title"=>"Eventdetails page","Cateringkycs"=>$Cateringkyc]);
+$starting="";
+return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starting,"Cateringkycs"=>$Cateringkyc]);
 
     }
     public function ViewTravelPage()
@@ -86,21 +87,31 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","Cateringkycs"=>$Ca
         $SingleBusDetails=BusDetail::findOrFail($id);
         return view('User/SingleBusDetails',["title"=>"SingleBusDetails page","SingleBusDetails"=>$SingleBusDetails]);  
     }
-    public function FoodCategoryDetails($id)
+    public function FoodCategoryDetails($FoodCategoryDetails,$id)
     {
-        $foodproductdet=AddProduct::where('category_id','=',$id)->get();//venda bad logic
+        // $foodproductdet=AddProduct::where('category_id','=',$id)->get();//venda bad logic
         $categorydet=Category::where('user_id','=',$id)->get();
+        $FoodCategoryDetails=$FoodCategoryDetails;
+        $starting="../../";
+
+// join start
+$foodproductdet=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+->where('categorys.user_id','=',$id)->get();
+// join end
+
         // $Cateringkyc=Cateringkyc::findOrFail($Catering_id);
-        return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","foodproductdets"=>$foodproductdet,"categorydets"=>$categorydet]);  
+        return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","starting"=>$starting,"FoodCategoryDetails"=>$FoodCategoryDetails,
+        "foodproductdets"=>$foodproductdet,"categorydets"=>$categorydet]);  
    
     }
-    public function FoodProductDetails($id)
+    public function FoodProductDetails($FoodCategoryDetails,$id,$user_id)
     {
         $foodproductdet=AddProduct::where('category_id','=',$id)->get();
-        $categorydet=Category::where('user_id','=',$id)->get();//venda bad logic
+        $categorydet=Category::where('user_id','=',$user_id)->get();//venda bad logic
         // return view('User/FoodProductDetails',["title"=>"FoodProductDetails page","foodproductdets"=>$foodproductdet]);  
         // FoodCategoryDetails
-return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","categorydets"=>$categorydet,"foodproductdets"=>$foodproductdet]);  
+        $starting="../../../";
+return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","starting"=>$starting,"FoodCategoryDetails"=>$FoodCategoryDetails,"categorydets"=>$categorydet,"foodproductdets"=>$foodproductdet]);  
 
     }
     // public function SingleProductdetails($id)

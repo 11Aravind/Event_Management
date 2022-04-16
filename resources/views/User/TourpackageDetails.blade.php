@@ -45,14 +45,21 @@
 </style>
 <img alt="slider" src="../images/Kerala.jpg"  style="width: 100%;
     height: 416px;" >
+    <button class="btn btn-primary">Bus Details</button>  <button class="btn btn-primary">tourst place details</button>  <button class="btn btn-primary">Bus Details</button>
     <!-- new template start -->
     busname- {{$tourdetails->busnamefun->busname}} <br>
+    taxi_pic- {{$tourdetails->busnamefun->taxi_pic}} <br>
     <div id="container">
+    @php
+$i=1;
+@endphp
+    @foreach($daysdets as $daysdet)
+        
         <div class="fullsection">
         <!-- section start-->
         <div id="section">
-            <h4 class="day">Day {{$tourdetails->days}} </h4>
-            <h3>Hai</h3>
+            <h4 class="day">DAy {{$i}} </h4>
+            <h3>Morning place</h3>
         </div>
         <!-- section end -->
         <!-- sectioncontainer start-->
@@ -60,7 +67,40 @@
             <br>
             <br>
             <br>
-            <p>sectioncontainer sectioncontainer sectioncontainer sectioncontainer </p>
+            <p>{{$daysdet->Mornigtoureplace}}  </p>
+        </div>
+        </div>
+        <hr class="hr">
+        <div class="fullsection">
+        <!-- section start-->
+        <div id="section">
+            <!-- <h4 class="day">DAy {{$i}} </h4> -->
+            <h3>Afternoon place</h3>
+        </div>
+        <!-- section end -->
+        <!-- sectioncontainer start-->
+        <div class="sectioncontainer">
+            <br>
+            <br>
+            <br>
+            <p>{{$daysdet->Afternoon}} </p>
+        </div>
+        </div>
+        <hr class="hr">
+        <div class="fullsection">
+        <!-- section start-->
+        <div id="section">
+            <!-- <h4 class="day">DAy {{$i}} </h4> -->
+            <h3>NightPrograms place</h3>
+        </div>
+        <!-- section end -->
+        <!-- sectioncontainer start-->
+        <div class="sectioncontainer">
+            <br>
+            <br>
+            <br>
+            <p>{{$daysdet->NightPrograms}} <br>hotelname place- {{$daysdet->hotelname}} </p>
+            <button>Hotel Details</button>
         </div>
         </div>
         <hr class="hr">
@@ -68,34 +108,11 @@
     </div>
     <!-- new template end -->
     @php
-$i=1;
-@endphp
-    @foreach($daysdets as $daysdet)
-  <div class="containerForDays">
-        <span class="dayDisplay"style="">DAy {{$i}}</span>
-    <div  class="content"style=";">
-    Morning place- {{$daysdet->Mornigtoureplace}} 
-</div>
-
-<div class="content">
-Afternoon place- {{$daysdet->Afternoon}}
-</div>
-
-<div class="content">
-NightPrograms place- {{$daysdet->NightPrograms}}
-hotelname place- {{$daysdet->hotelname}}
-<button class="btn btn-primary">Show Hotel Details</button>
-</div>
-    </div>
-   @php
 $i=$i+1;
 @endphp
     @endforeach
-<!-- DAys-{{$tourdetails->days}} <br> -->
+  
 
-<!-- bus pic- <img src="../uploaded_images/{{$tourdetails->busnamefun->taxi_pic}}" alt="buspic"> -->
-
-    
     <button class="btn btn-warning"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add To Cart</button>
     &nbsp&nbsp&nbsp&nbsp
     <a href="/BuyNow" class="btn btn-danger"><i class="fa fa-bolt" aria-hidden="true"></i>

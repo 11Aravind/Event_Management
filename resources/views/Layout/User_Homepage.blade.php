@@ -17,7 +17,15 @@
 <link rel="stylesheet" href="../Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
 <!-- example end -->
 <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWxq0BifrLE2ztsvXcrC2NGp1rF4s3RMEglA&usqp=CAU" type="image/x-icon"/>
-
+<!-- common start -->
+<link rel="stylesheet" href="{{$starting}}Template_asset/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{$starting}}Template_asset/css/LineIcons.3.0.css">
+<link rel="stylesheet" href="{{$starting}}Template_asset/css/animate.css">
+<link rel="stylesheet" href="{{$starting}}Template_asset/css/tiny-slider.css">
+<link rel="stylesheet" href="{{$starting}}Template_asset/css/glightbox.min.css">
+<link rel="stylesheet" href="{{$starting}}Template_asset/css/main.css">
+<link rel="stylesheet" href="{{$starting}}Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
+<!-- common end -->
 
 <link rel="stylesheet" href="Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="Template_asset/css/LineIcons.3.0.css">
@@ -217,7 +225,7 @@ Follow Us On:
 <form action="##" method="get" target="_blank" class="newsletter-form">
 <input name="name" placeholder="Your Name*" required="required" type="text">
 <input name="email" placeholder="Email address*" required="required" type="text">
-<div class="button">
+<div class="button">zcxcccczsz
 <button class="btn">Subscribe
 </button>
 </div>

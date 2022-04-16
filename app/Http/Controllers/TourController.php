@@ -10,7 +10,7 @@ class TourController extends Controller
         {
 $tourdetails=Tour::all();
 // return $tourdetails;
-            return view('User/TourView',["title"=>"TourView page","tourdetails"=>$tourdetails]);
+            return view('User/TourView',["title"=>"TourView page","starting"=>"../","tourdetails"=>$tourdetails]);
         }
         //in user side display tour details
         public function TourpackageDetails($id)
@@ -18,7 +18,8 @@ $tourdetails=Tour::all();
                 $tourdetails=Tour::findOrFail($id);
                 $daysdet=DB::table('tours')->join('days','days.tour_id','=','tours.tour_id')->where('days.tour_id','=',$id)->get();
         
-                return view('User/TourpackageDetails',["title"=>"TourView page","tourdetails"=>$tourdetails,"daysdets"=>$daysdet]);
+                return view('User/
+                ',["title"=>"TourView page","tourdetails"=>$tourdetails,"daysdets"=>$daysdet]);
    
         }
     

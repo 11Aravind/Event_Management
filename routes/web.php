@@ -22,7 +22,7 @@ use App\Http\Controllers\PaymentController;
 */
 //user
 Route::get('/', function () {
-    return view('Homepagecontent');
+    return view('Homepagecontent',["starting"=>"../"]);
 });
 Route::get('/User', function () {
     return view('Homepagecontent');
@@ -175,8 +175,9 @@ Route::get('/TravelAgenctDetails/{id}',[UserController::class,'TravelAgenctDetai
 
 Route::get('/SingleBusDetails/{id}',[UserController::class,'SingleBusDetails']);
 
-Route::get('/FoodCategoryDetails/{id}',[UserController::class,'FoodCategoryDetails']);
-Route::get('/FoodProductDetails/{id}',[UserController::class,'FoodProductDetails']);
+
+Route::get('/FoodCategoryDetails/{FoodCategoryDetails}/{id}',[UserController::class,'FoodCategoryDetails']);
+Route::get('/FoodProductDetails/{FoodCategoryDetails}/{id}/{user_id}',[UserController::class,'FoodProductDetails']);
 
 Route::get('/SingleProductdetails/{id}',[UserController::class,'SingleProductdetails']);
 

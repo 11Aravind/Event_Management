@@ -85,7 +85,7 @@
 <div class="single_place">
 <div class="thumb">
 <img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
-<a href="#" class="prise">$500</a>
+<!-- <a href="#" class="prise">$500</a> -->
 </div>
 <div class="place_info">
 <a href="/TourpackageDetails/{{$tourdetail->tour_id}}">
@@ -93,6 +93,7 @@
 <p>{{$tourdetail->days}} Days</p>
 </a>
 </div>
+
 </div>
 </div>
 
@@ -102,7 +103,7 @@
 </div>
 </div>
 
-
+<!-- 
 <div class="popular_places_area">
 <div class="container">
 <div class="row justify-content-center">
@@ -118,7 +119,7 @@
 <div class="single_place">
 <div class="thumb">
 <img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
-<a href="#" class="prise">$500</a>
+
 </div>
 <div class="place_info">
 <a href="destination_details.html"><h3>California</h3></a>
@@ -338,5 +339,5 @@ New Friends</h3>
 </div>
 </div>
 </div>
-</div>
+</div> -->
 @endsection
