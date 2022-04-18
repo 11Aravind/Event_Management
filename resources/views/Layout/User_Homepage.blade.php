@@ -8,16 +8,18 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- example start -->
-<link rel="stylesheet" href="../Template_asset/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="../Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="../Template_asset/css/LineIcons.3.0.css">
 <link rel="stylesheet" href="../Template_asset/css/animate.css">
 <link rel="stylesheet" href="../Template_asset/css/tiny-slider.css">
 <link rel="stylesheet" href="../Template_asset/css/glightbox.min.css">
 <link rel="stylesheet" href="../Template_asset/css/main.css">
-<link rel="stylesheet" href="../Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
+<link rel="stylesheet" href="../Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css"> -->
 <!-- example end -->
 <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWxq0BifrLE2ztsvXcrC2NGp1rF4s3RMEglA&usqp=CAU" type="image/x-icon"/>
 <!-- common start -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/LineIcons.3.0.css">
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/animate.css">
@@ -25,17 +27,18 @@
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/glightbox.min.css">
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/main.css">
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
+
 <!-- common end -->
 
-<link rel="stylesheet" href="Template_asset/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="Template_asset/css/LineIcons.3.0.css">
 <link rel="stylesheet" href="Template_asset/css/animate.css">
 <link rel="stylesheet" href="Template_asset/css/tiny-slider.css">
 <link rel="stylesheet" href="Template_asset/css/glightbox.min.css">
 <link rel="stylesheet" href="Template_asset/css/main.css">
-<link rel="stylesheet" href="Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
+<link rel="stylesheet" href="Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css"> -->
 <!-- Template_asset/css -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 <style>
 #main_menu{
     /* border-bottom: 2px solid; */

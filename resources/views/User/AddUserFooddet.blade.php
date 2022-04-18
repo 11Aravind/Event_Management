@@ -6,7 +6,11 @@
 <h1>Add Event Details</h1>
 <form>
   @csrf
-  <h1>{{$SingleProductdetails}}</h1>
+ 
+  @foreach($SingleProductdetails as $SingleProductdetails)
+ <input type="hidden" id="oneItemPrice"value="{{$SingleProductdetails->product_price}}">
+
+  @endforeach
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Date Of Event</label>
@@ -17,18 +21,41 @@
       <input type="text" name="" class="form-control" id="inputPassword4" placeholder="">
     </div>
   </div>
-  <div class="form-row">
+
+  <div class="form-group col-md-6">
+      <label for="inputPassword4">food serving starting time
+</label>
+      <input type="text" name="" class="form-control" id="inputPassword4" placeholder="">
+    </div>
+
+  <div class="form-group col-md-6">
+      <label for="inputPassword4">food serving ending time</label>
+      <input type="text" name="" class="form-control" id="inputPassword4" placeholder="" >
+    </div>
+
+
+<div class="form-group col-md-6">
+      <label for="inputPassword4">Serving type</label>
+      <input type="text" name="" class="form-control" id="inputPassword4" placeholder="" >
+    </div>
+
     <div class="form-group col-md-6">
       <label for="inputEmail4">No Of Gust</label>
-      <input type="text" name="" class="form-control" id="inputEmail4" placeholder="">
+      <input type="text" name="" class="form-control" id="noOFGust" placeholder="">
     </div>
+
     <div class="form-group col-md-6">
       <label for="inputPassword4">No Of Employees</label>
       <input type="text" name="" class="form-control" id="inputPassword4" placeholder="">
     </div>
-  </div>
+
   <!-- <button type="submit" class="btn btn-primary">BuyNow</button> -->
-  <a href="/AddUserFooddet" class="btn btn-primary">BuyNow</a>
+  <div class="form-group col-md-6">
+      <label for="inputPassword4">Total Price</label>
+      <input type="text" name="" class="form-control" id="inputPassword4" placeholder="" readonly>
+    </div>
+
+  <a href="/BuyNow" class="btn btn-primary">BuyNow</a>
 </form>
 
 

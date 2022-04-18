@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('Homepagecontent',["starting"=>"../"]);
 });
 Route::get('/User', function () {
-    return view('Homepagecontent');
+    return view('Homepagecontent',["starting"=>"../"]);
 });
 Route::get('/Admin', function () {
     return view('Admin_homepage',["title"=>"Admin_dashbord"]);
@@ -125,6 +125,8 @@ Route::get('/BuyNow', [UserController::class,'viewaddress']);
 
 //tour display
 Route::get('TourView',[TourController::class,'TourView']);
+// TourUserInfo
+Route::get('TourUserInfo/{id}',[TourController::class,'TourUserInfo']);
 
 // PackageController
 

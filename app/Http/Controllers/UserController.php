@@ -22,7 +22,7 @@ class UserController extends Controller
         $category=Category::where('cat_type','Event')->get();
         $event_det=Event::all();
         // return $event_det;
-        return view('User/TicketBooking',["title"=>"TicketBooking page",'categorys'=>$category,"event_dets"=>$event_det]);
+        return view('User/TicketBooking',["title"=>"TicketBooking page","starting"=>"../",'categorys'=>$category,"event_dets"=>$event_det]);
     }
     public function store()
     {
@@ -48,13 +48,14 @@ class UserController extends Controller
         // dd($user_id);
         $addressdet=address::where('user_id','=',$user_id)->get();
         // dd($addressdet);
-        return view('User/BuyNow',["addressdets"=>$addressdet,"title"=>"TicketBooking page"]);
+        $starting ="../";
+        return view('User/BuyNow',["addressdets"=>$addressdet,"starting"=>$starting,"title"=>"TicketBooking page"]);
     }
     public function Eventdetails($id)
     {
        
         $event_det=Event::findOrFail($id);
-        return view('User/Eventdetails',["title"=>"Eventdetails page","event_det"=>$event_det]);
+        return view('User/Eventdetails',["title"=>"Eventdetails page","starting"=>"../","event_det"=>$event_det]);
     }
     public function eventdynamic($event)
     {
@@ -123,7 +124,7 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
     public function AddUserFooddet($id)
     {
         $SingleProductdetails=AddProduct::where('product_id','=',$id)->get();
-        return view('User/AddUserFooddet',["title"=>"SingleProductdetails page","SingleProductdetails"=>$SingleProductdetails]);
+        return view('User/AddUserFooddet',["title"=>"SingleProductdetails page","starting"=>"../","SingleProductdetails"=>$SingleProductdetails]);
     }
     public function AddUserFooddet_store()
     {

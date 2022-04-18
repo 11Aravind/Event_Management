@@ -83,17 +83,16 @@
 </div> -->
 <div class="col-lg-4 col-md-6">
 <div class="single_place">
+<a href="/TourpackageDetails/{{$tourdetail->tour_id}}">
 <div class="thumb">
 <img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
 <!-- <a href="#" class="prise">$500</a> -->
 </div>
 <div class="place_info">
-<a href="/TourpackageDetails/{{$tourdetail->tour_id}}">
-<a href="/TourpackageDetails/{{$tourdetail->tour_id}}"><h3>{{$tourdetail->MainDescription}} </h3></a>
+<h3>{{$tourdetail->MainDescription}} </h3>
 <p>{{$tourdetail->days}} Days</p>
-</a>
 </div>
-
+</a>
 </div>
 </div>
 

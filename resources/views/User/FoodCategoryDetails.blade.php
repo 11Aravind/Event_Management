@@ -42,7 +42,7 @@
         <div id="foodcategory" style="color:red;flex:.2;border-right: 1px solid red;">
         <!-- category display start -->
         <ul>
-        <li><a href="#">ALL</a></li>
+     
             @if($categorydets)
       
         @foreach($categorydets as $categorydet)
@@ -56,8 +56,9 @@
         <!-- category display end -->
     </div>
         <!-- hhh -->
-        @foreach($foodproductdets as $foodproductdet)
+       
         <div class="product" style="flex:1;margin-left:3px;margin-left:33px;">
+        @foreach($foodproductdets as $foodproductdet)
         <div class="productfull" style="display: flex;">
             <div class="productdet" style=""><img src="https://b.zmtcdn.com/data/dish_photos/7a0/156947afc42029de9ea391eda38ee7a0.jpg?output-format=webp&fit=around|130:130&crop=130:130;*,*" alt="productimg">
             </div>
@@ -71,8 +72,9 @@
             </div> 
                 
         </div>
-        </div>
         @endforeach
+        </div>
+        
        <!-- hhhh --> <br>
     </div>
 </div>

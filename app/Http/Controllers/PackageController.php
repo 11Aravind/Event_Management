@@ -48,17 +48,17 @@ $busdetailsproductdetails=AddProduct::all();
     public function Premium()
     {
         $Premium=Packages::where('type','=','Premium')->get();
-        return view('Layout/PackageLayout',["title"=>"Premium Package Page","Premiums"=>$Premium,"type"=>"Premium"]);
+        return view('Layout/PackageLayout',["title"=>"Premium Package Page","starting"=>"../","Premiums"=>$Premium,"type"=>"Premium"]);
     }
     public function Medium()
     {
         $Medium=Packages::where('type','=','Medium')->get();
-        return view('Layout/PackageLayout',["title"=>"Medium Package Page","Premiums"=>$Medium,"type"=>"Medium"]);
+        return view('Layout/PackageLayout',["title"=>"Medium Package Page","starting"=>"../","Premiums"=>$Medium,"type"=>"Medium"]);
     }
     public function Regular()
     {
         $Regular=Packages::where('type','=','Regular')->get();
-        return view('Layout/PackageLayout',["title"=>"Regular Package Page","Premiums"=>$Regular,"type"=>"Regular"]);  
+        return view('Layout/PackageLayout',["title"=>"Regular Package Page","starting"=>"../","Premiums"=>$Regular,"type"=>"Regular"]);  
     }
     public function PackageDetail($id)
     {
@@ -77,7 +77,7 @@ $busdetailsproductdetails=AddProduct::all();
         }
         // foreach($products as $product)
 
-        return view('User.PackageDetail',["first"=>$fullproduct]);
+        return view('User.PackageDetail',["first"=>$fullproduct,"starting"=>"../",]);
     }
     //tour package details view (in admin side
     public function Tour_details()

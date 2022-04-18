@@ -28,32 +28,35 @@
 </div>
 <div class="row">
     @foreach($Premiums as $Premium)
+    <a href="PackageDetail/{{$Premium->package_id}}">
+
 <div class="col-lg-4 col-md-6">
 <div class="single_place" style="height: 367.5px;">
 <div class="thumb">
 <!-- 356 × 201 p -->
 <img src="images/{{$Premium->package_image}}"  style="width:356px;height:201px"alt="premium package">
-<a href="#" class="prise">{{$Premium->total_amount}}</a>
+<h3 class="prise">{{$Premium->total_amount}}</h3>
 </div>
 <div class="place_info">
-<a href="destination_details.html"><h3>{{$Premium->package_use}}</h3></a>
+<h3>{{$Premium->package_use}}</h3>
 <p>{{$Premium->discription}}</p>
 <div class="rating_days d-flex justify-content-between">
-<span class="d-flex justify-content-center align-items-center">
+<!-- <span class="d-flex justify-content-center align-items-center"> -->
+<!-- <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
+<i class="fa fa-star"></i> -->
 <!-- <a href="#">(20 Review)</a> -->
-</span>
+<!-- </span> -->
 <div class="days">
 <i class="fa fa-clock-o"></i>
-<a href="PackageDetail/{{$Premium->package_id}}">More>></a>
+<!-- More>></a> -->
 </div>
 </div>
 </div>
 </div>
+</a>
 </div>
 @endforeach
 

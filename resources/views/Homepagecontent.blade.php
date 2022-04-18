@@ -101,7 +101,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
   
   <!-- Optional: some overlay text to describe the video -->
   <div class="content">
-    <h1 style="font-size: 86px;text-align: center;font-family: sans-serif;color:white">DREAM     EVENTS</h1>
+    <h1 style="font-size: 86px;text-align: center;font-family: sans-serif;color:white">FESTIVA   EVENTS</h1>
   </div>
   <div class="contens"></div>
    

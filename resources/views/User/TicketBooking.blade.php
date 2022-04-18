@@ -28,6 +28,7 @@
 <div class="row">
 @foreach($event_dets as $event_det)
 <div class="col-lg-3 col-md-6">
+<a href="Eventdetails/{{$event_det->event_id}} " style="">
 <div class="single_place">
 <div class="thumb">
 <!-- <img src="Template_asset\images\pub.jpg" alt=""> -->
@@ -36,7 +37,7 @@
 <!-- <a href="#" class="prise">$500</a> -->
 </div>
 <div class="place_info">
-<a href="destination_details.html"><h3>{{$event_det->event_name}}</h3></a>
+<h3>{{$event_det->event_name}}</h3>
 <span>Free</span>
 <span>{{$event_det->totel_ticket}} remaining</span>
 <div class="rating_days d-flex justify-content-between">
@@ -51,11 +52,12 @@
 
 <a href="#">{{$event_det->duration}} end </a>
 <br>
-<a href="Eventdetails/{{$event_det->event_id}} " style="color:red">More>></a>
+<!-- <a href="Eventdetails/{{$event_det->event_id}} " style="color:red">More>></a> -->
 </div>
 </div>
 </div>
 </div>
+</a>
 </div>
 @endforeach
 <!-- <div class="col-lg-3 col-md-6">
