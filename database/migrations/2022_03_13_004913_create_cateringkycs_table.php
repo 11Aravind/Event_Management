@@ -27,6 +27,7 @@ $table->string('pincode');
 $table->string('locality');
 $table->string('city');
 $table->string('district');
+$table->boolean('status')->default(0);
 $table->foreign('user_id')->references('user_id')->on('authentications');
 
             $table->timestamps();

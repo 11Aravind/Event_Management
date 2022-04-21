@@ -169,6 +169,15 @@ Route::get('/TourpackageDetails/{id}',[TourController::class,'TourpackageDetails
 
 Route::get('/Cateringkyc',[FoodController::class,'Cateringkyc']);
 Route::post('/Cateringkyc',[FoodController::class,'Cateringkycdet_store']);
+Route::get('/Cateringkyc_activate/{id}',[FoodController::class,'Cateringkyc_activate']);
+Route::get('/Cateringkyc_deactivate/{id}',[FoodController::class,'Cateringkyc_deactivate']);
+Route::get('/Cateringkyc_delete/{id}',[FoodController::class,'Cateringkyc_delete']);
+
+
+
+
+
+Route::get('/Catering_details',[FoodController::class,'Catering_details']);
 
 
 Route::get('/ViewTravelPage',[UserController::class,'ViewTravelPage']);
@@ -184,8 +193,12 @@ Route::get('/FoodProductDetails/{FoodCategoryDetails}/{id}/{user_id}',[UserContr
 Route::get('/SingleProductdetails/{id}',[UserController::class,'SingleProductdetails']);
 
 Route::get('/AddUserFooddet/{id}',[UserController::class,'AddUserFooddet']);
-Route::post('/AddUserFooddet_store',[UserController::class,'AddUserFooddet_store']);
+Route::post('/AddUserFooddet',[UserController::class,'AddUserFooddet_store']);
+// RegisterComplaints
+Route::get('/RegisterComplaints',[UserController::class,'RegisterComplaints']);
+Route::post('/RegisterComplaints',[UserController::class,'store_RegisterComplaints']);
 
+// Route::post('/AddUserFooddet',[UserController::class,'AddUserFooddet_store']);
 // AddUserFooddet
 // Route::get('/AddUserFooddet',[UserController::class,'AddUserFooddet']);
 

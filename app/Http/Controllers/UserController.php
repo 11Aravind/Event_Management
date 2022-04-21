@@ -12,6 +12,8 @@ use App\Models\BusDetail;
 use App\Models\Cateringkyc;
 use App\Models\AddProduct;
 use App\Models\UserEventDetails;
+use App\Models\FoodservingInfo;
+use App\Models\Complaint;
 use Illuminate\Support\Facades\DB;
 use Session;
 class UserController extends Controller
@@ -64,7 +66,7 @@ return $event;
     }
     public function Fooddisplay()
     {
-$Cateringkyc=Cateringkyc::all();
+$Cateringkyc=Cateringkyc::where('status','=','1')->get();
 $starting="";
 return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starting,"Cateringkycs"=>$Cateringkyc]);
 
@@ -72,7 +74,7 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starti
     public function ViewTravelPage()
     {
         $TravelKycdet=TravelKyc::all();
-        return view('User/TravelKycdet',["title"=>"Eventdetails page","TravelKycdets"=>$TravelKycdet]);   
+        return view('User/TravelKycdet',["title"=>"Eventdetails page","starting"=>"../","TravelKycdets"=>$TravelKycdet]);   
     }
     public function TravelAgenctDetails($id)
     {
@@ -81,7 +83,7 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starti
         $travelagencyname=TravelKyc::findOrFail($id);
         // return $busdetails;
         // $TravelKycdet=TravelKyc::all();
-        return view('User/TravelAgenctDetails',["title"=>"TravelAgenctDetails page","busdetails"=>$busdetails,"travelagencyname"=>$travelagencyname]);  
+        return view('User/TravelAgenctDetails',["title"=>"TravelAgenctDetails page","starting"=>"../","busdetails"=>$busdetails,"travelagencyname"=>$travelagencyname]);  
     }
     public function SingleBusDetails($id)
     {
@@ -94,7 +96,6 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starti
         $categorydet=Category::where('user_id','=',$id)->get();
         $FoodCategoryDetails=$FoodCategoryDetails;
         $starting="../../";
-
 // join start
 $foodproductdet=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
 ->where('categorys.user_id','=',$id)->get();
@@ -128,11 +129,26 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
     }
     public function AddUserFooddet_store()
     {
-$UserEventDetails=new UserEventDetails();
+        $FoodservingInfo=new FoodservingInfo();
+ 
+        $FoodservingInfo->product_id=request('product_id');
+        $FoodservingInfo->dateOfEvent=request('dateOfEvent');
+        $FoodservingInfo->EventLocation=request('EventLocation');
+        $FoodservingInfo->ServingStartingtime=request('ServingStartingtime');
+        $FoodservingInfo->Servingendingtime=request('Servingendingtime');
+        $FoodservingInfo->servingtype=request('servingtype');
+        $FoodservingInfo->noOfGust=request('noOfGust');
+        $FoodservingInfo->noofemploy=request('noofemploy');
+        $FoodservingInfo->Totalprice=request('Totalprice');
+        $FoodservingInfo->save();
+        
+        return redirect('/BuyNow'); 
+// $UserEventDetails=new UserEventDetails();
+
     }
     public function addeventbookdet()
     {
-        return view('User/addeventbookdet');
+        return view('User/addeventbookdet',["starting"=>"../"]);
     }
     public function singleEmployDet($id)
     {
@@ -141,6 +157,27 @@ $UserEventDetails=new UserEventDetails();
     public function CardPage()
     {
         return view('User/CartPage');
+    }
+    public function RegisterComplaints()
+    {
+        return view('User/RegisterComplaints',["starting"=>"../"]);
+    }
+    public function store_RegisterComplaints(Request $request)
+    {
+        $fileComplaint=new Complaint();
+        $fileComplaint->user_id=Session::get('user_id');
+        // $fileComplaint->subject=request('subject');
+
+        $file=$request->subject;
+        $extension=$file->getClientOriginalExtension();
+        $filename=time().'.'.$extension;
+        $file->move('uploaded_images/',$filename);
+        $$fileComplaint->subject=$filename;
+
+        $fileComplaint->proof=$request->proof;
+        $fileComplaint->complaint=$request->complaint;
+        $save=$fileComplaint->save();
+        return('complaint is successfully sended"');
     }
 }
 

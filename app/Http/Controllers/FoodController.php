@@ -61,7 +61,8 @@ $store_product->product_quentity=$request->product_quentity;
 $store_product->product_discription=$request->product_description;
 $store_product->status=0;
 $store_product->save();
-return redirect('/Display_Foodproduct');
+return redirect('/Display_Foodproduct')->with('success','Product is successfuly added');
+
     }
     public function Display_Foodproduct()
     {
@@ -114,7 +115,48 @@ $Cateringkycdet->locality=$request->locality;
 $Cateringkycdet->city=$request->city;
 $Cateringkycdet->district=$request->district;
 $save=$Cateringkycdet->save();
-if($save)
-return redirect('/Cateringkyc');
+Session::put('Catering_id',$Cateringkycdet->Catering_id);
+
+if($save){
+
+return redirect('/Food')->with('success','Catering KYC is submitted successfully');
+}
+else{
+    return redirect('/Food')->with('failmsg','Catering KYC is not submited please try again');
+}
     }
+
+    public function Catering_details()
+    {
+        $Cateringkyc=Cateringkyc::all();
+        return view('Admin/Catering_details',["Cateringkyc"=>$Cateringkyc,"title"=>"Catering service details"]);
+    }
+    public function Cateringkyc_activate($id)
+    {
+        $Cateringkyc_activate=Cateringkyc::findOrFail($id);
+        $Cateringkyc_activate->status=1;
+        $Cateringkyc_activate->save();
+        return redirect('Catering_details');
+    }
+    public function Cateringkyc_deactivate($id)
+    {
+        $Cateringkyc_activate=Cateringkyc::findOrFail($id);
+        $Cateringkyc_activate->status=0;
+        $Cateringkyc_activate->save();
+        return redirect('Catering_details');
+    }
+    public function Cateringkyc_delete($id)
+    {
+        $Cateringkyc_activate=Cateringkyc::findOrFail($id);
+      
+        $delete=$Cateringkyc_activate->delete();
+        if($delete)
+         return redirect('Catering_details')->with('success',"The product was deleted");
+     else
+         return back()->with('fail',"The product was not deleted Try Again");
+     
+        
+    }
+    
+    
 }

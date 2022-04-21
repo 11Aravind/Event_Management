@@ -14,6 +14,7 @@
 
 <div class="row">
 @foreach($busdetails as $busdetail)
+<a href="/SingleBusDetails/{{$busdetail->bus_id}}">
 <div class="col-lg-4 col-md-6">
 <div class="single_place">
 <div class="thumb">
@@ -21,13 +22,14 @@
 <!-- <a href="#" class="prise">hi hi</</a> -->
 </div>
 <div class="place_info">
-<a href="/SingleBusDetails/{{$busdetail->bus_id}}"><h3>{{$busdetail->busname}}</h3></a>
+<h3>{{$busdetail->busname}}</h3>
 <p>seating capacity-{{$busdetail->seating_capacity}}</p>
 <!-- <div class="rating_days d-flex justify-content-between"> -->
 
 </div>
 </div>
 </div>
+</a>
 @endforeach
 </div>
 </div>

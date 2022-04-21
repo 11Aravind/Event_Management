@@ -59,11 +59,13 @@
        
         <div class="product" style="flex:1;margin-left:3px;margin-left:33px;">
         @foreach($foodproductdets as $foodproductdet)
-        <div class="productfull" style="display: flex;">
-            <div class="productdet" style=""><img src="https://b.zmtcdn.com/data/dish_photos/7a0/156947afc42029de9ea391eda38ee7a0.jpg?output-format=webp&fit=around|130:130&crop=130:130;*,*" alt="productimg">
+        <div class="productfull" style="display: flex; margin: 12px;">
+   
+            <div class="productdet" style=""><img src="../../../uploaded_images/{{$foodproductdet->product_photo}}" style="width: 135px;height: 116px;" alt="productimg">
+            <!-- E:\xampp\htdocs\Perfect_Stom_Moments\public\uploaded_images\1650521983.jpg -->
             </div>
             <div class="productcontent" style="margin-left:3px"><h4>{{$foodproductdet->product_name}} </h4>
-                395 votes <br>
+                <!-- 395 votes <br> -->
                 ₹{{$foodproductdet->product_price}}<br>
                 {{$foodproductdet->product_discription}}<br>
                 <button ><a href="/AddUserFooddet" style="color:red">Add To Cart</a> </button>

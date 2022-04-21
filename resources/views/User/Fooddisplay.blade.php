@@ -14,6 +14,14 @@
 </div>
 </div>
 <div class="row">
+    
+    @if($Cateringkycs==[])
+    
+    
+<div class="text-center">
+    <h1>catering onnum illa</h1>
+</div> 
+@else 
 @foreach($Cateringkycs as $Cateringkyc)
 
 <div class="col-lg-4 col-md-6">
@@ -36,6 +44,7 @@
 
 @endforeach
 
+@endif
 </div>
 </div>
 <!-- </div>  -->

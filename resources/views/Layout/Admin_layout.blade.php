@@ -102,7 +102,6 @@
 
 							<li class=""><a href="DisplayEventCategory" class="">Event Categorys</a></li>
 							<li class=""><a href="/Add_Event" class="">Add Events </a></li>
-							<li class=""><a href="/Event_details" class="">Event Details </a></li>
 							<!-- <li class=""><a href="#" class="">Tour Package</a></li>
 							<li class=""><a href="#" class="">Custom Package</a></li> -->
 
@@ -116,12 +115,20 @@
                             <i class="feather icon-file-text"></i></span>
 							<span class="pcoded-mtext">Tour Package</span></a>
 					</li>
+					<!-- <li class=""><a href="/Event_details" class="">Event Details </a></li> -->
+					
 					<li class="nav-item">
+						<a href="../Catering_details" class="nav-link">
+							<span class="pcoded-micon">
+                            <i class="feather icon-file-text"></i></span>
+							<span class="pcoded-mtext">Event Details</span></a>
+					</li>
+					<!-- <li class="nav-item">
 						<a href="../DisplayCategory" class="nav-link">
 							<span class="pcoded-micon">
                             <i class="feather icon-file-text"></i></span>
 							<span class="pcoded-mtext">Category Details</span></a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a href="../Employdetails" class="nav-link">
 							<span class="pcoded-micon">

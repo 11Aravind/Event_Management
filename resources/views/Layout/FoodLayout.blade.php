@@ -70,7 +70,12 @@
         <ul class="side-menu">
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
-            <li><a href="/Cateringkyc">Catering  KYC </a></li>
+@if(Session::get('Catering_id'))
+
+@else
+<li><a href="/Cateringkyc">Catering  KYC </a></li>
+@endif
+      
             <!-- <li> <a href="/foodcategory">Category</a></li> -->
             <li> <a href="/foodDetails">Category Details</a></li>
            

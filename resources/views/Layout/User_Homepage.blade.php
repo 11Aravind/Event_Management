@@ -18,8 +18,9 @@
 <!-- example end -->
 <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWxq0BifrLE2ztsvXcrC2NGp1rF4s3RMEglA&usqp=CAU" type="image/x-icon"/>
 <!-- common start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/LineIcons.3.0.css">
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/animate.css">
@@ -110,17 +111,20 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 <ul class="sub-menu collapse" id="submenu-1-2">
 <li class="nav-item"><a href="/Events">TICKET BOOKING</a>
 </li>
-<li class="nav-item"><a href="/EventChart">UPCOMING EVENTS</a></li>
+<!-- <li class="nav-item"><a href="/EventChart">UPCOMING EVENTS</a></li> -->
 </ul>
 </li>
 <li class="nav-item">
 <a href="/TourView"id="main_menu" aria-label="Toggle navigation">TOUR</a>
 </li>
 <li class="nav-item">
-<a href="/Fooddisplay"id="main_menu" aria-label="Toggle navigation">Food</a>
+<a href="/Fooddisplay"id="main_menu" aria-label="Toggle navigation">FOOD</a>
 </li>
 <li class="nav-item">
-<a href="/ViewTravelPage"id="main_menu" aria-label="Toggle navigation">Travel</a>
+<a href="/ViewTravelPage"id="main_menu" aria-label="Toggle navigation">TRAVEL</a>
+</li>
+<li class="nav-item">
+<a href="/RegisterComplaints"id="main_menu" aria-label="Toggle navigation">COMPLAINTS</a>
 </li>
 @if(Session::get('user_id'))
 
@@ -135,11 +139,11 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 </li>
 
 </ul>
-<a href="/CardPage"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a>
+<!-- <a href="/CardPage"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a> -->
 
- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<i class="fa fa-heart" aria-hidden="true"></i>
-Fav
+ <!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<i class="fa fa-heart" aria-hidden="true"></i> -->
+<!-- Fav -->
 @else
 </ul>
 <!-- <div class="button"> -->
@@ -158,7 +162,7 @@ Fav
 @yield('content')
 
 <footer class="footer">
-
+<!-- 
 <div class="footer-top">
 <div class="container">
 <div class="inner-content">
@@ -253,8 +257,8 @@ Follow Us On:
 </div>
 </div>
 </div>
-</div>
-
+</div> -->
+<div class="text-center shadow-none p-3 mb-5 bg-light rounded" style="">Aravind@copyright</div>
 </footer>
 
 
@@ -351,5 +355,10 @@ $("#cancel").click(function(){
         timer();
         setInterval(timer, 1000);
     </script> -->
-
+    <script>
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+}
+</script>
 </body></html>

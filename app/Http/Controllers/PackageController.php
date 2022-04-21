@@ -77,7 +77,7 @@ $busdetailsproductdetails=AddProduct::all();
         }
         // foreach($products as $product)
 
-        return view('User.PackageDetail',["first"=>$fullproduct,"starting"=>"../",]);
+        return view('User.PackageDetail',["first"=>$fullproduct,'package_details'=>$packagedetail,"starting"=>"../",]);
     }
     //tour package details view (in admin side
     public function Tour_details()

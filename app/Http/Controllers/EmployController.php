@@ -47,7 +47,7 @@ return "<script>alert('Your data is added successfuly')</script>";
     {
         $Employdetais=Employ::where('status','=','1')->get();   
         // return  $Employdetais;
-        return view('User/Displayemploydet',['Employdetais'=>$Employdetais]);
+        return view('User/Displayemploydet',['Employdetais'=>$Employdetais,'starting'=>"../"]);
     }
     public function EmployActive($id)
     {

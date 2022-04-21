@@ -21,7 +21,7 @@
 <div class="row justify-content-center">
 <div class="col-lg-6">
 <div class="section_title text-center mb_70">
-<h3>Other {{ $type}} Package</h3>
+<h3> {{ $type}} Package</h3>
 <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
 </div>
 </div>
@@ -49,10 +49,10 @@
 <i class="fa fa-star"></i> -->
 <!-- <a href="#">(20 Review)</a> -->
 <!-- </span> -->
-<div class="days">
-<i class="fa fa-clock-o"></i>
+<!-- <div class="days">
+<i class="fa fa-clock-o"></i> -->
 <!-- More>></a> -->
-</div>
+<!-- </div> -->
 </div>
 </div>
 </div>
@@ -61,13 +61,13 @@
 @endforeach
 
 </div>
-<div class="row">
+<!-- <div class="row">
 <div class="col-lg-12">
 <div class="more_place_btn text-center">
 <a class="boxed-btn4" href="#">More Packages</a>
 </div>
 </div>
-</div>
+</div> -->
 </div>
 </div>
 <!-- <div class="recent_trip_area">

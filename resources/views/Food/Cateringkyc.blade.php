@@ -12,7 +12,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Ownder Name</label>
-      <input type="text"  name="ownername" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="text"  name="ownername" class="form-control" id="inputPassword4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -22,7 +22,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Alternate Phone</label>
-      <input type="text" name="alterphoneno"  class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="text" name="alterphoneno"  class="form-control" id="inputPassword4" placeholder="">
     </div>
   </div>
 
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Owner Pic</label>
-      <input type="file" name="owner_pic"class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="file" name="owner_pic"class="form-control" id="inputPassword4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -43,7 +43,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Locality</label>
-      <input type="text" name="locality" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="text" name="locality" class="form-control" id="inputPassword4" placeholder="">
     </div>
   </div>
   <div class="form-row">
@@ -53,7 +53,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">District</label>
-      <input type="text" name="district"class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="text" name="district"class="form-control" id="inputPassword4" placeholder="">
     </div>
   </div>
   
