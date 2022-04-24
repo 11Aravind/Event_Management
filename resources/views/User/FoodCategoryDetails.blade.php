@@ -68,7 +68,7 @@
                 <!-- 395 votes <br> -->
                 ₹{{$foodproductdet->product_price}}<br>
                 {{$foodproductdet->product_discription}}<br>
-                <button ><a href="/AddUserFooddet" style="color:red">Add To Cart</a> </button>
+                <!-- <button ><a href="/AddUserFooddet" style="color:red">Add To Cart</a> </button> -->
             
                 <button ><a href="/AddUserFooddet/{{$foodproductdet->product_id}}" style="color:red">Book Now</a> </button>
             </div> 

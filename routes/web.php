@@ -47,6 +47,7 @@ Route::get('/Employdetails',[AdminController::class,'Displayemploydet']);
 Route::get('Travel', function () {
     return view('Travel/KycForm',["title"=>"Employ_dashbord"]);
 });
+/////////food routs start
 Route::get('Food', function () {
     return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
 });
@@ -54,6 +55,26 @@ Route::get('/foodcategory', function () {
     return view('Food/foodcategory',["title"=>"Food Dashbord"]);
 });
 Route::post('/foodcategory',[FoodController::class,'store']);
+
+Route::get('/foodorderdetails',[FoodController::class,'foodorderdetails']);
+// Route::get('/FoodOrder_details',[FoodController::class,'FoodOrder_details']);
+
+//food routs end
+// Route::get('/FoodOrder_details',[FoodController::class,'FoodOrder_details']);
+
+
+// payment
+
+Route::get('/foodproductSummary',[FoodController::class,'foodproductSummary']);
+Route::post('/pay',[FoodController::class,'pay']);
+
+Route::get('/FoodOrder_details',[FoodController::class,'FoodOrder_details']);
+// Route::get('/',[FoodController::class,'']);
+
+
+Route::get('/success',[FoodController::class,'success']);
+Route::get('/error' ,[FoodController::class,'error']);
+// payment end
 
 Route::get('/foodDetails',[FoodController::class,'DisplayCategory']);
 Route::get('/Add_Food',[FoodController::class,'add_food_form']);

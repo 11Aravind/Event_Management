@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\AddProduct;
 use App\Models\Cateringkyc;
+use App\Models\FoodservingInfo;
 use Session;
 class FoodController extends Controller
 {
@@ -157,6 +158,42 @@ else{
      
         
     }
-    
+    public function foodproductSummary()
+    {
+        return view('User/foodproductSummary',['starting'=>"../"]);
+    }
+    public function pay(Request $request){
+        $data = $request->all();
+        // dd($data);
+        $user = FoodservingInfo::where('payment_id', $data['razorpay_order_id'])->first();
+        $user->payment_done = true;
+        $user->rezorpay_id = $data['razorpay_payment_id'];
+        $save=$user->save();
+        if($save)
+        {
+            return redirect('/success');
+        }
+        else
+        {
+            return view('/error');
+        }
+    }
+    public function success()
+    {
+        return view('User.success');
+    }
+    public function error()
+    {
+        return view('User.error');  
+    }
+  
+    public function foodorderdetails()
+    {
+        
+             $user_id=Session::get('user_id');
+       
+        $foodorderdetails=FoodservingInfo::where('user_id','=',$user_id)->get();
+        return view('Food.FoodOrder_details',["foodorderdetails"=>$foodorderdetails]); 
+    }
     
 }

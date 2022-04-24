@@ -57,18 +57,18 @@
                                                             <td>{{$busdetails->product_quentity}}</td>
                                                             <td>{{$busdetails->product_price}}</td>
                                                             <td>
-                                                            <a href="UpdateForm/{{$busdetails->product_id}}" class="btn btn-primary">Update</a>
+                                                            <a href="#" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
-                                                            <a href="DeleteProduct/{{$busdetails->product_id }}" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="#" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
                                                             @if($busdetails->status==1)
                                                             <td>
-                                                            <a href="DeactiveProduct/{{$busdetails->product_id }}" class="btn btn-danger"> Dective</a>
+                                                            <a href="#" class="btn btn-danger"> Dective</a>
                                                             </td>
                                                             @else
                                                             <td>
-                                                            <a href="ActiveProduct/{{$busdetails->product_id }}" class="btn btn-success">Active</a>
+                                                            <a href="#" class="btn btn-success">Active</a>
                                                             </td>
                                                             
                                                             @endif

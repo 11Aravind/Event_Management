@@ -9,7 +9,7 @@
  
   @foreach($SingleProductdetails as $SingleProductdetails)
  <input type="hidden" id="oneItemPrice"value="{{$SingleProductdetails->product_price}}">
- <input type="hidden" name="product_id"id="product_id"value="{{$SingleProductdetails->product_id}}">
+ <input type="hidden" name="product_id" id="product_id"value="{{$SingleProductdetails->product_id}}">
   @endforeach
   
   <!-- UserEvent_id
@@ -44,7 +44,7 @@ product_id -->
 
     <div class="form-group col-md-6">
       <label for="inputEmail4">No Of Gust</label>
-      <input type="text" name="noOfGust" class="form-control" id="noOFGust" placeholder="">
+      <input type="text" name="noOfGust" onChange="change_send(this.value);" class="form-control" id="noOfGust" placeholder="">
     </div>
 
     <div class="form-group col-md-6">
@@ -55,14 +55,34 @@ product_id -->
   <!-- <button type="submit" class="btn btn-primary">BuyNow</button> -->
   <div class="form-group col-md-6">
       <label for="inputPassword4">Total Price</label>
-      <input type="text" name="Totalprice" class="form-control" value="300" id="inputPassword4" placeholder="" readonly>
+      <input type="text" name="Totalprice" class="form-control"  id="Totalprice" readonly>
     </div>
 
   <button class="btn btn-primary">BuyNow</button>
 </form>
  
 <!-- </div> -->
+</div>
+</div>
+<script type="text/javascript">
+function change_send(noOfGust)
+{
+  $noOfGust=noOfGust;
+  $oneItemPrice=$("#oneItemPrice").val();
+  $Totalprice=$oneItemPrice*$noOfGust;
+   $("#Totalprice").val($Totalprice);
+	// alert($Totalprice);
 
-</div>
-</div>
+}
+</script>
+
+<!-- <script>
+  $('#noOFGust').on('change', function() {
+    $noOfGust=$("#noOfGust").val(this.value );
+    $oneItemPrice=$("#oneItemPrice").val();
+    $Totalprice=$oneItemPrice+$noOfGust;
+    alert($Totalprice);
+ 
+});
+</script> -->
 @endsection

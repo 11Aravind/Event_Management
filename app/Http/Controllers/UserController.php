@@ -1,6 +1,8 @@
 <?php
 
+
 namespace App\Http\Controllers;
+
 
 use Illuminate\Http\Request;
 use App\Models\address;
@@ -15,6 +17,11 @@ use App\Models\UserEventDetails;
 use App\Models\FoodservingInfo;
 use App\Models\Complaint;
 use Illuminate\Support\Facades\DB;
+use App\Models\Payment;
+use Monolog\SignalHandler;
+use Razorpay\Api\Api;
+use Razorpay\Api\Errors\SignatureVerificationError;
+
 use Session;
 class UserController extends Controller
 {
@@ -129,6 +136,11 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
     }
     public function AddUserFooddet_store()
     {
+       $amount=request('Totalprice');
+        $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
+        $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
+        $orderId = $order['id']; 
+       
         $FoodservingInfo=new FoodservingInfo();
  
         $FoodservingInfo->product_id=request('product_id');
@@ -140,9 +152,16 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
         $FoodservingInfo->noOfGust=request('noOfGust');
         $FoodservingInfo->noofemploy=request('noofemploy');
         $FoodservingInfo->Totalprice=request('Totalprice');
+        $FoodservingInfo->payment_id = $orderId;
         $FoodservingInfo->save();
-        
-        return redirect('/BuyNow'); 
+        $foodserving_id=$FoodservingInfo->foodserving_infos;
+
+        $data = array(
+            'order_id' => $orderId,
+            'amount' => $amount
+        );
+        return redirect('/foodproductSummary')->with('data', $data,'foodserving_id',$foodserving_id);
+        // return redirect('/BuyNow',['foodserving_id'=>$foodserving_id]); 
 // $UserEventDetails=new UserEventDetails();
 
     }
