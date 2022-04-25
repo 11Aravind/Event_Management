@@ -13,47 +13,9 @@
 <body>
     <img src="images/Kerala.jpg"  style="width: 100%;
     height: 416px;"alt="slider">
-<div class="search-availablity">
-    <div class="container">
-    <div class="row justify-content-center">
-    <div class="col-lg-10">
-    <form class="form">
-    <div class="row">
-    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
-        <select style="display: block;
-        width: 100%;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ced4da;
-        border-radius: 0.25rem;
-        transition: border-color .15s ease-in-out , box-shadow .15s ease-in-out;">
-            <option data-display="Travel type">Travel type </option>
-            <option value="1">Some option</option>
-            <option value="2">Another option</option>
-            </select>  
-    </div>
-    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
-    <input type="text" class="form-control" name="daterange">
-    </div>
-    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
-    <input type="text" class="form-control" placeholder="Enter # of People">
-    </div>
-    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
-    <input type="submit" class="btn btn-primary btn-block" style="color: white;
-    background: #00aced;"value="Search">
-    </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    </div>
-    </div>
-
-
+    @if($tourdetails->isEmpty())
+<H1>tour package not exist</H1>
+@else
 
 <div class="popular_destination_area">
 <div class="container">
@@ -67,6 +29,7 @@
 </div>
 
 <div class="row">
+
 @foreach($tourdetails as $tourdetail)
 <!-- <div class="col-lg-4 col-md-6">
 <div class="single_destination">
@@ -95,8 +58,8 @@
 </a>
 </div>
 </div>
-
 @endforeach
+@endif
 </div>
 
 </div>

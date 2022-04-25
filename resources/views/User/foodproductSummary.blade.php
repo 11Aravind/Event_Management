@@ -8,7 +8,12 @@
 <div class="col-lg-6">
 <div class="section_title text-center mb_70">
 <h1>payment_button</h1>
+
+
 @if(Session::has('data'))
+{{Session::get('data.FoodservingInfo')}}
+{{Session::get('data.foodProductdet')}}
+
 <div class="container tex-center mx-auto">
     <form action="/pay" method="POST" class="text-center mx-auto mt-5">
       

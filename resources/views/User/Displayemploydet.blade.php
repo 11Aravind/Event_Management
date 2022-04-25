@@ -12,6 +12,9 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 </div>
 </div>
 </div>
+@if($Employdetais->isEmpty())
+<h1>Employs Not Registred</h1>
+@else
 <div class="all-speakers">
 <div class="row">
 @foreach($Employdetais as $Employdetail)
@@ -37,7 +40,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 
 </div>
 @endforeach
-
+@endif
 </div>
 </div>
 </div>

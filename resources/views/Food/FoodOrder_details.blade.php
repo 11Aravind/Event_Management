@@ -39,6 +39,8 @@
                                                             <th>serving type</th>
                                                           
                                                             <th>noOfGust</th>
+                                                            <th>noofemploy</th>
+                                                            <th>Totalprice</th>
                                                             <th>payment_id</th>
                                                             <th> rezorpay_id</th>
                                                             <th> payment_done</th>
@@ -60,7 +62,14 @@
                                                             <td>{{$foodorderdetails->Totalprice}}</td>
                                                             <td>{{$foodorderdetails->payment_id}}</td>
                                                             <td>{{$foodorderdetails->rezorpay_id}}</td>
-                                                            <td>{{$foodorderdetails->payment_done}}</td>
+                                                            <td>
+                                                                @if($foodorderdetails->payment_done==1)
+<span style="background:green;color:white">success</span>
+                                                                @else
+                                                                <span style="background:red;color:white">fail</span>
+                                                                
+                                                                @endif
+                                                            </td>
                                                             		
                                                          
                                                         </tr>

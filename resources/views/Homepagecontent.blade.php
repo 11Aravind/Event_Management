@@ -135,7 +135,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
 </div>
 </div> -->
 
-
+<!-- 
 <section class="features section">
 <div class="container">
 <div class="row">
@@ -1777,6 +1777,7 @@ large-scale conference but a hub.</p>
 </div>
 </div>
 </div>
-</section>
+</section> -->
+<div class="text-center" style="margin-bottom: 33px;"><h1>About</h1></div>
 
 @endsection

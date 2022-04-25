@@ -162,7 +162,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 @yield('content')
 
 <footer class="footer">
-<!-- 
+
 <div class="footer-top">
 <div class="container">
 <div class="inner-content">
@@ -257,8 +257,8 @@ Follow Us On:
 </div>
 </div>
 </div>
-</div> -->
-<div class="text-center shadow-none p-3 mb-5 bg-light rounded" style="">Aravind@copyright</div>
+</div>
+<!-- <div class="text-center shadow-none p-3 mb-5 bg-light rounded" style="">Aravind@copyright</div> -->
 </footer>
 
 

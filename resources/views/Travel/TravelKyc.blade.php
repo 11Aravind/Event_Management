@@ -29,8 +29,8 @@
   </div>
   <div class="form-row">
   <div class="form-group col-md-6">
-      <label for="inputEmail4">Alternate Phone</label>
-      <input type="text" class="form-control" name="Aphone"id="inputEmail4" placeholder="">
+      <label for="inputEmail4">Travel Agency Banner</label>
+      <input type="file" class="form-control" name="Aphone"id="inputEmail4" placeholder="">
     </div>
     <div class="form-group col-md-6">
       <label for="input4">Licence expire Date</label>
@@ -67,8 +67,8 @@
       <input type="text"class="form-control" name="district" id="input4" placeholder="">
     </div>
   </div>
-  </div>
   <button type="submit" class="btn btn-primary" style="float:right">ADD</button>
+  </div>
 </form>
     </div>
    </div>

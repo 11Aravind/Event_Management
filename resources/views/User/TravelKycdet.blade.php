@@ -20,7 +20,8 @@
 <!-- <img src="../uploaded_images/{{$TravelKycdet->licencepic}}" alt="banner">
  -->
 <a href="/TravelAgenctDetails/{{$TravelKycdet->towner_id}}">
-<img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
+<img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="travelagency_pic" style="width:358px;height:201px">
+
 <!-- <a href="#" class="prise">ownername-{{$TravelKycdet->ownername}}</</a> -->
 </div>
 <div class="place_info">

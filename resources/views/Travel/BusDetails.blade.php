@@ -40,6 +40,7 @@
     <div class="form-group col-md-6">
       <label for="input4">Ac/Non AC</label>
 <select name="taxi_category" class="form-control" id="">
+<option  selected="true" disabled="disabled">--Select--</option>
   <option value="AC">AC</option>
   <option value="Non_AC">Non-AC</option>
 </select>
@@ -50,33 +51,10 @@
       <label for="inputEmail4">Taxi Rate(1 KM)</label>
       <input type="text" name="price"class="form-control" id="inputEmail4" placeholder="">
     </div>
-    <!-- <div class="form-group col-md-6">
-      <label for="input4">Taxi Photos</label>
-      <input type="file"class="form-control" id="input4" placeholder="">
-    </div> -->
-  </div>
-  <!-- <div class="form-row">
-  <div class="form-group col-md-6">
-      <label for="inputEmail4">Pincode</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="input4">Locality</label>
-      <input type="text"class="form-control" id="input4" placeholder="">
-    </div>
-  </div>
-  <div class="form-row">
-  <div class="form-group col-md-6">
-      <label for="inputEmail4">City/District/Town</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="input4">District</label>
-      <input type="text"class="form-control" id="input4" placeholder="">
-    </div>
-  </div> -->
   </div>
   <button type="submit" class="btn btn-primary" style="float:right">ADD</button>
+
+  </div>
 </form>
     </div>
    </div>

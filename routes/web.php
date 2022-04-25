@@ -45,7 +45,7 @@ Route::get('/EmployDeactive/{id}',[EmployController::class,'EmployDeactive']);
 // EmmployDeactive
 Route::get('/Employdetails',[AdminController::class,'Displayemploydet']);
 Route::get('Travel', function () {
-    return view('Travel/KycForm',["title"=>"Employ_dashbord"]);
+    return view('Travel/KycForm',["title"=>"Travel Agency_dashbord"]);
 });
 /////////food routs start
 Route::get('Food', function () {
@@ -171,6 +171,10 @@ Route::get('BusDetails',[TravelController::class,'BusDetailsform']);
 Route::post('/BusDetails',[TravelController::class,'storeBusDetails']); 
 Route::get('/Businfo',[TravelController::class,'Businfo']); 
 
+Route::get('/busbooking_form/{towner_id}/{bus_id}',[TravelController::class,'busbooking_form']); 
+
+
+
 
 // Route::get('BusDetails', function () {
 //     return view('Travel/BusDetails',["title"=>"BusDetails"]);
@@ -213,7 +217,7 @@ Route::get('/FoodProductDetails/{FoodCategoryDetails}/{id}/{user_id}',[UserContr
 
 Route::get('/SingleProductdetails/{id}',[UserController::class,'SingleProductdetails']);
 
-Route::get('/AddUserFooddet/{id}',[UserController::class,'AddUserFooddet']);
+Route::get('/AddUserFooddet/{id}/{Catering_user_id}',[UserController::class,'AddUserFooddet']);
 Route::post('/AddUserFooddet',[UserController::class,'AddUserFooddet_store']);
 // RegisterComplaints
 Route::get('/RegisterComplaints',[UserController::class,'RegisterComplaints']);

@@ -41,7 +41,7 @@
                                                             <th>Price</th>
                                                             <th>Update</th>
                                                             <th>Delete</th>
-                                                            <th> status</th>
+                                                            <!-- <th> status</th> -->
                                                         </tr>
                                                     </thead>
                                                    @foreach($busdetailss as $busdetails)

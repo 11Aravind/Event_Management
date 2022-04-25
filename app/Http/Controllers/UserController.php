@@ -95,10 +95,11 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starti
     public function SingleBusDetails($id)
     {
         $SingleBusDetails=BusDetail::findOrFail($id);
-        return view('User/SingleBusDetails',["title"=>"SingleBusDetails page","SingleBusDetails"=>$SingleBusDetails]);  
+        return view('User/SingleBusDetails',["title"=>"SingleBusDetails page","starting"=>"../","SingleBusDetails"=>$SingleBusDetails]);  
     }
     public function FoodCategoryDetails($FoodCategoryDetails,$id)
     {
+        $Catering_user_id=$id;//catering karude id ane
         // $foodproductdet=AddProduct::where('category_id','=',$id)->get();//venda bad logic
         $categorydet=Category::where('user_id','=',$id)->get();
         $FoodCategoryDetails=$FoodCategoryDetails;
@@ -109,8 +110,9 @@ $foodproductdet=DB::table('categorys')->join('addproducts','categorys.category_i
 // join end
 
         // $Cateringkyc=Cateringkyc::findOrFail($Catering_id);
-        return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","starting"=>$starting,"FoodCategoryDetails"=>$FoodCategoryDetails,
-        "foodproductdets"=>$foodproductdet,"categorydets"=>$categorydet]);  
+        return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","starting"=>$starting,
+        "FoodCategoryDetails"=>$FoodCategoryDetails,
+        "foodproductdets"=>$foodproductdet,"categorydets"=>$categorydet,'Catering_user_id'=>$Catering_user_id]);  
    
     }
     public function FoodProductDetails($FoodCategoryDetails,$id,$user_id)
@@ -129,10 +131,11 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
     //     return view('User/SingleProductdetails',["title"=>"SingleProductdetails page","SingleProductdetails"=>$SingleProductdetails]);  
         
     // }
-    public function AddUserFooddet($id)
+    public function AddUserFooddet($id,$Catering_user_id)
     {
         $SingleProductdetails=AddProduct::where('product_id','=',$id)->get();
-        return view('User/AddUserFooddet',["title"=>"SingleProductdetails page","starting"=>"../","SingleProductdetails"=>$SingleProductdetails]);
+        $Catering_user_id=$Catering_user_id;
+        return view('User/AddUserFooddet',["title"=>"SingleProductdetails page","starting"=>"../../","SingleProductdetails"=>$SingleProductdetails,'Catering_user_id'=>$Catering_user_id]);
     }
     public function AddUserFooddet_store()
     {
@@ -140,9 +143,13 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
         $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
         $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
         $orderId = $order['id']; 
-       
+        // 
         $FoodservingInfo=new FoodservingInfo();
- 
+        $product_id=request('product_id');
+        
+        $FoodservingInfo->user_id=request('Catering_user_id');
+
+        // $FoodservingInfo->user_id=Session::get('user_id');
         $FoodservingInfo->product_id=request('product_id');
         $FoodservingInfo->dateOfEvent=request('dateOfEvent');
         $FoodservingInfo->EventLocation=request('EventLocation');
@@ -154,12 +161,22 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
         $FoodservingInfo->Totalprice=request('Totalprice');
         $FoodservingInfo->payment_id = $orderId;
         $FoodservingInfo->save();
-        $foodserving_id=$FoodservingInfo->foodserving_infos;
+        $foodserving_id=$FoodservingInfo->id;
+        $FoodservingInfo=FoodservingInfo::where('id','=',$foodserving_id)->get();
+$foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
+        // $busdetails=DB::table('foodserving_infos')->join('addproducts','foodserving_infos.product_id','=','addproducts.product_id')
+        // ->where('foodserving_infos.product_id','=','addproducts.product_id')->get();
+
+
 
         $data = array(
             'order_id' => $orderId,
-            'amount' => $amount
+            'amount' => $amount,
+            'FoodservingInfo'=>$FoodservingInfo,
+            'foodProductdet'=>$foodProductdet
         );
+
+
         return redirect('/foodproductSummary')->with('data', $data,'foodserving_id',$foodserving_id);
         // return redirect('/BuyNow',['foodserving_id'=>$foodserving_id]); 
 // $UserEventDetails=new UserEventDetails();

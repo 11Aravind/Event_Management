@@ -23,10 +23,22 @@ class TravelController extends Controller
       $TravelKyc->Tagency_name=request('Tagencyname');
       $TravelKyc->landline=request('landline');
       $TravelKyc->moblieno=request('mobile_no');
-      $TravelKyc->alternate_no=request('Aphone');
+      // $TravelKyc->alternate_no=request('Aphone');
+
+      
+          $files=request('Aphone');
+          $extensions=$files->getClientOriginalExtension();
+          $filenames=time().'.'.$extensions;
+          $files->move('uploaded_images/',$filenames);
+          $TravelKyc->alternate_no=$filenames;
+      
+
+
+
+      
       $TravelKyc->licence_expiredate=request('expdate');
       // $TravelKyc->owner_photo=request('ownerphoto');
-$owner_photo=request('ownerphoto');
+// $owner_photo=request('ownerphoto');
 // if($owner_photo)
 // {
   $file=request('ownerphoto');
@@ -40,16 +52,22 @@ $owner_photo=request('ownerphoto');
       $fname=time().'.'.$ext;
       $licencefile->move('uploaded_images/',$licencefile);
       $TravelKyc->licencepic=$fname;
+      
       $TravelKyc->pincode=request('pincode');
       $TravelKyc->locality=request('locality');
       $TravelKyc->city=request('city');
       $TravelKyc->district=request('district');
       $save=$TravelKyc->save();
+      $towner_id=$TravelKyc->towner_id;
+Session::put('towner_id');
       if($save)
       {
         Session::put('towner_id',$TravelKyc->towner_id);
-        return redirect('Travel');
+        return redirect('Travel')->with('successmsg','Your TravelKyc is successfully submited');
       }
+      else
+      return redirect('Travel')->with('errormsg','Travel Kyc Not Submitted,Something Went Wrong Please Try Again');
+      
      
     }
     public function BusDetailsform()
@@ -96,5 +114,9 @@ else{
       // return $busdetails;
       return view('Travel/Display_busdetails',["busdetailss"=>$busdetails,"title"=>"bus datailes page"]);
     }
-   
+   public function busbooking_form($towner_id,$bus_id)
+   {
+    return view('User/busbooking_form',["title"=>"bus datailes page","towner_id"=>$towner_id,"bus_id"=>$bus_id,"starting"=>"../../"]);
+
+   }
 }

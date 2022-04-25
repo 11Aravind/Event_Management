@@ -11,6 +11,9 @@
 </div>
 </div>
 </div>
+@if($busdetails->isEmpty())
+<h1>Vehicles Are Not Added</h1>
+@else
 
 <div class="row">
 @foreach($busdetails as $busdetail)
@@ -18,19 +21,20 @@
 <div class="col-lg-4 col-md-6">
 <div class="single_place">
 <div class="thumb">
-<img src="../images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
+<img src="../uploaded_images/{{$busdetail->taxi_pic}}" style="width:373px;height:100%" alt="buspic">
+<!-- uploaded_images/1650889212.jpg -->
 <!-- <a href="#" class="prise">hi hi</</a> -->
 </div>
 <div class="place_info">
 <h3>{{$busdetail->busname}}</h3>
 <p>seating capacity-{{$busdetail->seating_capacity}}</p>
 <!-- <div class="rating_days d-flex justify-content-between"> -->
-
 </div>
 </div>
 </div>
 </a>
 @endforeach
+@endif
 </div>
 </div>
 </div>
