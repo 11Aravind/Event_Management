@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 use Session;
 use App\Models\TravelKyc;
 use App\Models\BusDetail;
+use App\Models\BusBookingDetails;
+use Illuminate\Support\Facades\DB;
+use App\Models\Payment;
+use App\Models\FoodservingInfo;
+use Monolog\SignalHandler;
+use Razorpay\Api\Api;
+
+use Razorpay\Api\Errors\SignatureVerificationError;
+
 class TravelController extends Controller
 {
     //
@@ -116,7 +125,59 @@ else{
     }
    public function busbooking_form($towner_id,$bus_id)
    {
-    return view('User/busbooking_form',["title"=>"bus datailes page","towner_id"=>$towner_id,"bus_id"=>$bus_id,"starting"=>"../../"]);
+   $BusDetail=BusDetail::where('bus_id','=',$bus_id)->first();
+    return view('User/busbooking_form',["title"=>"bus datailes page","towner_id"=>$towner_id,"bus_id"=>$bus_id,"BusDetail"=>$BusDetail,"starting"=>"../../"]);
 
    }
+   public function busbookingdet_store()
+   {
+    $amount=request('totelprice');
+    $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
+    $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
+    $orderId = $order['id']; 
+    // 
+    $BusBookingDetails=new BusBookingDetails();
+    // $towner_id =request('towner_id');
+    // $bus_id =request('bus_id ');
+    $BusBookingDetails->towner_id =request('towner_id');
+    $BusBookingDetails->bus_id =request('bus_id');
+    $BusBookingDetails->dateOfEvent=request('dateOfEvent');
+
+    $BusBookingDetails->time=request('time');
+    $BusBookingDetails->startingplace=request('startingplace');
+    $BusBookingDetails->arrivalplace=request('arrivalplace');
+    $BusBookingDetails->kolometers=request('kolometers');
+    $BusBookingDetails->totelprice=$amount;
+    $BusBookingDetails->payment_id = $orderId;
+    $BusBookingDetails->save();
+//     $BusBookingDetails=$FoodservingInfo->id;
+//     $FoodservingInfo=FoodservingInfo::where('id','=',$foodserving_id)->get();
+// $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
+    $data = array(
+        'order_id' => $orderId,
+        'amount' => $amount,
+    );
+    return redirect('/BusbookingSummary')->with('data', $data);
+
+   }
+   public function BusbookingSummary()
+   {
+    return view('Layout/product_summary',['starting'=>"../"]);
+   }
+   public function bookpay(Request $request){
+    $data = $request->all();
+    // dd($data);
+    $user = BusBookingDetails::where('payment_id', $data['razorpay_order_id'])->first();
+    $user->payment_done = true;
+    $user->rezorpay_id = $data['razorpay_payment_id'];
+    $save=$user->save();
+    if($save)
+    {
+        return redirect('/success');
+    }
+    else
+    {
+        return view('/error');
+    }
+}
 }

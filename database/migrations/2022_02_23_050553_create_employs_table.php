@@ -15,6 +15,9 @@ class CreateEmploysTable extends Migration
     {
         Schema::create('employs', function (Blueprint $table) {
             $table->id('employ_id');
+            $table->unsignedBigInteger("user_id");
+            $table->foreign('user_id')->references('user_id')->on('authentications')->onDelete('cascade');
+
             $table->string('employ_name');
             $table->string('email');
             $table->string('contact_no');

@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BusBookingDetails extends Model
 {
+    protected $primaryKey='busbooking_id';
     use HasFactory;
 }

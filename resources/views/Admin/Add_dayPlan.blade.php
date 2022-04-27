@@ -12,7 +12,7 @@
     <br>
         <form method="POST" action="/Add_daysplane" enctype="multipart/form-data">
  @csrf
-      <h4> Day </h4><hr>
+      <h4> Day {{Session::get('count')}}</h4><hr>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputText4">Morning Visite Tourist Place </label>

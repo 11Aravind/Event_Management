@@ -1,7 +1,7 @@
 @extends('Layout.User_Homepage')
 @section('content')
-
-<div class="popular_places_area">
+<img src="images\busbanner.jpg" alt="event banner" style="width:100%;    height: 416px;">
+<div class="popular_places_area"  style="    padding-top: 61px;">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-6">

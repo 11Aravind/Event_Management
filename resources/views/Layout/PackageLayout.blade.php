@@ -11,8 +11,10 @@
     }
 </style>
 <body>
-    <img src="images/businessevn.jpg"  style="width: 100%;
+    
+    <img src="images/eventBanner.jpg"  style="width: 100%;
     height: 416px;"alt="slider">
+    
 
 </div>
 </div>
@@ -26,6 +28,11 @@
 </div>
 </div>
 </div>
+@if($Premiums->isEmpty())
+
+    <h1>Packages Not Exist</h1>
+
+@else
 <div class="row">
     @foreach($Premiums as $Premium)
     <a href="PackageDetail/{{$Premium->package_id}}">
@@ -61,6 +68,7 @@
 @endforeach
 
 </div>
+@endif
 <!-- <div class="row">
 <div class="col-lg-12">
 <div class="more_place_btn text-center">

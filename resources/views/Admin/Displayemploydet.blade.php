@@ -13,7 +13,9 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Employ Details</h5>
-  
+                                            @if(Session::get('msg')) 
+            <span style="color:{{Session::get('color')}}">{{Session::get('msg')}}</span>
+        @endif
                                         
                                     @if(Session::get('success'))
                                 {
@@ -37,6 +39,7 @@
                                                             <th>qualification</th>
                                                             <th>email</th>
                                                             <th>contact_no</th>
+                                                            <th>Delete</th>
                                                             <th> status</th>
                                                         </tr>
                                                     </thead>
@@ -45,6 +48,9 @@
                                                         <tr>
                                                             <td>1</td>
                                                             <td>{{$employdet->employ_name}}</td>
+                                                            <td>{{$employdet->job_position}}</td>
+
+                                                            
                                                             <td>{{$employdet->qualification}}</td>
                                                            <td>{{$employdet->email}}</td>
                                                            <td>{{$employdet->contact_no}}</td>
@@ -53,11 +59,11 @@
                                                             <a href="#" class="btn btn-primary">Update</a>
                                                             </td> -->
                                                             <td>
-                                                            <a href="#" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="/EmployDelete/{{$employdet->employ_id}}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
                                                             @if($employdet->status==1)
                                                             <td>
-                                                            <a href="/EmployDeactive/{{$employdet->employ_id}}"  class="btn btn-success"> Dective</a>
+                                                            <a href="/EmployDeactive/{{$employdet->employ_id}}"  class="btn btn-danger"> Dective</a>
                                                             </td>
                                                             @else
                                                             <td>

@@ -121,7 +121,7 @@ return view('Admin.Tour_details',["title"=>"Tour_details page"]);
 $tour_id=Session::get('tour_id');
 $days=Session::get('days');
 $count=Day::where('tour_id','=',$tour_id)->count();
-if($count<$days)
+if($count<$days) //0<2 ,1<2 
 {
 $store_day_plan=new Day();
 $store_day_plan->tour_id =$tour_id;
@@ -134,7 +134,13 @@ $store_day_plan->tour_id =$tour_id;
         $store_day_plan->locality=request('locality');
         $save=$store_day_plan->save();
         if($save) 
-        return redirect('/Add_dayPlan');
+        {
+            // if($count+1<$days-1) 
+            // return redirect('Tour_details');
+            // else
+            return redirect('/Add_dayPlan')->with('count',$count);
+        }
+        // return redirect('/Add_dayPlan');
         else
         return "data not inserted";
 }

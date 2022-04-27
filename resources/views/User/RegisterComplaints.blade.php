@@ -1,6 +1,6 @@
 @extends('Layout.User_Homepage')
 @section('content')
-<img src="images/Kerala.jpg" style="width: 100%;
+<img src="https://dibms.org/image/complaint-banner.jpg" style="width: 100%;
     height: 416px;" alt="slider">
 
 <div class="container shadow-none p-3 mb-5 bg-light rounded ">
@@ -20,7 +20,7 @@
     <label for="exampleFormControlTextarea1">Complaint</label>
     <textarea class="form-control" name="complaint" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-  <button class="btn btn-primary">File Complaint</button>
+  <button style="float:right;    margin-top: 14px;" class="btn btn-primary">File Complaint</button>
 </form>
 </div>
 @endsection

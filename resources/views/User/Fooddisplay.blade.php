@@ -1,14 +1,14 @@
 @extends('Layout.User_Homepage')
 @section('content')
-<img src="images/Kerala.jpg" style="width: 100%;
+<img src="images/foodbanners.png" style="width: 100%;
     height: 416px;" alt="slider">
     
-<div class="popular_places_area">
+<div class="popular_places_area" style="padding-top: 61px;">
 <div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-6">
-<div class="section_title text-center mb_70">
-<h3>Catering Services </h3>
+<div class="row justify-content-center" style="margin-bottom: 33px;">
+<div class="col-lg-6" >
+<div class="section_title text-center mb_70" >
+<h3 style="margin-bottom: 33px;">Catering Services </h3>
 <!-- <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p> -->
 </div>
 </div>

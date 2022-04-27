@@ -133,7 +133,7 @@ position: relative;"><i class="rs" style="font-family: &quot;RupeeSign&quot;;">R
         <a href="/TourUserInfo/{{$tourdetails->tour_id}}" class="btn btn-danger">Book Now</a>
 			</button>
 			  
-			<button class="btn btn-dark" style="">Submit Query</button>
+			<!-- <button class="btn btn-dark" style="">Submit Query</button> -->
 		</div>
 		<ul class="" style="display: inline-flex;">
 <li class="photos ng-scope">
@@ -214,7 +214,7 @@ $i=$i+1;
     @endforeach
   
 
-    <button class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add To Wishlist</button>
+    <!-- <button class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add To Wishlist</button> -->
     &nbsp&nbsp&nbsp&nbsp
     <a href="/TourUserInfo/{{$tourdetails->tour_id}}" class="btn btn-danger"><i class="fa fa-bolt" aria-hidden="true"></i>Book Now</a>
 @endsection

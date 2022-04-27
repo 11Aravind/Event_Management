@@ -36,7 +36,7 @@
 <h1>{{$FoodCategoryDetails}} </h1>
    <p>Roast Chicken, Burger, Afghan <br>
     Kunnamkulam Locality, Kunnamkulam</p>
-    <span style="color:red">Main Category</span>
+    <!-- <span style="color:red">Main Category</span> -->
     <hr>
     <div id="containerTotel" style="display: flex;">
         <div id="foodcategory" style="color:red;flex:.2;border-right: 1px solid red;">

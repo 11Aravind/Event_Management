@@ -16,6 +16,7 @@ use App\Models\AddProduct;
 use App\Models\UserEventDetails;
 use App\Models\FoodservingInfo;
 use App\Models\Complaint;
+
 use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
 use Monolog\SignalHandler;
@@ -62,10 +63,36 @@ class UserController extends Controller
     }
     public function Eventdetails($id)
     {
-       
         $event_det=Event::findOrFail($id);
         return view('User/Eventdetails',["title"=>"Eventdetails page","starting"=>"../","event_det"=>$event_det]);
     }
+public function Eventdetails_store($id)
+{
+//hihi
+$amount=request('totalamount');
+    $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
+    $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
+    $orderId = $order['id']; 
+    // 
+    $UserEventDetails=new UserEventDetails();
+    // $towner_id =request('towner_id');
+    // $bus_id =request('bus_id ');
+    $UserEventDetails->event_id =request('event_id');
+    $UserEventDetails->noofseat =request('noofseat');
+    $UserEventDetails->totalamount=request('totalamount');
+
+    $UserEventDetails->payment_id = $orderId;
+    $UserEventDetails->save();
+//     $BusBookingDetails=$FoodservingInfo->id;
+//     $FoodservingInfo=FoodservingInfo::where('id','=',$foodserving_id)->get();
+// $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
+    $data = array(
+        'order_id' => $orderId,
+        'amount' => $amount,
+    );
+    return redirect('/Eventdetails/{$UserEventDetails->event_id }')->with('data', $data);
+
+}
     public function eventdynamic($event)
     {
 // $routtchange=Event::where(,'=',$event)->first();
@@ -202,18 +229,20 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
     {
         $fileComplaint=new Complaint();
         $fileComplaint->user_id=Session::get('user_id');
-        // $fileComplaint->subject=request('subject');
+        $fileComplaint->subject=request('subject');
 
-        $file=$request->subject;
+        $file=$request->proof;
         $extension=$file->getClientOriginalExtension();
         $filename=time().'.'.$extension;
         $file->move('uploaded_images/',$filename);
-        $$fileComplaint->subject=$filename;
+        $fileComplaint->subject=$filename;
 
         $fileComplaint->proof=$request->proof;
         $fileComplaint->complaint=$request->complaint;
         $save=$fileComplaint->save();
-        return('complaint is successfully sended"');
+        return "<script>alert('complaint is successfully sended')</script>";
     }
 }
+
+
 

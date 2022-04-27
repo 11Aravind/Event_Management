@@ -4,15 +4,12 @@
 <div class="popular_places_area">
 <div class="container">
 <h1>Bus Booking Details </h1>
-<form action="/AddUserFooddet" method="POST" enctype="multipart/form-data">
+<form action="/busbooking_forms" method="POST" enctype="multipart/form-data">
   @csrf
  
 <input type="hidden" name="towner_id" value="{{$towner_id}}"> 
 <input type="hidden" name="bus_id" value="{{$bus_id}}">
-  
-  <!-- UserEvent_id
-product_id -->
-<!-- <div class="container"> -->
+<input type="hidden" name="oneKilometerPrice" id="oneKilometerPrice" value="{{$BusDetail->price}}">
 
   <div class="row">
     <div class="col">
@@ -44,15 +41,15 @@ product_id -->
   <div class="row">
     <div class="col">
       <label for="inputEmail4">Kilometers</label>
-      <input type="text" name="kolometers" class="form-control col-6" id="inputEmail4" placeholder="">
+      <input type="text" onChange="change_send(this.value);" name="kolometers" class="form-control col-6" id="kolometers" placeholder="">
     </div>
     <div class="col">
-      <label for="inputPassword4">Total Price</label>
-      <input type="text" name="totelprice" class="form-control col-6" id="inputPassword4" placeholder="" readonly>
+      <label for="inputPassword4">Total Price(for one kilometer price is({{$BusDetail->price}})</label>
+ 
+
+      <input type="text" name="totelprice" class="form-control " id="totelprice" placeholder="" readonly>
   </div>
     </div>
-
-
     <div class="row">
     <div class="col">
     </div>
@@ -61,12 +58,20 @@ product_id -->
   </div>
     </div>
   </div>
-       
-
-
 </form>
  
 <!-- </div> -->
 </div>
 </div>
+<script type="text/javascript">
+function change_send(kolometers)
+{
+  $kolometers=kolometers;
+  $oneKilometerPrice=$("#oneKilometerPrice").val();
+  $totelprice=$oneKilometerPrice*$kolometers;
+   $("#totelprice").val($totelprice);
+	// alert($totelprice);
+
+}
+</script>
 @endsection

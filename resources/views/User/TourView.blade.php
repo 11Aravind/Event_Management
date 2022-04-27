@@ -10,12 +10,10 @@
     position: relative;
     }
 </style>
-<body>
+<!-- <body> -->
     <img src="images/Kerala.jpg"  style="width: 100%;
     height: 416px;"alt="slider">
-    @if($tourdetails->isEmpty())
-<H1>tour package not exist</H1>
-@else
+
 
 <div class="popular_destination_area">
 <div class="container">
@@ -23,11 +21,13 @@
 <div class="col-lg-6">
 <div class="section_title text-center mb_70">
 <h3>Popular Destination</h3>
-<p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
+<!-- <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p> -->
 </div>
 </div>
 </div>
-
+@if($tourdetails->isEmpty())
+<H1>Tour Package not Added</H1>
+@else
 <div class="row">
 
 @foreach($tourdetails as $tourdetail)

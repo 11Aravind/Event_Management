@@ -87,9 +87,9 @@
                             <i class="feather icon-align-justify"></i></span> -->
 							<span class="pcoded-mtext">Add Package</span></a>
 					</li>
-							<li class=""><a href="ViewPackage" class="">View Package</a></li>
-							<li class=""><a href="/Tour_details" class="">Tour Package</a></li>
-							<li class=""><a href="#" class="">Custom Package</a></li>
+							<!-- <li class=""><a href="ViewPackage" class="">View Package</a></li> -->
+							<!-- <li class=""><a href="/Tour_details" class="">Tour Package</a></li>
+							<li class=""><a href="#" class="">Custom Package</a></li> -->
 
 						
 						</ul>
@@ -121,20 +121,38 @@
 						<a href="../Catering_details" class="nav-link">
 							<span class="pcoded-micon">
                             <i class="feather icon-file-text"></i></span>
-							<span class="pcoded-mtext">Event Details</span></a>
+							<span class="pcoded-mtext">Catering Services</span></a>
 					</li>
+
+					
 					<!-- <li class="nav-item">
 						<a href="../DisplayCategory" class="nav-link">
 							<span class="pcoded-micon">
                             <i class="feather icon-file-text"></i></span>
 							<span class="pcoded-mtext">Category Details</span></a>
 					</li> -->
+					
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span>
+							<span class="pcoded-mtext">Employs</span></a>
+						<ul class="pcoded-submenu">
+						<li class=""><a href="../Employdetails" class="">Employs Detail </a></li>
+
+							<li class=""><a href="/ApprovedEmploys" class="">Approved Employs</a></li>
+							<!-- <li class=""><a href="#" class="">Tour Package</a></li>
+							<li class=""><a href="#" class="">Custom Package</a></li> -->
+
+						
+						</ul>
+					</li>
+
+<!-- 
 					<li class="nav-item">
 						<a href="../Employdetails" class="nav-link">
 							<span class="pcoded-micon">
                             <i class="feather icon-file-text"></i></span>
 							<span class="pcoded-mtext">Employs Details</span></a>
-					</li>
+					</li> -->
 				</ul>
 			
 			</div>

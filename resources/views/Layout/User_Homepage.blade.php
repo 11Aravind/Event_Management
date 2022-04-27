@@ -48,6 +48,10 @@
     /* transition: all 0.2s ease; */
     FONT-SIZE: medium;
 }
+*{
+   margin:0px;
+   padding:0px; 
+}
 </style></head>
 <body style="font-family: sans-serif;">
 <!--[if lte IE 9]>

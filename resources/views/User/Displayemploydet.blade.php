@@ -5,8 +5,8 @@
 <div class="row">
 <div class="col-12">
 <div class="section-title">
-<h3 class="wow zoomIn" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">Speakers</h3>
-<h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s;">Employs</h2>
+<!-- <h3 class="wow zoomIn" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">Speakers</h3> -->
+<h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s;">Our Employs</h2>
 <p class="wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s;">There are many variations of passages of Lorem
 Ipsum available, but the majority have suffered alteration in some form.</p>
 </div>
@@ -24,7 +24,6 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 <div class="top-content">
 <a href="singleEmployDet/{{$Employdetail->employ_id}}">
 <div class="image">
-<!-- <img src="Template_asset/images/speaker1.jpg" alt="#"> -->
 
 <img src="uploaded_images/{{$Employdetail->employ_photo}}" style="width:261px;height:257px" alt="#employ_pic">
 
