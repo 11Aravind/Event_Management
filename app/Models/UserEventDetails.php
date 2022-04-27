@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UserEventDetails extends Model
 {
     use HasFactory;
+    protected $table='user__event_dets';
 }

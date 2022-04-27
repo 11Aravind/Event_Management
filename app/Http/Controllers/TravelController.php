@@ -164,7 +164,8 @@ else{
    {
     return view('Layout/product_summary',['starting'=>"../"]);
    }
-   public function bookpay(Request $request){
+   public function bookpay(Request $request)
+   {
     $data = $request->all();
     // dd($data);
     $user = BusBookingDetails::where('payment_id', $data['razorpay_order_id'])->first();
@@ -172,12 +173,8 @@ else{
     $user->rezorpay_id = $data['razorpay_payment_id'];
     $save=$user->save();
     if($save)
-    {
         return redirect('/success');
-    }
     else
-    {
         return view('/error');
-    }
 }
 }

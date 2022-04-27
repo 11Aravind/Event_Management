@@ -73,25 +73,32 @@ $amount=request('totalamount');
     $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
     $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
     $orderId = $order['id']; 
-    // 
     $UserEventDetails=new UserEventDetails();
-    // $towner_id =request('towner_id');
-    // $bus_id =request('bus_id ');
     $UserEventDetails->event_id =request('event_id');
+    $event_id=request('event_id');
     $UserEventDetails->noofseat =request('noofseat');
     $UserEventDetails->totalamount=request('totalamount');
-
     $UserEventDetails->payment_id = $orderId;
     $UserEventDetails->save();
-//     $BusBookingDetails=$FoodservingInfo->id;
-//     $FoodservingInfo=FoodservingInfo::where('id','=',$foodserving_id)->get();
-// $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
     $data = array(
         'order_id' => $orderId,
         'amount' => $amount,
     );
-    return redirect('/Eventdetails/{$UserEventDetails->event_id }')->with('data', $data);
+    return back()->with('data', $data);
 
+}
+public function payEvent(Request $request)
+   {
+    $data = $request->all();
+    // dd($data);
+    $user = UserEventDetails::where('payment_id', $data['razorpay_order_id'])->first();
+    $user->payment_done = true;
+    $user->rezorpay_id = $data['razorpay_payment_id'];
+    $save=$user->save();
+    if($save)
+        return redirect('/success');
+    else
+        return view('/error');
 }
     public function eventdynamic($event)
     {

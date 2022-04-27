@@ -185,6 +185,8 @@ Route::get('/busbooking_form/{towner_id}/{bus_id}',[TravelController::class,'bus
 Route::post('/busbooking_forms',[TravelController::class,'busbookingdet_store']); 
 Route::get('/BusbookingSummary',[TravelController::class,'BusbookingSummary']); 
 
+Route::post('/payEvent',[UserController::class,'payEvent']); 
+
 Route::post('/bookpay',[TravelController::class,'bookpay']);
 
 

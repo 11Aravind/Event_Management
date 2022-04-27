@@ -90,6 +90,8 @@ Totel Ticket Available:-{{$event_det->totel_ticket}} <br>
             <!-- <p>    Take the chance to delve deeper into elements of formal online learning, and find out how online assessment and teaching is carried out. -->
 </p>
 <!-- <a href=""></a> -->
+
+@if(!Session::has('data'))
 <form method="POST" action="/Eventdetails/{{$event_det->event_id}}">
     @csrf
     <input type="hidden" id="" name="event_id"value="{{$event_det->event_id}}">
@@ -113,6 +115,29 @@ Totel Ticket Available:-{{$event_det->totel_ticket}} <br>
 
   </div>
 </form>
+
+@endif
+@if(Session::has('data'))
+<div class="container tex-center mx-auto">
+    <form action="/payEvent" method="POST" class="text-center mx-auto mt-5">
+      
+      <script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          data-key="rzp_test_iKlM2rsXjuV7R1"
+    data-amount="{{Session::get('data.amount')}}" 
+          data-currency="INR"
+    data-order_id="{{Session::get('data.order_id')}}"
+          data-buttontext="Pay with Razorpay"
+          data-name="FESTIVA EVENTS"
+          data-description="Test transaction"
+         
+          data-theme.color="#182fa3"
+      ></script>
+      <input type="hidden" custom="Hidden Element" name="hidden">
+      </form>
+</div>
+<!-- </div> -->
+@endif
 </div>
     </div>     
     </div>

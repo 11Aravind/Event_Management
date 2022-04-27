@@ -15,7 +15,7 @@
     height: 416px;"alt="slider">
 
 
-<div class="popular_destination_area">
+<div class="popular_destination_area" style="padding-top: 61px;">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-6">
