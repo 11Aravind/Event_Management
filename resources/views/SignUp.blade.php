@@ -31,7 +31,7 @@
 			{{$message}}
 			@enderror
 </span>
-			<input type="text" placeholder="Password"name="password" />
+			<input type="password" placeholder="Password"name="password" />
 			<span style="color:red">
 			@error('')
 			{{$message }}

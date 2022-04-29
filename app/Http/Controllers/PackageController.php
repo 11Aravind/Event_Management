@@ -90,13 +90,23 @@ return view('Admin.Tour_details',["title"=>"Tour_details page"]);
 
         return view('Admin.Add_tourpackage',["title"=>"Add_tourpackage page","busdetails"=>$busdetails]);       
     }
-    public function store_tourpackage()
+    public function store_tourpackage(Request $request)
     {
+        // dd($request);
         $tourpackage=new Tour();
         $tourpackage->bus_id=request('busname');    
         $tourpackage->dateofDeparture=request('Departuretime');
         $tourpackage->dateofarrival=request('arrivedtime');
         $tourpackage->days=request('days');
+
+        // $tourpackage->days=request('banner');
+ 
+    $file=request('banner');
+    $extension=$file->getClientOriginalExtension();
+    $filename=time().'.'.$extension;
+    $file->move('uploaded_images/',$filename);
+    $tourpackage->banner=$filename;
+
         $tourpackage->MainDescription=request('Maindesc');
         $tourpackage->Price=request('price');
         $tourpackage->PriceDescription=request('pricedesc');

@@ -63,7 +63,7 @@
 			<span>or use your account</span>
 			<input type="text"  placeholder="Email"name="email" />
 	
-			<input type="text" placeholder="Password"name="password"/>
+		<input type="password" placeholder="Password"name="password"/>
 			<!-- <select  id=""  class="selectionrole" name="role" > -->
                 <!-- <option value="Select" class="selectionrole" >--Select Account Type--</option>
                 <option value="User" class="selectionrole" values="User" >User</option>

@@ -19,6 +19,7 @@ class CreateToursTable extends Migration
             $table->string('dateofDeparture');
             $table->string("dateofarrival");
             $table->string("days");
+            $table->string("banner");
             $table->string("MainDescription");
             $table->string("Price");
             $table->string("PriceDescription");

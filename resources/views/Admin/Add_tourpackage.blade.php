@@ -64,17 +64,21 @@ Add details</h3>
       <label for="inputText4">Main desctinations</label>
       <input type="text" name="Maindesc" class="form-control" id="inputText4" >
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
       <label for="inputText4">Days</label>
       <!-- <input type="text" name="days" class="form-control" id="days" > -->
       <select name="days" id="days" class="form-control">
-      <option value="1">--select--</option>
+      <option value="1" selected disabled hidden>--select--</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputText4">Tour Banner</label>
+      <input type="file" name="banner" class="form-control" id="inputText4" >
     </div>
   </div>
  
@@ -94,6 +98,7 @@ Add details</h3>
       <label for="inputText4">Price</label>
       <input type="text" name="price" class="form-control" id="inputText4" >
     </div>
+    
     <div class="form-group col-md-6">
       <label for="inputText4">Price Description</label>
     <textarea type="text" name="pricedesc" class="form-control"cols="30" rows="3" id="" > </textarea>
