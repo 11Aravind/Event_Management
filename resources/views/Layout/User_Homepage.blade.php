@@ -30,6 +30,10 @@
 <link rel="stylesheet" href="{{$starting}}Template_asset/css/css-A.style.css.pagespeed.cf.9BisuD497W.css">
 
 <!-- common end -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- <link rel="stylesheet" href="Template_asset/css/bootstrap.min.css">
 <link rel="stylesheet" href="Template_asset/css/LineIcons.3.0.css">
@@ -52,7 +56,108 @@
    margin:0px;
    padding:0px; 
 }
-</style></head>
+ .mainconainers{
+display:flex;
+width:100%;
+
+    }
+    .leftcontainers{
+flex:1;
+width:40%;
+    }
+    .rightcontainers{
+        flex:1;
+        width:60%;
+    }
+    .a:hover {
+    background-color: #e7dfdf;
+    color: #121111;
+    border-bottom: 1px solid red;
+}
+
+
+<!-- </style>
+<style> -->
+    .fullsection{
+        flex: warp;
+        display: flex;
+        flex: 1;
+        padding: 4px 94px;
+    }
+
+    #section {
+    
+        width: 20%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .sectioncontainer {
+        width: 80%;
+        font-family: 'Roboto', sans-serif;
+    }
+.hr{
+    margin: 3px 94px;
+}
+.a{
+    padding: 16px;
+    cursor: pointer;
+}
+    .day{
+       /* color:rgb(214, 139, 139); */
+       padding: 8px 20px;
+    background: #363232;
+    font: 1.07143em "Lato Bold";
+    display: inline-block;
+    margin: 10px 0 5px 0;
+    color: #fff;
+    }
+	 #chatWrapper {
+                position: fixed;
+                border: 0px !important;
+                height: 421px;
+                width: 320px;
+                z-index: 1000;
+                bottom: 0;
+                right: 0;
+            }
+     @media only screen and (max-width: 768px) {
+     	#chat-overlay{
+     		display: none;
+     	}
+     	.vendorPackage #chat-overlay{
+     		display: block;
+     	}
+     }
+.left-column.ng-scope {
+    float: left;
+    width: 71%;
+    margin: 0 0 5px 0!important;
+}
+.flL {
+    float: left;
+}
+.topbar {
+     padding: 60px 60px 1pc;
+}
+.gray{
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#busdetailsDiv{
+    display:none;
+}
+#hotelDiv{
+    display:none;
+}
+#UserInformationformDiv{
+    display:none; 
+}
+     </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <body style="font-family: sans-serif;">
 <!--[if lte IE 9]>
       <p class="browserupgrade">
@@ -289,81 +394,20 @@ $("#cancel").click(function(){
       });
     //   ordersummary
     </script>
-<!-- <script>
-        //========= glightbox
-        GLightbox({
-            'href': 'https://www.youtube.com/watch?v=Gxw45q3Ga3k',
-            'type': 'video',
-            'source': 'youtube', //vimeo, youtube or local
-            'width': 900,
-            'autoplayVideos': true,
-        });
-
-        //========= testimonial 
-        tns({
-            container: '.testimonial-slider',
-            items: 3,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: true,
-            controls: false,
-            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 1,
-                },
-                768: {
-                    items: 2,
-                },
-                992: {
-                    items: 2,
-                },
-                1170: {
-                    items: 3,
-                }
-            }
-        });
-    </script> -->
-<!-- <script>
-        const finaleDate = new Date("February 15, 2023 00:00:00").getTime();
-
-        const timer = () => {
-            const now = new Date().getTime();
-            let diff = finaleDate - now;
-            if (diff < 0) {
-                document.querySelector('.alert').style.display = 'block';
-                document.querySelector('.container').style.display = 'none';
-            }
-
-            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            let hours = Math.floor(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-            let minutes = Math.floor(diff % (1000 * 60 * 60) / (1000 * 60));
-            let seconds = Math.floor(diff % (1000 * 60) / 1000);
-
-            days <= 99 ? days = `0${days}` : days;
-            days <= 9 ? days = `00${days}` : days;
-            hours <= 9 ? hours = `0${hours}` : hours;
-            minutes <= 9 ? minutes = `0${minutes}` : minutes;
-            seconds <= 9 ? seconds = `0${seconds}` : seconds;
-
-            document.querySelector('#days').textContent = days;
-            document.querySelector('#hours').textContent = hours;
-            document.querySelector('#minutes').textContent = minutes;
-            document.querySelector('#seconds').textContent = seconds;
-
-        }
-        timer();
-        setInterval(timer, 1000);
-    </script> -->
     <script>
 function onClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
 }
 </script>
-</body></html>
+
+<script>
+  $("#dayMenu").click(function(){ $("#hotelDiv").hide();$("#Daymenu").show();$("#busdetailsDiv").hide(); $("#UserInformationformDiv").hide();})  
+  $("#hotelmenu").click(function(){ $("#hotelDiv").show();$("#Daymenu").hide();$("#busdetailsDiv").hide(); $("#UserInformationformDiv").hide();})  
+  $("#TrasportMenu").click(function(){ $("#hotelDiv").hide();$("#Daymenu").hide();$("#busdetailsDiv").show(); $("#UserInformationformDiv").hide();})  
+
+  $("#Booknow").click(function(){ $("#hotelDiv").hide();$("#Daymenu").hide();$("#busdetailsDiv").hide(); $("#UserInformationformDiv").show();})  
+
+</script>
+</body>
+</html>

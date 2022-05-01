@@ -77,6 +77,9 @@ Route::get('/foodorderdetails',[FoodController::class,'foodorderdetails']);
 Route::get('/foodproductSummary',[FoodController::class,'foodproductSummary']);
 Route::post('/pay',[FoodController::class,'pay']);
 
+Route::post('/TourpackageDetails_pay',[TourController::class,'TourpackageDetails_pay']);
+
+
 Route::get('/FoodOrder_details',[FoodController::class,'FoodOrder_details']);
 // Route::get('/',[FoodController::class,'']);
 
@@ -157,7 +160,7 @@ Route::get('/BuyNow', [UserController::class,'viewaddress']);
 //tour display
 Route::get('TourView',[TourController::class,'TourView']);
 // TourUserInfo
-Route::get('TourUserInfo/{id}',[TourController::class,'TourUserInfo']);
+// Route::get('TourUserInfo/{id}',[TourController::class,'TourUserInfo']);
 
 // PackageController
 
@@ -205,6 +208,8 @@ Route::get('/Add_dayPlan',[PackageController::class,'Add_dayPlan']);
 
 Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
 Route::get('/TourpackageDetails/{id}',[TourController::class,'TourpackageDetails']);
+Route::post('/TourpackageDetails',[TourController::class,'TourpackageDetails_store']);
+
 
 Route::get('/Cateringkyc',[FoodController::class,'Cateringkyc']);
 Route::post('/Cateringkyc',[FoodController::class,'Cateringkycdet_store']);

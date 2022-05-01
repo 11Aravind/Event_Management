@@ -138,9 +138,17 @@ $store_day_plan->tour_id =$tour_id;
         $store_day_plan->Mornigtoureplace=request('Moringplace');
         $store_day_plan->Afternoon=request('Afteplace');
         $store_day_plan->NightPrograms=request('Nightprgm');
-
         $store_day_plan->hotelname=request('Hotelname');
-        $store_day_plan->Hpic=request('hotelpic');
+
+        // $store_day_plan->Hpic=request('hotelpic');
+            $file=request('hotelpic');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('uploaded_images/',$filename);
+            $store_day_plan->Hpic=$filename;
+    
+
+
         $store_day_plan->locality=request('locality');
         $save=$store_day_plan->save();
         if($save) 

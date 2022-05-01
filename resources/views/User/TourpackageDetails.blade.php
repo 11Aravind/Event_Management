@@ -1,102 +1,11 @@
 @extends('Layout.User_Homepage')
 @section('content')
-<!-- <style>
-.dayDisplay{
-    background: black;
-    color: white;
-    padding: 13px;
-    border-radius: 27px;
-}
-.content{
-    width: 90%;
-    margin: 54px;
-    padding: -20px;
-    box-shadow: inset 4px 0px 8px 0px;
-    height: 155px;
-}
-</style> -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
-<style>
-    .fullsection{
-        flex: warp;
-        display: flex;
-        flex: 1;
-        padding: 4px 94px;
-    }
 
-    #section {
-    
-        width: 20%;
-        font-family: 'Poppins', sans-serif;
-    }
+<img alt="slider" src="../uploaded_images\{{$tourdetails->banner}}"  style="width: 100%;height: 416px;margin-top: 97px;" >
 
-    .sectioncontainer {
-        width: 80%;
-        font-family: 'Roboto', sans-serif;
-    }
-.hr{
-    margin: 3px 94px;
-}
-.a{
-    padding: 16px;
-}
-    .day{
-       /* color:rgb(214, 139, 139); */
-       padding: 8px 20px;
-    background: #999;
-    font: 1.07143em "Lato Bold";
-    display: inline-block;
-    margin: 10px 0 5px 0;
-    color: #fff;
-    }
-	 #chatWrapper {
-                position: fixed;
-                border: 0px !important;
-                height: 421px;
-                width: 320px;
-                z-index: 1000;
-                bottom: 0;
-                right: 0;
-            }
-     @media only screen and (max-width: 768px) {
-     	#chat-overlay{
-     		display: none;
-     	}
-     	.vendorPackage #chat-overlay{
-     		display: block;
-     	}
-     }
-.left-column.ng-scope {
-    float: left;
-    width: 71%;
-    margin: 0 0 5px 0!important;
-}
-.flL {
-    float: left;
-}
-.topbar {
-	padding: 60px;
-}
-.gray{
-    display: inline-block;
-    background: #333;
-    color: #fff;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-/* .route .my-nav>li>a {
-    border-bottom: 4px solid transparent;
-} */
-     </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-			<!-- <link rel="stylesheet" type="text/css" href="https://css.yatracdn.com/content/holidays/responsive/details_page/resources/css/packages-details-responsive.min.css?v=28.10.2021"	/> -->
-
-<img alt="slider" src="../images/Kerala.jpg"  style="width: 100%;
-    height: 416px;" >
    <!-- top start -->
-   
+ 
+    
 <div class="topbar row">
 	<div class="route row">
 		<!-- ngIf: isDesktop --><div class="left-column ng-scope" ng-if="isDesktop">
@@ -121,7 +30,8 @@ position: relative;">
 					<span class="block" style="display: block;">One Seat Rate</span> 
 					<span class="price ng-binding" style="font: 1.85714em &quot;Lato Bold&quot;;
 position: relative;"><i class="rs" style="font-family: &quot;RupeeSign&quot;;">Rs.</i>{{$tourdetails->Price}}</span> 
-					
+					<input type="hidden" value="{{$tourdetails->Price}}" id="oneseatprice">
+
 					<!-- ngIf: holidayData.strikeOffPrice > 0 -->
 				</div><!-- end ngIf: holidayData.startFromPrice > 0 -->							
 				
@@ -129,41 +39,79 @@ position: relative;"><i class="rs" style="font-family: &quot;RupeeSign&quot;;">R
 		</div><!-- end ngIf: isDesktop -->
 <!-- ngIf: !isDesktop -->
 		<div class="offer flL" style="width:25%;float:left">
-        <button class="btn btn-danger" style="margin-bottom:15px;">
-        <a href="/TourUserInfo/{{$tourdetails->tour_id}}" class="btn btn-danger">Book Now</a>
-			</button>
+        <!-- <button class="btn btn-danger" style="margin-bottom:15px;"> -->
+        <!-- <a href="/TourUserInfo/{{$tourdetails->tour_id}}" class="btn btn-danger">Book Now</a> -->
+        <button class="btn btn-danger" id="Booknow">Book Now</button>
+			<!-- </button> -->
 			  
 			<!-- <button class="btn btn-dark" style="">Submit Query</button> -->
 		</div>
 		<ul class="" style="display: inline-flex;">
-<li class="photos ng-scope">
-				<a href="#gallery" class="a">Photos</a>
+<li class="photos ng-scope a" id="dayMenu"> Day Menu
+				<!-- <a href="#gallery" class="a"> </a> -->
 			</li>
-			<li class="hidden-md flightHotels">
-				<a class="a">Hotels & Transport</a>
+			<li class="hidden-md flightHotels a" id="hotelmenu">Hotels 
+				<!-- <a href="#hotelDiv"class="a"></a> -->
 			</li>
-            <li class="hidden-md flightHotels">
-				<a  class="a"><i class="fa-solid fa-eyes"></i>Day Menu</a>
+            <li class="hidden-md flightHotels a" id="TrasportMenu">Transport
+				<!-- <a  class="a"><i class="fa-solid fa-eyes"></i> </a> -->
                 
 			</li>
-			
 				</ul>
-			
-		
 	</div>
 </div>
+
    <!-- top end -->
+
     <!-- new template start --> 
     
     <br>
-    tour id-{{$tourdetails->tour_id}}
-    
-    busname- {{$tourdetails->busnamefun->busname}} <br>
-    seating capacity-{{$tourdetails->busnamefun->seating_capacity}}  <br> 
-    <!-- taxi_pic- {{$tourdetails->busnamefun->taxi_pic}} <br> -->
+    <!-- bus details start -->
+    <div id="busdetailsDiv">
+    <div class="mainconainers">
+        <div class="leftcontainers">
+        <img src="../uploaded_images/{{$tourdetails->busnamefun->taxi_pic}}" style="width:100%;height:100%" alt="buspic">
+        </div>
+        <div class="rightcontainers">
+            busname- {{$tourdetails->busnamefun->busname}} <br>
+            {{$tourdetails->busnamefun->Taxi_type}} <br>
+        {{$tourdetails->busnamefun->Taxi_number}} <br>
+        {{$tourdetails->busnamefun->seating_capacity}} <br>
+        {{$tourdetails->busnamefun->taxi_category}} <br>
+        {{$tourdetails->busnamefun->price}} <br>
+    </div>
+    </div>                      
+    </div>
+    <!-- bus details end -->
+    <!-- hotel details start -->
+    <div id="hotelDiv">
  
-    <img src="../uploaded_images/{{$tourdetails->busnamefun->taxi_pic}}" width="200px" height="200px" alt="taxi_pic">
-    <div id="container">
+    <div class="mainconainers">
+    @php
+    $i=1;
+    @endphp
+    @foreach($daysdets as $daysdet)
+  
+        <div class="leftcontainers">
+        <img src="../uploaded_images/{{$daysdet->Hpic}}" style="width:100%;height:100%" alt="buspic">
+        </div>
+        <div class="rightcontainers">
+            day-@php
+    echo $i;
+    @endphp <br>
+            Hotel- {{$daysdet->hotelname}} <br>
+            {{$daysdet->Locality}} <br>
+     
+    </div>  
+    @php
+    $i=$i+1;
+    @endphp 
+    @endforeach                   
+    </div>
+</div>
+    <!-- hotel details end -->
+    <!-- day menu start -->
+    <div id="Daymenu">
     @php
 $i=1;
 @endphp
@@ -172,7 +120,7 @@ $i=1;
         <div class="fullsection">
         <!-- section start-->
         <div id="section">
-            <h4 class="day">DAy {{$i}} </h4>
+            <h4 class="day">Day {{$i}} </h4>
             <br>
             <strong> <i class="fa-solid fa-hotel"></i>SIGHTSEEING</strong>
         </div>
@@ -187,34 +135,136 @@ $i=1;
         </div>
         </div>
         <hr class="hr">
-        <div class="fullsection">
+        <!-- <div class="fullsection"> -->
         <!-- section start-->
-        <div id="section">
+        <!-- <div id="section"> -->
             <!-- <h4 class="day">DAy {{$i}} </h4> -->
-            <strong> <i class="fa-regular fa-eyes"></i>HOTEL</strong>
-        </div>
+            <!-- <strong> <i class="fa-regular fa-eyes"></i>HOTEL</strong> -->
+        <!-- </div> -->
         <!-- section end -->
         <!-- sectioncontainer start-->
-        <div class="sectioncontainer">
+        <!-- <div class="sectioncontainer">
             <br>
             <br>
             <br>
             <p>{{$daysdet->hotelname}} </p>
             {{$daysdet->Locality}} <br>
-            hotelname Locality-{{$daysdet->Hpic}}
-        </div>
-        </div>
-        <hr class="hr">
+            hotelname Locality-{{$daysdet->Hpic}} -->
+        <!-- </div>
+        </div> -->
+        <!-- <hr class="hr"> -->
         
-    </div>
+   
     <!-- new template end -->
     @php
 $i=$i+1;
 @endphp
     @endforeach
-  
+    </div>
 
     <!-- <button class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add To Wishlist</button> -->
-    &nbsp&nbsp&nbsp&nbsp
-    <a href="/TourUserInfo/{{$tourdetails->tour_id}}" class="btn btn-danger"><i class="fa fa-bolt" aria-hidden="true"></i>Book Now</a>
+    <!-- &nbsp&nbsp&nbsp&nbsp -->
+    <!-- <a href="/TourUserInfo/{{$tourdetails->tour_id}}" class="btn btn-danger"><i class="fa fa-bolt" aria-hidden="true"></i>Book Now</a> -->
+   
+    <!-- user details div start -->
+    <!-- <div id="UserInformationformDiv">
+    <div class="popular_places_area"> -->
+    <div id="UserInformationformDiv">
+<div class="container">
+<h1> Tour Details</h1>
+<form action="/TourpackageDetails" method="POST" enctype="multipart/form-data">
+  @csrf
+ 
+  
+  <input type="hidden" value="{{$tourdetails->tour_id}}" name="tour_id">
+  <!-- UserEvent_id
+product_id -->
+<!-- <div class="container"> -->
+<div class="row">
+    <div class="col">
+      <label for="inputEmail4">Name</label>
+      <input type="text" name="name" class="form-control col-6" id="inputEmail4" placeholder="">
+    </div>
+    <div class="col">
+      <label for="inputEmail4">Contact No</label>
+      <input type="text" name="contact_no" class="form-control col-6" id="inputEmail4" placeholder="">
+    </div>
+    </div>
+    <div class="row">
+    <div class="col">
+      <label for="inputPassword4">Address</label>
+      <textarea type="text" name="address" class="form-control col-6" id="inputPassword4"  row="4"placeholder=""></textarea>
+  </div>
+    </div>
+  <div class="row">
+    <div class="col">
+      <label for="inputEmail4">No Of Seat</label>
+      <input type="text" name="no_of_seat" onChange="change_send(this.value);" class="form-control col-6" id="inputEmail4" placeholder="">
+    </div>
+    <div class="col">
+      <label for="inputPassword4">Total Price</label>
+      <input type="text" name="total_price" class="form-control col-6" id="Totalprice" placeholder="" readonly>
+  </div>
+    </div>
+ 
+
+  
+    <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+    <button class="btn btn-primary" style="float:right;margin-top:25px;">Add Tour Details</button>
+  </div>
+    </div>
+  </div>
+       
+</form>
+ 
+    </div>
+        <!-- user details div end -->
+        <script type="text/javascript">
+function change_send(noofseat)
+{
+  $noofseat=noofseat;
+  $oneseatprice=$("#oneseatprice").val();
+  $Totalprice=$oneseatprice*$noofseat;
+  
+   $("#Totalprice").val($Totalprice);
+	// alert($oneseatprice);
+
+}
+</script>
+
+@if(Session::has('data'))
+<span style="color:{{Session::get('data.color')}}" class="text-center">{{Session::get('data.msg')}}</span>
+<style>
+  #cont{
+    display:none;
+  }
+  #Daymenu{
+    display:none;
+  }
+  #UserInformationformDiv{
+    display:none;    
+  }
+</style>
+<div class="container tex-center mx-auto">
+    <form action="/TourpackageDetails_pay" method="POST" class="text-center mx-auto mt-5">
+      
+      <script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          data-key="rzp_test_iKlM2rsXjuV7R1"
+    data-amount="{{Session::get('data.amount')}}" 
+          data-currency="INR"
+    data-order_id="{{Session::get('data.order_id')}}"
+          data-buttontext="Pay with Razorpay"
+          data-name="My Shop"
+          data-description="Test transaction"
+         
+          data-theme.color="#182fa3"></script>
+      <input type="hidden" custom="Hidden Element" name="hidden">
+      </form>
+</div>
+</div>
+@endif
 @endsection
