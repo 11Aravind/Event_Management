@@ -22,6 +22,9 @@ class CreateAddPackageTable extends Migration
             $table->string('type');
             $table->string('discription');
             $table->json('PackageProducts');
+            $table->json('subbanners');
+            $table->boolean('status')->default(0);
+           
             // $table->foregin('PackageProducts')->references('product_id')->on('addproducts');
             $table->timestamps();
         });

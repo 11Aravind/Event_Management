@@ -29,10 +29,10 @@ class UserController extends Controller
     //
     public function EventList()
     {
-        $category=Category::where('cat_type','Event')->get();
+        // $category=Category::where('cat_type','Event')->get();
         $event_det=Event::all();
         // return $event_det;
-        return view('User/TicketBooking',["title"=>"TicketBooking page","starting"=>"../",'categorys'=>$category,"event_dets"=>$event_det]);
+        return view('User/TicketBooking',["title"=>"TicketBooking page","starting"=>"../","event_dets"=>$event_det]);
     }
     public function store()
     {

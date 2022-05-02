@@ -9,6 +9,13 @@ class Packages extends Model
 {
     use HasFactory;
    protected $table="add_package";
+   protected $fillable = [
+    'subbanners'
+];
+public function setFilenamesAttribute($value)
+{
+    $this->attributes['subbanners'] = json_encode($value);
+}
 protected $casts=[
 'PackageProducts'=>'array'
 ];

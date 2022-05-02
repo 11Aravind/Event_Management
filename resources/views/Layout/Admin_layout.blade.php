@@ -82,10 +82,15 @@
 							<span class="pcoded-mtext">Packages</span></a>
 						<ul class="pcoded-submenu">
 						<li class="nav-item">
-						<a href="../Add_Package" class="nav-link">
+						<!-- <a href="../Add_Package" class="nav-link">
+						
+							<span class="pcoded-mtext">Add Package</span></a> -->
+					</li>
+					<li class="nav-item">
+						<a href="../ViewAdminPackage" class="nav-link">
 							<!-- <span class="pcoded-micon">
                             <i class="feather icon-align-justify"></i></span> -->
-							<span class="pcoded-mtext">Add Package</span></a>
+							<span class="pcoded-mtext">View Package</span></a>
 					</li>
 							<!-- <li class=""><a href="ViewPackage" class="">View Package</a></li> -->
 							<!-- <li class=""><a href="/Tour_details" class="">Tour Package</a></li>
@@ -101,9 +106,9 @@
 						<ul class="pcoded-submenu">
 
 							<li class=""><a href="DisplayEventCategory" class="">Event Categorys</a></li>
-							<li class=""><a href="/Add_Event" class="">Add Events </a></li>
-							<!-- <li class=""><a href="#" class="">Tour Package</a></li>
-							<li class=""><a href="#" class="">Custom Package</a></li> -->
+							<!-- <li class=""><a href="/Add_Event" class="">Add Events </a></li> -->
+							 <li class=""><a href="/ViewEvent" class="">View Event</a></li>
+							<!-- <li class=""><a href="#" class="">Custom Package</a></li> -->
 
 						
 						</ul>

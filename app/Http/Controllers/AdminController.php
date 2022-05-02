@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\AddProduct;
 use App\Models\Event;
 use App\Models\Employ;
+use App\Models\Packages;
 use Session;
 class AdminController extends Controller
 {
@@ -86,6 +87,39 @@ else{
 
 }
 }
+//delete packages
+public function DeletePackage($id)
+{
+    $find=Packages::findOrFail($id);
+    // {{$request->product_id}}
+   $delete=$find->delete();
+   if( $delete)
+   {
+    return redirect('ViewAdminPackage')->with('msg',"The product was deleted",'color','green');
+   }
+else{
+    return back()->with('msg',"The product was not deleted Try Again",'color','red');
+
+}  
+}
+//delete category
+public function DeleteCategory($id)
+{
+    $find=Category::findOrFail($id);
+    // {{$request->product_id}}
+   $delete=$find->delete();
+   if( $delete)
+   {
+    if($find->cat_type=='Event')
+    return redirect('DisplayEventCategory');
+    else
+    return redirect('DisplayCategory')->with('msg',"The category item was deleted",'color','green');
+   }
+else{
+    return back()->with('msg',"The category item was not deleted Try Again",'color','red');
+
+} 
+}
 //DisplayCategory
 public function DisplayCategory()
 {
@@ -136,7 +170,7 @@ $event_obj->discount=request('discount');
 $event_obj->discount_end=request('discount_end');
 $event_obj->event_discription=request('event_discription');
 $event_obj->save();
-return redirect('/Add_Event');
+return redirect('/ViewEvent');
 }
 //display evetn details
 public function Event_details()
@@ -183,11 +217,39 @@ public function DeactiveProduct($id,Request $req){
    $finddata->save();
    return redirect('Display_Product');
 }
+public function DeactiveCategory($id)
+{
+    $finddata=Category::findOrFail($id);
+   $finddata->status=0;
+   $finddata->save();
+   if($finddata->cat_type=='Event')
+        return redirect('DisplayEventCategory');
+        else
+   return redirect('DisplayCategory'); 
+}
 public function ActiveProduct($id,Request $req){
     $finddata=AddProduct::findOrFail($id);
     $finddata->status=1;
     $finddata->save();
     return redirect('Display_Product');
+ }
+ 
+ public function ActiveCategory($id)
+ {
+    $finddata=Category::findOrFail($id);
+    $finddata->status=1;
+   $save=$finddata->save();
+    if($save)
+    {
+        if($finddata->cat_type=='Event')
+        return redirect('DisplayEventCategory');
+        else
+     return redirect('DisplayCategory')->with('msg',"The category was active",'color','green');
+    }
+ else{
+     return back()->with('msg',"Activation not done  Try Again",'color','red');
+ }
+    
  }
  public function store_event(Request $request)
  {
@@ -216,5 +278,14 @@ public function Displayemploydet()
     return view('Admin/Displayemploydet',["employdets"=>$employdet,"title"=>"Displayemploydet page"]);
     // return $employdet;
 }
-
+public function ViewPackage()
+{
+    $packagedet=Packages::all();
+    return view('Admin/ViewPackage',["title"=>'View package Details','packagedet'=>$packagedet]);
+}
+public function ViewEvent()
+{
+    $eventdet=Event::all();
+    return view('Admin/ViewEvent',["title"=>'View package Details','eventdet'=>$eventdet]);
+}
 }

@@ -108,17 +108,68 @@
 <div class="payment_content" style="flex:.4">
 <div class="container col-4" style="position: fixed;">
 <h2>Book Package</h2>
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="Text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
 
-  <button type="submit" class="btn btn-danger">₹Get Quotation</button>
+<form action="/AddAddress"method="POST" enctype="multipart/form-date">
+  @csrf
+<div class="form-group">
+  <!-- <div class="col-md-12"> -->
+      <div class="col">
+        <label for="">Name</label>
+      <input type="text" class="form-control" name="name" placeholder="">
+    </div>
+    <!-- </div> -->
+    <div class="form-row">
+    <div class="col">
+    <label for="">Mobile No</label>
+      <input type="text" class="form-control" name="mobileno"placeholder="">    </div>
+    
+
+
+    <div class="col">
+    <!-- <div class="col"> -->
+        <!-- <label for="">Mobile No</label>
+      <input type="text" class="form-control" name="mobileno"placeholder=""> -->
+    <!-- </div> -->
+    <!-- </div> -->
+</div>
+</div>
+<div class="form-row">
+    <div class="col">
+        <!-- <label for="">Pincode</label>
+      <input type="text" name="pincode" class="form-control" placeholder=""> -->
+    </div>
+    <div class="col">
+    <label for="">Locality</label>
+      <input type="text" name="locality" class="form-control" placeholder="">
+    </div>
+</div>
+<!-- <div class="form-row"> -->
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">Address</label>
+    <textarea class="form-control" name="address" id="exampleFormControlTextarea1" placeholder="(area and street)" rows="3"></textarea>
+  </div>
+  <!-- </div> -->
+  <div class="form-row" style="display:flex">
+    <div class="form-group col-md-4">
+      <label for="inputCity">Event Date</label>
+      <input type="date" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Time</label>
+      <input type="time" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </div>
+          
+ 
+<div class="form-row">
+    <button class="btn btn-warning">Save And Delivary Hear</button>
+    <!-- <span id="cancel" style="cursor: pointer;">cancel</span> -->
+</div>
+    
 </form>
 </div>
 </div> 

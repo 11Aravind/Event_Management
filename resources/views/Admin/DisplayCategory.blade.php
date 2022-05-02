@@ -16,12 +16,12 @@
   <a href="{{$addcategorytype}}"type="button" class="btn btn-primary" title=""  style="float: right;">Add Category</a>
                                             <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
                                         
-                                    @if(Session::get('success'))
-                                {
-                                    <span style="color:green">
-{{Session::get('success')}}
+                                    @if(Session::get('msg'))
+                                
+                                    <span style="color:{{Session::get('color')}}">
+{{Session::get('msg')}}
 </span>
-                                }
+                                
                                 @endif
                            
                                         </div>
@@ -39,10 +39,15 @@
                                                             <th> status</th>
                                                         </tr>
                                                     </thead>
+                                                    @php
+                                                    $i=1;
+                                                    @endphp
                                                    @foreach($busdetailss as $busdetails)
                                                     <tbody>
                                                         <tr>
-                                                            <td>1</td>
+                                                            <td> @php
+                                                    echo $i;
+                                                    @endphp</td>
                                                             <td>{{$busdetails->category_name}}</td>
                                                             <td>{{$busdetails->discription}}</td>
                                                            
@@ -50,19 +55,22 @@
                                                             <a href="#" class="btn btn-primary">Update</a>
                                                             </td> -->
                                                             <td>
-                                                            <a href="#" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="DeleteCategory/{{$busdetails->category_id}}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
                                                             @if($busdetails->status==1)
                                                             <td>
-                                                            <button type="button" class="btn btn-success">Active</button>
+                                                            <a href="DeactiveCategory/{{$busdetails->category_id}}" type="button" class="btn btn-danger"> Dective</a>
                                                             </td>
                                                             @else
                                                             <td>
-                                                            <button type="button" class="btn btn-success">Dective</button>
+                                                            <a href="ActiveCategory/{{$busdetails->category_id}}" class="btn btn-success">Active</a>
                                                             </td>
                                                             
                                                             @endif
                                                         </tr>
+                                                        @php
+                                                    $i=$i+1;
+                                                    @endphp
                                                      @endforeach
                                                                                                                  <!-- The Modal -->
 <div id="myModal" class="modal">

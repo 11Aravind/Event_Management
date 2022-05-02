@@ -95,10 +95,12 @@
                                                             <label for="exampleFormControlTextarea1">Description</label>
                                                             <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" placeholder="Product Description" rows="3"></textarea>
                                                         </div>
-    
-
-</div>
-                                                   
+                                                        
+                                                            </div>
+                                                            <div class="form-group col-6">
+                                                            <label for="exampleInputEmail1">subbanners</label>
+                                                            <input type="text" class="form-control" name="subbanners[]" id="exampleInputEmail1"  placeholder="Quentity">
+                                                         </div>      
 <button type="submit"style="float:right"class="btn btn-primary">Add Package</button>
 
                                                     </form>

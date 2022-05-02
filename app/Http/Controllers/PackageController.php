@@ -38,7 +38,7 @@ $busdetailsproductdetails=AddProduct::all();
         // dd(request('packageProduct'));
          $save=$package->save();
          if($save)
-         return redirect('Add_Package');
+         return redirect('/ViewAdminPackage');
     }
     public function ViewPackage()
     {

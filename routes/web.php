@@ -51,6 +51,10 @@ Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys']);
 
 // EmmployDeactive
 Route::get('/Employdetails',[AdminController::class,'Displayemploydet']);
+Route::get('/ViewAdminPackage',[AdminController::class,'ViewPackage']);
+
+Route::get('/ViewEvent',[AdminController::class,'ViewEvent']);
+
 Route::get('Travel', function () {
     return view('Travel/KycForm',["title"=>"Travel Agency_dashbord"]);
 });
@@ -166,7 +170,8 @@ Route::get('TourView',[TourController::class,'TourView']);
 
 // DeleteProduct
 Route::get('DeleteProduct/{id}',[AdminController::class,'DeleteProduct']);
-
+Route::get('DeletePackage/{id}',[AdminController::class,'DeletePackage']);
+Route::get('DeleteCategory/{id}',[AdminController::class,'DeleteCategory']);
 // UpdateForm/3
 Route::get('UpdateForm/{id}',[AdminController::class,'UpdateForm']);
 Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);
@@ -174,8 +179,10 @@ Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);
 Route::match(['get','post'],'DeactiveProduct/{id}',[AdminController::class,'DeactiveProduct']);
 // ActiveProduct
 Route::match(['get','post'],'ActiveProduct/{id}',[AdminController::class,'ActiveProduct']);
-
-
+// ActiveCategory
+Route::get('ActiveCategory/{id}',[AdminController::class,'ActiveCategory']);
+// DeactiveCategory
+Route::get('DeactiveCategory/{id}',[AdminController::class,'DeactiveCategory']);
 //Travel
 
 Route::get('TravelKyc',[TravelController::class,'viewkycform']); 
