@@ -60,17 +60,30 @@ $busdetailsproductdetails=AddProduct::all();
     }
     public function Premium()
     {
-        $Premium=Packages::where('type','=','Premium')->get();
+     
+       
+        $Premium=Packages::where([
+            ['type','=','Premium'],
+            ['status','=','1']
+        ])->get();
         return view('Layout/PackageLayout',["title"=>"Premium Package Page","starting"=>"../","Premiums"=>$Premium,"type"=>"Premium"]);
     }
     public function Medium()
     {
-        $Medium=Packages::where('type','=','Medium')->get();
+       
+        $Medium=Packages::where([
+            ['type','=','Medium'],
+            ['status','=','1']
+        ])->get();
         return view('Layout/PackageLayout',["title"=>"Medium Package Page","starting"=>"../","Premiums"=>$Medium,"type"=>"Medium"]);
     }
     public function Regular()
     {
-        $Regular=Packages::where('type','=','Regular')->get();
+        
+        $Regular=Packages::where([
+            ['type','=','Regular'],
+            ['status','=','1']
+        ])->get();
         return view('Layout/PackageLayout',["title"=>"Regular Package Page","starting"=>"../","Premiums"=>$Regular,"type"=>"Regular"]);  
     }
     public function PackageDetail($id)

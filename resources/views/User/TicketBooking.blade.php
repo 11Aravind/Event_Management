@@ -24,17 +24,7 @@
 </div>
 </div>
 </div>
-    <!-- <div class="EventCategory"> -->
-    <!-- categorys -->
-        <!-- <ul class="EventCategory"style=""> -->
-            <!-- <li>All</li> -->
-            <!-- @foreach($categorys as $category)
-            <li><a href="#">{{$category->category_name}}</a></li>
-          @endforeach -->
-        <!-- </ul> -->
-    <!-- </div> -->
-<!-- <div class="row justify-content-center">
-<div class="row"> -->
+    
 <div class="all-speakers">
 <div class="row">
 @foreach($event_dets as $event_det)

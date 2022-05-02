@@ -242,7 +242,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
  aria-expanded="false" aria-label="Toggle navigation">Account</a>
 <ul class="sub-menu collapse" id="submenu-1-2">
 <li class="nav-item"><a href="#">Profile</a></li>
-<li class="nav-item"><a href="#">Order Details</a></li>
+<li class="nav-item"><a href="/OrderDetails">Order Details</a></li>
 
 <li class="nav-item"><a href="/Logout">Logout</a></li>
 </ul>

@@ -15,12 +15,8 @@
                                             <h5>Packages</h5> 
  <a href="../Add_Package"type="button" class="btn btn-primary" title=""  style="float: right;">Add  Package</a>
  @if(Session::get('msg'))
-                                {
-                                    <span style="color:{{Session::get('color')}}">
-{{Session::get('msg')}}
-</span>
-                                }
-                                @endif
+<span style="color:{{Session::get('color')}}">{{Session::get('msg')}}</span>                             
+ @endif
  </div>
                                         <div class="card-body table-border-style">
                                             <div class="table-responsive">
@@ -39,11 +35,11 @@
                                                             <th> status</th>
                                                         </tr>
                                                     </thead>
+                                                    @php $i=1 @endphp
                                                    @foreach($packagedet as $packagedets)
-                                                   
                                                     <tbody>
                                                         <tr>
-                                                            <td>1</td>
+                                                            <td>@php echo $i; @endphp</td>
                                                             <td>{{$packagedets->package_use}}</td>
                                                             <td>{{$packagedets->type}}</td>
                                                             <td>{{$packagedets->total_amount}}</td>
@@ -57,17 +53,19 @@
                                                             <td>
                                                             <a href="DeletePackage/{{$packagedets->package_id}}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
-                                                           
-                                                            <!-- <td>
-                                                            <a href="DeactiveProduct/{{$packagedets->package_id }}" class="btn btn-danger"> Dective</a>
-                                                            </td> -->
-                                                            
+                                                            <!--  -->
+                                                            @if($packagedets->status==0)
                                                             <td>
-                                                            <a href="ActiveProduct/{{$packagedets->package_id }}" class="btn btn-success">Active</a>
+                                                            <a href="Activatepackage/{{$packagedets->package_id }}" class="btn btn-success">Active</a>
                                                             </td>
-                                                            
-                                                            
+                                                            @else
+                                                            <td>
+                                                            <a href="Deactivatepackage/{{$packagedets->package_id }}" class="btn btn-danger">Deactive</a>
+                                                            </td>
+                                                            @endif
+                                            
                                                         </tr>
+                                                        @php $i=$i+1; @endphp
                                                      @endforeach
                                                                                                                  <!-- The Modal -->
 <div id="myModal" class="modal">

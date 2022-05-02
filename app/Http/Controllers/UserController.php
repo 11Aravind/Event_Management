@@ -249,6 +249,10 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         $save=$fileComplaint->save();
         return "<script>alert('complaint is successfully sended')</script>";
     }
+    public function OrderDetails()
+    {
+        return view('User/OrderDetails',["starting"=>"../"]); 
+    }
 }
 
 

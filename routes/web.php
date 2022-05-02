@@ -135,7 +135,8 @@ Route::get('EventChart', function () {
     return view('User/EventChart',["title"=>"EventChart page"]);
 });
 
-
+//OrderDetails
+Route::get('/OrderDetails', [UserController::class,'OrderDetails']);
 
 // Route::get('/{event}',[UserController::class,'eventdynamic']);
 
@@ -183,6 +184,11 @@ Route::match(['get','post'],'ActiveProduct/{id}',[AdminController::class,'Active
 Route::get('ActiveCategory/{id}',[AdminController::class,'ActiveCategory']);
 // DeactiveCategory
 Route::get('DeactiveCategory/{id}',[AdminController::class,'DeactiveCategory']);
+// Activatepackage
+Route::get('Activatepackage/{id}',[AdminController::class,'Activatepackage']);
+// Deactivatepackage
+Route::get('Deactivatepackage/{id}',[AdminController::class,'Deactivatepackage']);
+
 //Travel
 
 Route::get('TravelKyc',[TravelController::class,'viewkycform']); 

@@ -217,6 +217,14 @@ public function DeactiveProduct($id,Request $req){
    $finddata->save();
    return redirect('Display_Product');
 }
+// Deactivatepackage
+public function Deactivatepackage($id)
+{
+    $finddata=Packages::findOrFail($id);
+    $finddata->status=0;
+    $finddata->save();
+    return redirect('ViewAdminPackage');   
+}
 public function DeactiveCategory($id)
 {
     $finddata=Category::findOrFail($id);
@@ -232,6 +240,13 @@ public function ActiveProduct($id,Request $req){
     $finddata->status=1;
     $finddata->save();
     return redirect('Display_Product');
+ }
+ public function Activatepackage($id)
+ {
+    $finddata=Packages::findOrFail($id);
+    $finddata->status=1;
+    $finddata->save();
+    return redirect('ViewAdminPackage'); 
  }
  
  public function ActiveCategory($id)

@@ -169,8 +169,8 @@ $i=$i+1;
     <!-- user details div start -->
     <!-- <div id="UserInformationformDiv">
     <div class="popular_places_area"> -->
-    <div id="UserInformationformDiv">
-<div class="container">
+    <div id="UserInformationformDiv" style="display: none;padding: 53px 30px;background: #f5faff;">
+<div class="container col-5">
 <h1> Tour Details</h1>
 <form action="/TourpackageDetails" method="POST" enctype="multipart/form-data">
   @csrf
@@ -213,7 +213,7 @@ product_id -->
     <div class="col">
     </div>
     <div class="col">
-    <button class="btn btn-primary" style="float:right;margin-top:25px;">Add Tour Details</button>
+    <button class="btn btn-warning" style="float:right;margin-top:25px;">Add Tour Details</button>
   </div>
     </div>
   </div>
