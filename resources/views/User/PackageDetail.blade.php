@@ -25,7 +25,7 @@
     .piclist .li{
     display: inline-block;
     width: 105px;
-    height: 114px;
+    /* height: 114px; */
     border: 1px solid #eee;
 }
 .piclist li img{
@@ -43,12 +43,16 @@
 <div class="packagecontent" style="flex:.6">
 <img src="../images/{{$package_details->package_image}}" class="mainpic" alt="product_photo">
 <h3 class="font-weight-bold phto_album">Photo Albums </h3>
+
 <ul class="piclist">
-                  <li class="li"><img src="https://s.fotorama.io/1.jpg" alt=""></li>
-                  <li class="li"><img src="https://s.fotorama.io/2.jpg" alt=""></li>
-                  <li class="li"><img src="https://s.fotorama.io/3.jpg" alt=""></li>
-                  <li class="li"><img src="https://ucarecdn.com/382a5139-6712-4418-b25e-cc8ba69ab07f/-/stretch/off/-/resize/760x/" alt=""></li>
+  @foreach(json_decode($package_details->subbanners) as $singlepic)
+                  <li class="li"><img src="../files\{{$singlepic}}" alt="subbanner"></li>
+        @endforeach
                </ul>
+            
+
+
+
 <h3 class="font-weight-bold phto_album">Pricing</h3>
 <p class="font-weight-light ">Package Price</p>
 ₹1200
@@ -117,30 +121,30 @@
         <label for="">Name</label>
       <input type="text" class="form-control" name="name" placeholder="">
     </div>
+
     <!-- </div> -->
-    <div class="form-row">
-    <div class="col">
+    <div class="form-row" style="display:flex">
+    <div class="col-6" style="margin-right: 15px;">
     <label for="">Mobile No</label>
-      <input type="text" class="form-control" name="mobileno"placeholder="">    </div>
+      <input type="text" class="form-control" name="mobileno"placeholder="">   
+     </div>
     
 
 
-    <div class="col">
-    <!-- <div class="col"> -->
-        <!-- <label for="">Mobile No</label>
-      <input type="text" class="form-control" name="mobileno"placeholder=""> -->
-    <!-- </div> -->
-    <!-- </div> -->
+    <div class="col-6">
+    <label for="">Locality</label>
+      <input type="text" name="locality" class="form-control" placeholder="">
 </div>
 </div>
+
 <div class="form-row">
     <div class="col">
         <!-- <label for="">Pincode</label>
       <input type="text" name="pincode" class="form-control" placeholder=""> -->
     </div>
     <div class="col">
-    <label for="">Locality</label>
-      <input type="text" name="locality" class="form-control" placeholder="">
+    <!-- <label for="">Locality</label>
+      <input type="text" name="locality" class="form-control" placeholder=""> -->
     </div>
 </div>
 <!-- <div class="form-row"> -->
@@ -176,5 +180,6 @@
 <!-- payment_content end -->
 </div>
 
+</div>
 </div>
 @endsection

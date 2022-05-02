@@ -17,7 +17,7 @@ class PackageController extends Controller
 $busdetailsproductdetails=AddProduct::all();
         return view('Admin/Add_Package',["busdetailsproductdetails"=>$busdetailsproductdetails,'title'=>'Add PackagePage']);
     }
-    public function addpackageproduct()
+    public function addpackageproduct(Request $request)
     {
         $package=new Packages();
         $package->package_use=request('packageuse');
@@ -35,6 +35,19 @@ $busdetailsproductdetails=AddProduct::all();
         $package->type=request('type');
         $package->discription=request('discription');
         $package->PackageProducts=request('packageProduct');
+        
+        $files = [];
+        if($request->hasfile('subbanners'))
+         {
+            foreach($request->file('subbanners') as $file)
+            {
+                $name = time().rand(1,50).'.'.$file->extension();
+                $file->move(public_path('files'), $name);  
+                $files[] = $name;  
+            }
+         }
+         $package->subbanners = json_encode($files);
+        // request('');
         // dd(request('packageProduct'));
          $save=$package->save();
          if($save)
