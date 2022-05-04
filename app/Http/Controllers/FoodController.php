@@ -92,22 +92,20 @@ $Cateringkycdet->cateringservicename=$request->cateringservicename;
 $Cateringkycdet->ownername=$request->ownername;
 $Cateringkycdet->mobileno=$request->mobileno;
 $Cateringkycdet->alterphoneno=$request->alterphoneno;
-if($request->hasfile('bannerpic'))
-{
-$file=$request->bannerpic;
+
+$file=$request->file('bannerpic');
 $ext=$file->getClientOriginalExtension();
 $filename=time().'.'.$ext;
 $file->move('uploaded_images',$filename);
 $Cateringkycdet->bannerpic=$filename;
-}
-if($request->hasfile('owner_pic'))
-{
-$file=$request->owner_pic;
+
+
+$file=$request->file('owner_pic');
 $ext=$file->getClientOriginalExtension();
 $filename=time().'.'.$ext;
 $file->move('uploaded_images',$filename);
 $Cateringkycdet->owner_pic=$filename;
-}
+
 
 // $Cateringkycdet->bannerpic=$request->bannerpic;
 // $Cateringkycdet->owner_pic=$request->owner_pic;

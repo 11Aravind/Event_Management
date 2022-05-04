@@ -84,6 +84,7 @@ Route::post('/pay',[FoodController::class,'pay']);
 Route::post('/TourpackageDetails_pay',[TourController::class,'TourpackageDetails_pay']);
 
 
+Route::post('/PackageDetail_pay',[PackageController::class,'PackageDetail_pay']);
 Route::get('/FoodOrder_details',[FoodController::class,'FoodOrder_details']);
 // Route::get('/',[FoodController::class,'']);
 
@@ -124,7 +125,8 @@ Route::get('Add_Package',[PackageController::class,'showpackageproduct',"title"=
 Route::post('Add_Package',[PackageController::class,'addpackageproduct',"title"=>"Add_Package page"]);
 Route::get('ViewPackage',[PackageController::class,'ViewPackage',"title"=>"ViewPackage page"]);
 Route::get('PackageDetail/{id}',[PackageController::class,'PackageDetail',"title"=>"PackageDetail page"]);
-
+// PackageDetail
+Route::post('PackageDetail',[PackageController::class,'PackageDetail_store',"title"=>"PackageDetail page"]);
 //PackageLayout.blade.php //primium
 Route::get('/Premium',[PackageController::class,'Premium',"title"=>"Add_Package page"]);
 Route::get('/Medium',[PackageController::class,'Medium',"title"=>"Medium Package"]);

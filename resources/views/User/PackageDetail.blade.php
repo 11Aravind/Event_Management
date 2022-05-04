@@ -1,5 +1,6 @@
 @extends('Layout.User_Homepage')
 @section('content')
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> -->
 <style>
     .packagedetailcontainer{
         padding:77px;
@@ -46,16 +47,34 @@
 
 <ul class="piclist">
   @foreach(json_decode($package_details->subbanners) as $singlepic)
-                  <li class="li"><img src="../files\{{$singlepic}}" alt="subbanner"></li>
+                  <li class="li"><img src="../files\{{$singlepic}}" data-toggle="modal" data-target="#exampleModalCenter" alt="subbanner"></li>
         @endforeach
                </ul>
-            
-
-
-
+      
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     hai
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end model    -->
 <h3 class="font-weight-bold phto_album">Pricing</h3>
 <p class="font-weight-light ">Package Price</p>
-₹1200
+₹{{$package_details->total_amount}}
 <p class=" font-weight-normal">PAYMENT POLICY</p>
 
 <p class="">40% - At the Time of booking</p>
@@ -110,11 +129,14 @@
 </div>
 <!-- payment_content start -->
 <div class="payment_content" style="flex:.4">
-<div class="container col-4" style="position: fixed;">
+<div class="container col-4" id="payment_content" style="position: fixed;">
 <h2>Book Package</h2>
 
-<form action="/AddAddress"method="POST" enctype="multipart/form-date">
+<form action="/PackageDetail"method="POST" enctype="multipart/form-date">
   @csrf
+  <input type="hidden" name="package_id" value="{{$package_details->package_id}}">
+  <input type="hidden" name="total_amount" value="{{$package_details->total_amount}}">
+  
 <div class="form-group">
   <!-- <div class="col-md-12"> -->
       <div class="col">
@@ -126,26 +148,12 @@
     <div class="form-row" style="display:flex">
     <div class="col-6" style="margin-right: 15px;">
     <label for="">Mobile No</label>
-      <input type="text" class="form-control" name="mobileno"placeholder="">   
+      <input type="text" class="form-control" name="mobile_no"placeholder="">   
      </div>
-    
-
-
     <div class="col-6">
     <label for="">Locality</label>
       <input type="text" name="locality" class="form-control" placeholder="">
 </div>
-</div>
-
-<div class="form-row">
-    <div class="col">
-        <!-- <label for="">Pincode</label>
-      <input type="text" name="pincode" class="form-control" placeholder=""> -->
-    </div>
-    <div class="col">
-    <!-- <label for="">Locality</label>
-      <input type="text" name="locality" class="form-control" placeholder=""> -->
-    </div>
 </div>
 <!-- <div class="form-row"> -->
     <div class="form-group">
@@ -156,20 +164,18 @@
   <div class="form-row" style="display:flex">
     <div class="form-group col-md-4">
       <label for="inputCity">Event Date</label>
-      <input type="date" class="form-control" id="inputCity">
+      <input type="date" name="event_date"class="form-control" id="inputCity">
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">Time</label>
-      <input type="time" class="form-control" id="inputCity">
+      <input type="time" name="time"class="form-control" id="inputCity">
     </div>
     <div class="form-group col-md-4">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
+      <label for="inputZip">Duration</label>
+      <input type="text" name="Duration"class="form-control" id="inputZip">
     </div>
   </div>
-          
- 
-<div class="form-row">
+          <div class="form-row">
     <button class="btn btn-warning">Save And Delivary Hear</button>
     <!-- <span id="cancel" style="cursor: pointer;">cancel</span> -->
 </div>
@@ -178,8 +184,45 @@
 </div>
 </div> 
 <!-- payment_content end -->
+
+@if(Session::has('data'))
+<span style="color:{{Session::get('data.color')}}" class="text-center">{{Session::get('data.msg')}}</span>
+<style>
+  #payment_content{
+    display:none;
+  }
+ 
+</style>
+<div class="container tex-center mx-auto">
+    <form action="/PackageDetail_pay" method="POST" class="text-center mx-auto mt-5">
+      
+      <script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          data-key="rzp_test_iKlM2rsXjuV7R1"
+    data-amount="{{Session::get('data.amount')}}" 
+          data-currency="INR"
+    data-order_id="{{Session::get('data.order_id')}}"
+          data-buttontext="Pay with Razorpay"
+          data-name="FESTIVA EVENTS"
+          data-description="Test transaction"
+         
+          data-theme.color="#182fa3"></script>
+      <input type="hidden" custom="Hidden Element" name="hidden">
+      </form>
+</div>
+</div>
+@endif
+
+
+
+
+
+
 </div>
 
 </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
 @endsection

@@ -8,6 +8,10 @@ use App\Models\Packages;
 use App\Models\BusDetail;
 use App\Models\Tour;
 use App\Models\Day;
+use App\Models\PackageBookInfo;
+use Monolog\SignalHandler;
+use Razorpay\Api\Api;
+use Razorpay\Api\Errors\SignatureVerificationError;
 use Session;
 class PackageController extends Controller
 {
@@ -88,7 +92,6 @@ $busdetailsproductdetails=AddProduct::all();
     }
     public function PackageDetail($id)
     {
-        
         $packagedetail=Packages::findOrFail($id);
         $products=$packagedetail->PackageProducts;
         $fullproduct=array();
@@ -105,6 +108,64 @@ $busdetailsproductdetails=AddProduct::all();
 
         return view('User.PackageDetail',["first"=>$fullproduct,'package_details'=>$packagedetail,"starting"=>"../",]);
     }
+public function PackageDetail_store(Request $req)
+{
+    // bookpackage_id
+    $amount=$req->input('total_amount');
+                $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
+                $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
+                $orderId = $order['id']; 
+
+    $PackageBookInfo=new PackageBookInfo();
+    $PackageBookInfo->user_id=Session::get('user_id');
+    $PackageBookInfo->package_id=$req->input('package_id');
+    $PackageBookInfo->name=$req->input('name');
+    $PackageBookInfo->mobile_no=$req->input('mobile_no');
+    $PackageBookInfo->locality=$req->input('locality');
+    $PackageBookInfo->address=$req->input('address');
+    $PackageBookInfo->event_date=$req->input('event_date');
+    $PackageBookInfo->time=$req->input('time');
+    $PackageBookInfo->Duration=$req->input('Duration');
+    $PackageBookInfo->total_amount=$req->input('total_amount');
+    $PackageBookInfo->payment_id = $orderId;
+    $save=$PackageBookInfo->save();
+    if($save){
+        $msg='Data is successfuly added';
+        $color='green';
+}
+
+else{
+        $msg='Data is not added added';
+        $color='red';
+}    
+$data = array(
+    'order_id' => $orderId,
+    'amount' => $amount,
+    'msg'=>$msg,
+    'color'=>$color
+   
+);
+return back()->with('data', $data);
+     
+}
+    
+public function PackageDetail_pay(Request $request)
+{
+    $data = $request->all();
+    // dd($data);
+    $user = PackageBookInfo::where('payment_id', $data['razorpay_order_id'])->first();
+    $user->payment_done = true;
+    $user->rezorpay_id = $data['razorpay_payment_id'];
+    $save=$user->save();
+    if($save)
+    {
+        return view('/OrderDetails');
+    }
+    else
+    {
+        return redirect('/error');
+    }    
+}
     //tour package details view (in admin side
     public function Tour_details()
     {

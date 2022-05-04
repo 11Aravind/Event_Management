@@ -16,6 +16,7 @@ class VerifyCsrfToken extends Middleware
         'pay',
         'bookpay',
         'payEvent',
-        'TourpackageDetails_pay'
+        'TourpackageDetails_pay',
+        'PackageDetail_pay'
     ];
 }
