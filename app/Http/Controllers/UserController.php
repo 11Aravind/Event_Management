@@ -142,7 +142,12 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starti
         $starting="../../";
 // join start
 $foodproductdet=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
-->where('categorys.user_id','=',$id)->get();
+->where([
+    ['categorys.user_id','=',$id],
+    ['addproducts.status', '1']
+])->get();
+
+
 // join end
 
         // $Cateringkyc=Cateringkyc::findOrFail($Catering_id);
@@ -152,7 +157,11 @@ $foodproductdet=DB::table('categorys')->join('addproducts','categorys.category_i
     }
     public function FoodProductDetails($FoodCategoryDetails,$id,$user_id)
     {
-        $foodproductdet=AddProduct::where('category_id','=',$id)->get();
+        $foodproductdet=AddProduct::where([
+            ['category_id','=',$id],
+            ['status', '1']
+        ])->get();
+        
         $categorydet=Category::where('user_id','=',$user_id)->get();//venda bad logic
         // return view('User/FoodProductDetails',["title"=>"FoodProductDetails page","foodproductdets"=>$foodproductdet]);  
         // FoodCategoryDetails

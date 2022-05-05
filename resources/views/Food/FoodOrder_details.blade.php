@@ -51,7 +51,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>1</td>
-                                                            <td>{{$foodorderdetails->dateOfEvent}}</td>
+                                                            <td>{{$foodorderdetails->product_id}}</td>
                                                             <td>{{$foodorderdetails->dateOfEvent}}</td>
                                                             <td>{{$foodorderdetails->EventLocation	}}</td>
                                                             <td>{{$foodorderdetails->ServingStartingtime}}</td>

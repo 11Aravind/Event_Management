@@ -57,7 +57,7 @@
                                                             <td>{{$busdetails->taxi_category}}</td>
                                                             <td>{{$busdetails->price}}</td>
                                                             <td>
-                                                            <a href="UpdateForm/{{$busdetails->bus_id }}" class="btn btn-primary">Update</a>
+                                                            <a href="UpdateBus/{{$busdetails->bus_id }}" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
                                                             <a href="DeleteProduct/{{$busdetails->bus_id  }}" style="color:white"class="btn btn-danger">Delete</a>

@@ -217,5 +217,31 @@ else{
         Session::put('registered',$registered);
         return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
     }
-    
+    public function UpdateFood($id)
+{
+    $busdetails=AddProduct::findOrFail($id);  
+    $getcategorys=Category::all();
+    return view('Food/UpdateFood',["busdetails"=>$busdetails,"getcategorys"=>$getcategorys,"title"=>"Update Product Page"]);
+}
+public function UpdateFood_store(Request $request,$id)
+{
+    // dd($request);
+    $store_product=AddProduct::findOrFail($id);
+    $store_product->product_name=$request->product_name;
+$store_product->product_price=$request->product_price;
+if($request->hasfile('product_image'))
+{
+    $file=$request->product_image;
+    $extension=$file->getClientOriginalExtension();
+    $filename=time().'.'.$extension;
+    $file->move('uploaded_images/',$filename);
+    $store_product->product_photo=$filename;
+}
+$store_product->product_quentity=$request->product_quentity;
+$store_product->category_id=$request->product_category;
+$store_product->product_discription=$request->product_description;
+$store_product->status=0;
+$save=$store_product->save();
+return redirect('Display_Foodproduct');
+}
 }

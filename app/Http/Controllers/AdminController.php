@@ -145,6 +145,8 @@ public function DeleteCategory($id)
    {
     if($find->cat_type=='Event')
     return redirect('DisplayEventCategory');
+    else if($find->cat_type=='FoodProduct')
+    return redirect('foodDetails')->with('msg',"The category item was deleted",'color','green');
     else
     return redirect('DisplayCategory')->with('msg',"The category item was deleted",'color','green');
    }
@@ -269,14 +271,16 @@ $store_product->product_quentity=$request->product_quentity;
 $store_product->category_id=$request->product_category;
 $store_product->product_discription=$request->product_description;
 $store_product->status=0;
-$store_product->save();
+$save=$store_product->save();
 return redirect('Display_Product');
 }
+//
+
 public function DeactiveProduct($id,Request $req){
    $finddata=AddProduct::findOrFail($id);
    $finddata->status=0;
    $finddata->save();
-   return redirect('Display_Product');
+   return redirect('Display_Foodproduct');
 }
 // DeactiveEvent
 public function DeactiveEvent($id,Request $req){
@@ -314,7 +318,7 @@ public function ActiveProduct($id,Request $req){
     $finddata=AddProduct::findOrFail($id);
     $finddata->status=1;
     $finddata->save();
-    return redirect('Display_Product');
+    return redirect('Display_Foodproduct');
  }
  //Activetour
  public function Activetour($id,Request $req){

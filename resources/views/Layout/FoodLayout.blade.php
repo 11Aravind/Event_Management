@@ -104,7 +104,7 @@
             <li> <a href="/foodDetails">Category Details</a></li>
             <!-- <li><a href="/FoodOrder_details">Order Details</a></li> -->
             <li><a href="/Display_Foodproduct">Disply Products</a></li>
-            <li><a href="/Add_Food_package">Add Package</a></li>
+            <!-- <li><a href="/Add_Food_package">Add Package</a></li> -->
             
             <li><a href="/foodorderdetails">Order Details</a></li>
         </ul>

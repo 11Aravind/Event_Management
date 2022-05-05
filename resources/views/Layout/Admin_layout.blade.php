@@ -178,7 +178,24 @@
 			<i class="feather icon-more-horizontal"></i>
 		</a>
 		<div class="collapse navbar-collapse">
-			<a href="#!" class="mob-toggler"></a>
+			<!-- <a href="#!" class="mob-toggler"></a> -->
+			<span class="top-menu" style="margin-left: 88%;">
+ <div class="dropdown">
+  <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="Template_asset/images/userpic.png" alt="userpic" style="width: 32px;
+    height: 22px;">
+  </p>
+  <div class="dropdown-menu" aria-labelledby="dLabel">
+  <!-- <a href="#" class="submenu">Account</a> <br> -->
+  <!-- <hr> -->
+            <a class="submenu" href="/Logout">Logout</a>
+  </div>
+</div>
+
+            <!-- <a href="#">Account</a>
+            <a href="/Logout">Logout</a> -->
+
+        </span>
 			<!-- <ul class="navbar-nav mr-auto">
 				<li class="nav-item">
 					<div class="main-search open">

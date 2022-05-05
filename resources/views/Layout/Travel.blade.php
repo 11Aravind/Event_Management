@@ -69,7 +69,7 @@
             <a href="#">Logout</a> -->
             <div class="dropdown">
   <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="Template_asset/images/userpic.png" alt="userpic" style="width: 32px;
+    <img src="{{asset('Template_asset/images/userpic.png')}}" alt="userpic" style="width: 32px;
     height: 22px;">
   </p>
   <div class="dropdown-menu" aria-labelledby="dLabel">
@@ -85,8 +85,7 @@
             <li style="margin-top: 28px;">Home</li>
             <li>DashBord</li>
            
-            @if( Session::get('towner_id'))
-            <li> <a href="/TravelKyc">KYC Form</a></li>
+            @if(!Session::get('registered')->isEmpty())
             @else
             <li> <a href="/TravelKyc">KYC Form</a></li>
             @endif
@@ -94,7 +93,7 @@
             <!-- <li> <a href="/BusDetails"> ADD Bus </a>  </li> -->
             <li> <a href="/Businfo">Bus Details</a>  </li>
             
-            <li>Request</li>
+            <li><a href="/BusBooking_details">Booking Details</a></li>
         </ul>
     </div>
     @if(Session::get('successmsg'))

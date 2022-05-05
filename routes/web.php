@@ -61,9 +61,12 @@ Route::get('/ViewEvent',[AdminController::class,'ViewEvent']);
 Route::get('/DeleteEvent/{id}',[AdminController::class,'DeleteEvent']);
 //DeleteTour
 Route::get('/DeleteTour/{id}',[AdminController::class,'DeleteTour']);
-Route::get('Travel', function () {
-    return view('Travel/KycForm',["title"=>"Travel Agency_dashbord"]);
-});
+// TravelController
+Route::get('Travel',[TravelController::class,'Travel']);
+
+// Route::get('Travel', function () {
+//     return view('Travel/KycForm',["title"=>"Travel Agency_dashbord"]);
+// });
 
 
 /////////food routs start
@@ -72,6 +75,8 @@ Route::get('Travel', function () {
 //     return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
 // });
 Route::get('Food',[FoodController::class,'Fooddashbord']);
+Route::get('UpdateFood/{id}',[FoodController::class,'UpdateFood']);
+Route::post('UpdateFood/{id}',[FoodController::class,'UpdateFood_store']);
 Route::get('/foodcategory', function () {
     return view('Food/foodcategory',["title"=>"Food Dashbord"]);
 });
@@ -220,6 +225,13 @@ Route::post('/TravelKyc',[TravelController::class,'storekycdetails']);
 Route::get('BusDetails',[TravelController::class,'BusDetailsform']); 
 Route::post('/BusDetails',[TravelController::class,'storeBusDetails']); 
 Route::get('/Businfo',[TravelController::class,'Businfo']); 
+// UpdateBus
+// BusBooking_details
+Route::get('/BusBooking_details',[TravelController::class,'BusBooking_details']); 
+
+Route::get('/UpdateBus/{id}',[TravelController::class,'UpdateBus']); 
+Route::post('/UpdateBus_store/{id}',[TravelController::class,'UpdateBus_store']); 
+
 
 Route::get('/busbooking_form/{towner_id}/{bus_id}',[TravelController::class,'busbooking_form']); 
 Route::post('/busbooking_forms',[TravelController::class,'busbookingdet_store']); 

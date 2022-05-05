@@ -84,7 +84,7 @@ position: relative;"><i class="rs" style="font-family: &quot;RupeeSign&quot;;">R
     </div>
     <!-- bus details end -->
     <!-- hotel details start -->
-    <div id="hotelDiv">
+    <div id="hotelDiv" style="padding: 20px 89px;">
  
     <div class="mainconainers">
     @php
@@ -95,11 +95,11 @@ position: relative;"><i class="rs" style="font-family: &quot;RupeeSign&quot;;">R
         <div class="leftcontainers">
         <img src="../uploaded_images/{{$daysdet->Hpic}}" style="width:100%;height:100%" alt="buspic">
         </div>
-        <div class="rightcontainers">
-            day-@php
+        <div class="rightcontainers" style="    padding: 4px 4px 4px 21px;">
+            Day-@php
     echo $i;
     @endphp <br>
-            Hotel- {{$daysdet->hotelname}} <br>
+             {{$daysdet->hotelname}} <br>
             {{$daysdet->Locality}} <br>
      
     </div>  

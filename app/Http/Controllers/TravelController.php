@@ -89,7 +89,12 @@ Session::put('towner_id');
       // $owner_id=Session::get('');
       $bus_detaile=new BusDetail();
 $bus_detaile->busname=request('busname');
-$owner_id=Session::get('towner_id');
+$user_id=Session::get('user_id');
+
+$TravelKyc=TravelKyc::where('user_id',$user_id)->first();
+$owner_id=$TravelKyc->towner_id;
+$bus_detaile->towner_id=$owner_id;
+
 
 $bus_detaile->towner_id=$owner_id;
 // $att->student->stud_name
@@ -176,5 +181,61 @@ else{
         return redirect('/success');
     else
         return view('/error');
+}
+// Travel
+public function Travel()
+{
+    $user_id=Session::get('user_id');
+    $registered=TravelKyc::where('user_id',$user_id)->get();
+    Session::put('registered',$registered);
+    // return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
+    return view('Travel/KycForm',["title"=>"Travel Agency_dashbord"]);
+}
+public function UpdateBus($id)
+{
+  $busdetails=BusDetail::findOrFail($id);  
+    // $getcategorys=Category::all();
+    return view('Travel/UpdateForm',["busdetails"=>$busdetails,"title"=>"Update Bus details"]);
+}
+public function UpdateBus_store($id)
+{
+  $bus_detaile=BusDetail::findOrFail($id);
+  $bus_detaile->busname=request('busname');
+  $owner_id=Session::get('towner_id');
+  
+  $user_id=Session::get('user_id');
+  $TravelKyc=TravelKyc::where('user_id',$user_id)->first();
+  $owner_id=$TravelKyc->towner_id;
+  $bus_detaile->towner_id=$owner_id;
+
+  $bus_detaile->Taxi_type=request('Taxi_type');
+  $bus_detaile->Taxi_number=request('Taxi_number');
+  $bus_detaile->seating_capacity=request('seating_capacity');
+  
+  $taxi_pic=request('taxi_pic');
+  $ext=$taxi_pic->getClientOriginalExtension();
+  $fname=time().'.'.$ext;
+  $taxi_pic->move('uploaded_images/',$fname);
+  $bus_detaile->taxi_pic=$fname;
+  $bus_detaile->taxi_category=request('taxi_category');
+  $bus_detaile->price=request('price');
+  $save=$bus_detaile->save();
+  if($save)
+  {
+  Session::put('towner_id',$bus_detaile->towner_id);
+  return redirect('Businfo');
+  }
+  else{
+    return "data not inserted";
+  }
+}
+public function BusBooking_details()
+{
+  $BusBookingDetails=BusBookingDetails::all();
+  $busdetails=DB::table('travelkyc')->join('bus_booking_details','travelkyc.towner_id','=','bus_booking_details.towner_id')->get();
+        
+return $busdetails;
+  // return view('Travel.BusBooking_details',['title'=>"bus booking details",'BusBookingDetails'=>$BusBookingDetails]);
+  
 }
 }

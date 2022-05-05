@@ -58,18 +58,18 @@
                                                             <td>{{$busdetails->product_quentity}}</td>
                                                             <td>{{$busdetails->product_price}}</td>
                                                             <td>
-                                                            <a href="#" class="btn btn-primary">Update</a>
+                                                            <a href="/UpdateFood/{{$busdetails->product_id}}" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
                                                             <a href="DeleteFood/{{$busdetails->cat_type}}/{{$busdetails->product_id}}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
                                                             @if($busdetails->status==1)
                                                             <td>
-                                                            <a href="#" class="btn btn-danger"> Dective</a>
+                                                            <a href="DeactiveProduct/{{$busdetails->product_id}}" class="btn btn-danger"> Dective</a>
                                                             </td>
                                                             @else
                                                             <td>
-                                                            <a href="#" class="btn btn-success">Active</a>
+                                                            <a href="ActiveProduct/{{$busdetails->product_id}}" class="btn btn-success">Active</a>
                                                             </td>
                                                             
                                                             @endif
