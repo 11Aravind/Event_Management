@@ -32,7 +32,7 @@
 <a href="Eventdetails/{{$event_det->event_id}} " style="">
 <div class="single_place">
 <div class="thumb">
-<img src="uploaded_images/{{$event_det->event_banner}}" style="height: 212px;"alt="eventimg">
+<img src="uploaded_images/{{$event_det->event_banner}}" style="width:362px;height:204px"alt="eventimg">
 </div>
 <div class="place_info">
 <h3>{{$event_det->event_name}}</h3>

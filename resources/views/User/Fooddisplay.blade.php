@@ -15,11 +15,11 @@
 </div>
 <div class="row">
     
-    @if($Cateringkycs==[])
+    @if($Cateringkycs->isEmpty())
     
     
 <div class="text-center">
-    <h1>catering onnum illa</h1>
+    <h3>Catering Service agency's are not registered in this site</h3>
 </div> 
 @else 
 @foreach($Cateringkycs as $Cateringkyc)

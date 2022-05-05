@@ -58,7 +58,7 @@
                                                             </td>
                                                             @if($Cateringkyc->status==1)
                                                             <td>
-                                                            <a href="Cateringkyc_deactivate/{{$Cateringkyc->Catering_id}} "  class="btn btn-success"> Dective</a>
+                                                            <a href="Cateringkyc_deactivate/{{$Cateringkyc->Catering_id}} "  class="btn btn-warning"> Dective</a>
                                                             </td>
                                                             @else
                                                             <td>

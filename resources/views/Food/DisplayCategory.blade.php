@@ -19,11 +19,11 @@
                                             <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
                                         
                                     @if(Session::get('success'))
-                                {
+                                
                                     <span style="color:green">
 {{Session::get('success')}}
 </span>
-                                }
+                                
                                 @endif
                            
                                         </div>
@@ -35,7 +35,7 @@
                                                             <th>#</th>
                                                             <th>Category Name</th>
                                                             <th>Discription</th>
-                                                            <th>Update</th>
+                                                            <!-- <th>Update</th> -->
                                                             <th>Delete</th>
                                                             <th> status</th>
                                                         </tr>
@@ -47,9 +47,9 @@
                                                             <td>{{$busdetails->category_name}}</td>
                                                             <td>{{$busdetails->discription}}</td>
                                                            
-                                                            <td>
+                                                            <!-- <td>
                                                             <a href="#" class="btn btn-primary">Update</a>
-                                                            </td>
+                                                            </td> -->
                                                             <td>
                                                             <a href="#" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>

@@ -8,6 +8,7 @@ use Monolog\SignalHandler;
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors\SignatureVerificationError;
 use Illuminate\Support\Facades\DB;
+use Session;
 class TourController extends Controller
 {
         public function TourView()
@@ -33,6 +34,7 @@ $tourdetails=Tour::all();
                 $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
                 $orderId = $order['id']; 
                 $TourpackageDetails_store=new TouruserInfo();
+                $TourpackageDetails_store->user_id=Session::get("user_id");
                 $TourpackageDetails_store->tour_id=request("tour_id");
                 $TourpackageDetails_store->name=request("name");
                 $TourpackageDetails_store->contact_no=request("contact_no");
@@ -81,7 +83,7 @@ $tourdetails=Tour::all();
                 $save=$user->save();
                 if($save)
                 {
-                    return redirect('/success');
+                    return redirect('/OrderDetails');
                 }
                 else
                 {

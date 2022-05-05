@@ -29,7 +29,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                 <div class="col-md-6">
-                                                    <form  method="POST" action="Add_Product" enctype="multipart/form-data">
+                                                    <form  method="POST" action="/Add_Food" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Product Name</label>

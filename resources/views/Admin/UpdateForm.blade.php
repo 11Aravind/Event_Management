@@ -40,17 +40,18 @@
                                                             <input type="file" class="form-control"  name="product_image" id="exampleInputEmail1"  >
                                                          </div>
                                                      <div class="form-group">
-                                                            <label for="exampleFormControlSelect1">Select Category</label>
+                                                            <!-- <label for="exampleFormControlSelect1">Select Category</label>
                                                             <select class="form-control" value="{{$busdetails->product_category}}" name="product_category"id="exampleFormControlSelect1">
-                                                            <option >{{$busdetails->product_category}}</option>  
-                                                            @foreach($getcategorys as $getcategory)
-                                                            <option>{{$getcategory->category_name}}</option>
-                                                            @endforeach  
+                                                            <option value="{{$busdetails->category_id}}">{{$busdetails->category_id}}</option>  
+                                                           
+                                                            
                                                           
-                                                             </select>
+                                                          
+                                                             </select> -->
+                                                             <input type="hidden" name="product_category" value="{{$busdetails->category_id}}">
                                                         </div>
 </div>
-<div class="col-md-6" style="float: right;margin-top: -269px;">
+<div class="col-md-6" style="float: right;margin-top: -170px;">
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Price</label>
                                                             <input type="text"value="{{$busdetails->product_price}}" class="form-control" name="product_price" id="exampleInputEmail1"  placeholder="Product Price">

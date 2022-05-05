@@ -13,7 +13,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Product Details </h5>
-                                            <a href="../Add_Product"type="button" class="btn btn-primary" title=""  style="float: right;">Add Product</a>
+                                            <a href="../Add_Product"type="button" class="btn btn-warning" title=""  style="float: right;">Add Product</a>
                                             <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
                                         
                                     @if(Session::get('success'))
@@ -39,7 +39,7 @@
                                                             <th>Price</th>
                                                             <th>Update</th>
                                                             <th>Delete</th>
-                                                            <th> status</th>
+                                                            <!-- <th> status</th> -->
                                                         </tr>
                                                     </thead>
                                                    @foreach($busdetailss as $busdetails)
@@ -55,12 +55,12 @@
                                                             <td>{{$busdetails->product_quentity}}</td>
                                                             <td>{{$busdetails->product_price}}</td>
                                                             <td>
-                                                            <a href="UpdateForm/{{$busdetails->product_id}}" class="btn btn-primary">Update</a>
+                                                            <a href="UpdateForm/{{$busdetails->product_id}}" class="btn btn-warning">Update</a>
                                                             </td>
                                                             <td>
-                                                            <a href="DeleteProduct/{{$busdetails->product_id }}" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="DeleteProduct/{{$busdetails->product_id }}" style="color:white"class="btn btn-dark">Delete</a>
                                                             </td>
-                                                            @if($busdetails->status==1)
+                                                            <!-- @if($busdetails->status==1)
                                                             <td>
                                                             <a href="DeactiveProduct/{{$busdetails->product_id }}" class="btn btn-danger"> Dective</a>
                                                             </td>
@@ -69,7 +69,7 @@
                                                             <a href="ActiveProduct/{{$busdetails->product_id }}" class="btn btn-success">Active</a>
                                                             </td>
                                                             
-                                                            @endif
+                                                            @endif -->
                                                         </tr>
                                                      @endforeach
                                                                                                                  <!-- The Modal -->

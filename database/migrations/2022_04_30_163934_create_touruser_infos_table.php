@@ -15,6 +15,11 @@ class CreateTouruserInfosTable extends Migration
     {
         Schema::create('touruser_infos', function (Blueprint $table) {
             $table->id('userinfo_id');
+
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('authentications')->onDelete('cascade');
+
             $table->unsignedBigInteger('tour_id');
             $table->foreign('tour_id')->references('tour_id')->on('tours')->onDelete('cascade');
 

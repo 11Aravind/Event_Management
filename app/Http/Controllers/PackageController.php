@@ -169,7 +169,8 @@ public function PackageDetail_pay(Request $request)
     //tour package details view (in admin side
     public function Tour_details()
     {
-return view('Admin.Tour_details',["title"=>"Tour_details page"]);
+      $tourdet=Tour::all();  
+return view('Admin.Tour_details',["title"=>"Tour_details page",'tourdet'=>$tourdet]);
     }
     public function Add_tourpackage()
     {

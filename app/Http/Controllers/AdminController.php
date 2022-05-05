@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\AddProduct;
 use App\Models\Event;
 use App\Models\Employ;
+use App\Models\Tour;
 use App\Models\Packages;
 use Session;
 class AdminController extends Controller
@@ -84,6 +85,38 @@ public function DeleteProduct($id)
    }
 else{
     return back()->with('fail',"The product was not deleted Try Again");
+
+}
+}
+//delete event ticket booking
+
+public function DeleteEvent($id)
+{
+   $find=Event::findOrFail($id);
+    // {{$request->product_id}}
+   $delete=$find->delete();
+   if( $delete)
+   {
+    return redirect('ViewEvent')->with('msg',"The Event was deleted",'color',"green");
+   }
+else{
+    return back()->with('msg',"The Event was not deleted Try Again",'color','red');
+
+}
+}
+// delete tour package
+
+public function DeleteTour($id)
+{
+   $find=Tour::findOrFail($id);
+    // {{$request->product_id}}
+   $delete=$find->delete();
+   if($delete)
+   {
+    return redirect('Tour_details')->with('msg',"The tour package was deleted",'color',"green");
+   }
+else{
+    return back()->with('msg',"The tour package was not deleted Try Again",'color','red');
 
 }
 }
@@ -172,6 +205,34 @@ $event_obj->event_discription=request('event_discription');
 $event_obj->save();
 return redirect('/ViewEvent');
 }
+// upddate event form
+public function updateEvent_store()
+{
+    $event_id=request('event_id');
+    $event_obj=Event::findOrFail($event_id);
+$event_obj->category_id=request('event_category');
+$event_obj->event_name=request('event_name');
+// $event_obj->event_category=request('event_category');
+// $event_obj->event_banner=request('event_bsnner');
+
+$file=request('event_bsnner');
+$extension=$file->getClientOriginalExtension();
+$filename=time().$extension;
+$file->move('uploaded_images/',$filename);
+$event_obj->event_banner=$filename;
+
+$event_obj->event_date=request('event_date');
+$event_obj->starting_time=request('starting_time');
+$event_obj->duration=request('duration');
+$event_obj->duration_time=request('duration_time');
+$event_obj->ticketprice=request('ticketprice');
+$event_obj->totel_ticket=request('totel_ticket');
+$event_obj->discount=request('discount');
+$event_obj->discount_end=request('discount_end');
+$event_obj->event_discription=request('event_discription');
+$event_obj->save();
+return redirect('/ViewEvent');
+}
 //display evetn details
 public function Event_details()
 {
@@ -205,7 +266,7 @@ if($request->hasfile('product_image'))
     $store_product->product_photo=$filename;
 }
 $store_product->product_quentity=$request->product_quentity;
-$store_product->product_category=$request->product_category;
+$store_product->category_id=$request->product_category;
 $store_product->product_discription=$request->product_description;
 $store_product->status=0;
 $store_product->save();
@@ -217,6 +278,20 @@ public function DeactiveProduct($id,Request $req){
    $finddata->save();
    return redirect('Display_Product');
 }
+// DeactiveEvent
+public function DeactiveEvent($id,Request $req){
+    $finddata=Event::findOrFail($id);
+    $finddata->status=0;
+    $finddata->save();
+    return redirect('ViewEvent');
+ }
+// Deactivetour
+public function Deactivetour($id,Request $req){
+    $finddata=Tour::findOrFail($id);
+    $finddata->status=0;
+    $finddata->save();
+    return redirect('Tour_details');
+ }
 // Deactivatepackage
 public function Deactivatepackage($id)
 {
@@ -241,6 +316,13 @@ public function ActiveProduct($id,Request $req){
     $finddata->save();
     return redirect('Display_Product');
  }
+ //Activetour
+ public function Activetour($id,Request $req){
+    $finddata=Tour::findOrFail($id);
+    $finddata->status=1;
+    $finddata->save();
+    return redirect('Tour_details');
+ }
  public function Activatepackage($id)
  {
     $finddata=Packages::findOrFail($id);
@@ -248,7 +330,14 @@ public function ActiveProduct($id,Request $req){
     $finddata->save();
     return redirect('ViewAdminPackage'); 
  }
- 
+//  ActiveEvent
+public function ActiveEvent($id)
+{
+   $finddata=Event::findOrFail($id);
+   $finddata->status=1;
+   $finddata->save();
+   return redirect('ViewEvent'); 
+}
  public function ActiveCategory($id)
  {
     $finddata=Category::findOrFail($id);
@@ -289,7 +378,7 @@ return back()->with('failmsg','New Category was not added try again');
  }
 public function Displayemploydet()
 {
-    $employdet=Employ::all();
+    $employdet=Employ::where('status','=','0')->get();
     return view('Admin/Displayemploydet',["employdets"=>$employdet,"title"=>"Displayemploydet page"]);
     // return $employdet;
 }

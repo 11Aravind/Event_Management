@@ -52,6 +52,7 @@
                                                             <td>{{$busdetails->product_name}}</td>
                                                             <td>{{$busdetails->category_name}}</td>
                                                             <td>{{$busdetails->cat_type}}</td>
+                                                            
                                                             <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$busdetails->product_photo}}" alt=""> </td>
 
                                                             <td>{{$busdetails->product_quentity}}</td>
@@ -60,7 +61,7 @@
                                                             <a href="#" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
-                                                            <a href="#" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="DeleteFood/{{$busdetails->cat_type}}/{{$busdetails->product_id}}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
                                                             @if($busdetails->status==1)
                                                             <td>

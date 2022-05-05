@@ -33,6 +33,7 @@ $table->string('totel_ticket');
 $table->string('discount');
 $table->string('discount_end');
 $table->string('event_discription');
+$table->boolean("status")->default(0);
             $table->timestamps();
         });
     }

@@ -23,6 +23,8 @@ class CreateToursTable extends Migration
             $table->string("MainDescription");
             $table->string("Price");
             $table->string("PriceDescription");
+            $table->boolean("status")->default(0);
+          
             // $table->string("journystartinftime");
             $table->foreign('bus_id')->references('bus_id')->on('bus_details')->onDelete('cascade');
 

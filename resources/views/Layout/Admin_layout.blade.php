@@ -194,7 +194,7 @@
 					</div>
 				</li>
 			</ul> -->
-			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav ml-auto" style="display:none">
 				<li>
 					<div class="dropdown">
 						<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>

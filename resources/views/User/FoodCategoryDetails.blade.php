@@ -1,37 +1,29 @@
 @extends('Layout.User_Homepage')
 @section('content')
-
-<!-- <div class="popular_places_area">
-<div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-6">
-<div class="section_title text-center mb_70">
-<h3>Food Category Menu </h3>
-<p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
-</div>
-</div>
-</div>
-<div class="row">
-@foreach($categorydets as $categorydet)
-<a href="/FoodProductDetails/{{$categorydet->category_id}}">
-<div class="col-lg-4 col-md-6">
-<div class="single_place">
-<div class="thumb">
-<img src="../images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="">
-
-</div>
-<div class="place_info">
-<h3>{{$categorydet->category_name}}</h3>
-<p>{{$categorydet->discription}}</p>
-
-</div>
-</div>
-</div>
-</a>
-@endforeach
-
-</div>
-</div> -->
+<style>
+    #foodcategory li a {
+        padding: 7px;
+   
+    width: 100%;
+    }
+    #foodcategory li a:hover {
+        background: #cdc5c5;
+        border-radius: 5px;
+    border-right: 3px solid red;
+    color:black;
+        /* background:red; */
+    } 
+    #foodcategory li a:active {
+        background: #cdc5c5;
+        border-radius: 5px;
+    border-right: 3px solid red;
+    color:white;
+        /* background:red; */
+    } 
+    .but{
+        color:white;
+    } 
+</style>
 <div id="fulldetailDiv" style="margin-top: 88px;    padding: 61px;">
 <h1>{{$FoodCategoryDetails}} </h1>
    <p>Roast Chicken, Burger, Afghan <br>
@@ -39,10 +31,10 @@
     <!-- <span style="color:red">Main Category</span> -->
     <hr>
     <div id="containerTotel" style="display: flex;">
-        <div id="foodcategory" style="color:red;flex:.2;border-right: 1px solid red;">
+        <div id="foodcategory" style="color:red;flex:.2;">
         <!-- category display start -->
         <ul>
-     
+     <li><a href="#" style="color:red">Our Categorys are</a></li>
             @if($categorydets)
       
         @foreach($categorydets as $categorydet)
@@ -70,7 +62,7 @@
                 {{$foodproductdet->product_discription}}<br>
                 <!-- <button ><a href="/AddUserFooddet" style="color:red">Add To Cart</a> </button> -->
             
-                <button ><a href="/AddUserFooddet/{{$foodproductdet->product_id}}/{{$Catering_user_id}}" style="color:red">Book Now</a> </button>
+                <a href="/AddUserFooddet/{{$foodproductdet->product_id}}/{{$Catering_user_id}}"  class="btn btn-warning "style="">Book Now</a> 
             </div> 
                 
         </div>

@@ -63,7 +63,7 @@
                                                             </td>
                                                             @if($employdet->status==1)
                                                             <td>
-                                                            <a href="/EmployDeactive/{{$employdet->employ_id}}"  class="btn btn-danger"> Dective</a>
+                                                            <a href="/EmployDeactive/{{$employdet->employ_id}}"  class="btn btn-warning"> Dective</a>
                                                             </td>
                                                             @else
                                                             <td>

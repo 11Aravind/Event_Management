@@ -60,21 +60,21 @@
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-6">
       <label for="inputEmail4">Ticket Price</label>
       <input type="text"name="ticketprice" class="form-control" id="inputEmail4" >
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-6">
       <label for="inputPassword4"> Totel No. Of Ticket Available</label> 
       <input type="text"name="totel_ticket" class="form-control" id="inputEmail4" >
     </div>
-    <div class="form-group col-md-3">
-      <label for="inputPassword4">Discount</label> 
-      <input type="text" name="discount"class="form-control" id="inputEmail4" >
+    <div class="form-group ">
+      <!-- <label for="inputPassword4">Discount</label>  -->
+      <input type="hidden" name="discount" value="none" class="form-control" id="inputEmail4" >
     </div>
-    <div class="form-group col-md-3">
-      <label for="inputPassword4">Discount End</label> 
-      <input type="text" name="discount_end"class="form-control" id="inputEmail4" >
+    <div class="form-group ">
+      <!-- <label for="inputPassword4">Discount End</label>  -->
+      <input type="hidden" name="discount_end" value="none" class="form-control" id="inputEmail4" >
     </div>
 </div>
 <div class="form-row">

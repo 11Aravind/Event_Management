@@ -44,7 +44,7 @@ return back()->with('failmsg','New Category was not added try again');
 $getcategory=Category::where('cat_type','=','FoodProduct')->get();
 return view('Food/Add_Food',["title"=>"Add_Product page","getcategorys"=>$getcategory]);
     }
-    public function store_food()
+    public function store_food(Request $request)
     {
         $store_product=new AddProduct();
 $store_product->category_id=$request->product_category;
@@ -71,6 +71,23 @@ return redirect('/Display_Foodproduct')->with('success','Product is successfuly 
         $busdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
         ->where('categorys.cat_type','=','FoodProduct')->get();;
         return view('Food/Display_Event',["title"=>"Display_Product","busdetailss"=>$busdetails]);
+    }
+    // DeleteFood
+    public function DeleteFood($cat_type,$id)
+    {
+        $find=AddProduct::findOrFail($id);
+       $delete=$find->delete();
+       if( $delete)
+       {
+           if($req->input('cat_type')=='FoodProduct')
+           return redirect('Display_Foodproduct')->with('success',"The product was deleted");
+           else
+        return redirect('Display_Product')->with('success',"The product was deleted");
+       }
+    else{
+        return back()->with('fail',"The product was not deleted Try Again");
+    
+    }
     }
     public function Add_Food_package()
     {
@@ -192,6 +209,13 @@ else{
        
         $foodorderdetails=FoodservingInfo::where('user_id','=',$user_id)->get();
         return view('Food.FoodOrder_details',["foodorderdetails"=>$foodorderdetails]); 
+    }
+    public function Fooddashbord()
+    {
+        $user_id=Session::get('user_id');
+        $registered=Cateringkyc::where('user_id',$user_id)->get();
+        Session::put('registered',$registered);
+        return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
     }
     
 }

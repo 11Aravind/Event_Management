@@ -10,6 +10,9 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\EmployController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\PaymentController;
+use App\Models\Category;
+use App\Models\Event;
+use App\Models\AddProduct;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,21 +58,28 @@ Route::get('/ViewAdminPackage',[AdminController::class,'ViewPackage']);
 
 Route::get('/ViewEvent',[AdminController::class,'ViewEvent']);
 
+Route::get('/DeleteEvent/{id}',[AdminController::class,'DeleteEvent']);
+//DeleteTour
+Route::get('/DeleteTour/{id}',[AdminController::class,'DeleteTour']);
 Route::get('Travel', function () {
     return view('Travel/KycForm',["title"=>"Travel Agency_dashbord"]);
 });
 
 
 /////////food routs start
-Route::get('Food', function () {
-    return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
-});
+// Route::get('Food', function () {
+
+//     return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
+// });
+Route::get('Food',[FoodController::class,'Fooddashbord']);
 Route::get('/foodcategory', function () {
     return view('Food/foodcategory',["title"=>"Food Dashbord"]);
 });
 Route::post('/foodcategory',[FoodController::class,'store']);
 
 Route::get('/foodorderdetails',[FoodController::class,'foodorderdetails']);
+// DeleteFood
+Route::get('/DeleteFood/{cat_type}/{id}',[FoodController::class,'DeleteFood']);
 // Route::get('/FoodOrder_details',[FoodController::class,'FoodOrder_details']);
 
 //food routs end
@@ -175,6 +185,8 @@ Route::get('TourView',[TourController::class,'TourView']);
 Route::get('DeleteProduct/{id}',[AdminController::class,'DeleteProduct']);
 Route::get('DeletePackage/{id}',[AdminController::class,'DeletePackage']);
 Route::get('DeleteCategory/{id}',[AdminController::class,'DeleteCategory']);
+
+
 // UpdateForm/3
 Route::get('UpdateForm/{id}',[AdminController::class,'UpdateForm']);
 Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);
@@ -182,6 +194,16 @@ Route::post('UpdateForm/{id}',[AdminController::class,'UpdateProduct']);
 Route::match(['get','post'],'DeactiveProduct/{id}',[AdminController::class,'DeactiveProduct']);
 // ActiveProduct
 Route::match(['get','post'],'ActiveProduct/{id}',[AdminController::class,'ActiveProduct']);
+//Activetour
+Route::get('Activetour/{id}',[AdminController::class,'Activetour']);
+// DeactiveEvent
+Route::get('DeactiveEvent/{id}',[AdminController::class,'DeactiveEvent']);
+
+// Deactivetour
+Route::get('Deactivetour/{id}',[AdminController::class,'Deactivetour']);
+// ActiveEvent
+Route::get('ActiveEvent/{id}',[AdminController::class,'ActiveEvent']);
+
 // ActiveCategory
 Route::get('ActiveCategory/{id}',[AdminController::class,'ActiveCategory']);
 // DeactiveCategory
@@ -270,4 +292,16 @@ Route::get('/confirm',[PaymentController::class,'confirm']);
 // singleEmployDet
 Route::get('/singleEmployDet/{id}', [UserController::class,'singleEmployDet']);
 
-Route::get('/CardPage', [UserController::class,'CardPage']);
+// Route::get('/CardPage', [UserController::class,'CardPage']);
+
+
+Route::get('/updateEvent/{id}',function($id){
+    $product = Event::findOrFail($id);
+    $getcategory=Category::where('cat_type','=','Product')->get();
+    return view('Admin.eventsview',["title"=>"Update_Product page","product"=>$product,"categorys"=>$getcategory]);
+    
+});
+
+Route::post('/updateEvent', [AdminController::class,'updateEvent_store']);
+
+

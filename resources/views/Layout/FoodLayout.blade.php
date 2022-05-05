@@ -94,10 +94,10 @@
         <ul class="side-menu">
             <li style="margin-top: 28px;">Home</li>
             <!-- <li>DashBord</li> -->
-@if(Session::get('Catering_id'))
-
-@else
+@if(Session::get('registered')->isEmpty())
 <li><a href="/Cateringkyc">Catering  KYC </a></li>
+@else
+
 @endif
       
             <!-- <li> <a href="/foodcategory">Category</a></li> -->

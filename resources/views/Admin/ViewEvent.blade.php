@@ -14,6 +14,8 @@
                                         <div class="card-header">
                                             <h5>Events</h5> 
  <a href="../Add_Event"type="button" class="btn btn-primary" title=""  style="float: right;">Add  Event</a>
+
+ 
  @if(Session::get('msg'))
                                 {
                                     <span style="color:{{Session::get('color')}}">
@@ -54,18 +56,18 @@
                                                             <td>{{$eventdet->ticketprice}}</td>
                                                             <td>{{$eventdet->totel_ticket}}</td>
                                                             <td>
-                                                            <a href="updatePackage/{{$eventdet->event_id}}" class="btn btn-primary">Update</a>
+                                                            <a href="updateEvent/{{$eventdet->event_id}}" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
-                                                            <a href="DeletePackage/{{$eventdet->event_id}}" style="color:white"class="btn btn-danger">Delete</a>
+                                                            <a href="DeleteEvent/{{$eventdet->event_id}}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
-                                                           
-                                                            <!-- <td>
-                                                            <a href="DeactiveProduct/{{$eventdet->event_id }}" class="btn btn-danger"> Dective</a>
-                                                            </td> -->
+                                                           <!-- condition vekkanam -->
+                                                            <td>
+                                                            <a href="DeactiveEvent/{{$eventdet->event_id }}" class="btn btn-danger"> Dective</a>
+                                                            </td>
                                                             
                                                             <td>
-                                                            <a href="ActiveProduct/{{$eventdet->event_id }}" class="btn btn-success">Active</a>
+                                                            <a href="ActiveEvent/{{$eventdet->event_id }}" class="btn btn-success">Active</a>
                                                             </td>
                                                             
                                                             

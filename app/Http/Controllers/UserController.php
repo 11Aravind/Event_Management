@@ -16,13 +16,13 @@ use App\Models\AddProduct;
 use App\Models\UserEventDetails;
 use App\Models\FoodservingInfo;
 use App\Models\Complaint;
-
+use App\Models\TouruserInfo;
 use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
+use App\Models\Tour;
 use Monolog\SignalHandler;
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors\SignatureVerificationError;
-
 use Session;
 class UserController extends Controller
 {
@@ -74,6 +74,8 @@ $amount=request('totalamount');
     $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
     $orderId = $order['id']; 
     $UserEventDetails=new UserEventDetails();
+    $UserEventDetails->user_id =Session::get('user_id');
+
     $UserEventDetails->event_id =request('event_id');
     $event_id=request('event_id');
     $UserEventDetails->noofseat =request('noofseat');
@@ -147,7 +149,6 @@ $foodproductdet=DB::table('categorys')->join('addproducts','categorys.category_i
         return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","starting"=>$starting,
         "FoodCategoryDetails"=>$FoodCategoryDetails,
         "foodproductdets"=>$foodproductdet,"categorydets"=>$categorydet,'Catering_user_id'=>$Catering_user_id]);  
-   
     }
     public function FoodProductDetails($FoodCategoryDetails,$id,$user_id)
     {
@@ -156,7 +157,7 @@ $foodproductdet=DB::table('categorys')->join('addproducts','categorys.category_i
         // return view('User/FoodProductDetails',["title"=>"FoodProductDetails page","foodproductdets"=>$foodproductdet]);  
         // FoodCategoryDetails
         $starting="../../../";
-return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","starting"=>$starting,"FoodCategoryDetails"=>$FoodCategoryDetails,"categorydets"=>$categorydet,"foodproductdets"=>$foodproductdet]);  
+return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","starting"=>$starting,'Catering_user_id'=>$user_id,"FoodCategoryDetails"=>$FoodCategoryDetails,"categorydets"=>$categorydet,"foodproductdets"=>$foodproductdet]);  
 
     }
     // public function SingleProductdetails($id)
@@ -226,7 +227,7 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
     }
     public function CardPage()
     {
-        return view('User/CartPage');
+        return view('User/CartPage',["starting"=>"../"]);
     }
     public function RegisterComplaints()
     {
@@ -251,7 +252,28 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
     }
     public function OrderDetails()
     {
-        return view('User/OrderDetails',["starting"=>"../"]); 
+        $user_id=Session::get('user_id');
+        // tour details start 
+        $TouruserInfo=TouruserInfo::where('user_id',$user_id)->get();
+        foreach($TouruserInfo as $TouruserInfo)
+        {
+          $tour_id= $TouruserInfo->tour_id;
+        }
+        $tourorderdetails=DB::table('tours')->join('touruser_infos','tours.tour_id','=','touruser_infos.tour_id')
+        ->where('tours.tour_id','=',$tour_id)->get();
+          // tour details end 
+      
+        //event details start
+        $UserEventDetails=UserEventDetails::where('user_id',$user_id)->get();
+        foreach($UserEventDetails as $UserEventDetails)
+        {
+          $event_id= $UserEventDetails->event_id;
+        }
+        $eventorderdetails=DB::table('events')->join('user__event_dets','events.event_id','=','user__event_dets.event_id')
+        ->where('events.event_id','=',$event_id)->get();
+        //event details end
+        return view('User/OrderDetails',["starting"=>"../",'tourorderdetails'=>$tourorderdetails,'eventorderdetails'=>$eventorderdetails]); 
+  
     }
 }
 
