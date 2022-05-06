@@ -16,7 +16,9 @@ class CreateBusBookingDetailsTable extends Migration
         Schema::create('bus_booking_details', function (Blueprint $table) {
             $table->id('busbooking_id');
             
-
+            $table->string('name');
+            $table->string('contact');
+            $table->string('email');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('authentications')->onDelete('cascade');
 

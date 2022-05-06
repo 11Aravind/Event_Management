@@ -33,13 +33,18 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Bus Name</th>
-                                                            <th>Type</th>
-                                                            <th>Taxi Number</th>
-                                                            <th>Image</th>
-                                                            <th>taxi_category</th>
-                                                            <th>Price</th>
-                                                            <th>Update</th>
+                                                            <th> Name</th>
+                                                            <th>contact</th>
+                                                            <th>email</th>
+                                                            <th>dateOfEvent</th>
+                                                            <th>time</th>
+                                                            <th>startingplace</th>
+                                                            <th>arrivalplace</th>
+                                                            <th>kolometers</th>
+                                                            <th>totelprice</th>
+                                                            <th>rezorpay_id</th>
+                                                            <th>payment_done</th>
+                                                            <!-- <th>Update</th> -->
                                                             <th>Delete</th>
                                                             <!-- <th> status</th> -->
                                                         </tr>
@@ -49,29 +54,36 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>1</td>
-                                                            <td>{{$BusBookingDetails->busname}}</td>
-                                                            <td>{{$BusBookingDetails->Taxi_type}}</td>
-                                                            <td>{{$BusBookingDetails->Taxi_number}}</td>
-                                                            <td> <img id="myImg" style="width: 60px;height: 37px;" src="uploaded_images/{{$busdetails->taxi_pic}}" alt="img"> </td>
+                                                            <td>{{$BusBookingDetails->name}}</td>
+                                                            <td>{{$BusBookingDetails->contact}}</td>
+                                                            <td>{{$BusBookingDetails->email}}</td>
 
-                                                            <td>{{$BusBookingDetails->taxi_category}}</td>
-                                                            <td>{{$BusBookingDetails->price}}</td>
+                                                            <td>{{$BusBookingDetails->dateOfEvent}}</td>
+                                                            <td>{{$BusBookingDetails->time}}</td>
+                                                            <td>{{$BusBookingDetails->startingplace}}</td>
+                                                            <td>{{$BusBookingDetails->arrivalplace}}</td>
+                                                            <td>{{$BusBookingDetails->kolometers}}</td>
+                                                            <td>{{$BusBookingDetails->totelprice}}</td>
+                                                            <td>{{$BusBookingDetails->rezorpay_id}}</td>
+                                                            <!-- <td>{{$BusBookingDetails->payment_done}}</td> -->
+                                                            @if($BusBookingDetails->payment_done==1)
                                                             <td>
-                                                            <a href="UpdateBus/{{$BusBookingDetails->bus_id }}" class="btn btn-primary">Update</a>
-                                                            </td>
-                                                            <td>
-                                                            <a href="DeleteProduct/{{$BusBookingDetails->bus_id  }}" style="color:white"class="btn btn-danger">Delete</a>
-                                                            </td>
-                                                            <!-- @if($busdetails->status==1)
-                                                            <td>
-                                                            <a href="DeactiveProduct/{{$busdetails->bus_id }}" class="btn btn-danger"> Dective</a>
+                                                            <a href="#"  style="background:green;color:white"> success</a>
                                                             </td>
                                                             @else
                                                             <td>
-                                                            <a href="ActiveProduct/{{$busdetails->bus_id }}" class="btn btn-success">Active</a>
+                                                            <a href=""  style="background:red;color:white">failed</a>
                                                             </td>
                                                             
-                                                            @endif -->
+                                                            @endif
+                                                            
+                                                            <!-- <td>
+                                                            <a href="UpdateBus/{{$BusBookingDetails->bus_id }}" class="btn btn-primary">Update</a>
+                                                            </td> -->
+                                                            <td>
+                                                            <a href="DeleteProduct/{{$BusBookingDetails->bus_id  }}" style="color:white"class="btn btn-danger">Delete</a>
+                                                            </td>
+                                                            
                                                         </tr>
                                                      @endforeach
                                                                                                                  <!-- The Modal -->

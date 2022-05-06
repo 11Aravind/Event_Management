@@ -13,7 +13,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Product Details </h5>
-                                            <a href="../Add_Product"type="button" class="btn btn-warning" title=""  style="float: right;">Add Product</a>
+                                            <a href="../Add_Product"type="button" class="btn btn-primary" title=""  style="float: right;">Add Product</a>
                                             <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
                                         
                                     @if(Session::get('success'))
@@ -55,7 +55,7 @@
                                                             <td>{{$busdetails->product_quentity}}</td>
                                                             <td>{{$busdetails->product_price}}</td>
                                                             <td>
-                                                            <a href="UpdateForm/{{$busdetails->product_id}}" class="btn btn-warning">Update</a>
+                                                            <a href="UpdateForm/{{$busdetails->product_id}}" class="btn btn-primary">Update</a>
                                                             </td>
                                                             <td>
                                                             <a href="DeleteProduct/{{$busdetails->product_id }}" style="color:white"class="btn btn-dark">Delete</a>

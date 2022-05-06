@@ -11,6 +11,23 @@
 <input type="hidden" name="bus_id" value="{{$bus_id}}">
 <input type="hidden" name="oneKilometerPrice" id="oneKilometerPrice" value="{{$BusDetail->price}}">
 
+<div class="row">
+    <div class="col-4">
+      <label for="inputEmail4">Name</label>
+      <input type="text" name="name" class="form-control col-6" id="inputEmail4" placeholder="">
+    </div>
+    <div class="col-4">
+      <label for="inputPassword4">Contact No</label>
+      <input type="text" name="contact_no" class="form-control col-6" id="inputPassword4" placeholder="">
+  </div>
+  <div class="col-4">
+      <label for="inputPassword4">Email</label>
+      <input type="text" name="email" class="form-control col-6" id="inputPassword4" placeholder="">
+  </div>
+    </div>
+    
+
+
   <div class="row">
     <div class="col">
       <label for="inputEmail4">Date Of Event</label>

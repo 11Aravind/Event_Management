@@ -1778,6 +1778,24 @@ large-scale conference but a hub.</p>
 </div>
 </div>
 </section> -->
-<div class="text-center" style="margin-bottom: 33px;"><h1>About</h1></div>
+<div class="row">
+<div class="col-12">
+<div class="section-title">
+<!-- <h3 class="wow zoomIn" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">Speakers</h3> -->
+<h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">About Us</h2>
+<p class="wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Festiva Event Management is a full service event management firm that was created by pairing together our passion for business and events.We not only organize extravagant event,we organize mesmerizing moments for you.Events may be forgotten but moments will last a life time.We are eagerly waiting to lighten your events with our innovation.We offers complete event planning and management solutions ranging from theme 
+events,private parties,wedding ceremonies,conferences,business events,outdoor events,etc.</p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="section-title">
+<!-- <h3 class="wow zoomIn" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s;">Speakers</h3> -->
+<h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Our Services</h2>
+<p class="wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Festiva Event Management will provide for you all your events needs from A-to-Z sevices,if it is corporate or conference events,wedding ceremonies, business party,you can trust our professional event planners to make your special event a memorable and successful.Festiva provides services such as catering and decoration,tour packages,travel facility,employee details etc</p>
+</div>
+</div>
+</div>
 
 @endsection

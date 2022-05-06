@@ -144,7 +144,10 @@ else{
     $BusBookingDetails=new BusBookingDetails();
     // $towner_id =request('towner_id');
     // $bus_id =request('bus_id ');
-    
+
+$BusBookingDetails->name=request('name');
+$BusBookingDetails->contact=request('contact_no');
+$BusBookingDetails->email=request('email');
     $BusBookingDetails->user_id =Session::get('user_id');
     $BusBookingDetails->towner_id =request('towner_id');
     $BusBookingDetails->bus_id =request('bus_id');
@@ -180,7 +183,7 @@ else{
     $user->rezorpay_id = $data['razorpay_payment_id'];
     $save=$user->save();
     if($save)
-        return redirect('/success');
+        return redirect('/OrderDetails');
     else
         return view('/error');
 }
@@ -233,11 +236,11 @@ public function UpdateBus_store($id)
 }
 public function BusBooking_details()
 {
-  $BusBookingDetails=BusBookingDetails::all();
+  // $BusBookingDetails=BusBookingDetails::all();
   $busdetails=DB::table('travelkyc')->join('bus_booking_details','travelkyc.towner_id','=','bus_booking_details.towner_id')->get();
         
-return $busdetails;
-  // return view('Travel.BusBooking_details',['title'=>"bus booking details",'BusBookingDetails'=>$BusBookingDetails]);
+// return $busdetails;
+  return view('Travel.BusBooking_details',['title'=>"bus booking details",'BusBookingDetails'=>$busdetails,'busdetails'=>$busdetails]);
   
 }
 }

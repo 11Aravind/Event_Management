@@ -204,13 +204,14 @@ aria-controls="navbarSupportedContent" aria-expanded="false" id="main_menu"aria-
 <li class="nav-item"><a href="/Premium">PREMIUM</a></li>
 <li class="nav-item"><a href="/Medium">MEDIUM</a></li>
 <li class="nav-item"><a href="/Regular">REGULAR</a></li>
+<li class="nav-item"><a href="/custompackage">Custom Package</a></li>
 <!-- <li class="nav-item"><a href="#sponsors.html">CUSTOM</a></li> -->
 
 </ul>
 </li>
-<li class="nav-item">
+<!-- <li class="nav-item">
 <a href="#schedule.html"id="main_menu" aria-label="Toggle navigation">RENT</a>
-</li>
+</li> -->
 <li class="nav-item">
 <a href="/Displayemploydet"id="main_menu" aria-label="Toggle navigation">EMPLOYS </a>
 </li>

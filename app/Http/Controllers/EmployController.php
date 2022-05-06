@@ -77,7 +77,19 @@ return redirect('/Employdetails');
     }
     public function Profile()
     {
-        return view('Layout.Profile_layout');
+       
+        $user_id=Session::get('user_id');
+        $Employ_present=Employ::where('user_id',$user_id)->get();
+        if(!$Employ_present->isEmpty())
+        {
+        foreach($Employ_present as $Employ_present)
+        {
+          $employ_id= $Employ_present->employ_id;
+        }
+        $employdet=Employ::findOrFail($employ_id);
+        return view('Layout.Profile_layout',['employdet'=>$employdet]);
+    }
+        // return view('Layout.Profile_layout');
     }
     public function Empoly()
     {
@@ -125,5 +137,33 @@ $storeOrder->employ_id=request('employ_id');
    public function IssueOrder($employ_id)
    {
 return view('Admin.IssueOrder',['title'=>"issue order",'employ_id'=>$employ_id]);
+   }
+   public function job_order()
+   {
+       $user_id=Session::get('user_id');
+    //    reference
+    $Employ_present=Employ::where('user_id',$user_id)->get();
+        if(!$Employ_present->isEmpty())
+        {
+        foreach($Employ_present as $Employ_present)
+        {
+          $employ_id= $Employ_present->employ_id;
+        }
+        $order=StoreOrder::where('employ_id',$employ_id)->get(); 
+        if(!$order->isEmpty())
+        {
+// fetch data
+return view('Employ.Job_order',['order'=>$order]);
+        }
+        else{
+            $order=[];
+            return view('Employ.Job_order',['order'=>$order]);
+        }
+
+    }
+    else{
+        $order=[];
+        return view('Employ.Job_order',['order'=>$order]);
+    }
    }
 }

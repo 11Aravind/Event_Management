@@ -93,7 +93,7 @@
             <li style="margin-top: 28px;"><a href="Empoly">Dashboard</a></li>
             @if(!Session::get('check')->isEmpty())
             <li><a href="/Profile">Profile</a></li>
-            <li><a href="#">Job Vecancy</a></li>
+            <li><a href="/job_order">Job Vecancy</a></li>
             
             @else
             <li><a href="Add_employ">Employ Kyc</a></li>
@@ -110,8 +110,9 @@
     <div class="contentsss">
         <div class="cont">
             @if(Session::get('msg')) 
-            <span style="color:{{Session::get('color')}}">{{Session::get('msg')}}</span>
+            <span style="color:{{Session::get('color')}}">{{Session::get('msg')}} </span>
         @endif
+        <button class="btn btn-warning">Change Status</button>
             @yield('employ_content')
            
         </div>

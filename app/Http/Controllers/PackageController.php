@@ -8,6 +8,7 @@ use App\Models\Packages;
 use App\Models\BusDetail;
 use App\Models\Tour;
 use App\Models\Day;
+use App\Models\CustomPackage;
 use App\Models\PackageBookInfo;
 use Monolog\SignalHandler;
 use Razorpay\Api\Api;
@@ -20,6 +21,48 @@ class PackageController extends Controller
     {
 $busdetailsproductdetails=AddProduct::all();
         return view('Admin/Add_Package',["busdetailsproductdetails"=>$busdetailsproductdetails,'title'=>'Add PackagePage']);
+    }
+    public function updatePackage($id)
+    {
+        $Packages=Packages::findOrFail($id);
+        $busdetailsproductdetails=AddProduct::all();
+        return view('Admin/Update_Package',["busdetailsproductdetails"=>$busdetailsproductdetails,'Packages'=>$Packages,'title'=>'Add PackagePage']);
+
+    }
+    public function custompackage_store()
+    {
+        $amount=request('totalamount');
+        $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
+        $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
+        $orderId = $order['id']; 
+        // payment te karyam set akkanam
+        $package=new Packages();
+        $package->user_id=Session::get('user_id');
+        $package->package_use=request('packageuse');
+        $package->total_amount=request('totalamount');
+
+        // $package->type=request('type');
+        $package->discription=request('discription');
+        $package->PackageProducts=request('packageProduct');
+        $package->payment_id = $orderId;
+         $save=$package->save();
+         if($save){
+            $msg='Data is successfuly added';
+            $color='green';
+    }
+    
+    else{
+            $msg='Data is not added added';
+            $color='red';
+    }    
+    $data = array(
+        'order_id' => $orderId,
+        'amount' => $amount,
+        'msg'=>$msg,
+        'color'=>$color
+       
+    );
+    return back()->with('data', $data); 
     }
     public function addpackageproduct(Request $request)
     {
@@ -51,11 +94,44 @@ $busdetailsproductdetails=AddProduct::all();
             }
          }
          $package->subbanners = json_encode($files);
-        // request('');
-        // dd(request('packageProduct'));
          $save=$package->save();
          if($save)
-         return redirect('/ViewAdminPackage');
+         return "<script>alert('Custom package was added')</script>";
+        //payment page lottu redirect cheyyanam->width('msg','Custom package was added');
+    }
+    public function updatePackage_store($package_id,Request $request)
+    {
+        $package=Packages::findOrFail($package_id);
+        $package->package_use=request('packageuse');
+        $package->rent_amount=request('rentamount');
+
+        $file=request('img');
+        if($file){
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('images/',$filename);
+            $package->package_image=$filename;
+                 }
+        $package->total_amount=request('totalamount');
+
+        $package->type=request('type');
+        $package->discription=request('discription');
+        $package->PackageProducts=request('packageProduct');
+        
+        $files = [];
+        if($request->hasfile('subbanners'))
+         {
+            foreach($request->file('subbanners') as $file)
+            {
+                $name = time().rand(1,50).'.'.$file->extension();
+                $file->move(public_path('files'), $name);  
+                $files[] = $name;  
+            }
+         }
+         $package->subbanners = json_encode($files);
+         $save=$package->save();
+         if($save)
+         return redirect('/ViewAdminPackage');   
     }
     public function ViewPackage()
     {
@@ -89,6 +165,11 @@ $busdetailsproductdetails=AddProduct::all();
             ['status','=','1']
         ])->get();
         return view('Layout/PackageLayout',["title"=>"Regular Package Page","starting"=>"../","Premiums"=>$Regular,"type"=>"Regular"]);  
+    }
+    public function custompackage()
+    {
+        $busdetailsproductdetails=AddProduct::all();
+        return view('User/custompackage',["title"=>"custom Package Page","starting"=>"../",'busdetailsproductdetails'=>$busdetailsproductdetails]);  
     }
     public function PackageDetail($id)
     {

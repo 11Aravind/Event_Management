@@ -51,6 +51,8 @@ Route::get('/EmployDeactive/{id}',[EmployController::class,'EmployDeactive']);
 Route::get('/EmployDelete/{id}',[EmployController::class,'EmployDelete']);
 Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys']);
 Route::post('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys_store']);
+// job_order
+Route::get('/job_order',[EmployController::class,'job_order']);
 
 Route::get('/IssueOrder/{employ_id}',[EmployController::class,'IssueOrder']);
 
@@ -58,6 +60,7 @@ Route::get('/IssueOrder/{employ_id}',[EmployController::class,'IssueOrder']);
 Route::get('/Employdetails',[AdminController::class,'Displayemploydet']);
 Route::get('/ViewAdminPackage',[AdminController::class,'ViewPackage']);
 
+// updatePackage
 Route::get('/ViewEvent',[AdminController::class,'ViewEvent']);
 
 Route::get('/DeleteEvent/{id}',[AdminController::class,'DeleteEvent']);
@@ -142,6 +145,11 @@ Route::get('Display_Product',[AdminController::class,'display_product']);
 //package
 Route::get('Add_Package',[PackageController::class,'showpackageproduct',"title"=>"Add_Package page"]);
 Route::post('Add_Package',[PackageController::class,'addpackageproduct',"title"=>"Add_Package page"]);
+
+Route::get('/updatePackage/{id}',[PackageController::class,'updatePackage']);
+Route::post('/updatePackage/{package_id}',[PackageController::class,'updatePackage_store']);
+
+
 Route::get('ViewPackage',[PackageController::class,'ViewPackage',"title"=>"ViewPackage page"]);
 Route::get('PackageDetail/{id}',[PackageController::class,'PackageDetail',"title"=>"PackageDetail page"]);
 // PackageDetail
@@ -150,7 +158,8 @@ Route::post('PackageDetail',[PackageController::class,'PackageDetail_store',"tit
 Route::get('/Premium',[PackageController::class,'Premium',"title"=>"Add_Package page"]);
 Route::get('/Medium',[PackageController::class,'Medium',"title"=>"Medium Package"]);
 Route::get('/Regular',[PackageController::class,'Regular',"title"=>"Regular Package"]);
-
+Route::get('/custompackage',[PackageController::class,'custompackage',"title"=>"custompackage Package"]);
+Route::post('/custompackage',[PackageController::class,'custompackage_store',"title"=>"custompackage Package"]);
 
 Route::get('EventChart', function () {
     return view('User/EventChart',["title"=>"EventChart page"]);

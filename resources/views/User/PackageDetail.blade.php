@@ -131,7 +131,7 @@
 <div class="payment_content" style="flex:.4">
 <div class="container col-4" id="payment_content" style="position: fixed;">
 <h2>Book Package</h2>
-
+<!-- Total Price -₹{{$package_details->total_amount}} -->
 <form action="/PackageDetail"method="POST" enctype="multipart/form-date">
   @csrf
   <input type="hidden" name="package_id" value="{{$package_details->package_id}}">
@@ -176,7 +176,11 @@
     </div>
   </div>
           <div class="form-row">
-    <button class="btn btn-warning">Save And Delivary Hear</button>
+          <!-- <p class="font-weight-light ">Package Price</p> -->
+
+
+    <button class="btn btn-warning" style="    margin-top: 14px;
+    float: right;">Save And Delivary Hear</button>
     <!-- <span id="cancel" style="cursor: pointer;">cancel</span> -->
 </div>
     

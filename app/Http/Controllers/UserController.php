@@ -276,7 +276,8 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         ->where('tours.tour_id','=',$tour_id)->get();
         }
         else 
-        $tourorderdetails=[];
+        // $tourorderdetails=[];
+        $tourorderdetails=collect(new TouruserInfo);
           // tour details end 
       
         //event details start
@@ -291,7 +292,8 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         ->where('events.event_id','=',$event_id)->get();
     }
     else
-    $eventorderdetails=[];
+    // $eventorderdetails=[];collect(new Post)
+    $eventorderdetails = collect(new UserEventDetails);
         //event details end
         //travel agency start
         $BusBookingDetails=BusBookingDetails::where('user_id',$user_id)->get();
@@ -305,7 +307,8 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         ->where('bus_details.bus_id','=',$bus_id)->get();
     }
     else
-    $BusBookingDetails=[];
+    // $BusBookingDetails=[];collect(new Post)
+    $BusBookingDetails=collect(new BusBookingDetails);
         //travel agency end
         // package booking start 
         $PackageBookInfo=PackageBookInfo::where('user_id',$user_id)->get();
@@ -319,7 +322,8 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         ->where('add_package.package_id','=',$package_id)->get();
     }
     else
-    $PackageBookInfo=[];
+    // $PackageBookInfo=[];collect(new Post)
+    $PackageBookInfo=collect(new PackageBookInfo);
         // package booking end 
         //FoodservingInfo start
         $FoodservingInfo=FoodservingInfo::where('customer_id',$user_id)->get();
@@ -333,7 +337,8 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         ->where('addproducts.product_id','=',$product_id)->get();
     }
     else
-    $FoodservingInfo=[];
+    // $FoodservingInfo=[];collect(new Post)
+    $FoodservingInfo=collect(new FoodservingInfo);
         // FoodservingInfo end 
         return view('User/OrderDetails',["starting"=>"../",'tourorderdetails'=>$tourorderdetails,'eventorderdetails'=>$eventorderdetails,
     'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo,'FoodservingInfo'=>$FoodservingInfo]); 
