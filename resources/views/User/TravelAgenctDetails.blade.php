@@ -17,22 +17,22 @@
 
 <div class="row">
 @foreach($busdetails as $busdetail)
-<a href="/SingleBusDetails/{{$busdetail->bus_id}}">
 <div class="col-lg-4 col-md-6">
 <div class="single_place">
 <div class="thumb">
-<img src="../uploaded_images/{{$busdetail->taxi_pic}}" style="width:373px;height:100%" alt="buspic">
+<a href="/SingleBusDetails/{{$busdetail->bus_id}}">
+<img src="../uploaded_images/{{$busdetail->taxi_pic}}" style="width: 358px;height: 201px;" alt="buspic">
 <!-- uploaded_images/1650889212.jpg -->
 <!-- <a href="#" class="prise">hi hi</</a> -->
 </div>
 <div class="place_info">
 <h3>{{$busdetail->busname}}</h3>
 <p>seating capacity-{{$busdetail->seating_capacity}}</p>
+</a>
 <!-- <div class="rating_days d-flex justify-content-between"> -->
 </div>
 </div>
 </div>
-</a>
 @endforeach
 @endif
 </div>

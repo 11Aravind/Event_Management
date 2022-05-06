@@ -62,5 +62,71 @@
 </div>
 @endforeach
 @endif
+<!-- event end  -->
+<!-- bus book start  -->
+<!--  -->
+@if(!$BusBookingDetails->isEmpty())
+@foreach($BusBookingDetails as $BusBookingDetails)
+<!-- <img src="images\eventbanner1.jpg" alt="event banner" style="width:100%"> -->
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="margin: 45px; margin-top: -21px;  " >
+<div class="d-flex flex-row" style="">
+  <div class="p-2 col-4" style="    display: inline-flex;"> 
+      <img src="uploaded_images/{{$BusBookingDetails->taxi_pic}}" width="100px" height="100px"alt="img">
+
+    <span class="span"> {{$BusBookingDetails->busname}} <br> {{$BusBookingDetails->seating_capacity}}  <br>  {{$BusBookingDetails->dateOfEvent}}
+    <br>duration {{$BusBookingDetails->time}} <br>
+      Booked: {{$BusBookingDetails->seating_capacity}} Seat <br>Ticket Price {{$BusBookingDetails->price}}</span>
+    </div>
+  <div class="p-2 col-4"><span class="span">For one kilometers total_price:₹{{$BusBookingDetails->totelprice}} for({{$BusBookingDetails->kolometers}})  <br>    
+  </span></div>
+  <div class="p-2 col-4"><span class="span">{{$BusBookingDetails->payment_id}} 
+  @if($BusBookingDetails->payment_done==1)  
+  <span style="background:green;color:white">Payment successfuly done</span>
+  @else
+  <span>Payment successfuly not done</span>
+  @endif
+ </span> <br>
+<span></span></div>
+</div>
+</div>
+@endforeach
+@endif
+<!-- bus book end  -->
+<!-- package booking start  -->
+<!--  -->
+@if(!$PackageBookInfo->isEmpty())
+@foreach($PackageBookInfo as $PackageBookInfo)
+<!-- <img src="images\eventbanner1.jpg" alt="event banner" style="width:100%"> -->
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="margin: 45px; margin-top: -21px;  " >
+<div class="d-flex flex-row" style="">
+  <div class="p-2 col-4" style="    display: inline-flex;"> 
+      <img src="images/{{$PackageBookInfo->package_image}}" width="100px" height="100px"alt="img">
+
+    <span class="span"> {{$PackageBookInfo->package_use}} <br>
+    {{$PackageBookInfo->type}}   <br>  {{$PackageBookInfo->event_date}}
+    <br> {{$PackageBookInfo->time}} <br>
+      </span>
+    </div>
+  <div class="p-2 col-4"><span class="span">For one kilometers total_price:₹{{$PackageBookInfo->total_amount}}   <br>    
+  </span></div>
+  <div class="p-2 col-4"><span class="span">
+  
+  {{$PackageBookInfo->name}} 
+  {{$PackageBookInfo->mobile_no}}  <br>
+    {{$PackageBookInfo->address}} <br>
+    
+  {{$PackageBookInfo->payment_id}} 
+  @if($PackageBookInfo->payment_done==1)  
+  <span style="background:green;color:white">Payment successfuly done</span>
+  @else
+  <span>Payment successfuly not done</span>
+  @endif
+ </span> <br>
+<span></span></div>
+</div>
+</div>
+@endforeach
+@endif
+<!-- package booking end  -->
 <button class="btn btn-warning" style="margin-left: 46%;margin-bottom: 36px;" > No More Results To Display</button>
 @endsection

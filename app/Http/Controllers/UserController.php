@@ -19,7 +19,9 @@ use App\Models\Complaint;
 use App\Models\TouruserInfo;
 use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
+use App\Models\BusBookingDetails;
 use App\Models\Tour;
+use App\Models\PackageBookInfo;
 use Monolog\SignalHandler;
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors\SignatureVerificationError;
@@ -264,25 +266,65 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         $user_id=Session::get('user_id');
         // tour details start 
         $TouruserInfo=TouruserInfo::where('user_id',$user_id)->get();
+        if(!$TouruserInfo->isEmpty())
+        {
         foreach($TouruserInfo as $TouruserInfo)
         {
           $tour_id= $TouruserInfo->tour_id;
         }
         $tourorderdetails=DB::table('tours')->join('touruser_infos','tours.tour_id','=','touruser_infos.tour_id')
         ->where('tours.tour_id','=',$tour_id)->get();
+        }
+        else 
+        $tourorderdetails=[];
           // tour details end 
       
         //event details start
         $UserEventDetails=UserEventDetails::where('user_id',$user_id)->get();
+        if(!$UserEventDetails->isEmpty())
+        {
         foreach($UserEventDetails as $UserEventDetails)
         {
           $event_id= $UserEventDetails->event_id;
         }
         $eventorderdetails=DB::table('events')->join('user__event_dets','events.event_id','=','user__event_dets.event_id')
         ->where('events.event_id','=',$event_id)->get();
+    }
+    else
+    $eventorderdetails=[];
         //event details end
-        return view('User/OrderDetails',["starting"=>"../",'tourorderdetails'=>$tourorderdetails,'eventorderdetails'=>$eventorderdetails]); 
-  
+        //travel agency start
+        $BusBookingDetails=BusBookingDetails::where('user_id',$user_id)->get();
+        if(!$BusBookingDetails->isEmpty())
+        {
+        foreach($BusBookingDetails as $BusBookingDetails)
+        {
+          $bus_id= $BusBookingDetails->bus_id;
+        }
+        $BusBookingDetails=DB::table('bus_details')->join('bus_booking_details','bus_details.bus_id','=','bus_booking_details.bus_id')
+        ->where('bus_details.bus_id','=',$bus_id)->get();
+    }
+    else
+    $BusBookingDetails=[];
+        //travel agency end
+        // package booking start 
+        $PackageBookInfo=PackageBookInfo::where('user_id',$user_id)->get();
+        if(!$PackageBookInfo->isEmpty())
+        {
+        foreach($PackageBookInfo as $PackageBookInfo)
+        {
+          $package_id= $PackageBookInfo->package_id;
+        }
+        $PackageBookInfo=DB::table('add_package')->join('package_book_infos','add_package.package_id','=','package_book_infos.package_id')
+        ->where('add_package.package_id','=',$package_id)->get();
+    }
+    else
+    $PackageBookInfo=[];
+        // package booking end 
+        return view('User/OrderDetails',["starting"=>"../",'tourorderdetails'=>$tourorderdetails,'eventorderdetails'=>$eventorderdetails,
+    'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo]); 
+
+    
     }
 }
 

@@ -144,6 +144,8 @@ else{
     $BusBookingDetails=new BusBookingDetails();
     // $towner_id =request('towner_id');
     // $bus_id =request('bus_id ');
+    
+    $BusBookingDetails->user_id =Session::get('user_id');
     $BusBookingDetails->towner_id =request('towner_id');
     $BusBookingDetails->bus_id =request('bus_id');
     $BusBookingDetails->dateOfEvent=request('dateOfEvent');

@@ -17,6 +17,9 @@ class CreateBusBookingDetailsTable extends Migration
             $table->id('busbooking_id');
             
 
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('authentications')->onDelete('cascade');
+
 
 $table->unsignedBigInteger('towner_id');
 $table->foreign('towner_id')->references('towner_id')->on('travelkyc')->onDelete('cascade');
