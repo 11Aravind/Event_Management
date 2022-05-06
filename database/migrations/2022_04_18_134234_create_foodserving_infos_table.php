@@ -19,6 +19,10 @@ class CreateFoodservingInfosTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('authentications')->onDelete('cascade');
 
+            $table->unsignedBigInteger('customer_id');
+            $table->foreign('customer_id')->references('user_id')->on('authentications')->onDelete('cascade');
+
+
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('product_id')->on('addproducts')->onDelete('cascade');
             // $table->timestamps();

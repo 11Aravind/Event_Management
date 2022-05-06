@@ -50,7 +50,9 @@ Route::get('/EmployDeactive/{id}',[EmployController::class,'EmployDeactive']);
 // EmployDelete
 Route::get('/EmployDelete/{id}',[EmployController::class,'EmployDelete']);
 Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys']);
+Route::post('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys_store']);
 
+Route::get('/IssueOrder/{employ_id}',[EmployController::class,'IssueOrder']);
 
 // EmmployDeactive
 Route::get('/Employdetails',[AdminController::class,'Displayemploydet']);
@@ -81,7 +83,9 @@ Route::get('/foodcategory', function () {
     return view('Food/foodcategory',["title"=>"Food Dashbord"]);
 });
 Route::post('/foodcategory',[FoodController::class,'store']);
+Route::get('/Ticketlayout/{event_id}/{noofseat}',[UserController::class,'Ticketlayout']);
 
+// Ticketlayout
 Route::get('/foodorderdetails',[FoodController::class,'foodorderdetails']);
 // DeleteFood
 Route::get('/DeleteFood/{cat_type}/{id}',[FoodController::class,'DeleteFood']);

@@ -52,7 +52,9 @@
   </span></div>
   <div class="p-2 col-4"><span class="span">{{$eventorderdetails->payment_id}} 
   @if($eventorderdetails->payment_done==1)  
-  <span style="background:green;color:white">Payment successfuly done</span>
+  <span style="background:green;color:white">Payment successfuly done</span> <br>
+ 
+  <a href="/Ticketlayout/{{$eventorderdetails->event_id}}/{{$eventorderdetails->noofseat}}" class="btn btn-warning">View Ticket</a>
   @else
   <span>Payment successfuly not done</span>
   @endif
@@ -128,5 +130,39 @@
 @endforeach
 @endif
 <!-- package booking end  -->
+<!-- food serving start -->
+<!-- FoodservingInfo -->
+@if(!$FoodservingInfo->isEmpty())
+@foreach($FoodservingInfo as $FoodservingInfo)
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="margin: 45px; margin-top: -21px;  " >
+<div class="d-flex flex-row" style="">
+  <div class="p-2 col-4" style="    display: inline-flex;"> 
+      <img src="uploaded_images/{{$FoodservingInfo->product_photo}}" width="100px" height="100px"alt="img">
+
+    <span class="span"> {{$FoodservingInfo->product_name}} <br>
+    {{$FoodservingInfo->dateOfEvent}}   <br>  {{$FoodservingInfo->ServingStartingtime  }}
+    <br> {{$FoodservingInfo->product_price}} <br>
+      </span>
+    </div>
+  <div class="p-2 col-4"><span class="span">For one kilometers total_price:₹{{$FoodservingInfo->Totalprice}}   <br>  noOfGust  -{{$FoodservingInfo->noOfGust}}
+    <br>noofemploy{{$FoodservingInfo->noofemploy}} 
+  </span></div>
+  <div class="p-2 col-4"><span class="span">
+ 
+    {{$FoodservingInfo->product_discription}} <br>
+    
+  {{$FoodservingInfo->payment_id}} 
+  @if($FoodservingInfo->payment_done==1)  
+  <span style="background:green;color:white">Payment successfuly done</span>
+  @else
+  <span>Payment successfuly not done</span>
+  @endif
+ </span> <br>
+<span></span></div>
+</div>
+</div>
+@endforeach
+@endif
+<!-- food serving end -->
 <button class="btn btn-warning" style="margin-left: 46%;margin-bottom: 36px;" > No More Results To Display</button>
 @endsection

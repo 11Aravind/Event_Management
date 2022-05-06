@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employ;
+use App\Models\StoreOrder;
 use Session;
 class EmployController extends Controller
 {
@@ -100,7 +101,7 @@ return redirect('/Employdetails');
         $find=Employ::findOrFail($id);
     // {{$request->product_id}}
    $delete=$find->delete();
-   if( $delete)
+   if($delete)
    {
     return redirect('Employdetails')->with('msg',"Employ detailsis successfuly deleted",'color','green');
    }
@@ -109,5 +110,20 @@ else{
 
 } 
     }
-   
+    public function ApprovedEmploys_store()
+    {
+$storeOrder=new StoreOrder();
+$storeOrder->employ_id=request('employ_id');
+        $storeOrder->work_type=request('work_type');
+        $storeOrder->contact_no=request('contact_no');
+        $storeOrder->date=request('date');
+        $storeOrder->time=request('time');
+        $storeOrder->address=request('address');
+        $storeOrder->save();
+        return redirect('/ApprovedEmploys')->with('msg','Order Successfuly issued','color','green');
+    }
+   public function IssueOrder($employ_id)
+   {
+return view('Admin.IssueOrder',['title'=>"issue order",'employ_id'=>$employ_id]);
+   }
 }

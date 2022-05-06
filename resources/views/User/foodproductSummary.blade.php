@@ -24,7 +24,7 @@
           data-currency="INR"
     data-order_id="{{Session::get('data.order_id')}}"
           data-buttontext="Pay with Razorpay"
-          data-name="My Shop"
+          data-name="FESTIVA EVENTS"
           data-description="Test transaction"
          
           data-theme.color="#182fa3"

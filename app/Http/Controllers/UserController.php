@@ -194,7 +194,7 @@ return view('User/FoodCategoryDetails',["title"=>"FoodCategoryDetails page","sta
         $product_id=request('product_id');
         
         $FoodservingInfo->user_id=request('Catering_user_id');
-
+$FoodservingInfo->customer_id=Session::get('user_id');
         // $FoodservingInfo->user_id=Session::get('user_id');
         $FoodservingInfo->product_id=request('product_id');
         $FoodservingInfo->dateOfEvent=request('dateOfEvent');
@@ -321,10 +321,31 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
     else
     $PackageBookInfo=[];
         // package booking end 
+        //FoodservingInfo start
+        $FoodservingInfo=FoodservingInfo::where('customer_id',$user_id)->get();
+        if(!$FoodservingInfo->isEmpty())
+        {
+        foreach($FoodservingInfo as $FoodservingInfo)
+        {
+          $product_id= $FoodservingInfo->product_id;
+        }
+        $FoodservingInfo=DB::table('addproducts')->join('foodserving_infos','addproducts.product_id','=','foodserving_infos.product_id')
+        ->where('addproducts.product_id','=',$product_id)->get();
+    }
+    else
+    $FoodservingInfo=[];
+        // FoodservingInfo end 
         return view('User/OrderDetails',["starting"=>"../",'tourorderdetails'=>$tourorderdetails,'eventorderdetails'=>$eventorderdetails,
-    'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo]); 
+    'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo,'FoodservingInfo'=>$FoodservingInfo]); 
 
     
+    }
+    public function Ticketlayout($event_id,$noofseat)
+    {
+       $Event=Event::findOrFail($event_id); 
+       
+       
+        return view('Layout/Ticketlayout',['Event'=>$Event,'noofseat'=>$noofseat]);
     }
 }
 
