@@ -1,5 +1,28 @@
 @extends('Layout.User_Homepage')
 @section('content')
+<style>
+    .wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+.div { 
+    width: 100px; 
+    height: 100px; 
+    background-color: red; 
+ 
+    position: absolute; 
+    top:0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+ 
+    margin: auto; 
+} 
+</style>
 <section class="speakers section">
 <div class="container">
 <!-- <div class="row">
@@ -78,6 +101,10 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
                                                             <label for="exampleInputEmail1">Package Use</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail1" name="packageuse" placeholder="">
                                                          </div>
+                                                         <div class="form-group">
+                                                            <label for="exampleFormControlTextarea1">Description</label>
+                                                            <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" placeholder="" rows="3"></textarea>
+                                                        </div>
                                                          <!-- <div class="form-group">
                                                             <label for="exampleInputEmail1">PAckage Image</label>
                                                             <input type="file" class="form-control" name="img" id="exampleInputEmail1"  >
@@ -92,7 +119,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
                                                              </select>
                                                         </div> -->
 </div>
-<div class="col-md-6" style="float: right;margin-top: -60px;padding-left:24px">
+<div class="col-md-6" style="float: right;margin-top: -163px;padding-left:24px">
                                                         <!-- <div class="form-group">
                                                             <label for="exampleInputEmail1">Rent Amount</label>
                                                             <input type="text" class="form-control" name="rentamount"id="exampleInputEmail1"  placeholder="">
@@ -102,10 +129,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
                                                             <input type="text" class="form-control" name="totalamount" id="exampleInputEmail1"  placeholder="">
                                                          </div>
                                                        
-                                                        <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">Description</label>
-                                                            <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" placeholder="" rows="3"></textarea>
-                                                        </div>
+                                                       
                                                         
                                                             </div>
                                                             <!-- <div class="form-group col-6">
@@ -127,4 +151,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 <div>
 </div>
 </section>
+<div class="wrapper">
+    <button class="button btn btn-warning">payment button</button>
+</div>
 @endsection
