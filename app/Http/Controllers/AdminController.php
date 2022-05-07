@@ -10,6 +10,8 @@ use App\Models\Event;
 use App\Models\Employ;
 use App\Models\Tour;
 use App\Models\Packages;
+use App\Models\Complaint;
+use App\Models\TravelKyc;
 use Session;
 class AdminController extends Controller
 {
@@ -282,6 +284,13 @@ public function DeactiveProduct($id,Request $req){
    $finddata->save();
    return redirect('Display_Foodproduct');
 }
+// TravelagencyDeactive
+public function TravelagencyDeactive($id,Request $req){
+    $finddata=TravelKyc::findOrFail($id);
+    $finddata->status=0;
+    $finddata->save();
+    return redirect('Display_Foodproduct');
+ }
 // DeactiveEvent
 public function DeactiveEvent($id,Request $req){
     $finddata=Event::findOrFail($id);
@@ -319,6 +328,13 @@ public function ActiveProduct($id,Request $req){
     $finddata->status=1;
     $finddata->save();
     return redirect('Display_Foodproduct');
+ }
+//  TravelagencyActive
+public function TravelagencyActive($id,Request $req){
+    $finddata=TravelKyc::findOrFail($id);
+    $finddata->status=1;
+    $finddata->save();
+    return redirect('/Travelagency_det');
  }
  //Activetour
  public function Activetour($id,Request $req){
@@ -395,5 +411,15 @@ public function ViewEvent()
 {
     $eventdet=Event::all();
     return view('Admin/ViewEvent',["title"=>'View package Details','eventdet'=>$eventdet]);
+}
+public function viewComplaint()
+{
+    $Complaint=Complaint::all();
+    return view('Admin/viewComplaint',["title"=>'View package Details','Complaint'=>$Complaint]);  
+}
+public function Travelagency_det()
+{
+    $TravelKyc=TravelKyc::all();
+    return view('Admin/Travelagency_det',["title"=>'View Travelagency_det','TravelKyc'=>$TravelKyc]);   
 }
 }

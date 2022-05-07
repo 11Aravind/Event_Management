@@ -33,7 +33,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Owner Pic</label>
-      <input type="file" name="owner_pic"class="form-control" id="inputPassword4" placeholder="">
+      <input type="file" name="owner_pic" class="form-control" >
     </div>
   </div>
   <div class="form-row">

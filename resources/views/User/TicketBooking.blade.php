@@ -27,6 +27,8 @@
     
 <div class="all-speakers">
 <div class="row">
+    
+   
 @foreach($event_dets as $event_det)
 <div class="col-lg-3 col-md-6">
 <a href="Eventdetails/{{$event_det->event_id}} " style="">
@@ -52,7 +54,6 @@
 </div>
 </a>
 </div>
-
 @endforeach
 
 

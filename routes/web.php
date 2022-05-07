@@ -47,6 +47,10 @@ Route::get('/Displayemploydet',[EmployController::class,'Displayemploydet']);
 // employdetactive
 Route::get('/employActive/{id}',[EmployController::class,'EmployActive']);
 Route::get('/EmployDeactive/{id}',[EmployController::class,'EmployDeactive']);
+// TravelagencyActive
+Route::get('/TravelagencyActive/{id}',[AdminController::class,'TravelagencyActive']);
+// TravelagencyDeactive
+Route::get('/TravelagencyDeactive/{id}',[AdminController::class,'TravelagencyDeactive']);
 // EmployDelete
 Route::get('/EmployDelete/{id}',[EmployController::class,'EmployDelete']);
 Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys']);
@@ -232,6 +236,8 @@ Route::get('Activatepackage/{id}',[AdminController::class,'Activatepackage']);
 Route::get('Deactivatepackage/{id}',[AdminController::class,'Deactivatepackage']);
 
 //Travel
+// Travelagency_det
+Route::get('Travelagency_det',[AdminController::class,'Travelagency_det']);
 
 Route::get('TravelKyc',[TravelController::class,'viewkycform']); 
 Route::post('/TravelKyc',[TravelController::class,'storekycdetails']); 
@@ -253,7 +259,7 @@ Route::get('/BusbookingSummary',[TravelController::class,'BusbookingSummary']);
 Route::post('/payEvent',[UserController::class,'payEvent']); 
 
 Route::post('/bookpay',[TravelController::class,'bookpay']);
-
+Route::post('/payCusome',[PackageController::class,'payCusome']);
 
 // Route::get('BusDetails', function () {
 //     return view('Travel/BusDetails',["title"=>"BusDetails"]);
@@ -305,6 +311,7 @@ Route::post('/AddUserFooddet',[UserController::class,'AddUserFooddet_store']);
 // RegisterComplaints
 Route::get('/RegisterComplaints',[UserController::class,'RegisterComplaints']);
 Route::post('/RegisterComplaints',[UserController::class,'store_RegisterComplaints']);
+Route::get('/viewComplaint',[AdminController::class,'viewComplaint']);
 
 
 // Route::post('/AddUserFooddet',[UserController::class,'AddUserFooddet_store']);

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Cateringkyc extends Model
 {
     use HasFactory;
-    protected $primaryKey="Catering_id";
+    protected $primaryKey="Catering_id";    
 }

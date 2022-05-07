@@ -35,13 +35,10 @@ $busdetailsproductdetails=AddProduct::all();
         $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
         $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
         $orderId = $order['id']; 
-        // payment te karyam set akkanam
-        $package=new Packages();
+        $package=new CustomPackage();
         $package->user_id=Session::get('user_id');
         $package->package_use=request('packageuse');
         $package->total_amount=request('totalamount');
-
-        // $package->type=request('type');
         $package->discription=request('discription');
         $package->PackageProducts=request('packageProduct');
         $package->payment_id = $orderId;
@@ -50,7 +47,6 @@ $busdetailsproductdetails=AddProduct::all();
             $msg='Data is successfuly added';
             $color='green';
     }
-    
     else{
             $msg='Data is not added added';
             $color='red';
@@ -64,6 +60,19 @@ $busdetailsproductdetails=AddProduct::all();
     );
     return back()->with('data', $data); 
     }
+    public function payCusome(Request $request)
+    {
+     $data = $request->all();
+     // dd($data);
+     $user = CustomPackage::where('payment_id', $data['razorpay_order_id'])->first();
+     $user->payment_done = true;
+     $user->rezorpay_id = $data['razorpay_payment_id'];
+     $save=$user->save();
+     if($save)
+         return redirect('/OrderDetails');
+     else
+         return view('/error');
+ }
     public function addpackageproduct(Request $request)
     {
         $package=new Packages();
@@ -96,8 +105,8 @@ $busdetailsproductdetails=AddProduct::all();
          $package->subbanners = json_encode($files);
          $save=$package->save();
          if($save)
-         return "<script>alert('Custom package was added')</script>";
-        //payment page lottu redirect cheyyanam->width('msg','Custom package was added');
+         return redirect('ViewAdminPackage');
+        
     }
     public function updatePackage_store($package_id,Request $request)
     {
@@ -240,7 +249,7 @@ public function PackageDetail_pay(Request $request)
     $save=$user->save();
     if($save)
     {
-        return view('/OrderDetails');
+        return redirect('/OrderDetails');
     }
     else
     {

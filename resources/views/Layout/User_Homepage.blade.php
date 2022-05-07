@@ -155,6 +155,30 @@ width:40%;
 #UserInformationformDiv{
     display:none; 
 }
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    /* position: absolute;
+    top: 50%; */
+    position: absolute;
+    top: 37%;
+    left: 11%;
+}
+/* .div { 
+    width: 100px; 
+    height: 100px; 
+    background-color: red; 
+ 
+    position: absolute; 
+    top:0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+ 
+    margin: auto; 
+}  */
      </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

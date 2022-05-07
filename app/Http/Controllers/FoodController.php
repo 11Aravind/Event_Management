@@ -110,29 +110,36 @@ $Cateringkycdet->ownername=$request->ownername;
 $Cateringkycdet->mobileno=$request->mobileno;
 $Cateringkycdet->alterphoneno=$request->alterphoneno;
 
-$file=$request->file('bannerpic');
-$ext=$file->getClientOriginalExtension();
-$filename=time().'.'.$ext;
-$file->move('uploaded_images',$filename);
-$Cateringkycdet->bannerpic=$filename;
+// $file=$request->file('bannerpic');
+// $ext=$file->getClientOriginalExtension();
+// $filename=time().'.'.$ext;
+// $file->move('uploaded_images/',$filename);
+// $Cateringkycdet->bannerpic=$filename;
+
+// $new_bannerpic=time().'.'.$request->bannerpic->getClientOriginalName();
+$new_bannerpic=$request->file('bannerpic')->getClientOriginalName();
+$request->bannerpic->move(public_path('uploaded_images/'),$new_bannerpic);
+$Cateringkycdet->bannerpic=$new_bannerpic;
+
+// $request->file('image');
+// $file=$request->file('owner_pic');
+// $ext=$file->getClientOriginalExtension();
+// $filename=time().'.'.$ext;
+// $file->move('uploaded_images/',$filename);
+// $Cateringkycdet->owner_pic=$filename;
+$new_owner_pic=$request->file('owner_pic')->getClientOriginalName();
+
+$request->owner_pic->move(public_path('uploaded_images/'),$new_owner_pic);
+
+$Cateringkycdet->owner_pic=$new_owner_pic;
 
 
-$file=$request->file('owner_pic');
-$ext=$file->getClientOriginalExtension();
-$filename=time().'.'.$ext;
-$file->move('uploaded_images',$filename);
-$Cateringkycdet->owner_pic=$filename;
-
-
-// $Cateringkycdet->bannerpic=$request->bannerpic;
-// $Cateringkycdet->owner_pic=$request->owner_pic;
 $Cateringkycdet->pincode=$request->pincode;
 $Cateringkycdet->locality=$request->locality;
 $Cateringkycdet->city=$request->city;
 $Cateringkycdet->district=$request->district;
 $save=$Cateringkycdet->save();
 Session::put('Catering_id',$Cateringkycdet->Catering_id);
-
 if($save){
 
 return redirect('/Food')->with('success','Catering KYC is submitted successfully');

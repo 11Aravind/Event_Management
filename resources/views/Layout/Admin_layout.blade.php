@@ -37,7 +37,13 @@
 	<link rel="stylesheet" href="../assets/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="../assets/css/bootstrap.css">
 	<!-- <h3>jQuery DataTables</h3> -->
-
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+ 
+ <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+   
 </head>
 
 <body class="">
@@ -149,6 +155,18 @@
 
 						
 						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="/Travelagency_det" class="nav-link">
+							<span class="pcoded-micon">
+                            <i class="feather icon-file-text"></i></span>
+							<span class="pcoded-mtext">Travel Agency Details</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/viewComplaint" class="nav-link">
+							<span class="pcoded-micon">
+                            <i class="feather icon-file-text"></i></span>
+							<span class="pcoded-mtext">Complaints</span></a>
 					</li>
 
 <!-- 
@@ -313,6 +331,11 @@
 	<script src="assets/js/jquery.dataTables.min.js"></script>	
 	<script src="assets/js/dataTables.bootstrap4.min.js"></script>	
 <script src="assets\plugins\jquery\js\jquery.min.js"></script>	
+<script>
+	$(document).ready( function () {
+    $('#MyTable').DataTable();
+} );
+</script>
 	<!-- imagepopup.js -->
 
 </body>

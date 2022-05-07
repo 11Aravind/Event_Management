@@ -35,39 +35,29 @@
 @else
 <div class="row">
     @foreach($Premiums as $Premium)
-    <a href="PackageDetail/{{$Premium->package_id}}">
-
 <div class="col-lg-4 col-md-6">
 <div class="single_place" style="height: 300.5px;">
 <div class="thumb">
 <!-- 356 × 201 p -->
+<a href="PackageDetail/{{$Premium->package_id}}">
 <img src="images/{{$Premium->package_image}}"  style="width:356px;height:201px"alt="premium package">
 <h3 class="prise">{{$Premium->total_amount}}</h3>
 </div>
 <div class="place_info">
 <h3>{{$Premium->package_use}}</h3>
 <p>{{$Premium->discription}}</p>
-<div class="rating_days d-flex justify-content-between">
-<!-- <span class="d-flex justify-content-center align-items-center"> -->
-<!-- <i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i> -->
-<!-- <a href="#">(20 Review)</a> -->
-<!-- </span> -->
-<!-- <div class="days">
- -->
-<!-- More>></a> -->
-<!-- </div> -->
-</div>
-</div>
-</div>
 </a>
+<div class="rating_days d-flex justify-content-between">
 </div>
-@endforeach
+</div>
 
 </div>
+</div>
+
+<!-- </div> -->
+@endforeach
+</div>
+
 @endif
 <!-- <div class="row">
 <div class="col-lg-12">

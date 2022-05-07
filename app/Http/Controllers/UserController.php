@@ -32,7 +32,8 @@ class UserController extends Controller
     public function EventList()
     {
         // $category=Category::where('cat_type','Event')->get();
-        $event_det=Event::all();
+        // $event_det=Event::all();
+        $event_det=Event::where('status','1')->get();
         // return $event_det;
         return view('User/TicketBooking',["title"=>"TicketBooking page","starting"=>"../","event_dets"=>$event_det]);
     }
@@ -118,7 +119,7 @@ return view('User/Fooddisplay',["title"=>"Eventdetails page","starting"=>$starti
     }
     public function ViewTravelPage()
     {
-        $TravelKycdet=TravelKyc::all();
+        $TravelKycdet=TravelKyc::where('status','1')->get();
         return view('User/TravelKycdet',["title"=>"Eventdetails page","starting"=>"../","TravelKycdets"=>$TravelKycdet]);   
     }
     public function TravelAgenctDetails($id)
@@ -254,12 +255,20 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         $extension=$file->getClientOriginalExtension();
         $filename=time().'.'.$extension;
         $file->move('uploaded_images/',$filename);
-        $fileComplaint->subject=$filename;
+        $fileComplaint->proof=$filename;
 
-        $fileComplaint->proof=$request->proof;
+
+
+
+
+        // $fileComplaint->proof=$request->proof;
         $fileComplaint->complaint=$request->complaint;
         $save=$fileComplaint->save();
-        return "<script>alert('complaint is successfully sended')</script>";
+        // "<script>alert('complaint is successfully sended')</script>";
+        if($save)
+        return back()->with('msg','complaint is successfully sended','color','green');
+        else
+        return back()->with('msg','complaint is not sended Please try again','color','red');
     }
     public function OrderDetails()
     {

@@ -41,8 +41,8 @@
                 <option value="Select" class="form-control" >--Select Account Type--</option>
                 <option value="User" class="form-control"  >User</option>
                 <option  class="selectionrole" value="Empoly">Employ</option>
-                <option  class="selectionrole" value="Travel">Travel</option>
-                <option  class="selectionrole" value="Food">Food</option>
+                <option  class="selectionrole" value="Travel">Travel Agency</option>
+                <option  class="selectionrole" value="Food">Catering Service</option>
             </select>
 			<span style="color:red">
 			@error('role')

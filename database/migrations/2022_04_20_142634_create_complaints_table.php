@@ -20,7 +20,7 @@ class CreateComplaintsTable extends Migration
 
             $table->foreign('user_id')->references('user_id')->on('authentications');
             $table->string('subject');
-            $table->string('proof')->nullable();
+            $table->string('proof')->nullable();  
             $table->string('complaint');
           
             $table->timestamps();
