@@ -20,8 +20,8 @@
 <!-- <img src="../uploaded_images/{{$TravelKycdet->licencepic}}" alt="banner">
  -->
 <a href="/TravelAgenctDetails/{{$TravelKycdet->towner_id}}">
-<img src="images/place-x1.png.pagespeed.ic._C7q_9jAJk.jpg" alt="travelagency_pic" style="width:358px;height:201px">
-
+<img src="uploaded_images/{{$TravelKycdet->alternate_no}}" alt="travelagency_pic" style="width:358px;height:201px">
+<!-- E:\xampp\htdocs\Perfect_Stom_Moments\public\uploaded_images\1651949573.jpg -->
 <!-- <a href="#" class="prise">ownername-{{$TravelKycdet->ownername}}</</a> -->
 </div>
 <div class="place_info">

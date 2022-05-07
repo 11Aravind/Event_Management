@@ -1,2 +1,4 @@
 TourUserInfo -venda del akkam
 User/CartPage-venda
+foodproductSummary venda
+E:\xampp\htdocs\Perfect_Stom_Moments\resources\views\User\BusbookingSummary.blade.php venda

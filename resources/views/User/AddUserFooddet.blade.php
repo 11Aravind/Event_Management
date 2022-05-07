@@ -1,6 +1,6 @@
 @extends('Layout.User_Homepage')
 @section('content')
-
+<section class="section">
 <div class="popular_places_area">
 <div class="container">
 <h1>Add Event Details</h1>
@@ -100,4 +100,39 @@ function change_send(noOfGust)
  
 });
 </script> -->
+</section>
+@if(Session::has('data'))
+<style>
+    .section{
+        opacity: .2;
+    }
+    nav{
+        opacity: .2;
+    }
+</style>
+<div class="wrapper" style="opacity: 1;">
+<h1 class="button text-center" style="text-align: center;margin-left: 94px;top: 31%;left: 29%;color:{{Session::get('data.color')}}">{{Session::get('data.msg')}}</h1> <br>
+    <!-- <button class="button btn btn-warning">payment button</button> -->
+    <div class="container tex-center mx-auto button">
+    <form action="/pay" method="POST" class="text-center mx-auto mt-5">
+      
+      <script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          data-key="rzp_test_iKlM2rsXjuV7R1"
+    data-amount="{{Session::get('data.amount')}}" 
+          data-currency="INR"
+    data-order_id="{{Session::get('data.order_id')}}"
+          data-buttontext="Pay with Razorpay"
+          data-name="FESTIVA EVENTS"
+          data-description="Test transaction"
+         
+          data-theme.color="#182fa3"
+      ></script>
+      <input type="hidden" custom="Hidden Element" name="hidden">
+      </form>
+</div>
+</div>
+
+
+@endif
 @endsection

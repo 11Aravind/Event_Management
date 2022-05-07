@@ -53,6 +53,9 @@ Route::get('/TravelagencyActive/{id}',[AdminController::class,'TravelagencyActiv
 Route::get('/TravelagencyDeactive/{id}',[AdminController::class,'TravelagencyDeactive']);
 // EmployDelete
 Route::get('/EmployDelete/{id}',[EmployController::class,'EmployDelete']);
+// TravelagencyDelete
+Route::get('/TravelagencyDelete/{id}',[AdminController::class,'TravelagencyDelete']);
+
 Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys']);
 Route::post('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys_store']);
 // job_order

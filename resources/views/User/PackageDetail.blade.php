@@ -35,6 +35,7 @@
 }
 
 </style>
+<section>
 <img src="images/businessevn.jpg"  style="width: 100%;
     height: 416px;"alt="slider">
 <div class="packagedetailcontainer">
@@ -188,16 +189,27 @@
 </div>
 </div> 
 <!-- payment_content end -->
+</div>
 
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+</section>
 @if(Session::has('data'))
-<span style="color:{{Session::get('data.color')}}" class="text-center">{{Session::get('data.msg')}}</span>
 <style>
-  #payment_content{
-    display:none;
-  }
- 
+    section{
+        opacity: .2;
+    }
+    nav{
+        opacity: .2;
+    }
 </style>
-<div class="container tex-center mx-auto">
+<div class="wrapper" style="opacity: 1;">
+<h1 class="button text-center" style="text-align: center;margin-left: 94px;top: 31%;left: 35%;color:{{Session::get('data.color')}}">{{Session::get('data.msg')}}</h1> <br>
+    <!-- <button class="button btn btn-warning">payment button</button> -->
+    <div class="container tex-center mx-auto button">
     <form action="/PackageDetail_pay" method="POST" class="text-center mx-auto mt-5">
       
       <script
@@ -210,23 +222,13 @@
           data-name="FESTIVA EVENTS"
           data-description="Test transaction"
          
-          data-theme.color="#182fa3"></script>
+          data-theme.color="#182fa3"
+      ></script>
       <input type="hidden" custom="Hidden Element" name="hidden">
       </form>
 </div>
 </div>
+
+
 @endif
-
-
-
-
-
-
-</div>
-
-</div>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
 @endsection

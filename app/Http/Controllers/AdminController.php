@@ -122,6 +122,21 @@ else{
 
 }
 }
+//TravelagencyDelete
+public function TravelagencyDelete($id)
+{
+   $find=TravelKyc::findOrFail($id);
+    // {{$request->product_id}}
+   $delete=$find->delete();
+   if($delete)
+   {
+    return redirect('Travelagency_det')->with('msg',"The  Travel agency was deleted",'color',"green");
+   }
+else{
+    return back()->with('msg',"The Travel agency was not deleted Try Again",'color','red');
+
+}
+}
 //delete packages
 public function DeletePackage($id)
 {
@@ -289,7 +304,7 @@ public function TravelagencyDeactive($id,Request $req){
     $finddata=TravelKyc::findOrFail($id);
     $finddata->status=0;
     $finddata->save();
-    return redirect('Display_Foodproduct');
+    return redirect('Travelagency_det');
  }
 // DeactiveEvent
 public function DeactiveEvent($id,Request $req){

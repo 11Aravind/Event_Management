@@ -35,13 +35,21 @@ return back()->with('failmsg','New Category was not added try again');
     public function DisplayCategory()
     {
         // $busdetails=Category::all();
-        $busdetails=Category::where('cat_type','=','FoodProduct')->get();
+        $user_id=Session::get('user_id');
+        $busdetails=Category::where([
+            ['cat_type','=','FoodProduct'],
+            ['user_id',$user_id]
+        ])->get();
+        
         return view('Food.DisplayCategory',["busdetailss"=>$busdetails,"title"=>"DisplayCategory Page"]);
     }
     public function add_food_form()
     {
-                
-$getcategory=Category::where('cat_type','=','FoodProduct')->get();
+        $user_id=Session::get('user_id');          
+$getcategory=Category::where([
+    ['cat_type','=','FoodProduct'],
+    ['user_id',$user_id]
+])->get();
 return view('Food/Add_Food',["title"=>"Add_Product page","getcategorys"=>$getcategory]);
     }
     public function store_food(Request $request)
@@ -67,9 +75,13 @@ return redirect('/Display_Foodproduct')->with('success','Product is successfuly 
     }
     public function Display_Foodproduct()
     {
-
+        $user_id=Session::get('user_id');
         $busdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
-        ->where('categorys.cat_type','=','FoodProduct')->get();;
+        ->where([
+            ['categorys.cat_type','=','FoodProduct'],
+            ['categorys.user_id',$user_id]
+        ])->get();
+        
         return view('Food/Display_Event',["title"=>"Display_Product","busdetailss"=>$busdetails]);
     }
     // DeleteFood
@@ -193,7 +205,7 @@ else{
         $save=$user->save();
         if($save)
         {
-            return redirect('/success');
+            return redirect('/OrderDetails');
         }
         else
         {

@@ -207,7 +207,16 @@ $FoodservingInfo->customer_id=Session::get('user_id');
         $FoodservingInfo->noofemploy=request('noofemploy');
         $FoodservingInfo->Totalprice=request('Totalprice');
         $FoodservingInfo->payment_id = $orderId;
-        $FoodservingInfo->save();
+        $save=$FoodservingInfo->save();
+        if($save)
+        {
+            $msg="User Event Details Successfuly Added";
+            $color="green";
+        }
+        else{
+            $msg="User Event Details NOt Added Please Try Again";
+            $color="green";
+        }
         $foodserving_id=$FoodservingInfo->id;
         $FoodservingInfo=FoodservingInfo::where('id','=',$foodserving_id)->get();
 $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
@@ -220,11 +229,14 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
             'order_id' => $orderId,
             'amount' => $amount,
             'FoodservingInfo'=>$FoodservingInfo,
-            'foodProductdet'=>$foodProductdet
+            'foodProductdet'=>$foodProductdet,
+            'msg'=>$msg,
+        'color'=>$color
         );
 
 
-        return redirect('/foodproductSummary')->with('data', $data,'foodserving_id',$foodserving_id);
+        // return redirect('/foodproductSummary')->with('data', $data,'foodserving_id',$foodserving_id);
+        return back()->with('data', $data,'foodserving_id',$foodserving_id);
         // return redirect('/BuyNow',['foodserving_id'=>$foodserving_id]); 
 // $UserEventDetails=new UserEventDetails();
 

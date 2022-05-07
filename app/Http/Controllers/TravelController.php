@@ -22,7 +22,7 @@ class TravelController extends Controller
     {
         return view('Travel/TravelKyc',["title"=>"TravelKyc"]);
     }
-    public function storekycdetails()
+    public function storekycdetails(Request $request)
     {
       $TravelKyc= new TravelKyc();
       $TravelKyc->ownername=request('owner_name');
@@ -35,32 +35,41 @@ class TravelController extends Controller
       // $TravelKyc->alternate_no=request('Aphone');
 
       
-          $files=request('Aphone');
-          $extensions=$files->getClientOriginalExtension();
-          $filenames=time().'.'.$extensions;
-          $files->move('uploaded_images/',$filenames);
-          $TravelKyc->alternate_no=$filenames;
-      
+          // $files=request('Aphone');
+          // $extensions=$files->getClientOriginalExtension();
+          // $filenames=time().'.'.$extensions;
+          // $files->move('uploaded_images/',$filenames);
+          // $TravelKyc->alternate_no=$filenames;
+  
+          $new_Aphone=$request->file('Aphone')->getClientOriginalName();
+          $request->Aphone->move(public_path('uploaded_images/'),$new_Aphone);
+          $TravelKyc->alternate_no=$new_Aphone;
 
 
-
-      
       $TravelKyc->licence_expiredate=request('expdate');
       // $TravelKyc->owner_photo=request('ownerphoto');
 // $owner_photo=request('ownerphoto');
 // if($owner_photo)
 // {
-  $file=request('ownerphoto');
-  $extension=$file->getClientOriginalExtension();
-  $filename=time().'.'.$extension;
-  $file->move('uploaded_images/',$filename);
-  $TravelKyc->owner_photo=$filename;
+  // $file=request('ownerphoto');
+  // $extension=$file->getClientOriginalExtension();
+  // $filename=time().'.'.$extension;
+  // $file->move('uploaded_images/',$filename);
+  // $TravelKyc->owner_photo=$filename;
+
+  $new_ownerphoto=$request->file('ownerphoto')->getClientOriginalName();
+          $request->ownerphoto->move(public_path('uploaded_images/'),$new_ownerphoto);
+          $TravelKyc->owner_photo=$new_ownerphoto;
+
        // $TravelKyc->licencepic=request('licencepic');
-      $licencefile=request('licencepic');
-      $ext=$licencefile->getClientOriginalExtension();
-      $fname=time().'.'.$ext;
-      $licencefile->move('uploaded_images/',$licencefile);
-      $TravelKyc->licencepic=$fname;
+      // $licencefile=request('licencepic');
+      // $ext=$licencefile->getClientOriginalExtension();
+      // $fname=time().'.'.$ext;
+      // $licencefile->move('uploaded_images/',$licencefile);
+      // $TravelKyc->licencepic=$fname;
+      $new_licencepic=$request->file('licencepic')->getClientOriginalName();
+      $request->licencepic->move(public_path('uploaded_images/'),$new_licencepic);
+      $TravelKyc->licencepic=$new_licencepic;
       
       $TravelKyc->pincode=request('pincode');
       $TravelKyc->locality=request('locality');
@@ -123,9 +132,13 @@ else{
     }
     public function Businfo()
     {
-      $busdetails=BusDetail::all();
-      // return "bus info";
-      // return $busdetails;
+      // -----
+      $user_id=Session::get('user_id');
+        $busdetails=DB::table('travelkyc')->join('bus_details','travelkyc.towner_id','=','bus_details.towner_id')
+        ->where('travelkyc.user_id',$user_id)->get();
+      // --------
+      // $busdetails=BusDetail::all();
+
       return view('Travel/Display_busdetails',["busdetailss"=>$busdetails,"title"=>"bus datailes page"]);
     }
    public function busbooking_form($towner_id,$bus_id)
@@ -159,15 +172,26 @@ $BusBookingDetails->email=request('email');
     $BusBookingDetails->kolometers=request('kolometers');
     $BusBookingDetails->totelprice=$amount;
     $BusBookingDetails->payment_id = $orderId;
-    $BusBookingDetails->save();
+    $save=$BusBookingDetails->save();
 //     $BusBookingDetails=$FoodservingInfo->id;
 //     $FoodservingInfo=FoodservingInfo::where('id','=',$foodserving_id)->get();
 // $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
+if($save){
+  $msg='Data is successfuly added';
+  $color='green';
+}
+else{
+  $msg='Data is not added added';
+  $color='red';
+}  
     $data = array(
         'order_id' => $orderId,
         'amount' => $amount,
+        'msg'=>$msg,
+        'color'=>$color
     );
-    return redirect('/BusbookingSummary')->with('data', $data);
+    // return redirect('/BusbookingSummary')->with('data', $data);
+    return back()->with('data', $data);
 
    }
    public function BusbookingSummary()
