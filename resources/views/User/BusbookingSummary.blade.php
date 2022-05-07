@@ -15,7 +15,7 @@
 {{Session::get('data.foodProductdet')}}
 
 <div class="container tex-center mx-auto">
-    <form action="/pay" method="POST" class="text-center mx-auto mt-5">
+    <form action="/bookpay" method="POST" class="text-center mx-auto mt-5">
       
       <script
           src="https://checkout.razorpay.com/v1/checkout.js"

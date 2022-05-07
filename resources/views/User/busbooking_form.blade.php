@@ -105,7 +105,7 @@ function change_send(kolometers)
 <h1 class="button text-center" style="text-align: center;margin-left: 94px;top: 31%;left: 38%;color:{{Session::get('data.color')}}">{{Session::get('data.msg')}}</h1> <br>
     <!-- <button class="button btn btn-warning">payment button</button> -->
     <div class="container tex-center mx-auto button">
-    <form action="/pay" method="POST" class="text-center mx-auto mt-5">
+    <form action="/bookpay" method="POST" class="text-center mx-auto mt-5">
       
       <script
           src="https://checkout.razorpay.com/v1/checkout.js"
