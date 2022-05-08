@@ -13,7 +13,7 @@ class TourController extends Controller
 {
         public function TourView()
         {
-$tourdetails=Tour::all();
+$tourdetails=Tour::where('status','1')->get();
 // return $tourdetails;
             return view('User/TourView',["title"=>"TourView page","starting"=>"../","tourdetails"=>$tourdetails]);
         }

@@ -23,25 +23,38 @@ return view('Employ/Add_employ');
       $Employ->job_position=request('job_position');
     //   $Employ->employ_photo=request('employ_photo');
       
-      $file=request('employ_photo');
-    $extension=$file->getClientOriginalExtension();
-    $filename=time().'.'.$extension;
-    $file->move('uploaded_images/',$filename);
-    $Employ->employ_photo=$filename;
+    //   $file=request('employ_photo');
+    // $extension=$file->getClientOriginalExtension();
+    // $filename=time().'.'.$extension;
+    // $file->move('uploaded_images/',$filename);
+    // $Employ->employ_photo=$filename;
+
+    $new_employ_photo=$request->file('employ_photo')->getClientOriginalName();
+      $request->employ_photo->move(public_path('uploaded_images/'),$new_employ_photo);
+      $Employ->employ_photo=$new_employ_photo;
     
 
-      $Employ->id_proof=request('id_proof');
+    //   $Employ->id_proof=request('id_proof');
 
-      $file=request('id_proof');
-      $extension=$file->getClientOriginalExtension();
-      $filename=time().'.'.$extension;
-      $file->move('uploaded_images/',$filename);
-      $Employ->id_proof=$filename;
+    //   $file=request('id_proof');
+    //   $extension=$file->getClientOriginalExtension();
+    //   $filename=time().'.'.$extension;
+    //   $file->move('uploaded_images/',$filename);
+    //   $Employ->id_proof=$filename;
+
+      $new_id_proof=$request->file('id_proof')->getClientOriginalName();
+      $request->id_proof->move(public_path('uploaded_images/'),$new_id_proof);
+      $Employ->id_proof=$new_id_proof;
 
 
       $Employ->qualification=request('qualification');
+
       $Employ->experience=request('experience');
-      $Employ->cirtificate=request('cirtificate');
+    //   $Employ->cirtificate=request('cirtificate');
+    $new_cirtificate=$request->file('cirtificate')->getClientOriginalName();
+    $request->cirtificate->move(public_path('uploaded_images/'),$new_cirtificate);
+    $Employ->cirtificate=$new_cirtificate;
+
       $Employ->status=0;
 $save=$Employ->save();
 if($save)
@@ -156,13 +169,14 @@ return view('Admin.IssueOrder',['title'=>"issue order",'employ_id'=>$employ_id])
 return view('Employ.Job_order',['order'=>$order]);
         }
         else{
-            $order=[];
+            // $c = 
+            $order=collect(new Employ);;
             return view('Employ.Job_order',['order'=>$order]);
         }
 
     }
     else{
-        $order=[];
+        $order=collect(new Employ);;
         return view('Employ.Job_order',['order'=>$order]);
     }
    }

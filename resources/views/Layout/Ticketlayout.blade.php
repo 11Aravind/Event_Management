@@ -7,25 +7,40 @@
 <link rel="stylesheet" href="../../css/ticket.css">
 
 </head>
+<style>
+	#download{
+		padding: 9px;
+    width: 39%;
+    margin-left: 34px;
+    margin-left: 28%;
+    color: white;
+    background: #ff460e;
+    border: none;
+    margin-top: 25px;
+    /* margin: 25px; */
+    margin-bottom: 22px;
+	}
+</style>
 <body>
 <!-- partial:index.partial.html -->
 <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-
+			<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" > -->
 <!-- partial -->
-@php $x=2;
-                    @endphp
+@php $x=2;@endphp
+<button class="btn btn-primary"  id="download">Download</button>
   @for($i=0;$i<$noofseat;$i++)
   
 <div class="ticket" style="margin: 9px 359px;">
 	<div class="left">
-		<div class="image" style="background-image: url('../../uploaded_images/{{$Event->event_banner}}')">
+		<div class="image" style="background-repeat: no-repeat;
+    background-size: cover;background-image: url('../../uploaded_images/{{$Event->event_banner}}')">
        
-			<p class="admit-one">
+			<!-- <p class="admit-one">
 				<span>ADMIT ONE</span>
 				<span>ADMIT ONE</span>
 				<span>ADMIT ONE</span>
-			</p>
+			</p> -->
 			<div class="ticket-number">
 				<p>
                     
@@ -54,11 +69,11 @@
 		</div>
 	</div>
 	<div class="right">
-		<p class="admit-one">
+		<!-- <p class="admit-one">
 			<span>ADMIT ONE</span>
 			<span>ADMIT ONE</span>
 			<span>ADMIT ONE</span>
-		</p>
+		</p> -->
 		<div class="right-info-container">
 			<div class="show-name">
 				<h1>{{$Event->event_name}}</h1>
@@ -81,6 +96,14 @@
 	</div>
 </div>
   @endfor
-
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+<script>
+	$("#download").click(function(){
+		$("#download").hide();
+		window.print();
+	});
+</script>
 </body>
 </html>

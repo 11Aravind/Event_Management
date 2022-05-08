@@ -1,6 +1,6 @@
 @extends('Layout.User_Homepage')
 @section('content')
-
+<section>
 <img alt="slider" src="../uploaded_images\{{$tourdetails->banner}}"  style="width: 100%;height: 416px;margin-top: 97px;" >
 
    <!-- top start -->
@@ -234,21 +234,21 @@ function change_send(noofseat)
 
 }
 </script>
-
+</section>
+<!-- new  -->
 @if(Session::has('data'))
-<span style="color:{{Session::get('data.color')}}" class="text-center">{{Session::get('data.msg')}}</span>
 <style>
-  #cont{
-    display:none;
-  }
-  #Daymenu{
-    display:none;
-  }
-  #UserInformationformDiv{
-    display:none;    
-  }
+    section{
+        opacity: .2;
+    }
+    nav{
+        opacity: .2;
+    }
 </style>
-<div class="container tex-center mx-auto">
+<div class="wrapper" style="opacity: 1;">
+<h1 class="button text-center" style="text-align: center;margin-left: 94px;top: 31%;left: 35%;color:{{Session::get('data.color')}}">{{Session::get('data.msg')}}</h1> <br>
+    <!-- <button class="button btn btn-warning">payment button</button> -->
+    <div class="container tex-center mx-auto button">
     <form action="/TourpackageDetails_pay" method="POST" class="text-center mx-auto mt-5">
       
       <script
@@ -258,13 +258,16 @@ function change_send(noofseat)
           data-currency="INR"
     data-order_id="{{Session::get('data.order_id')}}"
           data-buttontext="Pay with Razorpay"
-          data-name="My Shop"
+          data-name="FESTIVA EVENTS"
           data-description="Test transaction"
          
-          data-theme.color="#182fa3"></script>
+          data-theme.color="#182fa3"
+      ></script>
       <input type="hidden" custom="Hidden Element" name="hidden">
       </form>
 </div>
 </div>
+
+
 @endif
 @endsection

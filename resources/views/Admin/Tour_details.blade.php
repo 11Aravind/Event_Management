@@ -62,14 +62,15 @@
                                                             <a href="DeleteTour/{{$tourdet->tour_id}}" style="color:white"class="btn btn-danger">Delete</a>
                                                             </td>
                                                             <!-- condition vekkanam  -->
+                                                            @if($tourdet->status==1)
                                                             <td>
                                                             <a href="Deactivetour/{{$tourdet->tour_id }}" class="btn btn-danger"> Dective</a>
                                                             </td>
-                                                            
+                                                            @else
                                                             <td>
                                                             <a href="Activetour/{{$tourdet->tour_id }}" class="btn btn-success">Active</a>
                                                             </td>
-                                                            
+                                                           @endif 
                                                             
                                                         </tr>
                                                      @endforeach

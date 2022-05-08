@@ -84,7 +84,14 @@ $amount=request('totalamount');
     $UserEventDetails->noofseat =request('noofseat');
     $UserEventDetails->totalamount=request('totalamount');
     $UserEventDetails->payment_id = $orderId;
-    $UserEventDetails->save();
+    $save=$UserEventDetails->save();
+    if($save)
+    {
+// $msg="Your Data is successfuly stored";
+    }
+    else{
+
+    }
     $data = array(
         'order_id' => $orderId,
         'amount' => $amount,
@@ -101,7 +108,7 @@ public function payEvent(Request $request)
     $user->rezorpay_id = $data['razorpay_payment_id'];
     $save=$user->save();
     if($save)
-        return redirect('/success');
+        return redirect('/OrderDetails');
     else
         return view('/error');
 }
@@ -210,11 +217,11 @@ $FoodservingInfo->customer_id=Session::get('user_id');
         $save=$FoodservingInfo->save();
         if($save)
         {
-            $msg="User Event Details Successfuly Added";
+            $msg="User Food Details Successfuly Added";
             $color="green";
         }
         else{
-            $msg="User Event Details NOt Added Please Try Again";
+            $msg="User Food Details Not Added Please Try Again";
             $color="green";
         }
         $foodserving_id=$FoodservingInfo->id;
@@ -263,12 +270,14 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         $fileComplaint->user_id=Session::get('user_id');
         $fileComplaint->subject=request('subject');
 
-        $file=$request->proof;
-        $extension=$file->getClientOriginalExtension();
-        $filename=time().'.'.$extension;
-        $file->move('uploaded_images/',$filename);
-        $fileComplaint->proof=$filename;
-
+        // $file=$request->proof;
+        // $extension=$file->getClientOriginalExtension();
+        // $filename=time().'.'.$extension;
+        // $file->move('uploaded_images/',$filename);
+        // $fileComplaint->proof=$filename;
+        $new_proof=$request->file('proof')->getClientOriginalName();
+        $request->proof->move(public_path('uploaded_images/'),$new_proof);
+        $fileComplaint->proof=$new_proof;
 
 
 
@@ -371,7 +380,7 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
        $Event=Event::findOrFail($event_id); 
        
        
-        return view('Layout/Ticketlayout',['Event'=>$Event,'noofseat'=>$noofseat]);
+        return view('Layout/Ticketlayout',['Event'=>$Event,'noofseat'=>$noofseat,'starting'=>'../../']);
     }
 }
 

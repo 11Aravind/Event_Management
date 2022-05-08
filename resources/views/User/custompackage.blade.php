@@ -75,15 +75,19 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 <!-- product table end -->
 <hr>
 <h6>Add Package Details</h6>
-<hr>
-                                                        <div class="col-md-6">
+<hr><div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Name</label>
+                                                            <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="">
+                                                         </div>
+                                                        <!-- <div class="col-md-6"> -->
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Package Use</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail1" name="packageuse" placeholder="">
                                                          </div>
                                                          <div class="form-group">
-                                                            <label for="exampleFormControlTextarea1">Description</label>
-                                                            <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" placeholder="" rows="3"></textarea>
+                                                            <label for="exampleFormControlTextarea1">Adddress</label>
+                                                            <textarea class="form-control" name="address" id="exampleFormControlTextarea1" placeholder="" rows="3"></textarea>
                                                         </div>
                                                          <!-- <div class="form-group">
                                                             <label for="exampleInputEmail1">PAckage Image</label>
@@ -99,16 +103,23 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
                                                              </select>
                                                         </div> -->
 </div>
-<div class="col-md-6" style="float: right;margin-top: -163px;padding-left:24px">
+<div class="col-md-6" style="float: right;    margin-top: -222px;padding-left:24px">
                                                         <!-- <div class="form-group">
                                                             <label for="exampleInputEmail1">Rent Amount</label>
                                                             <input type="text" class="form-control" name="rentamount"id="exampleInputEmail1"  placeholder="">
                                                          </div> -->
                                                          <div class="form-group">
+                                                            <label for="exampleInputEmail1">Contact No</label>
+                                                            <input type="text" class="form-control" name="contactno" id="exampleInputEmail1"  placeholder="">
+                                                         </div>
+                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Totel Amount</label>
                                                             <input type="text" class="form-control" name="totalamount" id="exampleInputEmail1"  placeholder="">
                                                          </div>
-                                                       
+                                                         <div class="form-group">
+                                                            <label for="exampleFormControlTextarea1">Description</label>
+                                                            <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" placeholder="" rows="3"></textarea>
+                                                        </div>
                                                        
                                                         
                                                             </div>
@@ -116,7 +127,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
                                                             <label for="exampleInputEmail1">subbanners</label>
                                                             <input type="file" class="form-control" name="subbanners[]" multiple id="exampleInputEmail1"  placeholder="">
                                                          </div>       -->
-<button type="submit"style="float:right"class="btn btn-primary">Add Custom Package</button>
+<button type="submit"style="float:right;    margin-top: 7px;"class="btn btn-primary">Add Custom Package</button>
 
                                                     </form>
                                                 </div>

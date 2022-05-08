@@ -263,4 +263,8 @@ $store_product->status=0;
 $save=$store_product->save();
 return redirect('Display_Foodproduct');
 }
+public function foodcategory()
+{
+    return view('Food/foodcategory',["title"=>"Food Dashbord"]);
+}
 }

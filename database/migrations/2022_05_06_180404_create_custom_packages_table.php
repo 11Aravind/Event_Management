@@ -17,6 +17,9 @@ class CreateCustomPackagesTable extends Migration
             $table->id('package_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('authentications')->onDelete('cascade');
+            $table->string('name');
+            $table->string('address');
+            $table->string('contactno');
             $table->string('package_use');
             // $table->string('rent_amount');
             // $table->string('package_image');

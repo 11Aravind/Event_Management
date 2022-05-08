@@ -2,6 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="css/style.css" />
 <!-- <script src="https://js.stripe.com/v3/"></script> -->
+<section>
 @if ($message = Session::get('success'))
     <div class="success">
         <strong>{{ $message }}</strong>
@@ -117,7 +118,7 @@ Totel Ticket Available:-{{$event_det->totel_ticket}} <br>
 </form>
 
 @endif
-@if(Session::has('data'))
+<!-- @if(Session::has('data'))
 <div class="container tex-center mx-auto">
     <form action="/payEvent" method="POST" class="text-center mx-auto mt-5">
       
@@ -136,8 +137,45 @@ Totel Ticket Available:-{{$event_det->totel_ticket}} <br>
       <input type="hidden" custom="Hidden Element" name="hidden">
       </form>
 </div>
-<!-- </div> -->
+
+@endif -->
+<!-- new start  -->
+</section>
+@if(Session::has('data'))
+<style>
+    section{
+        opacity: .2;
+    }
+    nav{
+        opacity: .2;
+    }
+</style>
+<div class="wrapper" style="opacity: 1;">
+<h1 class="button text-center" style="text-align: center;margin-left: 94px;top: 31%;left: 29%;color:{{Session::get('data.color')}}">{{Session::get('data.msg')}}</h1> <br>
+    <!-- <button class="button btn btn-warning">payment button</button> -->
+    <div class="container tex-center mx-auto button">
+    <form action="/payEvent" method="POST" class="text-center mx-auto mt-5">
+      
+      <script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          data-key="rzp_test_iKlM2rsXjuV7R1"
+    data-amount="{{Session::get('data.amount')}}" 
+          data-currency="INR"
+    data-order_id="{{Session::get('data.order_id')}}"
+          data-buttontext="Pay with Razorpay"
+          data-name="FESTIVA EVENTS"
+          data-description="Test transaction"
+         
+          data-theme.color="#182fa3"
+      ></script>
+      <input type="hidden" custom="Hidden Element" name="hidden">
+      </form>
+</div>
+</div>
+
+
 @endif
+<!-- new end  -->
 </div>
     </div>     
     </div>

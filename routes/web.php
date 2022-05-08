@@ -30,16 +30,14 @@ Route::get('/', function () {
 Route::get('/User', function () {
     return view('Homepagecontent',["starting"=>"../"]);
 });
-Route::get('/Admin', function () {
-    return view('Admin_homepage',["title"=>"Admin_dashbord"]);
-});
-Route::get('Empoly',[EmployController::class,'Empoly']);
+Route::get('/Admin',[AdminController::class,'Admin_dashbord'])->middleware('isAdmin');
+Route::get('Empoly',[EmployController::class,'Empoly'])->middleware('isEmploy');
 
 
 //Employ
-Route::get('Add_employ',[EmployController::class,'Add_employ']);
+Route::get('Add_employ',[EmployController::class,'Add_employ'])->middleware('isEmploy');
 Route::post('/Add_employ',[EmployController::class,'store_emly_Det']);
-Route::get('/Profile',[EmployController::class,'Profile']);
+Route::get('/Profile',[EmployController::class,'Profile'])->middleware('isEmploy');
 
 
 Route::get('/Displayemploydet',[EmployController::class,'Displayemploydet']);
@@ -56,16 +54,16 @@ Route::get('/EmployDelete/{id}',[EmployController::class,'EmployDelete']);
 // TravelagencyDelete
 Route::get('/TravelagencyDelete/{id}',[AdminController::class,'TravelagencyDelete']);
 
-Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys']);
+Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys'])->middleware('isAdmin');
 Route::post('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys_store']);
 // job_order
-Route::get('/job_order',[EmployController::class,'job_order']);
+Route::get('/job_order',[EmployController::class,'job_order'])->middleware('isEmploy');
 
 Route::get('/IssueOrder/{employ_id}',[EmployController::class,'IssueOrder']);
 
 // EmmployDeactive
-Route::get('/Employdetails',[AdminController::class,'Displayemploydet']);
-Route::get('/ViewAdminPackage',[AdminController::class,'ViewPackage']);
+Route::get('/Employdetails',[AdminController::class,'Displayemploydet'])->middleware('isAdmin');
+Route::get('/ViewAdminPackage',[AdminController::class,'ViewPackage'])->middleware('isAdmin');
 
 // updatePackage
 Route::get('/ViewEvent',[AdminController::class,'ViewEvent']);
@@ -74,7 +72,7 @@ Route::get('/DeleteEvent/{id}',[AdminController::class,'DeleteEvent']);
 //DeleteTour
 Route::get('/DeleteTour/{id}',[AdminController::class,'DeleteTour']);
 // TravelController
-Route::get('Travel',[TravelController::class,'Travel']);
+Route::get('Travel',[TravelController::class,'Travel'])->middleware('isTravel');
 
 // Route::get('Travel', function () {
 //     return view('Travel/KycForm',["title"=>"Travel Agency_dashbord"]);
@@ -86,17 +84,15 @@ Route::get('Travel',[TravelController::class,'Travel']);
 
 //     return view('Food/Fooddashbord',["title"=>"Food Dashbord"]);
 // });
-Route::get('Food',[FoodController::class,'Fooddashbord']);
+Route::get('Food',[FoodController::class,'Fooddashbord'])->middleware('isLoggedIn');
 Route::get('UpdateFood/{id}',[FoodController::class,'UpdateFood']);
 Route::post('UpdateFood/{id}',[FoodController::class,'UpdateFood_store']);
-Route::get('/foodcategory', function () {
-    return view('Food/foodcategory',["title"=>"Food Dashbord"]);
-});
+Route::get('/foodcategory',[FoodController::class,'foodcategory'] )->middleware('isFood');
 Route::post('/foodcategory',[FoodController::class,'store']);
 Route::get('/Ticketlayout/{event_id}/{noofseat}',[UserController::class,'Ticketlayout']);
 
 // Ticketlayout
-Route::get('/foodorderdetails',[FoodController::class,'foodorderdetails']);
+Route::get('/foodorderdetails',[FoodController::class,'foodorderdetails'])->middleware('isFood');
 // DeleteFood
 Route::get('/DeleteFood/{cat_type}/{id}',[FoodController::class,'DeleteFood']);
 // Route::get('/FoodOrder_details',[FoodController::class,'FoodOrder_details']);
@@ -122,10 +118,10 @@ Route::get('/success',[FoodController::class,'success']);
 Route::get('/error' ,[FoodController::class,'error']);
 // payment end
 
-Route::get('/foodDetails',[FoodController::class,'DisplayCategory']);
-Route::get('/Add_Food',[FoodController::class,'add_food_form']);
+Route::get('/foodDetails',[FoodController::class,'DisplayCategory'])->middleware('isFood');
+Route::get('/Add_Food',[FoodController::class,'add_food_form'])->middleware('isFood');
 Route::post('/Add_Food',[FoodController::class,'store_food']);
-Route::get('/Display_Foodproduct',[FoodController::class,'Display_Foodproduct']);
+Route::get('/Display_Foodproduct',[FoodController::class,'Display_Foodproduct'])->middleware('isFood');
 // 
 Route::get('/Add_Food_package',[FoodController::class,'Add_Food_package']);
 //Authentication
@@ -140,17 +136,17 @@ Route::post('/Login',[AuthenticationController::class,'check']);
 Route::get('/Logout',[AuthenticationController::class,'logout']);
 
 //category
-Route::get('Add_category',[AdminController::class,'index']);
+Route::get('Add_category',[AdminController::class,'index'])->middleware('isAdmin');
 Route::post('Add_category',[AdminController::class,'store']);
-Route::get('DisplayCategory',[AdminController::class,'DisplayCategory']);
+Route::get('DisplayCategory',[AdminController::class,'DisplayCategory'])->middleware('isAdmin');
 
 //product
-Route::get('Add_Product',[AdminController::class,'getcategorydet']);
+Route::get('Add_Product',[AdminController::class,'getcategorydet'])->middleware('isAdmin');
 Route::post('Add_Product',[AdminController::class,'store_product']);
-Route::get('Display_Product',[AdminController::class,'display_product']);
+Route::get('Display_Product',[AdminController::class,'display_product'])->middleware('isAdmin');
 
 //package
-Route::get('Add_Package',[PackageController::class,'showpackageproduct',"title"=>"Add_Package page"]);
+Route::get('Add_Package',[PackageController::class,'showpackageproduct',"title"=>"Add_Package page"])->middleware('isAdmin');
 Route::post('Add_Package',[PackageController::class,'addpackageproduct',"title"=>"Add_Package page"]);
 
 Route::get('/updatePackage/{id}',[PackageController::class,'updatePackage']);
@@ -158,14 +154,14 @@ Route::post('/updatePackage/{package_id}',[PackageController::class,'updatePacka
 
 
 Route::get('ViewPackage',[PackageController::class,'ViewPackage',"title"=>"ViewPackage page"]);
-Route::get('PackageDetail/{id}',[PackageController::class,'PackageDetail',"title"=>"PackageDetail page"]);
+Route::get('PackageDetail/{id}',[PackageController::class,'PackageDetail',"title"=>"PackageDetail page"])->middleware('isUser');
 // PackageDetail
 Route::post('PackageDetail',[PackageController::class,'PackageDetail_store',"title"=>"PackageDetail page"]);
 //PackageLayout.blade.php //primium
 Route::get('/Premium',[PackageController::class,'Premium',"title"=>"Add_Package page"]);
 Route::get('/Medium',[PackageController::class,'Medium',"title"=>"Medium Package"]);
 Route::get('/Regular',[PackageController::class,'Regular',"title"=>"Regular Package"]);
-Route::get('/custompackage',[PackageController::class,'custompackage',"title"=>"custompackage Package"]);
+Route::get('/custompackage',[PackageController::class,'custompackage',"title"=>"custompackage Package"])->middleware('isUser');
 Route::post('/custompackage',[PackageController::class,'custompackage_store',"title"=>"custompackage Package"]);
 
 Route::get('EventChart', function () {
@@ -173,12 +169,12 @@ Route::get('EventChart', function () {
 });
 
 //OrderDetails
-Route::get('/OrderDetails', [UserController::class,'OrderDetails']);
+Route::get('/OrderDetails', [UserController::class,'OrderDetails'])->middleware('isUser');
 
 // Route::get('/{event}',[UserController::class,'eventdynamic']);
 
 Route::get('/Events', [UserController::class,'EventList']);
-Route::get('Eventdetails/{id}', [UserController::class,'Eventdetails']);
+Route::get('Eventdetails/{id}', [UserController::class,'Eventdetails'])->middleware('isUser');
 Route::post('Eventdetails/{id}', [UserController::class,'Eventdetails_store']);
 
 Route::get('/addeventbookdet', [UserController::class,'addeventbookdet']);
@@ -186,12 +182,10 @@ Route::get('/addeventbookdet', [UserController::class,'addeventbookdet']);
 
 
 
-Route::get('Add_event_category', function () {
-    return view('Admin/Add_event_category',["title"=>"TicketBooking page"]);
-});
+Route::get('Add_event_category', [AdminController::class,'Add_event_category'])->middleware('isAdmin');
 Route::post('Add_event_category', [AdminController::class,'store_event']);
-Route::get('DisplayEventCategory', [AdminController::class,'DisplayEventCategory']);
-Route::get('/Add_Event', [AdminController::class,'Add_EventForm']);
+Route::get('DisplayEventCategory', [AdminController::class,'DisplayEventCategory'])->middleware('isAdmin');
+Route::get('/Add_Event', [AdminController::class,'Add_EventForm'])->middleware('isAdmin');
 Route::post('/Add_Event', [AdminController::class,'Add_Event']);
 Route::get('/Event_details', [AdminController::class,'Event_details']);
 
@@ -240,22 +234,22 @@ Route::get('Deactivatepackage/{id}',[AdminController::class,'Deactivatepackage']
 
 //Travel
 // Travelagency_det
-Route::get('Travelagency_det',[AdminController::class,'Travelagency_det']);
+Route::get('Travelagency_det',[AdminController::class,'Travelagency_det'])->middleware('isAdmin');
 
-Route::get('TravelKyc',[TravelController::class,'viewkycform']); 
+Route::get('TravelKyc',[TravelController::class,'viewkycform'])->middleware('isTravel'); 
 Route::post('/TravelKyc',[TravelController::class,'storekycdetails']); 
-Route::get('BusDetails',[TravelController::class,'BusDetailsform']); 
+Route::get('BusDetails',[TravelController::class,'BusDetailsform'])->middleware('isTravel'); 
 Route::post('/BusDetails',[TravelController::class,'storeBusDetails']); 
-Route::get('/Businfo',[TravelController::class,'Businfo']); 
+Route::get('/Businfo',[TravelController::class,'Businfo'])->middleware('isTravel');
 // UpdateBus
 // BusBooking_details
-Route::get('/BusBooking_details',[TravelController::class,'BusBooking_details']); 
+Route::get('/BusBooking_details',[TravelController::class,'BusBooking_details'])->middleware('isTravel');; 
 
 Route::get('/UpdateBus/{id}',[TravelController::class,'UpdateBus']); 
 Route::post('/UpdateBus_store/{id}',[TravelController::class,'UpdateBus_store']); 
 
 
-Route::get('/busbooking_form/{towner_id}/{bus_id}',[TravelController::class,'busbooking_form']); 
+Route::get('/busbooking_form/{towner_id}/{bus_id}',[TravelController::class,'busbooking_form'])->middleware('isUser');
 Route::post('/busbooking_forms',[TravelController::class,'busbookingdet_store']); 
 Route::get('/BusbookingSummary',[TravelController::class,'BusbookingSummary']); 
 
@@ -272,17 +266,17 @@ Route::post('/AddAddress',[UserController::class,'store']);
 Route::get('/Fooddisplay',[UserController::class,'Fooddisplay']);
 
 
-Route::get('Tour_details',[PackageController::class,'Tour_details']);
-Route::get('/Add_tourpackage',[PackageController::class,'Add_tourpackage']);
+Route::get('Tour_details',[PackageController::class,'Tour_details'])->middleware('isAdmin');
+Route::get('/Add_tourpackage',[PackageController::class,'Add_tourpackage'])->middleware('isAdmin');
 Route::post('/Add_tourpackage',[PackageController::class,'store_tourpackage']);
-Route::get('/Add_dayPlan',[PackageController::class,'Add_dayPlan']);
+Route::get('/Add_dayPlan',[PackageController::class,'Add_dayPlan'])->middleware('isAdmin');
 
 Route::post('/Add_daysplane',[PackageController::class,'store_dayplanes']);
-Route::get('/TourpackageDetails/{id}',[TourController::class,'TourpackageDetails']);
+Route::get('/TourpackageDetails/{id}',[TourController::class,'TourpackageDetails'])->middleware('isUser');
 Route::post('/TourpackageDetails',[TourController::class,'TourpackageDetails_store']);
 
 
-Route::get('/Cateringkyc',[FoodController::class,'Cateringkyc']);
+Route::get('/Cateringkyc',[FoodController::class,'Cateringkyc'])->middleware('isFood');
 Route::post('/Cateringkyc',[FoodController::class,'Cateringkycdet_store']);
 Route::get('/Cateringkyc_activate/{id}',[FoodController::class,'Cateringkyc_activate']);
 Route::get('/Cateringkyc_deactivate/{id}',[FoodController::class,'Cateringkyc_deactivate']);
@@ -292,7 +286,7 @@ Route::get('/Cateringkyc_delete/{id}',[FoodController::class,'Cateringkyc_delete
 
 
 
-Route::get('/Catering_details',[FoodController::class,'Catering_details']);
+Route::get('/Catering_details',[FoodController::class,'Catering_details'])->middleware('isAdmin');
 
 
 Route::get('/ViewTravelPage',[UserController::class,'ViewTravelPage']);
@@ -307,14 +301,14 @@ Route::get('/FoodProductDetails/{FoodCategoryDetails}/{id}/{user_id}',[UserContr
 
 Route::get('/SingleProductdetails/{id}',[UserController::class,'SingleProductdetails']);
 
-Route::get('/AddUserFooddet/{id}/{Catering_user_id}',[UserController::class,'AddUserFooddet']);
+Route::get('/AddUserFooddet/{id}/{Catering_user_id}',[UserController::class,'AddUserFooddet'])->middleware('isUser');
 Route::post('/AddUserFooddet',[UserController::class,'AddUserFooddet_store']);
 //
 
 // RegisterComplaints
-Route::get('/RegisterComplaints',[UserController::class,'RegisterComplaints']);
+Route::get('/RegisterComplaints',[UserController::class,'RegisterComplaints'])->middleware('isUser');
 Route::post('/RegisterComplaints',[UserController::class,'store_RegisterComplaints']);
-Route::get('/viewComplaint',[AdminController::class,'viewComplaint']);
+Route::get('/viewComplaint',[AdminController::class,'viewComplaint'])->middleware('isAdmin');
 
 
 // Route::post('/AddUserFooddet',[UserController::class,'AddUserFooddet_store']);

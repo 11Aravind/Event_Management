@@ -54,7 +54,7 @@
   @if($eventorderdetails->payment_done==1)  
   <span style="background:green;color:white">Payment successfuly done</span> <br>
  
-  <a href="/Ticketlayout/{{$eventorderdetails->event_id}}/{{$eventorderdetails->noofseat}}" class="btn btn-warning">View Ticket</a>
+  <a href="/Ticketlayout/{{$eventorderdetails->event_id}}/{{$eventorderdetails->noofseat}}" style="margin: 16px;margin-left: 38px;" class="btn btn-warning">View Ticket</a>
   @else
   <span>Payment successfuly not done</span>
   @endif

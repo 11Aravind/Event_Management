@@ -16,8 +16,16 @@ use Session;
 class AdminController extends Controller
 {
     //
+    public function Admin_dashbord()
+    {
+        return view('Admin_homepage',["title"=>"Admin_dashbord"]);
+    }
     public function index(){
         return view('Admin/Add_category',["title"=>"Add_category page"]);
+    }
+    public function Add_event_category()
+    {
+        return view('Admin/Add_event_category',["title"=>"TicketBooking page"]);
     }
     public function store(Request $request)
     {
@@ -67,7 +75,7 @@ return redirect('Display_Product');
     }
     public function display_product()
     {
-        
+      
         // $busdetails=AddProduct::all();
         $busdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
         ->where('categorys.cat_type','=','Product')->get();
