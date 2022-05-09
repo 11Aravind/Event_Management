@@ -183,7 +183,9 @@ $busdetailsproductdetails=DB::table('categorys')->join('addproducts','categorys.
     }
     public function custompackage()
     {
-        $busdetailsproductdetails=AddProduct::all();
+        // $busdetailsproductdetails=AddProduct::all();
+        $busdetailsproductdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+        ->where('categorys.cat_type','=','Product')->get();
         return view('User/custompackage',["title"=>"custom Package Page","starting"=>"../",'busdetailsproductdetails'=>$busdetailsproductdetails]);  
     }
     public function PackageDetail($id)

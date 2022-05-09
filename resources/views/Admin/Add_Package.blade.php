@@ -29,11 +29,11 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-    
+      <th scope="col">Category</th>
       <th scope="col">Product</th>
       <th scope="col">Price</th>
       <th scope="col">Amount</th>
-      <!-- <th scope="col"></th> -->
+      <th scope="col"></th>
     </tr>
   </thead>
   <!-- E:\xampp\htdocs\Perfect_Stom_Moments\resources\views\Admin\Add_Package.blade.php -->
@@ -44,7 +44,7 @@
     @foreach($busdetailsproductdetails as $busdetailsproductdetail)
     <tr>
       <th scope="row">@php echo $i @endphp</th>
-
+      <td>{{$busdetailsproductdetail->category_name}}</td>
       <td>{{$busdetailsproductdetail->product_name}}</td>
       <td id="prices">{{$busdetailsproductdetail->product_price}}</td>
       <td>{{$busdetailsproductdetail->product_quentity}}</td>

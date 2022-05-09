@@ -57,7 +57,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
     @foreach($busdetailsproductdetails as $busdetailsproductdetail)
     <tr>
       <th scope="row">@php echo $i @endphp</th>
-      <td>{{$busdetailsproductdetail->categorydet->category_name}}</td>
+      <td>{{$busdetailsproductdetail->category_name}}</td>
       <td>{{$busdetailsproductdetail->product_name}}</td>
       <td id="prices">{{$busdetailsproductdetail->product_price}}</td>
       <td>{{$busdetailsproductdetail->product_quentity}}</td>
@@ -113,7 +113,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
                                                             <input type="text" class="form-control" name="contactno" id="exampleInputEmail1"  placeholder="">
                                                          </div>
                                                          <div class="form-group">
-                                                            <label for="exampleInputEmail1">Totel Amount</label>
+                                                            <label for="exampleInputEmail1">Totel Amount(for Product)</label>
                                                             <input type="text" class="form-control"  name="totalamount" id="totelAmount"  readonly>
                                                          </div>
                                                          <div class="form-group">
