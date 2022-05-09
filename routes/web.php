@@ -39,6 +39,8 @@ Route::get('Add_employ',[EmployController::class,'Add_employ'])->middleware('isE
 Route::post('/Add_employ',[EmployController::class,'store_emly_Det']);
 Route::get('/Profile',[EmployController::class,'Profile'])->middleware('isEmploy');
 
+Route::get('/profileOne/{id}',[EmployController::class,'profileOne'])->middleware('isAdmin');
+
 
 Route::get('/Displayemploydet',[EmployController::class,'Displayemploydet']);
 // Employdetails
@@ -56,6 +58,9 @@ Route::get('/TravelagencyDelete/{id}',[AdminController::class,'TravelagencyDelet
 
 Route::get('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys'])->middleware('isAdmin');
 Route::post('/ApprovedEmploys',[EmployController::class,'ApprovedEmploys_store']);
+// orderDet
+Route::get('/orderDet/{id}',[EmployController::class,'orderDet'])->middleware('isAdmin');
+
 // job_order
 Route::get('/job_order',[EmployController::class,'job_order'])->middleware('isEmploy');
 

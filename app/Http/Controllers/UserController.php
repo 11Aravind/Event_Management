@@ -302,8 +302,10 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         {
           $tour_id= $TouruserInfo->tour_id;
         }
-        $tourorderdetails=DB::table('tours')->join('touruser_infos','tours.tour_id','=','touruser_infos.tour_id')
-        ->where('tours.tour_id','=',$tour_id)->get();
+        $tourorderdetails=DB::table('tours')->join('touruser_infos','tours.tour_id','=','touruser_infos.tour_id')->where([
+            ['tours.tour_id','=',$tour_id],
+            ['touruser_infos.payment_done','1']
+        ])->get();
         }
         else 
         // $tourorderdetails=[];
@@ -319,7 +321,11 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
           $event_id= $UserEventDetails->event_id;
         }
         $eventorderdetails=DB::table('events')->join('user__event_dets','events.event_id','=','user__event_dets.event_id')
-        ->where('events.event_id','=',$event_id)->get();
+        ->where([
+            ['events.event_id','=',$event_id],
+            ['user__event_dets.payment_done','1']
+        ])->get();
+        
     }
     else
     // $eventorderdetails=[];collect(new Post)
@@ -334,7 +340,10 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
           $bus_id= $BusBookingDetails->bus_id;
         }
         $BusBookingDetails=DB::table('bus_details')->join('bus_booking_details','bus_details.bus_id','=','bus_booking_details.bus_id')
-        ->where('bus_details.bus_id','=',$bus_id)->get();
+        ->where([
+            ['bus_details.bus_id','=',$bus_id],
+            ['bus_booking_details.payment_done','1']
+        ])->get();
     }
     else
     // $BusBookingDetails=[];collect(new Post)
@@ -349,7 +358,12 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
           $package_id= $PackageBookInfo->package_id;
         }
         $PackageBookInfo=DB::table('add_package')->join('package_book_infos','add_package.package_id','=','package_book_infos.package_id')
-        ->where('add_package.package_id','=',$package_id)->get();
+        ->where([
+            ['add_package.package_id','=',$package_id],
+            ['package_book_infos.payment_done','1']
+        ])->get();
+
+        
     }
     else
     // $PackageBookInfo=[];collect(new Post)
@@ -364,7 +378,12 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
           $product_id= $FoodservingInfo->product_id;
         }
         $FoodservingInfo=DB::table('addproducts')->join('foodserving_infos','addproducts.product_id','=','foodserving_infos.product_id')
-        ->where('addproducts.product_id','=',$product_id)->get();
+        ->where([
+            ['addproducts.product_id','=',$product_id],
+            ['foodserving_infos.payment_done','1']
+        ])->get();
+
+        
     }
     else
     // $FoodservingInfo=[];collect(new Post)

@@ -200,7 +200,7 @@
 			<span class="top-menu" style="margin-left: 88%;">
  <div class="dropdown">
   <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="Template_asset/images/userpic.png" alt="userpic" style="width: 32px;
+    <img src="{{asset('Template_asset/images/userpic.png')}}" alt="userpic" style="width: 32px;
     height: 22px;">
   </p>
   <div class="dropdown-menu" aria-labelledby="dLabel">
@@ -301,7 +301,7 @@
 						</a>
 						<div class="dropdown-menu dropdown-menu-right profile-notification">
 							<div class="pro-head">
-								<img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+								<img src="{{asset('assets/images/user/avatar-1.jpg')}}" class="img-radius" alt="User-Profile-Image">
 								<span>John Doe</span>
 								<!-- <a href="auth-signin.html" class="dud-logout" title="Logout">
 									<i class="feather icon-log-out"></i>

@@ -41,6 +41,7 @@
                                                             <th>contact_no</th>
                                                             <th>Delete</th>
                                                             <th> status</th>
+                                                            <th> Profile</th>
                                                         </tr>
                                                     </thead>
                                                    @foreach($employdets as $employdet)
@@ -71,6 +72,9 @@
                                                             </td>
                                                             
                                                             @endif
+                                                            <td>
+                                                            <a href="/profileOne/{{$employdet->employ_id}}" class="">Profile</a>
+                                                            </td>
                                                         </tr>
                                                      @endforeach
                                                                                                                  <!-- The Modal -->

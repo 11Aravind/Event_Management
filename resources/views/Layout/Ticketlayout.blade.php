@@ -14,7 +14,7 @@
     margin-left: 34px;
     margin-left: 28%;
     color: white;
-    background: #ff460e;
+    background: #0d6efd;
     border: none;
     margin-top: 25px;
     /* margin: 25px; */
@@ -28,7 +28,7 @@
 			<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" > -->
 <!-- partial -->
 @php $x=2;@endphp
-<button class="btn btn-primary"  id="download">Download</button>
+<button class="btn btn-primary"  id="download">Download Ticket</button>
   @for($i=0;$i<$noofseat;$i++)
   
 <div class="ticket" style="margin: 9px 359px;">

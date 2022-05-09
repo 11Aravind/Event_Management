@@ -13,7 +13,7 @@ class EmployController extends Controller
     {
 return view('Employ/Add_employ');
     }
-    public function store_emly_Det()
+    public function store_emly_Det(Request $request)
     {
       $Employ=new Employ();
       $Employ->user_id=Session::get('user_id');
@@ -121,6 +121,11 @@ return redirect('/Employdetails');
 
         
     }
+    public function orderDet($id)
+    {
+        $StoreOrder=StoreOrder::where('employ_id',$id)->get();
+return  view('Admin/Admin_joborderDet',['StoreOrder'=>$StoreOrder,'title'=>'order det']);
+    }
     public function EmployDelete($id)
     {
         $find=Employ::findOrFail($id);
@@ -179,5 +184,12 @@ return view('Employ.Job_order',['order'=>$order]);
         $order=collect(new Employ);;
         return view('Employ.Job_order',['order'=>$order]);
     }
+   }
+   public function profileOne($id)
+   {
+       $employdet=Employ::findOrFail($id);
+       
+    //    E:\xampp\htdocs\Perfect_Stom_Moments\resources\views\.blade.php
+       return view('Layout.Profile_layout',['employdet'=>$employdet]);
    }
 }

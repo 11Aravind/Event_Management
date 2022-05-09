@@ -20,6 +20,7 @@ class PackageController extends Controller
     public function showpackageproduct()
     {
 $busdetailsproductdetails=AddProduct::all();
+
         return view('Admin/Add_Package',["busdetailsproductdetails"=>$busdetailsproductdetails,'title'=>'Add PackagePage']);
     }
     public function updatePackage($id)

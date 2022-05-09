@@ -75,7 +75,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="uploaded_images/{{$employdet->employ_photo}}" alt="Admin" class="rounded-circle" width="150">
+                    <img src="../uploaded_images/{{$employdet->employ_photo}}" alt="Admin" class="rounded-circle" width="150">
                     
                     <div class="mt-3">
                       <h4>{{$employdet->employ_name}}</h4>
@@ -167,7 +167,7 @@
                   <div class="card h-100">
                     <div class="card-body">
                     id_proof
-               <img src="uploaded_images/{{$employdet->id_proof}}" alt="">
+               <img src="../uploaded_images/{{$employdet->id_proof}}" alt="">
                 </div>
                 </div>
                 </div>

@@ -43,6 +43,7 @@
                                                             <th>Delete</th>
                                                             <th> status</th>
                                                             <th>Issue orde</th>
+                                                            <th>Order Details</th>
                                                         </tr>
                                                     </thead>
                                                    @foreach($employdets as $employdet)
@@ -80,7 +81,9 @@
 <a href="/IssueOrder/{{$employdet->employ_id}}" class="btn btn-warning" >
 Issue order
 </a>
-</td>                                                      </tr>
+</td>     
+<td>                    <a href="/orderDet/{{$employdet->employ_id}}">Order Details</a>
+</td>                                                 </tr>
                                                      @endforeach
                                                                                                                  <!-- The Modal -->
 <div id="myModal" class="modal">
