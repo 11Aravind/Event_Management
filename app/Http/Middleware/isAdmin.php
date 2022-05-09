@@ -21,6 +21,7 @@ class isAdmin
         $user = Authentication::find($id);
         if(!$request->session()->get('user_id'))
             return redirect('/Login');
+      else{
         if($user->role == "Admin"){
 
             return $next($request);
@@ -28,5 +29,7 @@ class isAdmin
         else {
             abort(403);
         }
+      }
+      
     }
 }

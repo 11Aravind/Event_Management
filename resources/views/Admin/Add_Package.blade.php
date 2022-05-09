@@ -29,13 +29,14 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Category</th>
+    
       <th scope="col">Product</th>
       <th scope="col">Price</th>
       <th scope="col">Amount</th>
-      <th scope="col"></th>
+      <!-- <th scope="col"></th> -->
     </tr>
   </thead>
+  <!-- E:\xampp\htdocs\Perfect_Stom_Moments\resources\views\Admin\Add_Package.blade.php -->
   <tbody>
       @php
       $i=1;
@@ -43,14 +44,14 @@
     @foreach($busdetailsproductdetails as $busdetailsproductdetail)
     <tr>
       <th scope="row">@php echo $i @endphp</th>
-      <td>{{$busdetailsproductdetail->categorydet->category_name}}</td>
+
       <td>{{$busdetailsproductdetail->product_name}}</td>
-      <td>{{$busdetailsproductdetail->product_price}}</td>
+      <td id="prices">{{$busdetailsproductdetail->product_price}}</td>
       <td>{{$busdetailsproductdetail->product_quentity}}</td>
 
       <td>
          
-          <input type="checkbox" value="{{$busdetailsproductdetail->product_id}}" name="packageProduct[]">
+          <input type="checkbox" id="check" class="categoryCheck" value="{{$busdetailsproductdetail->product_id}}" price="{{$busdetailsproductdetail->product_price}}" name="packageProduct[]">
         
       </td>
     </tr>
@@ -83,12 +84,12 @@
 </div>
 <div class="col-md-6" style="float: right;margin-top: -269px;">
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail1">Rent Amount</label>
-                                                            <input type="text" class="form-control" name="rentamount"id="exampleInputEmail1"  placeholder="Product Price">
+                                                            <!-- <label for="exampleInputEmail1">Rent Amount</label> -->
+                                                            <input type="hidden" class="form-control" value="none"name="rentamount"id="exampleInputEmail1"  placeholder="Product Price">
                                                          </div>
                                                          <div class="form-group">
                                                             <label for="exampleInputEmail1">Totel Amount</label>
-                                                            <input type="text" class="form-control" name="totalamount" id="exampleInputEmail1"  placeholder="Quentity">
+                                                            <input type="text" class="form-control" name="totalamount" id="exampleInputEmail1" id="totelAmount" >
                                                          </div>
                                                        
                                                         <div class="form-group">
@@ -98,8 +99,8 @@
                                                         
                                                             </div>
                                                             <div class="form-group col-6">
-                                                            <label for="exampleInputEmail1">subbanners</label>
-                                                            <input type="file" class="form-control" name="subbanners[]" multiple id="exampleInputEmail1"  placeholder="Quentity">
+                                                            <label for="exampleInputEmail1">Subbanners</label>
+                                                            <input type="file" class="form-control" name="subbanners[]" multiple id="exampleInputEmail1"  placeholder="">
                                                          </div>      
 <button type="submit"style="float:right"class="btn btn-primary">Add Package</button>
 
@@ -114,4 +115,18 @@
 </div>
 </div>
 <div>
+<script>
+    // $(".categoryCheck").click(function(event){console.log($(event.target).attr("price"))})
+  document.ready(function()
+  {
+    var totel=0;
+    $(".categoryCheck").click(
+        function(event)
+        {
+            totel=totel+parseInt($(event.target).attr("price"));
+            $("#totalamount").val(totel);
+            })
+  })
+
+</script>
 @endsection

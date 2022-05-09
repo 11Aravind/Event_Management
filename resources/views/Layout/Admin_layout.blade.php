@@ -331,6 +331,13 @@
 	<script src="assets/js/jquery.dataTables.min.js"></script>	
 	<script src="assets/js/dataTables.bootstrap4.min.js"></script>	
 <script src="assets\plugins\jquery\js\jquery.min.js"></script>	
+<script src="assets\js\jquery-3.5.1.js"></script>
+<script src="Template_asset/js/bootstrap.min.js.download"></script>
+<script src="Template_asset/js/wow.min.js.download"></script>
+<script src="Template_asset/js/tiny-slider.js.download"></script>
+<script src="Template_asset/js/glightbox.min.js.download"></script>
+<script src="Template_asset/js/count-up.min.js.download"></script>
+<script src="Template_asset/js/main.js.download"></script>
 <script>
 	$(document).ready( function () {
     $('#MyTable').DataTable();

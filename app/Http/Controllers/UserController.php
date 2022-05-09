@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
 use App\Models\BusBookingDetails;
 use App\Models\Tour;
+use App\Models\CustomPackage;
 use App\Models\PackageBookInfo;
 use Monolog\SignalHandler;
 use Razorpay\Api\Api;
@@ -323,7 +324,8 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         $eventorderdetails=DB::table('events')->join('user__event_dets','events.event_id','=','user__event_dets.event_id')
         ->where([
             ['events.event_id','=',$event_id],
-            ['user__event_dets.payment_done','1']
+            ['user__event_dets.payment_done',1],
+            ['user__event_dets.user_id',$user_id]
         ])->get();
         
     }
@@ -386,11 +388,42 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         
     }
     else
-    // $FoodservingInfo=[];collect(new Post)
     $FoodservingInfo=collect(new FoodservingInfo);
         // FoodservingInfo end 
+        //custom package start
+        // $CustomPackage=CustomPackage::where('user_id',$user_id)->get();
+       //
+       $packagedetail=CustomPackage::where('user_id',$user_id)->get();
+       if(!$packagedetail->isEmpty())
+       {
+  
+        foreach($packagedetail as $packagedetail)
+        {
+    $products=$packagedetail->PackageProducts;
+        }
+        $fullproduct=array();
+        $i=0;
+        foreach($products as $product)
+        {
+            $fullproduct[]=AddProduct::find($products[$i]);   
+            $i++;
+        }   
+        $i=0;
+        $productname=array();
+        foreach($products as $product)
+        {
+            $productname[$i]=$fullproduct[$i]->product_name;   
+            $i++;
+        }  
+    }
+    else{
+    $fullproduct=collect(new CustomPackage);
+    $productname=[];
+    }
+        //custom package end
+
         return view('User/OrderDetails',["starting"=>"../",'tourorderdetails'=>$tourorderdetails,'eventorderdetails'=>$eventorderdetails,
-    'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo,'FoodservingInfo'=>$FoodservingInfo]); 
+    'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo,'FoodservingInfo'=>$FoodservingInfo,"first"=>$fullproduct,'productname'=>$productname]); 
 
     
     }

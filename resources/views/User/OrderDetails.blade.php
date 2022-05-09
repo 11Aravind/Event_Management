@@ -164,5 +164,49 @@
 @endforeach
 @endif
 <!-- food serving end -->
+
+<!-- cusome package start  -->
+<!-- first -->
+@if(!$first==[])
+<!-- 
+@foreach( $productname as $productname)
+<span class="span"> {{$productname}} <br>
+@endforeach
+    @foreach($first as $first)
+  
+    <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="margin: 45px; margin-top: -21px;  " >
+<div class="d-flex flex-row" style="">
+  <div class="p-2 col-4" style="    display: inline-flex;"> 
+
+
+
+
+      </span>
+    </div>
+  <div class="p-2 col-4"><span class="span">For one kilometers total_price:₹{{$first->product_price}}  
+
+  </span></div>
+  <div class="p-2 col-4"><span class="span">
+ 
+  {{$first->product_discription}} <br>
+    
+  {{$first->payment_id}} 
+  @if($first->payment_done==1)  
+  <span style="background:green;color:white">Payment successfuly done</span>
+  @else
+  <span>Payment successfuly not done</span>
+  @endif
+ </span> <br>
+<span></span></div>
+</div>
+</div>
+
+       -->
+      
+      <!-- <td></td> -->
+
+<!-- @endforeach -->
+@endif
+<!-- custome package end  -->
 <button class="btn btn-warning" style="margin-left: 46%;margin-bottom: 36px;" > No More Results To Display</button>
 @endsection

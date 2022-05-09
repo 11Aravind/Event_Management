@@ -173,15 +173,17 @@ return view('Admin.IssueOrder',['title'=>"issue order",'employ_id'=>$employ_id])
           $employ_id= $Employ_present->employ_id;
         }
         $order=StoreOrder::where('employ_id',$employ_id)->get(); 
+        $btn=Employ::where('available',1)->get();
         if(!$order->isEmpty())
         {
 // fetch data
-return view('Employ.Job_order',['order'=>$order]);
+return view('Employ.Job_order',['order'=>$order,'btn'=>$btn]);
         }
         else{
             // $c = 
-            $order=collect(new Employ);;
-            return view('Employ.Job_order',['order'=>$order]);
+            $btn=collect(new Employ);
+            $order=collect(new Employ);
+            return view('Employ.Job_order',['order'=>$order,'btn'=>$btn]);
         }
 
     }

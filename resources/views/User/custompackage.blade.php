@@ -59,12 +59,12 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
       <th scope="row">@php echo $i @endphp</th>
       <td>{{$busdetailsproductdetail->categorydet->category_name}}</td>
       <td>{{$busdetailsproductdetail->product_name}}</td>
-      <td>{{$busdetailsproductdetail->product_price}}</td>
+      <td id="prices">{{$busdetailsproductdetail->product_price}}</td>
       <td>{{$busdetailsproductdetail->product_quentity}}</td>
 
       <td>
          
-          <input type="checkbox" value="{{$busdetailsproductdetail->product_id}}" name="packageProduct[]">
+          <input type="checkbox" id="check" class="categoryCheck" value="{{$busdetailsproductdetail->product_id}}" price="{{$busdetailsproductdetail->product_price}}" name="packageProduct[]">
         
       </td>
     </tr>
@@ -114,7 +114,7 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
                                                          </div>
                                                          <div class="form-group">
                                                             <label for="exampleInputEmail1">Totel Amount</label>
-                                                            <input type="text" class="form-control" name="totalamount" id="exampleInputEmail1"  placeholder="">
+                                                            <input type="text" class="form-control"  name="totalamount" id="totelAmount"  readonly>
                                                          </div>
                                                          <div class="form-group">
                                                             <label for="exampleFormControlTextarea1">Description</label>
@@ -176,5 +176,15 @@ Ipsum available, but the majority have suffered alteration in some form.</p>
 
 
 @endif
+<script>
+    // $(".categoryCheck").click(function(event){console.log($(event.target).attr("price"))})
+    var totel=0;
+    $(".categoryCheck").click(
+        function(event)
+        {
+            totel=totel+parseInt($(event.target).attr("price"));
+            $("#totelAmount").val(totel);
+            })
 
+</script>
 @endsection

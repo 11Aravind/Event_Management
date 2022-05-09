@@ -1,7 +1,11 @@
 @extends('Layout/Empoly_layout')
 @section('employ_content')
 <h1 style="">Job Orders</h1>
-<button class="btn btn-green">Active</button>
+<!-- @if($btn->==0)
+<button class="btn btn-success">Active</button>
+@else
+<button class="btn btn-danger">Deactive</button>
+@endif -->
 <hr>
 <table class="table table-striped">
   <thead>
