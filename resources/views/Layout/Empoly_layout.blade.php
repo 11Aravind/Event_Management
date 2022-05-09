@@ -112,7 +112,7 @@
             @if(Session::get('msg')) 
             <span style="color:{{Session::get('color')}}">{{Session::get('msg')}} </span>
         @endif
-        <button class="btn btn-warning">Change Status</button>
+        
             @yield('employ_content')
            
         </div>

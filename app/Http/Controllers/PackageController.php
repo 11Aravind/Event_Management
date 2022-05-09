@@ -14,13 +14,15 @@ use Monolog\SignalHandler;
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors\SignatureVerificationError;
 use Session;
+use Illuminate\Support\Facades\DB;
 class PackageController extends Controller
 {
     
     public function showpackageproduct()
     {
-$busdetailsproductdetails=AddProduct::all();
-
+// $busdetailsproductdetails=AddProduct::all();
+$busdetailsproductdetails=DB::table('categorys')->join('addproducts','categorys.category_id','=','addproducts.category_id')
+        ->where('categorys.cat_type','=','Product')->get();
         return view('Admin/Add_Package',["busdetailsproductdetails"=>$busdetailsproductdetails,'title'=>'Add PackagePage']);
     }
     public function updatePackage($id)

@@ -114,7 +114,12 @@ return redirect('/Employdetails');
     public function ApprovedEmploys()
     {
         // $user_id=Session::get('user_id');
-        $ApprovedEmploys=Employ::where('status',1)->get();
+        $ApprovedEmploys=Employ::where([
+            ['status',1],
+            ['available',1]
+        ])->get();
+
+       
         // Session::put('check',$check);
         // return view('Layout/Empoly_layout',["title"=>"Employ_dashbord"]);  
                 return view('Admin/ApprovedEmploydet',["title"=>"ApprovedEmploydet",'employdets'=>$ApprovedEmploys]);  

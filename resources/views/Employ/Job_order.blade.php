@@ -1,6 +1,7 @@
 @extends('Layout/Empoly_layout')
 @section('employ_content')
 <h1 style="">Job Orders</h1>
+<button class="btn btn-green">Active</button>
 <hr>
 <table class="table table-striped">
   <thead>

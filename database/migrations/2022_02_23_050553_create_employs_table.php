@@ -29,7 +29,8 @@ class CreateEmploysTable extends Migration
             $table->string('experience');
             $table->string('cirtificate');
            $table->string('status');
-            
+           $table->boolean('available')->default(1);
+        //    $table->boolean('status')->default(0);
             // $table->string('contact_no');
             $table->timestamps();
         });
