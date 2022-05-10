@@ -93,6 +93,7 @@
             <li style="margin-top: 28px;"><a href="Empoly">Dashboard</a></li>
             @if(!Session::get('check')->isEmpty())
             <li><a href="/Profile">Profile</a></li>
+            <li><a href="/UpdateProfile">Update Profile</a></li>
             <li><a href="/job_order">Job Vecancy</a></li>
             
             @else

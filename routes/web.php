@@ -338,4 +338,6 @@ Route::get('/updateEvent/{id}',function($id){
 
 Route::post('/updateEvent', [AdminController::class,'updateEvent_store']);
 
+Route::get('/UpdateProfile', [UserController::class,'UpdateProfile']);
 
+// UpdateProfile

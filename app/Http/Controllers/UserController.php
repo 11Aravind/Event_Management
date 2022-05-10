@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
 use App\Models\BusBookingDetails;
 use App\Models\Tour;
+use App\Models\Employ;
 use App\Models\CustomPackage;
 use App\Models\PackageBookInfo;
 use Monolog\SignalHandler;
@@ -32,8 +33,6 @@ class UserController extends Controller
     //
     public function EventList()
     {
-        // $category=Category::where('cat_type','Event')->get();
-        // $event_det=Event::all();
         $event_det=Event::where('status','1')->get();
         // return $event_det;
         return view('User/TicketBooking',["title"=>"TicketBooking page","starting"=>"../","event_dets"=>$event_det]);
@@ -434,6 +433,12 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
        
         return view('Layout/Ticketlayout',['Event'=>$Event,'noofseat'=>$noofseat,'starting'=>'../../']);
     }
+    public function UpdateProfile()
+{
+   $user_id=Session::get('user_id');
+   $Employ=Employ::where('user_id',$user_id)->first();
+    return view('Employ/UpdateProfile',['Employ'=>$Employ]);
+}
 }
 
 

@@ -1,12 +1,6 @@
-<!-- Profile_layout.blade.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
-    <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('Layout/Empoly_layout')
+@section('employ_content')
+
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     	body{
@@ -219,5 +213,4 @@
 <script type="text/javascript">
 	
 </script>
-</body>
-</html>
+@endsection
