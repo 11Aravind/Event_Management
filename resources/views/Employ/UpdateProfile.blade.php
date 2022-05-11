@@ -2,7 +2,7 @@
 @section('employ_content')
 <h1 style="">Update Employ Details</h1>
 <hr>
-<form method="POST" enctype="multipart/form-data" action="/Add_employ">
+<form method="POST" enctype="multipart/form-data" action="/UpdateProfile">
     @csrf
   <div class="form-row">
     <div class="form-group col-md-6">

@@ -168,44 +168,61 @@
 <!-- cusome package start  -->
 <!-- first -->
 @if(!$first==[])
-<!-- 
-@foreach( $productname as $productname)
-<span class="span"> {{$productname}} <br>
-@endforeach
-    @foreach($first as $first)
+
+
+   
   
     <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="margin: 45px; margin-top: -21px;  " >
 <div class="d-flex flex-row" style="">
   <div class="p-2 col-4" style="    display: inline-flex;"> 
+<H5>Custom Package</H5> <br>
 
+  @foreach( $productname as $productname)
+<span class="span"> {{$productname}} 
+@endforeach
 
-
-
+@foreach($custompackagedet as $custompackagedet)
       </span>
     </div>
-  <div class="p-2 col-4"><span class="span">For one kilometers total_price:₹{{$first->product_price}}  
+  <div class="p-2 col-4"><span class="span">₹{{$custompackagedet->total_amount}}  
 
   </span></div>
   <div class="p-2 col-4"><span class="span">
  
-  {{$first->product_discription}} <br>
-    
-  {{$first->payment_id}} 
-  @if($first->payment_done==1)  
-  <span style="background:green;color:white">Payment successfuly done</span>
+  {{$custompackagedet->name}} <br>
+  {{$custompackagedet->address}} <br>
+  {{$custompackagedet->contactno}} <br>
+  {{$custompackagedet->package_use}} <br>
+
+  PAyment Id:
+  {{$custompackagedet->payment_id}} 
+  @if($custompackagedet->payment_done==1)  
+  <span style="">Payment successfuly done</span>
   @else
   <span>Payment successfuly not done</span>
+  @endif
+  @if($custompackagedet->status==10)  
+  <br>
+  <span style="color:yellow">Pending</span>
+
+  @elseif($custompackagedet->status==1)
+  <br>
+ <span style="color:green">Approved</span>
+  @else
+  <br>
+  <span style="color:red">Reject</span>
+
   @endif
  </span> <br>
 <span></span></div>
 </div>
 </div>
 
-       -->
+       
       
       <!-- <td></td> -->
 
-<!-- @endforeach -->
+ @endforeach
 @endif
 <!-- custome package end  -->
 <button class="btn btn-warning" style="margin-left: 46%;margin-bottom: 36px;" > No More Results To Display</button>

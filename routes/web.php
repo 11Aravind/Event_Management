@@ -33,6 +33,7 @@ Route::get('/User', function () {
 Route::get('/Admin',[AdminController::class,'Admin_dashbord'])->middleware('isAdmin');
 Route::get('Empoly',[EmployController::class,'Empoly'])->middleware('isEmploy');
 
+Route::get('/VieCustomPackage',[AdminController::class,'VieCustomPackage'])->middleware('isAdmin');
 
 //Employ
 Route::get('Add_employ',[EmployController::class,'Add_employ'])->middleware('isEmploy');
@@ -74,6 +75,9 @@ Route::get('/ViewAdminPackage',[AdminController::class,'ViewPackage'])->middlewa
 Route::get('/ViewEvent',[AdminController::class,'ViewEvent']);
 
 Route::get('/DeleteEvent/{id}',[AdminController::class,'DeleteEvent']);
+// Approvecusomepackage
+Route::get('/Approvecusomepackage/{id}',[AdminController::class,'Approvecusomepackage']);
+
 //DeleteTour
 Route::get('/DeleteTour/{id}',[AdminController::class,'DeleteTour']);
 // TravelController

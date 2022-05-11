@@ -12,6 +12,7 @@ use App\Models\Tour;
 use App\Models\Packages;
 use App\Models\Complaint;
 use App\Models\TravelKyc;
+use App\Models\CustomPackage;
 use Session;
 class AdminController extends Controller
 {
@@ -373,6 +374,13 @@ public function TravelagencyActive($id,Request $req){
     $finddata->save();
     return redirect('ViewAdminPackage'); 
  }
+ public function Approvecusomepackage($id)
+ {
+    $finddata=CustomPackage::findOrFail($id);
+    $finddata->status=1;
+    $finddata->save();
+    return redirect('VieCustomPackage');   
+ }
 //  ActiveEvent
 public function ActiveEvent($id)
 {
@@ -445,4 +453,9 @@ public function Travelagency_det()
     $TravelKyc=TravelKyc::all();
     return view('Admin/Travelagency_det',["title"=>'View Travelagency_det','TravelKyc'=>$TravelKyc]);   
 }
+public function VieCustomPackage(){
+    $packagedets=CustomPackage::all();
+    return view('Admin.VieCustomPackage',['title'=>'VieCustomPackage','packagedet'=>$packagedets]);
+}
+
 }

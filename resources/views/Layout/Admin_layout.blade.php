@@ -98,6 +98,12 @@
                             <i class="feather icon-align-justify"></i></span> -->
 							<span class="pcoded-mtext">View Package</span></a>
 					</li>
+					<li class="nav-item">
+						<a href="../VieCustomPackage" class="nav-link">
+							<!-- <span class="pcoded-micon">
+                            <i class="feather icon-align-justify"></i></span> -->
+							<span class="pcoded-mtext">Custom Package</span></a>
+					</li>
 							<!-- <li class=""><a href="ViewPackage" class="">View Package</a></li> -->
 							<!-- <li class=""><a href="/Tour_details" class="">Tour Package</a></li>
 							<li class=""><a href="#" class="">Custom Package</a></li> -->
@@ -338,7 +344,7 @@
 <script src="Template_asset/js/glightbox.min.js.download"></script>
 <script src="Template_asset/js/count-up.min.js.download"></script>
 <script src="Template_asset/js/main.js.download"></script>
-<script>
+<script>6
 	$(document).ready( function () {
     $('#MyTable').DataTable();
 } );

@@ -406,7 +406,9 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
         {
             $fullproduct[]=AddProduct::find($products[$i]);   
             $i++;
-        }   
+        }  
+        $custompackagedet=CustomPackage::where('user_id',$user_id)->get();
+
         $i=0;
         $productname=array();
         foreach($products as $product)
@@ -418,11 +420,13 @@ $foodProductdet=AddProduct::where('product_id','=',$product_id)->get();
     else{
     $fullproduct=collect(new CustomPackage);
     $productname=[];
+    $custompackagedet=collect(new CustomPackage);
     }
         //custom package end
 
         return view('User/OrderDetails',["starting"=>"../",'tourorderdetails'=>$tourorderdetails,'eventorderdetails'=>$eventorderdetails,
-    'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo,'FoodservingInfo'=>$FoodservingInfo,"first"=>$fullproduct,'productname'=>$productname]); 
+    'BusBookingDetails'=>$BusBookingDetails,'PackageBookInfo'=>$PackageBookInfo,
+    'custompackagedet'=>$custompackagedet,'FoodservingInfo'=>$FoodservingInfo,"first"=>$fullproduct,'productname'=>$productname]); 
 
     
     }

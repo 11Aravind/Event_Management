@@ -73,6 +73,7 @@ $busdetailsproductdetails=DB::table('categorys')->join('addproducts','categorys.
      $user = CustomPackage::where('payment_id', $data['razorpay_order_id'])->first();
      $user->payment_done = true;
      $user->rezorpay_id = $data['razorpay_payment_id'];
+     $user->rezorpay_id =10;
      $save=$user->save();
      if($save)
          return redirect('/OrderDetails');

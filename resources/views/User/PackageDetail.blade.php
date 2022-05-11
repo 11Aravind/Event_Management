@@ -48,31 +48,11 @@
 
 <ul class="piclist">
   @foreach(json_decode($package_details->subbanners) as $singlepic)
-                  <li class="li"><img src="../files\{{$singlepic}}" data-toggle="modal" data-target="#exampleModalCenter" alt="subbanner"></li>
+                  <li class="li" id="myImg"><img src="../files\{{$singlepic}}" id="myImg" alt="subbanner"></li>
         @endforeach
                </ul>
       
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-     hai
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end model    -->
+
 <h3 class="font-weight-bold phto_album">Pricing</h3>
 <p class="font-weight-light ">Package Price</p>
 ₹{{$package_details->total_amount}}
