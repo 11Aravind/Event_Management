@@ -32,7 +32,7 @@ class CreateCustomPackagesTable extends Migration
             $table->string('payment_id')->nullable();
             $table->string('rezorpay_id')->nullable();
             $table->boolean('payment_done')->default(false);
-            $table->boolean('status')->default(0);
+            $table->string('status')->default('10');
             // $table->foregin('PackageProducts')->references('product_id')->on('addproducts');
             $table->timestamps();
         });

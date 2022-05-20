@@ -32,6 +32,7 @@ $busdetailsproductdetails=DB::table('categorys')->join('addproducts','categorys.
         return view('Admin/Update_Package',["busdetailsproductdetails"=>$busdetailsproductdetails,'Packages'=>$Packages,'title'=>'Add PackagePage']);
 
     }
+    // E:\xampp\htdocs\Perfect_Stom_Moments\app\Http\Controllers\PackageController.php
     public function custompackage_store()
     {
         $amount=request('totalamount');

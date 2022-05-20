@@ -73,6 +73,7 @@ public function Eventdetails_store($id)
 {
 //hihi
 $amount=request('totalamount');
+// $amount=request('totalamount');
     $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
     $order  = $api->order->create(array('receipt' => '123', 'amount' =>$amount*100 , 'currency' => 'INR')); // Creates order
     $orderId = $order['id']; 

@@ -77,6 +77,8 @@ Route::get('/ViewEvent',[AdminController::class,'ViewEvent']);
 Route::get('/DeleteEvent/{id}',[AdminController::class,'DeleteEvent']);
 // Approvecusomepackage
 Route::get('/Approvecusomepackage/{id}',[AdminController::class,'Approvecusomepackage']);
+// Rejectcusomepackage
+Route::get('/Rejectcusomepackage/{id}',[AdminController::class,'Rejectcusomepackage']);
 
 //DeleteTour
 Route::get('/DeleteTour/{id}',[AdminController::class,'DeleteTour']);

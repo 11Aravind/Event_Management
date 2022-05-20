@@ -308,6 +308,13 @@ public function DeactiveProduct($id,Request $req){
    $finddata->save();
    return redirect('Display_Foodproduct');
 }
+// Rejectcusomepackage
+public function Rejectcusomepackage($id,Request $req){
+    $finddata=CustomPackage::findOrFail($id);
+    $finddata->status=0;
+    $finddata->save();
+    return redirect('VieCustomPackage');
+ }
 // TravelagencyDeactive
 public function TravelagencyDeactive($id,Request $req){
     $finddata=TravelKyc::findOrFail($id);

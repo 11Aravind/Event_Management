@@ -54,7 +54,7 @@
                                                             </td>
                                                             @else
                                                             <td>
-                                                            <a href="Rejectcusomepackage/{{$packagedets->package_id }}" class="btn btn-danger">Reject</a>
+                                                            <a href="/Rejectcusomepackage/{{$packagedets->package_id }}" class="btn btn-danger">Reject</a>
                                                             </td>
                                                             @endif
                                             
