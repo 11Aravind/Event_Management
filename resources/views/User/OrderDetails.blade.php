@@ -6,6 +6,8 @@
     margin-top: 17px;
 }
 </style>
+<div>
+  <div>
 <div class="div" style=" margin-top: 127px;"></div>
 @if(!$tourorderdetails->isEmpty())
 @foreach($tourorderdetails as $TouruserInfo)
@@ -227,3 +229,5 @@
 <!-- custome package end  -->
 <button class="btn btn-warning" style="margin-left: 46%;margin-bottom: 36px;" > No More Results To Display</button>
 @endsection
+</div>
+</div>
